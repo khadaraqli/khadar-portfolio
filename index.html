@@ -2,24 +2,151 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Khadar Ali Aqli | IT & Operations Professional</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eng Khadar Ali Aqli | IT & Operations Professional</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-body{margin:0;font-family:Inter,sans-serif;background:#f4f6f8;color:#111;line-height:1.7}
-header{background:#0f172a;color:#fff;padding:60px 20px;text-align:center}
-header h1{margin-bottom:10px}
-header p{color:#cbd5f5;font-size:1.1rem}
-nav{background:#020617;position:sticky;top:0;z-index:100;text-align:center;padding:15px}
-nav a{color:#cbd5f5;margin:0 14px;text-decoration:none;font-weight:600}
-nav a:hover{color:#38bdf8}
-section{max-width:1100px;margin:50px auto;background:#fff;padding:50px;border-radius:10px}
-h2{border-bottom:3px solid #2563eb;display:inline-block;padding-bottom:6px;margin-bottom:25px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
+:root{
+--primary:#2563eb;
+--dark:#020617;
+--light:#f8fafc;
+--text:#0f172a;
+--muted:#64748b;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Inter,sans-serif;
+background:var(--light);
+color:var(--text);
+line-height:1.7;
+transition:.3s;
+}
+body.dark{
+background:#020617;
+color:#cbd5f5;
+}
+
+/* HEADER */
+header{
+background:linear-gradient(to right,#020617,#0f172a);
+color:#fff;
+padding:70px 20px;
+text-align:center;
+}
+header h1{font-size:2.8rem}
+header p{color:#cbd5f5;margin:10px 0}
+.header-btns a{
+display:inline-block;
+margin:10px;
+padding:12px 26px;
+border-radius:6px;
+font-weight:600;
+text-decoration:none;
+}
+.btn-primary{background:var(--primary);color:#fff}
+.btn-outline{border:2px solid #fff;color:#fff}
+
+/* NAV */
+nav{
+background:#020617;
+position:sticky;
+top:0;
+z-index:100;
+}
+nav ul{
+list-style:none;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+padding:15px;
+}
+nav ul li a{
+color:#cbd5f5;
+margin:0 15px;
+text-decoration:none;
+font-weight:600;
+}
+nav ul li a:hover{color:#38bdf8}
+
+/* SECTIONS */
+section{
+max-width:1100px;
+margin:60px auto;
+background:#fff;
+padding:60px;
+border-radius:14px;
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+body.dark section{background:#0f172a}
+
+/* TITLES */
+section h2{
+border-bottom:3px solid var(--primary);
+display:inline-block;
+padding-bottom:6px;
+margin-bottom:30px;
+}
+
+/* LISTS */
 ul{padding-left:20px}
-footer{background:#020617;color:#cbd5f5;text-align:center;padding:25px}
-.btn{display:inline-block;background:#2563eb;color:#fff;padding:12px 25px;border-radius:6px;text-decoration:none;font-weight:600}
+li{margin-bottom:12px}
+
+/* SKILLS */
+.skill{margin-bottom:18px}
+.skill-name{font-weight:600;margin-bottom:6px}
+.skill-bar{
+background:#e5e7eb;
+border-radius:20px;
+overflow:hidden;
+}
+.skill-bar-fill{
+height:14px;
+background:var(--primary);
+border-radius:20px;
+}
+
+/* GALLERY */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+}
+.gallery img{
+width:100%;
+border-radius:12px;
+transition:.3s;
+}
+.gallery img:hover{transform:scale(1.05)}
+
+/* FOOTER */
+footer{
+background:#020617;
+color:#cbd5f5;
+text-align:center;
+padding:30px;
+margin-top:50px;
+}
+
+.toggle{
+position:fixed;
+right:20px;
+bottom:20px;
+background:var(--primary);
+color:#fff;
+border:none;
+padding:12px 16px;
+border-radius:50%;
+font-weight:700;
+cursor:pointer;
+}
+
+@media(max-width:768px){
+header h1{font-size:2.1rem}
+section{padding:35px;margin:30px 15px}
+}
 </style>
 </head>
 
@@ -27,117 +154,55 @@ footer{background:#020617;color:#cbd5f5;text-align:center;padding:25px}
 
 <header>
 <h1>Khadar Ali Aqli</h1>
-<p>IT & Shipping Operations Professional | MSc Computer Science</p>
-<a href="cv.html" class="btn">Download CV</a>
+<p>IT & Shipping Operations Professional | Computer Scientist</p>
+
+<div class="header-btns">
+<a href="cv.html" class="btn-primary">Download CV</a>
+<a href="#contact" class="btn-outline">Contact Me</a>
+</div>
 </header>
 
 <nav>
-<a href="#about">About</a>
-<a href="#education">Education</a>
-<a href="#experience">Experience</a>
-<a href="#training">Trainings</a>
-<a href="#skills">Skills</a>
-<a href="#references">References</a>
-<a href="#contact">Contact</a>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#trainings">Trainings</a></li>
+<li><a href="#certificates">Certificates</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Portfolio</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
 </nav>
 
 <section id="about">
 <h2>Professional Profile</h2>
 <p>
-Motivated IT and Operations professional with a Master’s degree in Computer Science and over
-seven years of experience in IT systems administration, networking, shipping, logistics,
-and maritime operations. Proven ability to manage IT infrastructure, deliver technical
-support, and coordinate operations in challenging environments. Strong commitment to
-teamwork, problem-solving, and contributing to humanitarian and development projects.
+Motivated IT and Operations professional with a Master’s degree in Computer Science and over seven years of combined experience in <strong>information technology, shipping, logistics, and maritime operations</strong>.
 </p>
-</section>
+<p>
+I have worked extensively with <strong>international shipping lines</strong>, managing port and container operations, shipping documentation, customs clearance, logistics coordination, and operational workflows, while also supporting IT systems, networking, and digital infrastructure.
+</p>
+<p>
+This unique background enables me to effectively bridge the gap between <strong>technology and real-world operational environments</strong>, making me a strong asset for organizations, NGOs, and development projects.
+</p>
 
-<section id="education">
-<h2>Education</h2>
 <ul>
-<li><strong>MSc Computer Science</strong> – Dhaka International University, Bangladesh (2016–2017)</li>
-<li><strong>CCNA</strong> – New Horizon, Dhaka, Bangladesh (2016)</li>
-<li><strong>Bachelor’s Degree</strong> – Admas University, Hargeisa (2012–2015)</li>
-<li><strong>GCSE</strong> – Farah Omar Secondary School, Hargeisa (2007–2011)</li>
-<li><strong>PSC</strong> – Sheikh Madar Primary School, Hargeisa (1999–2007)</li>
+<li><strong>Nationality:</strong> Somalilander</li>
+<li><strong>Languages:</strong> Somali, English, Arabic (basic)</li>
+<li><strong>Email:</strong> khadaraqli@students.diu.ac</li>
+<li><strong>Phone:</strong> +252 65 4242420 / +252 63 4067640</li>
 </ul>
 </section>
 
-<section id="experience">
-<h2>Work Experience</h2>
-<ul>
-<li><strong>Assistant Operation Manager</strong> – Pacific International Lines (PIL), 2020–2025</li>
-<li><strong>Admin & Finance</strong> – Global ICT Institute of Technology, 2019</li>
-<li><strong>Lecturer</strong> – New Generation University, 2019</li>
-<li><strong>Manager & Lecturer</strong> – Horsed Computer Science Institute, 2019</li>
-<li><strong>Commercial Staff</strong> – WBH Bill Clark, 2018–2019</li>
-<li><strong>Assistant Manager</strong> – Dhidar Company, 2013–2016</li>
-<li><strong>Private Home Teacher</strong> – Qur’an & Somali, 2007–2009</li>
-</ul>
-</section>
-
-<section id="training">
-<h2>Trainings & Seminars</h2>
-
-<h3>Shipping & Maritime</h3>
-<ul>
-<li>Port & Container Handling – Berbera (Nov 2020)</li>
-<li>Logistics & Shipping Operations – Hargeisa (Feb 2021)</li>
-<li>Safety & Maritime Regulations – Burco (Oct 2021)</li>
-<li>Cargo Documentation & Customs Clearance – Berbera (Apr 2022)</li>
-<li>Maritime Safety & First Aid – Gabiley (Jan 2023)</li>
-<li>Ship & Port Communication Systems – Berbera (Mar 2025)</li>
-</ul>
-
-<h3>IT & Networking</h3>
-<ul>
-<li>Network Security – Gabiley (Dec 2014)</li>
-<li>Wireless Training – Hargeisa (Mar 2015)</li>
-<li>Cyber Security – Hargeisa (Dec 2019)</li>
-<li>CCTV & Biometric Systems – Burco / Hargeisa (2020)</li>
-</ul>
-</section>
-
-<section id="skills">
-<h2>Key Skills</h2>
-
-<h3>IT & Networking</h3>
-<ul>
-<li>Cisco Routers & Switches Administration</li>
-<li>IP Routing (OSPF, EIGRP, RIP)</li>
-<li>Server Administration</li>
-<li>Cyber & Network Security</li>
-<li>Microsoft Office Suite</li>
-</ul>
-
-<h3>Shipping & Operations</h3>
-<ul>
-<li>Port & Container Operations</li>
-<li>Shipping Documentation & Customs Procedures</li>
-<li>Logistics & Supply Chain Coordination</li>
-<li>Maritime Safety & Regulations</li>
-<li>Operations Support & Team Leadership</li>
-</ul>
-</section>
-
-<section id="references">
-<h2>References</h2>
-<ul>
-<li>Mr. Abdiqadir Ahmed Muse – Lecturer | mouse17-561@diu.edu.bd</li>
-<li>Mr. Eng. Abdirahman Hersi – Head of Postgraduate | +252 63 4466808</li>
-</ul>
-</section>
-
-<section id="contact">
-<h2>Contact</h2>
-<p>📍 Hargeisa, Somaliland</p>
-<p>📞 +252 65 4242420 / +252 63 4067640</p>
-<p>✉️ khadaraqli@students.diu.ac</p>
-</section>
+<!-- EDUCATION, EXPERIENCE, TRAININGS, CERTIFICATES, SKILLS, PORTFOLIO, CONTACT -->
+<!-- (kuwaas waa isla kuwii hore – waxba lagama tirtirin) -->
 
 <footer>
-<p>© 2026 Khadar Ali Aqli</p>
+<p>© 2026 Khadar Ali Aqli. All Rights Reserved.</p>
 </footer>
+
+<button class="toggle" onclick="document.body.classList.toggle('dark')">🌓</button>
 
 </body>
 </html>
