@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Khadar Ali Aqli | IT & Shipping Operations Professional</title>
+<title>Khadar Ali Aqli – IT & Shipping Operations Professional</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
@@ -31,22 +31,23 @@ position:relative;
 color:#fff;
 text-align:center;
 padding:120px 20px 60px 20px;
-background: linear-gradient(#0a1a2f, #1a2c4f);
 overflow:hidden;
+background:#0a0f2c;
 }
 header h1{
 font-size:3rem;
-color:white;
-text-shadow:2px 2px 10px rgba(0,0,0,0.4);
+color:#fff;
+text-shadow:2px 2px 8px rgba(0,0,0,0.6);
+margin-bottom:12px;
 }
 header p{
-margin:16px 0;
+margin:12px 0;
 font-size:1.2rem;
 display:inline-block;
 padding:8px 20px;
 border-radius:20px;
-background:rgba(0,0,0,0.25);
-backdrop-filter:blur(5px);
+background:rgba(0,0,0,0.3);
+backdrop-filter:blur(4px);
 }
 .header-btns a{
 display:inline-block;
@@ -62,61 +63,40 @@ transition:0.3s;
 .btn-outline{border:2px solid #fff;color:#fff}
 .btn-outline:hover{background:#fff;color:#020617}
 
-/* STAR SKY */
-header::before{
-content:"";
+/* NIGHT SKY ANIMATION */
+#night-sky{
 position:absolute;
-top:0; left:0; width:100%; height:100%;
-background: radial-gradient(circle at top, #0a1a2f 0%, #0a1a2f 100%);
-z-index:-2;
+top:0; left:0;
+width:100%; height:100%;
+overflow:hidden;
+z-index:-1;
+background: radial-gradient(ellipse at bottom, #0a0f2c 0%, #000 100%);
 }
-.twinkling-stars{
+.star{
 position:absolute;
-top:0; left:0; width:100%; height:100%; z-index:-1;
-}
-.twinkling-stars::after{
-content:"";
-position:absolute;
-width:2px; height:2px;
 background:white;
-box-shadow:
-20px 30px #fff,
-50px 80px #fff,
-100px 150px #fff,
-150px 60px #fff,
-200px 120px #fff,
-250px 90px #fff,
-300px 40px #fff,
-350px 200px #fff,
-400px 150px #fff,
-450px 70px #fff,
-500px 110px #fff,
-550px 190px #fff,
-600px 80px #fff,
-650px 130px #fff,
-700px 170px #fff,
-750px 200px #fff;
-animation:twinkle 2s infinite alternate;
+border-radius:50%;
+opacity:0.8;
+animation: twinkle 2s infinite alternate;
 }
 @keyframes twinkle{
-0%{opacity:0.3;}
-50%{opacity:1;}
-100%{opacity:0.3;}
+0%{opacity:0.2; transform: scale(0.5);}
+50%{opacity:1; transform: scale(1);}
+100%{opacity:0.2; transform: scale(0.5);}
 }
-
-/* Shooting stars */
-.shooting-stars .shooting-star{
+#moon{
 position:absolute;
-width:2px;
-height:80px;
-background:white;
-transform:rotate(45deg);
-opacity:0.8;
-animation:shooting 3s linear infinite;
+top:20px; right:20%;
+width:80px; height:80px;
+background:#fef3c7;
+border-radius:50%;
+box-shadow:0 0 20px #fff;
+animation: moonGlow 6s ease-in-out infinite alternate;
 }
-@keyframes shooting{
-0%{transform:translateX(0) translateY(0) rotate(45deg); opacity:1;}
-100%{transform:translateX(800px) translateY(400px) rotate(45deg); opacity:0;}
+@keyframes moonGlow{
+0%{transform:translateY(0px);}
+50%{transform:translateY(3px);}
+100%{transform:translateY(0px);}
 }
 
 /* NAV */
@@ -160,23 +140,16 @@ footer{background:#020617;color:#cbd5f5;text-align:center;padding:30px;margin-to
 @media(max-width:768px){header h1{font-size:2.1rem} section{padding:35px;margin:30px 15px} .cards{flex-direction:column}}
 </style>
 </head>
-
 <body>
 
 <header>
+<div id="night-sky"></div>
+<div id="moon"></div>
 <h1>Khadar Ali Aqli</h1>
 <p>IT & Shipping Operations Professional | Computer Scientist</p>
 <div class="header-btns">
 <a href="cv.html" class="btn-primary">Download CV</a>
 <a href="#contact" class="btn-outline">Contact Me</a>
-</div>
-<div class="twinkling-stars"></div>
-<div class="shooting-stars">
-<div class="shooting-star" style="top:10%; left:5%; animation-delay:0s;"></div>
-<div class="shooting-star" style="top:30%; left:20%; animation-delay:1s;"></div>
-<div class="shooting-star" style="top:50%; left:40%; animation-delay:2s;"></div>
-<div class="shooting-star" style="top:15%; left:70%; animation-delay:1.5s;"></div>
-<div class="shooting-star" style="top:60%; left:80%; animation-delay:2.5s;"></div>
 </div>
 </header>
 
@@ -209,17 +182,13 @@ footer{background:#020617;color:#cbd5f5;text-align:center;padding:30px;margin-to
 <h2>Education</h2>
 <div class="cards">
 <div class="card color-education"><i class="fas fa-graduation-cap"></i>
-<h3>MSc in Computer Science</h3>
-<span>Dhaka International University, Bangladesh (2016–2017)</span></div>
+<h3>MSc in Computer Science</h3><span>Dhaka International University, Bangladesh (2016–2017)</span></div>
 <div class="card color-education"><i class="fas fa-graduation-cap"></i>
-<h3>Bachelor’s Degree</h3>
-<span>Admas University, Hargeisa (2012–2015)</span></div>
+<h3>Bachelor’s Degree</h3><span>Admas University, Hargeisa (2012–2015)</span></div>
 <div class="card color-education"><i class="fas fa-graduation-cap"></i>
-<h3>GCSE</h3>
-<span>Farah Omar Secondary School (2007–2011)</span></div>
+<h3>GCSE</h3><span>Farah Omar Secondary School (2007–2011)</span></div>
 <div class="card color-education"><i class="fas fa-graduation-cap"></i>
-<h3>PSC</h3>
-<span>Sheikh Madar Primary School (1999–2007)</span></div>
+<h3>PSC</h3><span>Sheikh Madar Primary School (1999–2007)</span></div>
 </div>
 </section>
 
@@ -242,8 +211,6 @@ footer{background:#020617;color:#cbd5f5;text-align:center;padding:30px;margin-to
 <h3>IT & Network Assistant</h3><span>Africa Online, Hargeisa | 2005</span></div>
 <div class="card color-experience"><i class="fas fa-school"></i>
 <h3>Teacher</h3><span>Sheikh Madar Primary School | 2009</span></div>
-<div class="card color-experience"><i class="fas fa-home"></i>
-<h3>Private Home Teacher – Qur’an & Somali</h3><span>2007–2009</span></div>
 </div>
 </section>
 
@@ -259,8 +226,7 @@ footer{background:#020617;color:#cbd5f5;text-align:center;padding:30px;margin-to
 <li>Cargo Documentation & Customs Clearance – Berbera (2022)</li>
 <li>Maritime Safety & First Aid – Gabiley (2023)</li>
 <li>Ship & Port Communication Systems – Berbera (2025)</li>
-</ul>
-</div>
+</ul></div>
 <div class="card color-trainings"><i class="fas fa-laptop-code"></i>
 <h3>IT & Networking</h3>
 <ul>
@@ -269,8 +235,7 @@ footer{background:#020617;color:#cbd5f5;text-align:center;padding:30px;margin-to
 <li>Cyber Security – Hargeisa (2019)</li>
 <li>CCTV Installation & Configuration – Burco (2020)</li>
 <li>Biometric Systems Management – Hargeisa (2020)</li>
-</ul>
-</div>
+</ul></div>
 </div>
 </section>
 
@@ -278,23 +243,17 @@ footer{background:#020617;color:#cbd5f5;text-align:center;padding:30px;margin-to
 <h2>Certificates</h2>
 <div class="cards">
 <div class="card color-certificates"><i class="fas fa-certificate"></i>
-<h3>CCNA Routine and Switching</h3>
-<span>New Horizon, Dhaka, Bangladesh | 2016</span></div>
+<h3>CCNA Routine and Switching</h3><span>New Horizon, Dhaka, Bangladesh | 2016</span></div>
 <div class="card color-certificates"><i class="fas fa-certificate"></i>
-<h3>Essentials of MS Excel – Formulas & Functions</h3>
-<span>Cambridge International University, London | 2025</span></div>
+<h3>Essentials of MS Excel – Formulas & Functions</h3><span>Cambridge International University, London | 2025</span></div>
 <div class="card color-certificates"><i class="fas fa-certificate"></i>
-<h3>Human Resource Management</h3>
-<span>Cambridge International University, London | 2025</span></div>
+<h3>Human Resource Management</h3><span>Cambridge International University, London | 2025</span></div>
 <div class="card color-certificates"><i class="fas fa-certificate"></i>
-<h3>Leadership & Change Management</h3>
-<span>Cambridge International University, London | 2025</span></div>
+<h3>Leadership & Change Management</h3><span>Cambridge International University, London | 2025</span></div>
 <div class="card color-certificates"><i class="fas fa-certificate"></i>
-<h3>E-Governance</h3>
-<span>Cambridge International University, London | 2025</span></div>
+<h3>E-Governance</h3><span>Cambridge International University, London | 2025</span></div>
 <div class="card color-certificates"><i class="fas fa-certificate"></i>
-<h3>Legal Writing</h3>
-<span>Cambridge International University, London | 2025</span></div>
+<h3>Legal Writing</h3><span>Cambridge International University, London | 2025</span></div>
 </div>
 </section>
 
@@ -352,6 +311,18 @@ const cardObserver = new IntersectionObserver(entries => {
 entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('show'); }});
 },{threshold:0.2});
 cards.forEach(card => {cardObserver.observe(card);});
+
+// Create random stars
+const sky = document.getElementById('night-sky');
+for(let i=0;i<80;i++){
+const star=document.createElement('div');
+star.classList.add('star');
+star.style.width=star.style.height=Math.random()*3+1+'px';
+star.style.top=Math.random()*100+'%';
+star.style.left=Math.random()*100+'%';
+star.style.animationDuration=(Math.random()*3+2)+'s';
+sky.appendChild(star);
+}
 </script>
 
 </body>
