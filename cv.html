@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Khadar Ali Aqli – CV</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 <style>
 :root{
 --primary:#2563eb;
+--secondary:#16a34a;
+--tertiary:#a855f7;
 --light:#f8fafc;
 --text:#0f172a;
 --muted:#64748b;
@@ -21,166 +21,119 @@
 --pink:#ffe4e6;
 }
 
+/* RESET */
 *{margin:0;padding:0;box-sizing:border-box;}
-body{
-font-family:Inter,sans-serif;
-background:var(--light);
-color:var(--text);
-line-height:1.7;
-overflow-x:hidden;
-}
+body{font-family:Inter,sans-serif; background:var(--light); color:var(--text); line-height:1.7; overflow-x:hidden;}
 
-/* ================= HEADER NIGHT SKY ================= */
+/* HEADER */
 header{
 position:relative;
-text-align:center;
-padding:110px 20px 60px;
 color:#fff;
+text-align:center;
+padding:100px 20px 50px 20px;
 overflow:hidden;
-background:radial-gradient(ellipse at bottom,#0b102a 0%,#000 100%);
+background:#0a0f2c;
 }
+header h1{
+font-size:2.8rem;
+color:#fff;
+text-shadow:2px 2px 8px rgba(0,0,0,0.6);
+margin-bottom:12px;
+}
+header p{
+margin:12px 0;
+font-size:1.1rem;
+display:inline-block;
+padding:8px 20px;
+border-radius:20px;
+background:rgba(0,0,0,0.3);
+backdrop-filter:blur(4px);
+}
+.header-btns a{
+display:inline-block;
+margin:12px;
+padding:12px 28px;
+border-radius:8px;
+font-weight:600;
+text-decoration:none;
+transition:0.3s;
+}
+.btn-primary{background:var(--primary);color:#fff}
+.btn-primary:hover{opacity:0.85}
+.btn-outline{border:2px solid #fff;color:#fff}
+.btn-outline:hover{background:#fff;color:#020617}
 
+/* NIGHT SKY ANIMATION */
 #night-sky{
 position:absolute;
-top:0;left:0;
-width:100%;height:100%;
-z-index:-2;
+top:0; left:0;
+width:100%; height:100%;
+overflow:hidden;
+z-index:-1;
+background: radial-gradient(ellipse at bottom, #0a0f2c 0%, #000 100%);
 }
-
 .star{
 position:absolute;
 background:white;
 border-radius:50%;
 opacity:0.8;
-animation:twinkle 2.5s infinite alternate;
+animation: twinkle 2s infinite alternate;
 }
-
 @keyframes twinkle{
-0%{opacity:.2; transform:scale(.6);}
-50%{opacity:1; transform:scale(1);}
-100%{opacity:.3; transform:scale(.7);}
+0%{opacity:0.2; transform: scale(0.5);}
+50%{opacity:1; transform: scale(1);}
+100%{opacity:0.2; transform: scale(0.5);}
 }
-
 #moon{
 position:absolute;
-top:60px;
-right:15%;
-width:90px;
-height:90px;
+top:20px; right:20%;
+width:80px; height:80px;
 background:#fef3c7;
 border-radius:50%;
-box-shadow:0 0 30px rgba(255,255,255,.8);
-animation:moonFloat 6s ease-in-out infinite;
-z-index:-1;
+box-shadow:0 0 20px #fff;
+animation: moonGlow 6s ease-in-out infinite alternate;
+}
+@keyframes moonGlow{
+0%{transform:translateY(0px);}
+50%{transform:translateY(3px);}
+100%{transform:translateY(0px);}
 }
 
-@keyframes moonFloat{
-0%{transform:translateY(0);}
-50%{transform:translateY(12px);}
-100%{transform:translateY(0);}
-}
+/* SECTIONS */
+section{max-width:1000px;margin:40px auto;padding:40px;border-radius:12px;box-shadow:0 12px 25px rgba(0,0,0,.08); transition:all 0.7s ease; opacity:0; transform:translateY(30px);}
+section.show{opacity:1; transform:translateY(0);}
+section h2{border-bottom:3px solid var(--primary);display:inline-block;padding-bottom:6px;margin-bottom:25px;}
 
-header h1{
-font-size:2.8rem;
-text-shadow:0 4px 12px rgba(0,0,0,.7);
-}
-
-header p{
-margin-top:14px;
-font-size:1.1rem;
-background:rgba(0,0,0,.35);
-display:inline-block;
-padding:8px 20px;
-border-radius:20px;
-}
-
-/* ================= SECTIONS ================= */
-section{
-max-width:1000px;
-margin:45px auto;
-padding:45px;
-background:#fff;
-border-radius:14px;
-box-shadow:0 12px 30px rgba(0,0,0,.08);
-opacity:0;
-transform:translateY(30px);
-transition:.7s;
-}
-section.show{opacity:1;transform:translateY(0);}
-section h2{
-border-bottom:3px solid var(--primary);
-display:inline-block;
-padding-bottom:6px;
-margin-bottom:25px;
-}
-
-/* ================= CARDS ================= */
-.cards{display:flex;flex-wrap:wrap;gap:15px;}
-.card{
-flex:1 1 45%;
-min-width:250px;
-padding:20px;
-border-radius:12px;
-position:relative;
-background:var(--blue);
-opacity:0;
-transform:translateY(30px);
-transition:.6s;
-}
-.card.show{opacity:1;transform:translateY(0);}
-.card i{
-position:absolute;
-top:15px;
-right:15px;
-color:rgba(0,0,0,.1);
-}
-
-/* COLORS */
-.color-education{background:var(--yellow);}
+/* CARDS */
+.cards{display:flex; flex-wrap:wrap; gap:15px;}
+.card{flex:1 1 45%; min-width:250px; padding:20px; border-radius:12px; position:relative; cursor:default; transition:transform 0.3s ease, box-shadow 0.3s ease; opacity:0; transform:translateY(30px);}
+.card.show{opacity:1; transform:translateY(0);}
+.card:hover{transform:translateY(-5px); box-shadow:0 10px 20px rgba(0,0,0,0.2);}
+.card i{position:absolute; top:15px; right:15px; font-size:1.3rem; color:rgba(0,0,0,0.1);}
+.card h3{margin-top:0;}
+.card span{color:var(--muted); font-size:0.9rem; display:block; margin-bottom:6px;}
 .color-experience{background:var(--blue);}
-.color-trainings{background:var(--pink);}
 .color-certificates{background:var(--green);}
+.color-skills{background:var(--purple);}
+.color-education{background:var(--yellow);}
+.color-trainings{background:var(--pink);}
 
-/* ================= SKILLS ================= */
+/* SKILLS */
 .skill{margin-bottom:18px;}
-.skill-name{font-weight:600;}
-.skill-bar{
-background:#e5e7eb;
-border-radius:20px;
-overflow:hidden;
-}
-.skill-bar-fill{
-height:14px;
-background:var(--primary);
-}
+.skill-name{font-weight:600;margin-bottom:6px;}
+.skill-bar{background:#e5e7eb;border-radius:20px;overflow:hidden;}
+.skill-bar-fill{height:14px;border-radius:20px;background:var(--primary);}
 
-/* ================= PRINT ================= */
-.print-btn{text-align:center;margin:35px;}
-.print-btn button{
-padding:12px 30px;
-border:none;
-background:var(--primary);
-color:#fff;
-border-radius:8px;
-font-weight:600;
-cursor:pointer;
-}
+/* PRINT BUTTON */
+.print-btn{text-align:center;margin-top:30px;}
+.print-btn button{padding:12px 30px; font-weight:600; border:none; background:var(--primary); color:#fff; border-radius:8px; cursor:pointer;}
 
-/* ================= FOOTER ================= */
-footer{
-background:#020617;
-color:#cbd5f5;
-text-align:center;
-padding:20px;
-}
+/* FOOTER */
+footer{background:#020617;color:#cbd5f5;text-align:center;padding:20px;margin-top:50px;}
 
-@media(max-width:768px){
-section{padding:30px;margin:25px 15px}
-.cards{flex-direction:column}
-}
+@media(max-width:768px){section{padding:25px;margin:20px 15px} .cards{flex-direction:column}}
 </style>
 </head>
-
 <body>
 
 <header>
