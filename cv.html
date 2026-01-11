@@ -4,116 +4,188 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Khadar Ali Aqli – Animated Interactive CV</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-body {
-    font-family: 'Inter', sans-serif;
-    background: #f0f4f8;
-    margin:0; padding:0;
+body{
+    font-family:'Inter',sans-serif;
+    background:#f0f4f8;
+    margin:0;
     color:#0f172a;
     overflow-x:hidden;
 }
-.cv-container {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 30px;
+.cv-container{
+    max-width:1000px;
+    margin:40px auto;
+    padding:30px;
     background:#fff;
-    border-radius: 12px;
-    box-shadow: 0 20px 50px rgba(0,0,0,.08);
+    border-radius:14px;
+    box-shadow:0 20px 50px rgba(0,0,0,.08);
 }
-.header {
-    display:flex; flex-wrap:wrap; justify-content:space-between; gap:15px;
-    border-bottom:3px solid #2563eb; padding-bottom:20px;
+
+/* HEADER */
+.header{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:15px;
+    border-bottom:3px solid #2563eb;
+    padding-bottom:20px;
 }
-.header h1 { font-size:2.6rem; margin-bottom:5px;}
-.header .subtitle { color:#2563eb; font-weight:600; font-size:1.05rem;}
-.contact p {margin:4px 0;}
-h2 {
-    margin-top:40px; font-size:1.45rem;
-    display:inline-block; padding-bottom:6px; border-bottom:2px solid #2563eb;
+.header h1{font-size:2.6rem;margin-bottom:5px}
+.subtitle{color:#2563eb;font-weight:600}
+.contact p{margin:4px 0}
+
+/* SECTIONS */
+.section{
+    margin-top:35px;
+    opacity:0;
+    transform:translateY(30px);
+    transition:all .7s ease;
 }
-.section { margin-top:25px; opacity:0; transform: translateY(30px); transition: all 0.7s ease;}
-.section.show {opacity:1; transform: translateY(0);}
-.cards { display:flex; flex-wrap:wrap; gap:15px;}
-.card {
-    flex:1 1 45%; min-width:250px; background:#e0e7ff; border-radius:12px;
-    padding:15px 20px; transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position:relative; cursor:default;
+.section.show{opacity:1;transform:translateY(0)}
+
+h2{
+    font-size:1.45rem;
+    border-bottom:2px solid #2563eb;
+    display:inline-block;
+    padding-bottom:6px;
+    margin-bottom:25px;
 }
-.card:hover { transform:translateY(-5px); box-shadow:0 10px 20px rgba(0,0,0,0.2);}
-.card i { position:absolute; top:15px; right:15px; font-size:1.3rem; color:rgba(30,58,138,0.5);}
-.card h3 { margin-top:0; color:#1e3a8a;}
-.card span { color:#64748b; font-size:0.9rem; display:block; margin-bottom:6px;}
-.badges span {
-    display:inline-block; background:#dbeafe; color:#1e3a8a;
-    padding:6px 12px; border-radius:20px; font-size:.85rem; margin:4px 6px 4px 0;
+
+/* CARDS */
+.cards{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
 }
-.print-btn { text-align:center; margin-top:40px;}
-.print-btn button {
-    padding:12px 30px; font-weight:600; border:none;
-    background:#2563eb; color:#fff; border-radius:8px; cursor:pointer;
+.card{
+    flex:1 1 45%;
+    min-width:260px;
+    padding:18px 20px;
+    border-radius:14px;
+    position:relative;
+    transition:.3s;
 }
-.color-experience {background:#dbeafe;}
-.color-certificates {background:#dcfce7;}
-.color-skills {background:#ede9fe;}
-.color-languages {background:#ffedd5;}
-@media (max-width:600px){ .cards {flex-direction:column;} }
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 12px 25px rgba(0,0,0,.18);
+}
+.card i{
+    position:absolute;
+    top:15px;
+    right:15px;
+    font-size:1.3rem;
+    opacity:.5;
+}
+.card h3{margin-top:0}
+.card span{font-size:.9rem;color:#475569}
+
+/* COLORS */
+.color-education{background:#fff7ed}
+.color-experience{background:#dbeafe}
+.color-certificates{background:#dcfce7}
+.color-skills{background:#ede9fe}
+.color-languages{background:#ffedd5}
+
+/* BADGES */
+.badges span{
+    display:inline-block;
+    background:#e0e7ff;
+    padding:6px 14px;
+    border-radius:20px;
+    margin:6px 6px 0 0;
+    font-size:.85rem;
+    font-weight:600;
+}
+
+/* PRINT */
+.print-btn{text-align:center;margin:40px 0}
+.print-btn button{
+    padding:12px 30px;
+    font-weight:600;
+    background:#2563eb;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+@media(max-width:650px){
+    .cards{flex-direction:column}
+}
 </style>
 </head>
 
 <body>
+
 <div class="cv-container">
 
 <!-- HEADER -->
 <div class="header">
-<div>
-<h1>Khadar Ali Aqli</h1>
-<div class="subtitle">IT & Operations Professional | MSc Computer Science</div>
-</div>
-<div class="contact">
-<p><i class="fas fa-map-marker-alt"></i> Hargeisa, Somaliland</p>
-<p><i class="fas fa-phone"></i> +252 65 4242420 / +252 63 4067640</p>
-<p><i class="fas fa-envelope"></i> khadaraqli@students.diu.ac</p>
-</div>
+  <div>
+    <h1>Khadar Ali Aqli</h1>
+    <div class="subtitle">IT & Operations Professional | MSc Computer Science</div>
+  </div>
+  <div class="contact">
+    <p><i class="fas fa-map-marker-alt"></i> Hargeisa, Somaliland</p>
+    <p><i class="fas fa-phone"></i> +252 65 4242420 / +252 63 4067640</p>
+    <p><i class="fas fa-envelope"></i> khadaraqli@students.diu.ac</p>
+  </div>
 </div>
 
 <!-- PROFILE -->
 <div class="section">
 <h2><i class="fas fa-user"></i> Professional Profile</h2>
 <p>
-Motivated IT and Operations professional with a Master’s degree in Computer Science, over seven years of
-experience in IT systems administration, networking, and logistics. Proven ability to manage IT infrastructure,
-deliver technical support, and coordinate operations in challenging environments. Strong commitment to
-teamwork, problem-solving, and contributing to humanitarian and development projects.
+Motivated IT and Operations professional with a Master’s degree in Computer Science and over seven years of
+experience in IT systems administration, networking, shipping, and logistics.
 </p>
+</div>
+
+<!-- EDUCATION (✅ ADDED) -->
+<div class="section">
+<h2><i class="fas fa-graduation-cap"></i> Education</h2>
+<div class="cards">
+  <div class="card color-education">
+    <i class="fas fa-university"></i>
+    <h3>MSc in Computer Science</h3>
+    <span>Dhaka International University, Bangladesh | 2016 – 2017</span>
+  </div>
+
+  <div class="card color-education">
+    <i class="fas fa-building-columns"></i>
+    <h3>Bachelor’s Degree</h3>
+    <span>Admas University, Hargeisa | 2012 – 2015</span>
+  </div>
+
+  <div class="card color-education">
+    <i class="fas fa-school"></i>
+    <h3>GCSE</h3>
+    <span>Farah Omar Secondary School | 2007 – 2011</span>
+  </div>
+
+  <div class="card color-education">
+    <i class="fas fa-child"></i>
+    <h3>Primary School Certificate (PSC)</h3>
+    <span>Sheikh Madar Primary School | 1999 – 2007</span>
+  </div>
+</div>
 </div>
 
 <!-- EXPERIENCE -->
 <div class="section">
 <h2><i class="fas fa-briefcase"></i> Experience</h2>
 <div class="cards">
-<div class="card color-experience"><i class="fas fa-ship"></i>
-<h3>Assistant Operation Manager</h3><span>Pacific International Lines (PIL) | 2020–2025</span>
-<p>Coordinated shipping, logistics, and port operations. Managed documentation and operational systems. Supported IT systems and reporting workflows.</p>
-</div>
-<div class="card color-experience"><i class="fas fa-cogs"></i>
-<h3>Admin & Finance Officer</h3><span>Global ICT Institute of Technology | 2019</span></div>
-<div class="card color-experience"><i class="fas fa-chalkboard-teacher"></i>
-<h3>Lecturer</h3><span>New Generation University | 2019</span></div>
-<div class="card color-experience"><i class="fas fa-chalkboard"></i>
-<h3>Manager & Lecturer</h3><span>Horsed Computer Science Institute | 2019</span></div>
-<div class="card color-experience"><i class="fas fa-box"></i>
-<h3>Commercial Department Staff</h3><span>WBH Bill Clark | 2018–2019</span></div>
-<div class="card color-experience"><i class="fas fa-users"></i>
-<h3>Assistant Manager</h3><span>Dhidar Company | 2013–2016</span></div>
-<div class="card color-experience"><i class="fas fa-school"></i>
-<h3>Teacher</h3><span>Sheikh Madar Primary School | 2009</span></div>
-<div class="card color-experience"><i class="fas fa-network-wired"></i>
-<h3>IT & Network Assistant</h3><span>Africa Online, Hargeisa | 2005</span></div>
-<div class="card color-experience"><i class="fas fa-home"></i>
-<h3>Private Home Teacher – Qur’an & Somali</h3><span>2007–2009</span></div>
+  <div class="card color-experience"><h3>Assistant Operation Manager</h3><span>PIL | 2020–2025</span></div>
+  <div class="card color-experience"><h3>Commercial Staff</h3><span>WBH Bill Clark | 2018–2019</span></div>
+  <div class="card color-experience"><h3>Assistant Manager</h3><span>Dhidar Company | 2013–2016</span></div>
+  <div class="card color-experience"><h3>Lecturer</h3><span>New Generation University | 2019</span></div>
+  <div class="card color-experience"><h3>Manager & Lecturer</h3><span>Horsed Computer Science Institute | 2019</span></div>
+  <div class="card color-experience"><h3>Teacher</h3><span>Sheikh Madar Primary School | 2009</span></div>
+  <div class="card color-experience"><h3>IT & Network Assistant</h3><span>Africa Online | 2005</span></div>
 </div>
 </div>
 
@@ -121,12 +193,12 @@ teamwork, problem-solving, and contributing to humanitarian and development proj
 <div class="section">
 <h2><i class="fas fa-certificate"></i> Certificates</h2>
 <div class="cards">
-<div class="card color-certificates"><i class="fas fa-certificate"></i><h3>CCNA Routine and Switching</h3><span>New Horizon, Dhaka, Bangladesh | 2016</span></div>
-<div class="card color-certificates"><i class="fas fa-certificate"></i><h3>Essentials of MS Excel - Formulas & Function</h3><span>Cambridge International University, London | 2025</span></div>
-<div class="card color-certificates"><i class="fas fa-certificate"></i><h3>E-Governance</h3><span>Cambridge International University, London | 2025</span></div>
-<div class="card color-certificates"><i class="fas fa-certificate"></i><h3>Basics of Legal Writing</h3><span>Cambridge International University, London | 2025</span></div>
-<div class="card color-certificates"><i class="fas fa-certificate"></i><h3>Human Resource Management</h3><span>Cambridge International University, London | 2025</span></div>
-<div class="card color-certificates"><i class="fas fa-certificate"></i><h3>Leadership & Human Behavior in Change Management</h3><span>Cambridge International University, London | 2025</span></div>
+  <div class="card color-certificates"><h3>CCNA Routing & Switching</h3><span>Dhaka, Bangladesh | 2016</span></div>
+  <div class="card color-certificates"><h3>MS Excel – Formulas & Functions</h3><span>Cambridge | 2025</span></div>
+  <div class="card color-certificates"><h3>E-Governance</h3><span>Cambridge | 2025</span></div>
+  <div class="card color-certificates"><h3>Legal Writing</h3><span>Cambridge | 2025</span></div>
+  <div class="card color-certificates"><h3>Human Resource Management</h3><span>Cambridge | 2025</span></div>
+  <div class="card color-certificates"><h3>Leadership & Change Management</h3><span>Cambridge | 2025</span></div>
 </div>
 </div>
 
@@ -137,11 +209,9 @@ teamwork, problem-solving, and contributing to humanitarian and development proj
 <span>IT Systems & Networking</span>
 <span>Cisco Routers & Switches</span>
 <span>Server Administration</span>
-<span>Technical Support</span>
 <span>Shipping & Logistics</span>
 <span>Operations Management</span>
 <span>MS Office & Reporting</span>
-<span>Teaching & Capacity Building</span>
 </div>
 </div>
 
@@ -155,13 +225,7 @@ teamwork, problem-solving, and contributing to humanitarian and development proj
 </div>
 </div>
 
-<!-- REFERENCES -->
-<div class="section">
-<h2><i class="fas fa-user-tie"></i> References</h2>
-<p>Mr. Abdiqadir Ahmed Muse – Lecturer | Email: mouse17-561@diu.edu.b</p>
-</div>
-
-<!-- PRINT BUTTON -->
+<!-- PRINT -->
 <div class="print-btn">
 <button onclick="window.print()"><i class="fas fa-print"></i> Print / Save as PDF</button>
 </div>
@@ -169,15 +233,11 @@ teamwork, problem-solving, and contributing to humanitarian and development proj
 </div>
 
 <script>
-// Scroll animation
-const sections = document.querySelectorAll('.section');
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){ entry.target.classList.add('show'); }
-    });
-},{threshold:0.2});
-
-sections.forEach(section => {observer.observe(section);});
+const sections=document.querySelectorAll('.section');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')});
+},{threshold:.2});
+sections.forEach(s=>observer.observe(s));
 </script>
 
 </body>
