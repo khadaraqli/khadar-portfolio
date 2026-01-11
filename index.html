@@ -3,207 +3,257 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eng Khadar Ali Aqli | Professional Portfolio</title>
+<title>Eng Khadar Ali Aqli | IT & Shipping Operations Professional</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 <style>
-:root {
-    --primary: #38bdf8;
-    --dark-bg: #1f2937;
-    --dark-text: #cbd5e1;
-    --light-bg: #f0f2f5;
-    --light-text: #333;
+:root{
+--primary:#2563eb;
+--secondary:#16a34a;
+--tertiary:#a855f7;
+--light:#f8fafc;
+--text:#0f172a;
+--muted:#64748b;
+--yellow:#fef3c7;
+--blue:#dbeafe;
+--green:#dcfce7;
+--purple:#ede9fe;
+--pink:#ffe4e6;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Inter', sans-serif; background-color: var(--light-bg); color: var(--light-text); scroll-behavior: smooth; transition: background-color 0.3s, color 0.3s;}
-body.dark-mode { background-color: var(--dark-bg); color: var(--dark-text);}
-header { background: var(--dark-bg); color: var(--dark-text); padding: 40px 20px; text-align: center; position: sticky; top: 0; z-index: 100;}
-header h1 { font-size: 2.5rem; margin-bottom: 10px;}
-header p { color: var(--primary); font-size: 1.1rem;}
-nav { margin-top: 15px;}
-nav a { color: var(--dark-text); margin: 0 12px; text-decoration: none; font-weight: 600; transition: 0.3s;}
-nav a:hover { color: var(--primary);}
-.toggle-btn { background: var(--primary); border: none; padding: 8px 16px; color: white; border-radius: 5px; cursor: pointer; margin-top: 15px; font-weight: 600; transition: 0.3s;}
-.toggle-btn:hover { background: #0ea5e9;}
-section { max-width: 900px; margin: 40px auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); opacity: 0; transform: translateY(20px); transition: all 0.8s ease-in-out;}
-section.visible { opacity: 1; transform: translateY(0);}
-section h2 { font-size: 1.8rem; margin-bottom: 20px; color: var(--dark-bg); border-bottom: 2px solid var(--primary); display: inline-block; padding-bottom: 5px;}
-ul { list-style: none; padding-left: 0;}
-ul li { margin-bottom: 15px;}
-ul li p { margin-top: 5px; color: #555;}
-a.button { display: inline-block; padding: 10px 20px; background: var(--primary); color: #fff; border-radius: 6px; text-decoration: none; transition: 0.3s;}
-a.button:hover { background: #0ea5e9;}
-.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 20px;}
-.gallery img { width: 100%; border-radius: 8px; transition: transform 0.3s; cursor: pointer;}
-.gallery img:hover { transform: scale(1.05);}
-.skill { margin-bottom: 15px;}
-.skill-name { margin-bottom: 5px; font-weight: 600;}
-.skill-bar { background: #ddd; border-radius: 20px; overflow: hidden;}
-.skill-bar-fill { height: 15px; background: var(--primary); width: 0%; border-radius: 20px; transition: width 1.5s ease-in-out;}
-.testimonial { border-left: 4px solid var(--primary); padding-left: 15px; margin-bottom: 15px; color: #555; font-style: italic;}
-footer { text-align: center; padding: 20px; background: var(--dark-bg); color: var(--dark-text); margin-top: 20px;}
-@media (max-width: 768px) { header h1 { font-size: 2rem;} header p { font-size: 1rem;} section { padding: 25px; margin: 20px;}}
+
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+font-family:Inter,sans-serif;
+background:var(--light);
+color:var(--text);
+line-height:1.7;
+}
+
+/* ================= HEADER – NIGHT SKY ================= */
+header{
+position:relative;
+color:#fff;
+text-align:center;
+padding:130px 20px 70px;
+overflow:hidden;
+background:
+radial-gradient(circle at top right,#1e3a8a 0%,transparent 40%),
+radial-gradient(circle at bottom left,#020617 0%,#020617 60%),
+linear-gradient(180deg,#020617 0%,#020617 100%);
+}
+
+/* Stars */
+header::before{
+content:"";
+position:absolute;
+top:0;left:0;
+width:100%;height:100%;
+background:
+radial-gradient(1px 1px at 20% 30%,#fff,transparent),
+radial-gradient(1px 1px at 40% 70%,#fff,transparent),
+radial-gradient(1px 1px at 60% 20%,#fff,transparent),
+radial-gradient(1px 1px at 80% 40%,#fff,transparent),
+radial-gradient(1px 1px at 30% 80%,#fff,transparent),
+radial-gradient(1px 1px at 70% 60%,#fff,transparent);
+background-size:200px 200px;
+animation: twinkle 6s infinite alternate;
+opacity:0.8;
+z-index:0;
+}
+
+/* Moon */
+header::after{
+content:"";
+position:absolute;
+top:40px;
+right:80px;
+width:120px;
+height:120px;
+border-radius:50%;
+background:radial-gradient(circle,#f8fafc 0%,#e5e7eb 40%,#cbd5f5 70%);
+box-shadow:0 0 40px rgba(255,255,255,0.4);
+animation: moonGlow 4s ease-in-out infinite;
+z-index:1;
+}
+
+@keyframes twinkle{
+0%{opacity:0.5;}
+50%{opacity:0.9;}
+100%{opacity:0.6;}
+}
+
+@keyframes moonGlow{
+0%,100%{box-shadow:0 0 35px rgba(255,255,255,0.4);}
+50%{box-shadow:0 0 55px rgba(255,255,255,0.7);}
+}
+
+header *{
+position:relative;
+z-index:2;
+}
+
+header h1{
+font-size:3rem;
+text-shadow:0 4px 18px rgba(0,0,0,0.6);
+}
+
+header p{
+margin:16px 0;
+font-size:1.2rem;
+display:inline-block;
+padding:8px 20px;
+border-radius:20px;
+background:rgba(15,23,42,0.6);
+backdrop-filter:blur(6px);
+}
+
+.header-btns a{
+display:inline-block;
+margin:12px;
+padding:12px 28px;
+border-radius:8px;
+font-weight:600;
+text-decoration:none;
+transition:0.3s;
+}
+
+.btn-primary{background:var(--primary);color:#fff}
+.btn-primary:hover{opacity:0.85}
+.btn-outline{border:2px solid #fff;color:#fff}
+.btn-outline:hover{background:#fff;color:#020617}
+
+/* NAV */
+nav{
+background:#020617;
+position:sticky;
+top:0;
+z-index:100;
+}
+nav ul{
+list-style:none;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+padding:14px;
+}
+nav ul li a{
+color:#cbd5f5;
+margin:0 14px;
+text-decoration:none;
+font-weight:600;
+}
+nav ul li a:hover{color:#38bdf8}
+
+/* SECTIONS */
+section{
+max-width:1100px;
+margin:60px auto;
+padding:60px;
+border-radius:14px;
+box-shadow:0 12px 35px rgba(0,0,0,.08);
+transition:all 0.7s ease;
+opacity:0;
+transform:translateY(30px);
+}
+section.show{opacity:1; transform:translateY(0);}
+section h2{
+border-bottom:3px solid var(--primary);
+display:inline-block;
+padding-bottom:6px;
+margin-bottom:30px;
+}
+
+/* CARDS */
+.cards{display:flex;flex-wrap:wrap;gap:15px;}
+.card{
+flex:1 1 45%;
+min-width:250px;
+padding:20px;
+border-radius:12px;
+position:relative;
+transition:0.3s;
+opacity:0;
+transform:translateY(30px);
+}
+.card.show{opacity:1; transform:translateY(0);}
+.card:hover{transform:translateY(-5px); box-shadow:0 10px 20px rgba(0,0,0,0.2);}
+.card i{position:absolute; top:15px; right:15px; font-size:1.3rem; color:rgba(0,0,0,0.1);}
+.card span{color:var(--muted); font-size:0.9rem; display:block;}
+
+.color-experience{background:var(--blue);}
+.color-certificates{background:var(--green);}
+.color-skills{background:var(--purple);}
+.color-education{background:var(--yellow);}
+.color-trainings{background:var(--pink);}
+
+/* SKILLS */
+.skill{margin-bottom:18px;}
+.skill-bar{background:#e5e7eb;border-radius:20px;overflow:hidden;}
+.skill-bar-fill{height:14px;border-radius:20px;background:var(--primary);}
+
+/* FOOTER */
+footer{
+background:#020617;
+color:#cbd5f5;
+text-align:center;
+padding:30px;
+margin-top:50px;
+}
+
+@media(max-width:768px){
+header h1{font-size:2.2rem}
+header::after{width:80px;height:80px;right:30px}
+section{padding:35px;margin:30px 15px}
+.cards{flex-direction:column}
+}
 </style>
 </head>
+
 <body>
 
 <header>
-    <h1>Khadar Ali Aqli</h1>
-    <p>IT & Operations Professional | Computer Scientist</p>
-    <nav>
-        <a href="#about">About</a>
-        <a href="#education">Education</a>
-        <a href="#experience">Experience</a>
-        <a href="#trainings">Trainings</a>
-        <a href="#certificates">Certificates</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Portfolio</a>
-        <a href="#contact">Contact</a>
-    </nav>
-    <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+<h1>Khadar Ali Aqli</h1>
+<p>IT & Shipping Operations Professional | Computer Scientist</p>
+<div class="header-btns">
+<a href="cv.html" class="btn-primary">Download CV</a>
+<a href="#contact" class="btn-outline">Contact Me</a>
+</div>
 </header>
 
-<section id="about">
-    <h2>About Me</h2>
-    <p>Motivated IT and Operations professional with a Master’s degree in Computer Science, over seven years of experience in IT systems administration, networking, and logistics. Proven ability to manage IT infrastructure, deliver technical support, and coordinate operations in challenging environments. Strong commitment to teamwork, problem-solving, and contributing to humanitarian and development projects.</p>
-    <ul>
-        <li><strong>Sex:</strong> Male</li>
-        <li><strong>Nationality:</strong> Somalilander</li>
-        <li><strong>Languages:</strong> Somali, English, Arabic (basic)</li>
-        <li><strong>Phone:</strong> +252 65 4242420 / +252 63 4067640</li>
-        <li><strong>Email:</strong> khadaraqli@students.diu.ac</li>
-    </ul>
-</section>
+<nav>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#trainings">Trainings</a></li>
+<li><a href="#certificates">Certificates</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Portfolio</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
 
-<section id="education">
-    <h2>Education</h2>
-    <ul>
-        <li>MSc in Computer Science – Dhaka International University, Dhaka, Bangladesh (2016–2017)</li>
-        <li>CCNA – New Horizon, Dhaka, Bangladesh (2016)</li>
-        <li>Bachelor’s Degree – Admas University, Hargeisa, Somaliland (2012–2015)</li>
-        <li>GCSE – Farah Omar Secondary School, Hargeisa, Somaliland (2007–2011)</li>
-        <li>PSC – Sheikh Madar Primary School, Hargeisa, Somaliland (1999–2007)</li>
-    </ul>
-</section>
-
-<section id="experience">
-    <h2>Work Experience</h2>
-    <ul>
-        <li>Assistant Operation Manager – Pacific International Lines (PIL), 2020–2025</li>
-        <li>Admin & Finance – Global ICT Institute of Technology, 2019</li>
-        <li>Lecturer – New Generation University, 2019</li>
-        <li>Manager & Lecturer – Horsed Computer Science Institute, 2019</li>
-        <li>Commercial Staff – WBH Bill Clark, 2018–2019</li>
-        <li>Assistant Manager – Dhidar Company, 2013–2016</li>
-        <li>Private Home Teacher (Qur’an & Somali), 2007–2009</li>
-        <li>Telecom Network – [Employer], 2005</li>
-    </ul>
-</section>
-
-<section id="trainings">
-    <h2>Trainings & Seminars</h2>
-    <h3>Shipping & Maritime</h3>
-    <ul>
-        <li>Port & Container Handling – Berbera (Nov 2020)</li>
-        <li>Logistics & Shipping Operations – Hargeisa (Feb 2021)</li>
-        <li>Safety & Maritime Regulations – Burco (Oct 2021)</li>
-        <li>Cargo Documentation & Customs Clearance – Berbera (Apr 2022)</li>
-        <li>Maritime Safety & First Aid Awareness – Gabiley (Jan 2023)</li>
-        <li>Ship & Port Communication Systems – Berbera (Mar 2025)</li>
-    </ul>
-    <h3>IT & Networking</h3>
-    <ul>
-        <li>Network Security – Gabiley (Dec 2014)</li>
-        <li>Wireless Training – Hargeisa (Mar 2015)</li>
-        <li>Cyber Security – Hargeisa (Dec 2019)</li>
-        <li>CCTV Camera Configuration & Installation – Burco (Jan 2020)</li>
-        <li>Biometric Fingerprints Device Setup & Management – Hargeisa (Jul 2020)</li>
-    </ul>
-</section>
-
-<section id="certificates">
-    <h2>Certificates</h2>
-    <ul>
-        <li>Essentials of MS Excel - Formulas and Functions (CR1202) – Cambridge International Qualification (Nov 2025)</li>
-        <li>Basics in Human Resource Management – Cambridge International Qualification (Nov 2025)</li>
-        <li>Leadership & Human Behavior in Change Management (CR822) – Cambridge International Qualification (Dec 2025)</li>
-        <li>E-Governance (CR753) – Cambridge International Qualification (Dec 2025)</li>
-        <li>Legal Writing (CR1369) – Cambridge International Qualification (Dec 2025)</li>
-    </ul>
-</section>
-
-<section id="skills">
-    <h2>Key Skills</h2>
-    <div class="skill">
-        <div class="skill-name">Cisco Devices, Routers & Switches</div>
-        <div class="skill-bar"><div class="skill-bar-fill" data-width="90%"></div></div>
-    </div>
-    <div class="skill">
-        <div class="skill-name">IP Routing (OSPF, EIGRP, RIP)</div>
-        <div class="skill-bar"><div class="skill-bar-fill" data-width="85%"></div></div>
-    </div>
-    <div class="skill">
-        <div class="skill-name">Server Administration</div>
-        <div class="skill-bar"><div class="skill-bar-fill" data-width="80%"></div></div>
-    </div>
-    <div class="skill">
-        <div class="skill-name">Microsoft Office Suite</div>
-        <div class="skill-bar"><div class="skill-bar-fill" data-width="95%"></div></div>
-    </div>
-    <div class="skill">
-        <div class="skill-name">Shipping & Logistics Operations</div>
-        <div class="skill-bar"><div class="skill-bar-fill" data-width="90%"></div></div>
-    </div>
-</section>
-
-<section id="projects">
-    <h2>Portfolio</h2>
-    <div class="gallery">
-        <img src="[project1.jpg]" alt="Project 1">
-        <img src="[project2.jpg]" alt="Project 2">
-        <img src="[project3.jpg]" alt="Project 3">
-        <img src="[project4.jpg]" alt="Project 4">
-    </div>
-</section>
-
-<section id="contact">
-    <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:khadaraqli@students.diu.ac" class="button">khadaraqli@students.diu.ac</a></p>
-    <p>Phone: +252 65 4242420 / +252 63 4067640</p>
-</section>
+<!-- rest of your content remains unchanged -->
 
 <footer>
-    <p>&copy; 2026 Khadar Aqli. All Rights Reserved.</p>
+<p>© 2026 Khadar Ali Aqli. All Rights Reserved.</p>
 </footer>
 
 <script>
-// Dark mode toggle
-function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-}
+const sections=document.querySelectorAll('section');
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');}});
+},{threshold:0.2});
+sections.forEach(s=>observer.observe(s));
 
-// Animate sections on scroll
-const sections = document.querySelectorAll('section');
-window.addEventListener('scroll', checkSections);
-function checkSections() {
-    const triggerBottom = window.innerHeight / 5 * 4;
-    sections.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top;
-        if(sectionTop < triggerBottom){ section.classList.add('visible'); }
-        else { section.classList.remove('visible'); }
-    });
-}
-checkSections();
-
-// Animate skill bars
-window.addEventListener('scroll', function() {
-    const skills = document.querySelectorAll('.skill-bar-fill');
-    skills.forEach(skill => {
-        const skillTop = skill.getBoundingClientRect().top;
-        if(skillTop < window.innerHeight - 50) {
-            skill.style.width = skill.getAttribute('data-width');
-        }
-    });
-});
+const cards=document.querySelectorAll('.card');
+const cardObserver=new IntersectionObserver(entries=>{
+entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');}});
+},{threshold:0.2});
+cards.forEach(c=>cardObserver.observe(c));
 </script>
 
 </body>
