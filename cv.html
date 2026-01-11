@@ -3,242 +3,254 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Khadar Ali Aqli – Animated Interactive CV</title>
+<title>Khadar Ali Aqli | Professional CV</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box}
 body{
-    font-family:'Inter',sans-serif;
-    background:#f0f4f8;
-    margin:0;
-    color:#0f172a;
-    overflow-x:hidden;
-}
-.cv-container{
-    max-width:1000px;
-    margin:40px auto;
-    padding:30px;
-    background:#fff;
-    border-radius:14px;
-    box-shadow:0 20px 50px rgba(0,0,0,.08);
+  font-family:'Inter',sans-serif;
+  background:#f1f5f9;
+  color:#0f172a;
+  line-height:1.7;
 }
 
-/* HEADER */
-.header{
-    display:flex;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    gap:15px;
-    border-bottom:3px solid #2563eb;
-    padding-bottom:20px;
+/* HEADER – SOMALILAND FLAG */
+header{
+  position:relative;
+  height:380px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+  overflow:hidden;
 }
-.header h1{font-size:2.6rem;margin-bottom:5px}
-.subtitle{color:#2563eb;font-weight:600}
-.contact p{margin:4px 0}
+header::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to bottom,
+    #0a8f3c 0%,
+    #0a8f3c 33%,
+    #ffffff 33%,
+    #ffffff 66%,
+    #c8102e 66%,
+    #c8102e 100%
+  );
+  animation:wave 8s infinite ease-in-out;
+}
+@keyframes wave{
+  0%{transform:skewY(0deg)}
+  50%{transform:skewY(1.2deg)}
+  100%{transform:skewY(0deg)}
+}
+.flag-text{
+  position:absolute;
+  top:32%;
+  width:100%;
+  text-align:center;
+  font-size:2.1rem;
+  font-weight:700;
+  color:#000;
+  opacity:.85;
+}
+.flag-text::before{
+  content:"لا إله إلا الله محمد رسول الله";
+}
+.header-content{
+  position:relative;
+  z-index:2;
+  background:rgba(0,0,0,.35);
+  padding:35px 45px;
+  border-radius:18px;
+}
+.header-content h1{font-size:3rem}
+.header-content p{
+  margin-top:10px;
+  font-weight:600;
+  color:#fde68a;
+}
+.header-info{
+  margin-top:18px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  justify-content:center;
+  font-size:.95rem;
+}
 
 /* SECTIONS */
+.container{
+  max-width:1050px;
+  margin:50px auto;
+  padding:0 20px;
+}
 .section{
-    margin-top:35px;
-    opacity:0;
-    transform:translateY(30px);
-    transition:all .7s ease;
+  background:#fff;
+  margin-bottom:40px;
+  padding:45px;
+  border-radius:16px;
+  box-shadow:0 15px 40px rgba(0,0,0,.08);
 }
-.section.show{opacity:1;transform:translateY(0)}
-
-h2{
-    font-size:1.45rem;
-    border-bottom:2px solid #2563eb;
-    display:inline-block;
-    padding-bottom:6px;
-    margin-bottom:25px;
+.section h2{
+  border-bottom:3px solid #2563eb;
+  display:inline-block;
+  padding-bottom:6px;
+  margin-bottom:25px;
 }
-
-/* CARDS */
 .cards{
-    display:flex;
-    flex-wrap:wrap;
-    gap:15px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:18px;
 }
 .card{
-    flex:1 1 45%;
-    min-width:260px;
-    padding:18px 20px;
-    border-radius:14px;
-    position:relative;
-    transition:.3s;
+  flex:1 1 45%;
+  background:#e0e7ff;
+  padding:18px 22px;
+  border-radius:14px;
 }
-.card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 12px 25px rgba(0,0,0,.18);
+.card span{
+  color:#475569;
+  font-size:.9rem;
 }
-.card i{
-    position:absolute;
-    top:15px;
-    right:15px;
-    font-size:1.3rem;
-    opacity:.5;
-}
-.card h3{margin-top:0}
-.card span{font-size:.9rem;color:#475569}
+.color-exp{background:#dbeafe}
+.color-cert{background:#dcfce7}
+.color-train{background:#fef3c7}
+.color-edu{background:#ede9fe}
 
-/* COLORS */
-.color-education{background:#fff7ed}
-.color-experience{background:#dbeafe}
-.color-certificates{background:#dcfce7}
-.color-skills{background:#ede9fe}
-.color-languages{background:#ffedd5}
-
-/* BADGES */
-.badges span{
-    display:inline-block;
-    background:#e0e7ff;
-    padding:6px 14px;
-    border-radius:20px;
-    margin:6px 6px 0 0;
-    font-size:.85rem;
-    font-weight:600;
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  background:#020617;
+  color:#cbd5f5;
 }
-
-/* PRINT */
-.print-btn{text-align:center;margin:40px 0}
-.print-btn button{
-    padding:12px 30px;
-    font-weight:600;
-    background:#2563eb;
-    color:#fff;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-}
-
-@media(max-width:650px){
-    .cards{flex-direction:column}
+@media(max-width:700px){
+  .card{flex:1 1 100%}
+  header{height:420px}
 }
 </style>
 </head>
 
 <body>
 
-<div class="cv-container">
-
-<!-- HEADER -->
-<div class="header">
-  <div>
+<header>
+  <div class="flag-text"></div>
+  <div class="header-content">
     <h1>Khadar Ali Aqli</h1>
-    <div class="subtitle">IT & Operations Professional | MSc Computer Science</div>
+    <p>IT & Shipping Operations Professional | MSc Computer Science</p>
+    <div class="header-info">
+      <span><i class="fas fa-location-dot"></i> Hargeisa, Somaliland</span>
+      <span><i class="fas fa-envelope"></i> khadaraqli@students.diu.ac</span>
+      <span><i class="fas fa-phone"></i> +252 65 4242420 / +252 63 4067640</span>
+    </div>
   </div>
-  <div class="contact">
-    <p><i class="fas fa-map-marker-alt"></i> Hargeisa, Somaliland</p>
-    <p><i class="fas fa-phone"></i> +252 65 4242420 / +252 63 4067640</p>
-    <p><i class="fas fa-envelope"></i> khadaraqli@students.diu.ac</p>
-  </div>
-</div>
+</header>
+
+<div class="container">
 
 <!-- PROFILE -->
 <div class="section">
-<h2><i class="fas fa-user"></i> Professional Profile</h2>
+<h2>Professional Profile</h2>
 <p>
-Motivated IT and Operations professional with a Master’s degree in Computer Science and over seven years of
-experience in IT systems administration, networking, shipping, and logistics.
+I am a motivated <strong>IT and Shipping Operations Professional</strong> with a
+<strong>Master’s degree in Computer Science</strong> and over <strong>seven years of experience</strong>
+working across <strong>information technology, maritime shipping, logistics, and operations management</strong>.
+</p>
+<p>
+On the <strong>IT side</strong>, I have strong hands-on experience in computer systems administration,
+networking, Cisco routing and switching, server support, cybersecurity fundamentals,
+CCTV and biometric systems, as well as academic teaching and technical training.
+</p>
+<p>
+Alongside IT, I have built solid expertise in the <strong>shipping and logistics sector</strong>,
+working with <strong>international shipping lines</strong> and port operations.
+My experience includes port and container handling, cargo documentation,
+customs clearance procedures, logistics coordination, and maritime safety compliance.
+</p>
+<p>
+This dual professional background enables me to bridge <strong>technology with real-world operations</strong>
+and contribute effectively to organizations, NGOs, and development projects.
 </p>
 </div>
 
-<!-- EDUCATION (✅ ADDED) -->
+<!-- EDUCATION -->
 <div class="section">
-<h2><i class="fas fa-graduation-cap"></i> Education</h2>
+<h2>Education</h2>
 <div class="cards">
-  <div class="card color-education">
-    <i class="fas fa-university"></i>
+  <div class="card color-edu">
     <h3>MSc in Computer Science</h3>
-    <span>Dhaka International University, Bangladesh | 2016 – 2017</span>
+    <span>Dhaka International University, Bangladesh (2016–2017)</span>
   </div>
-
-  <div class="card color-education">
-    <i class="fas fa-building-columns"></i>
+  <div class="card color-edu">
     <h3>Bachelor’s Degree</h3>
-    <span>Admas University, Hargeisa | 2012 – 2015</span>
+    <span>Admas University, Hargeisa (2012–2015)</span>
   </div>
-
-  <div class="card color-education">
-    <i class="fas fa-school"></i>
+  <div class="card color-edu">
     <h3>GCSE</h3>
-    <span>Farah Omar Secondary School | 2007 – 2011</span>
-  </div>
-
-  <div class="card color-education">
-    <i class="fas fa-child"></i>
-    <h3>Primary School Certificate (PSC)</h3>
-    <span>Sheikh Madar Primary School | 1999 – 2007</span>
+    <span>Farah Omar Secondary School (2007–2011)</span>
   </div>
 </div>
 </div>
 
 <!-- EXPERIENCE -->
 <div class="section">
-<h2><i class="fas fa-briefcase"></i> Experience</h2>
+<h2>Professional Experience</h2>
 <div class="cards">
-  <div class="card color-experience"><h3>Assistant Operation Manager</h3><span>PIL | 2020–2025</span></div>
-  <div class="card color-experience"><h3>Commercial Staff</h3><span>WBH Bill Clark | 2018–2019</span></div>
-  <div class="card color-experience"><h3>Assistant Manager</h3><span>Dhidar Company | 2013–2016</span></div>
-  <div class="card color-experience"><h3>Lecturer</h3><span>New Generation University | 2019</span></div>
-  <div class="card color-experience"><h3>Manager & Lecturer</h3><span>Horsed Computer Science Institute | 2019</span></div>
-  <div class="card color-experience"><h3>Teacher</h3><span>Sheikh Madar Primary School | 2009</span></div>
-  <div class="card color-experience"><h3>IT & Network Assistant</h3><span>Africa Online | 2005</span></div>
+  <div class="card color-exp"><h3>Assistant Operation Manager</h3><span>PIL | 2020–2025</span></div>
+  <div class="card color-exp"><h3>Commercial Staff</h3><span>WBH Bill Clark | 2018–2019</span></div>
+  <div class="card color-exp"><h3>Admin & Finance</h3><span>Global ICT Institute | 2019</span></div>
+  <div class="card color-exp"><h3>Lecturer</h3><span>New Generation University | 2019</span></div>
+  <div class="card color-exp"><h3>Manager & Lecturer</h3><span>Horsed Computer Science Institute | 2019</span></div>
+  <div class="card color-exp"><h3>Assistant Manager</h3><span>Dhidar Company | 2013–2016</span></div>
+  <div class="card color-exp"><h3>Teacher</h3><span>Sheikh Madar School | 2009</span></div>
+  <div class="card color-exp"><h3>IT & Network Assistant</h3><span>Africa Online, Hargeisa | 2005</span></div>
 </div>
 </div>
 
 <!-- CERTIFICATES -->
 <div class="section">
-<h2><i class="fas fa-certificate"></i> Certificates</h2>
+<h2>Certificates</h2>
 <div class="cards">
-  <div class="card color-certificates"><h3>CCNA Routing & Switching</h3><span>Dhaka, Bangladesh | 2016</span></div>
-  <div class="card color-certificates"><h3>MS Excel – Formulas & Functions</h3><span>Cambridge | 2025</span></div>
-  <div class="card color-certificates"><h3>E-Governance</h3><span>Cambridge | 2025</span></div>
-  <div class="card color-certificates"><h3>Legal Writing</h3><span>Cambridge | 2025</span></div>
-  <div class="card color-certificates"><h3>Human Resource Management</h3><span>Cambridge | 2025</span></div>
-  <div class="card color-certificates"><h3>Leadership & Change Management</h3><span>Cambridge | 2025</span></div>
+  <div class="card color-cert"><h3>CCNA Routing & Switching</h3><span>Dhaka, Bangladesh | 2016</span></div>
+  <div class="card color-cert"><h3>MS Excel – Formulas & Functions</h3><span>Cambridge | 2025</span></div>
+  <div class="card color-cert"><h3>E-Governance</h3><span>Cambridge | 2025</span></div>
+  <div class="card color-cert"><h3>Legal Writing</h3><span>Cambridge | 2025</span></div>
+  <div class="card color-cert"><h3>Human Resource Management</h3><span>Cambridge | 2025</span></div>
+  <div class="card color-cert"><h3>Leadership & Change Management</h3><span>Cambridge | 2025</span></div>
 </div>
 </div>
 
-<!-- SKILLS -->
+<!-- TRAININGS -->
 <div class="section">
-<h2><i class="fas fa-lightbulb"></i> Key Skills</h2>
-<div class="badges">
-<span>IT Systems & Networking</span>
-<span>Cisco Routers & Switches</span>
-<span>Server Administration</span>
-<span>Shipping & Logistics</span>
-<span>Operations Management</span>
-<span>MS Office & Reporting</span>
+<h2>Professional Trainings</h2>
+<div class="cards">
+  <div class="card color-train">Port & Container Handling – Berbera</div>
+  <div class="card color-train">Logistics & Shipping Operations – Hargeisa</div>
+  <div class="card color-train">Cargo Documentation & Customs Clearance – Berbera</div>
+  <div class="card color-train">Maritime Safety & First Aid – Gabiley</div>
 </div>
 </div>
 
-<!-- LANGUAGES -->
 <div class="section">
-<h2><i class="fas fa-language"></i> Languages</h2>
-<div class="badges">
-<span>Somali – Native</span>
-<span>English – Fluent</span>
-<span>Arabic – Basic</span>
+<h2>IT Seminars & Workshops</h2>
+<div class="cards">
+  <div class="card color-train">Network Security – Gabiley</div>
+  <div class="card color-train">Wireless Networking – Hargeisa</div>
+  <div class="card color-train">Cyber Security – Hargeisa</div>
+  <div class="card color-train">CCTV & Biometric Systems</div>
 </div>
-</div>
-
-<!-- PRINT -->
-<div class="print-btn">
-<button onclick="window.print()"><i class="fas fa-print"></i> Print / Save as PDF</button>
 </div>
 
 </div>
 
-<script>
-const sections=document.querySelectorAll('.section');
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')});
-},{threshold:.2});
-sections.forEach(s=>observer.observe(s));
-</script>
+<footer>
+© 2026 Khadar Ali Aqli – All Rights Reserved
+</footer>
 
 </body>
 </html>
