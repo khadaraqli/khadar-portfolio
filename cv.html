@@ -3,98 +3,87 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Khadar Ali Aqli – Curriculum Vitae</title>
-
+<title>Khadar Ali Aqli – Modern Interactive CV</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-body{
-    font-family:'Inter',sans-serif;
-    background:#f1f5f9;
-    color:#0f172a;
-    line-height:1.65;
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f0f4f8;
     margin:0;
     padding:0;
+    color:#0f172a;
 }
-.cv{
-    max-width:900px;
-    margin:40px auto;
-    background:#ffffff;
-    padding:50px;
-    box-shadow:0 20px 50px rgba(0,0,0,.08);
+.cv-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    background:#fff;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.08);
 }
-.header{
+.header {
     display:flex;
-    justify-content:space-between;
     flex-wrap:wrap;
-    gap:20px;
+    justify-content:space-between;
+    gap:15px;
     border-bottom:3px solid #2563eb;
     padding-bottom:20px;
 }
-h1{
-    font-size:2.6rem;
-    margin-bottom:5px;
-}
-.subtitle{
-    color:#2563eb;
-    font-weight:600;
-    font-size:1.05rem;
-}
-.contact p{
-    margin:4px 0;
-    font-size:.95rem;
-}
-h2{
+.header h1 { font-size:2.6rem; margin-bottom:5px;}
+.header .subtitle { color:#2563eb; font-weight:600; font-size:1.05rem;}
+.contact p {margin:4px 0;}
+h2 {
     margin-top:40px;
     font-size:1.45rem;
-    border-bottom:2px solid #2563eb;
     display:inline-block;
     padding-bottom:6px;
+    border-bottom:2px solid #2563eb;
 }
-.section{margin-top:25px}
-p{margin:10px 0}
-ul{margin:12px 0 0 20px}
-li{margin-bottom:10px}
-.badge{
-    display:inline-block;
+.section { margin-top:25px;}
+.cards {
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+}
+.card {
+    flex:1 1 45%;
+    min-width:250px;
     background:#e0e7ff;
+    border-radius:12px;
+    padding:15px 20px;
+    transition:transform 0.3s ease, box-shadow 0.3s ease;
+    cursor:default;
+    position:relative;
+}
+.card:hover {
+    transform:translateY(-5px);
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+.card i {
+    position:absolute;
+    top:15px;
+    right:15px;
+    font-size:1.3rem;
+    color:rgba(30,58,138,0.5);
+}
+.card h3 { margin-top:0; color:#1e3a8a;}
+.card span { color:#64748b; font-size:0.9rem; display:block; margin-bottom:6px;}
+.badges span {
+    display:inline-block;
+    background:#dbeafe;
     color:#1e3a8a;
     padding:6px 12px;
     border-radius:20px;
     font-size:.85rem;
     margin:4px 6px 4px 0;
 }
-.role{
-    font-weight:600;
-}
-.org{
-    color:#2563eb;
-    font-weight:600;
-}
-.period{
-    color:#64748b;
-    font-size:.9rem;
-}
-.certificates table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:10px;
-}
-.certificates th, .certificates td{
-    border:1px solid #ccc;
-    padding:8px 10px;
-    text-align:left;
-}
-.certificates th{
-    background:#2563eb;
-    color:#fff;
-    font-weight:600;
-}
-.print{
-    margin-top:40px;
+.print-btn {
     text-align:center;
+    margin-top:40px;
 }
-.print button{
+.print-btn button {
     padding:12px 30px;
     font-weight:600;
     border:none;
@@ -103,17 +92,18 @@ li{margin-bottom:10px}
     border-radius:8px;
     cursor:pointer;
 }
-@media print{
-    body{background:#fff}
-    .cv{box-shadow:none;margin:0}
-    .print{display:none}
+.color-experience {background:#dbeafe;}
+.color-certificates {background:#dcfce7;}
+.color-skills {background:#ede9fe;}
+.color-languages {background:#ffedd5;}
+@media (max-width:600px){
+    .cards {flex-direction:column;}
 }
 </style>
 </head>
 
 <body>
-
-<div class="cv">
+<div class="cv-container">
 
 <!-- HEADER -->
 <div class="header">
@@ -122,15 +112,15 @@ li{margin-bottom:10px}
 <div class="subtitle">IT & Operations Professional | MSc Computer Science</div>
 </div>
 <div class="contact">
-<p>📍 Hargeisa, Somaliland</p>
-<p>📞 +252 65 4242420 / +252 63 4067640</p>
-<p>✉️ khadaraqli@students.diu.ac</p>
+<p><i class="fas fa-map-marker-alt"></i> Hargeisa, Somaliland</p>
+<p><i class="fas fa-phone"></i> +252 65 4242420 / +252 63 4067640</p>
+<p><i class="fas fa-envelope"></i> khadaraqli@students.diu.ac</p>
 </div>
 </div>
 
 <!-- PROFILE -->
 <div class="section">
-<h2>Professional Profile</h2>
+<h2><i class="fas fa-user"></i> Professional Profile</h2>
 <p>
 Motivated IT and Operations professional with a Master’s degree in Computer Science, over seven years of
 experience in IT systems administration, networking, and logistics. Proven ability to manage IT infrastructure,
@@ -139,126 +129,90 @@ teamwork, problem-solving, and contributing to humanitarian and development proj
 </p>
 </div>
 
-<!-- EDUCATION -->
+<!-- EXPERIENCE -->
 <div class="section">
-<h2>Education</h2>
-<ul>
-<li><strong>MSc in Computer Science</strong> – Dhaka International University, Dhaka, Bangladesh <span class="period">(2016–2017)</span></li>
-<li><strong>Bachelor’s Degree in Computer Science</strong> – Admas University, Hargeisa, Somaliland <span class="period">(2012–2015)</span></li>
-<li><strong>GCSE</strong> – Farah Omar Secondary School, Hargeisa, Somaliland <span class="period">(2007–2011)</span></li>
-<li><strong>PSC</strong> – Sheikh Madar Primary School, Hargeisa, Somaliland <span class="period">(1999–2007)</span></li>
-</ul>
+<h2><i class="fas fa-briefcase"></i> Experience</h2>
+<div class="cards">
+<div class="card color-experience"><i class="fas fa-ship"></i>
+<h3>Assistant Operation Manager</h3><span>Pacific International Lines (PIL) | 2020–2025</span>
+<p>Coordinated shipping, logistics, and port operations. Managed documentation and operational systems. Supported IT systems and reporting workflows.</p>
 </div>
-
-<!-- WORK EXPERIENCE -->
-<div class="section">
-<h2>Work Experience</h2>
-<ul>
-<li><span class="role">Assistant Operation Manager</span> – <span class="org">Pacific International Lines (PIL)</span> <span class="period">(2020–2025)</span></li>
-<li><span class="role">Admin & Finance Officer</span> – <span class="org">Global ICT Institute of Technology</span> <span class="period">(2019)</span></li>
-<li><span class="role">Lecturer</span> – <span class="org">New Generation University</span> <span class="period">(2019)</span></li>
-<li><span class="role">Manager & Lecturer</span> – <span class="org">Horsed Computer Science Institute</span> <span class="period">(2019)</span></li>
-<li><span class="role">Commercial Department Staff</span> – <span class="org">WBH Bill Clark</span> <span class="period">(2018–2019)</span></li>
-<li><span class="role">Assistant Manager</span> – <span class="org">Dhidar Company</span> <span class="period">(2013–2016)</span></li>
-<li><span class="role">Teacher</span> – <span class="org">Sheikh Madar Primary School</span> <span class="period">(2009)</span></li>
-<li><span class="role">IT & Network Assistant</span> – <span class="org">Africa Online</span>, Hargeisa <span class="period">(2005)</span></li>
-<li><span class="role">Private Home Teacher – Qur’an and Somali</span> <span class="period">(2007–2009)</span></li>
-</ul>
+<div class="card color-experience"><i class="fas fa-cogs"></i>
+<h3>Admin & Finance Officer</h3><span>Global ICT Institute of Technology | 2019</span>
 </div>
-
-<!-- TRAININGS & SEMINARS -->
-<div class="section">
-<h2>Trainings & Seminars</h2>
-<ul>
-<li>Port & Container Handling – Berbera <span class="period">(Nov 2020)</span></li>
-<li>Logistics & Shipping Operations – Hargeisa <span class="period">(Feb 2021)</span></li>
-<li>Safety & Maritime Regulations – Burco <span class="period">(Oct 2021)</span></li>
-<li>Cargo Documentation & Customs Clearance – Berbera <span class="period">(Apr 2022)</span></li>
-<li>Maritime Safety & First Aid Awareness – Gabiley <span class="period">(Jan 2023)</span></li>
-<li>Ship & Port Communication Systems – Berbera <span class="period">(Mar 2025)</span></li>
-<li>Network Security – Gabiley <span class="period">(Dec 2014)</span></li>
-<li>Wireless Training – Hargeisa <span class="period">(Mar 2015)</span></li>
-<li>Cyber Security – Hargeisa <span class="period">(Dec 2019)</span></li>
-<li>CCTV Camera Configuration & Installation – Burco <span class="period">(Jan 2020)</span></li>
-<li>Biometric Fingerprints Device Setup & Management – Hargeisa <span class="period">(Jul 2020)</span></li>
-</ul>
+<div class="card color-experience"><i class="fas fa-chalkboard-teacher"></i>
+<h3>Lecturer</h3><span>New Generation University | 2019</span>
+</div>
+<div class="card color-experience"><i class="fas fa-chalkboard"></i>
+<h3>Manager & Lecturer</h3><span>Horsed Computer Science Institute | 2019</span>
+</div>
+<div class="card color-experience"><i class="fas fa-box"></i>
+<h3>Commercial Department Staff</h3><span>WBH Bill Clark | 2018–2019</span>
+</div>
+<div class="card color-experience"><i class="fas fa-users"></i>
+<h3>Assistant Manager</h3><span>Dhidar Company | 2013–2016</span>
+</div>
+<div class="card color-experience"><i class="fas fa-school"></i>
+<h3>Teacher</h3><span>Sheikh Madar Primary School | 2009</span>
+</div>
+<div class="card color-experience"><i class="fas fa-network-wired"></i>
+<h3>IT & Network Assistant</h3><span>Africa Online, Hargeisa | 2005</span>
+</div>
+<div class="card color-experience"><i class="fas fa-home"></i>
+<h3>Private Home Teacher – Qur’an & Somali</h3><span>2007–2009</span>
+</div>
+</div>
 </div>
 
 <!-- CERTIFICATES -->
-<div class="section certificates">
-<h2>Certificates</h2>
-<table>
-<tr>
-<th>Certificate Name</th>
-<th>Institution</th>
-<th>Year</th>
-</tr>
-<tr>
-<td>CCNA Routine and Switching</td>
-<td>New Horizon, Dhaka, Bangladesh</td>
-<td>2016</td>
-</tr>
-<tr>
-<td>Essentials of MS Excel - Formulas and Function</td>
-<td>Cambridge International University, London</td>
-<td>2025</td>
-</tr>
-<tr>
-<td>E-Governance</td>
-<td>Cambridge International University, London</td>
-<td>2025</td>
-</tr>
-<tr>
-<td>Basics of Legal Writing</td>
-<td>Cambridge International University, London</td>
-<td>2025</td>
-</tr>
-<tr>
-<td>Human Resource Management</td>
-<td>Cambridge International University, London</td>
-<td>2025</td>
-</tr>
-<tr>
-<td>Leadership & Human Behavior in Change Management</td>
-<td>Cambridge International University, London</td>
-<td>2025</td>
-</tr>
-</table>
+<div class="section">
+<h2><i class="fas fa-certificate"></i> Certificates</h2>
+<div class="cards">
+<div class="card color-certificates"><i class="fas fa-certificate"></i><h3>CCNA Routine and Switching</h3><span>New Horizon, Dhaka, Bangladesh | 2016</span></div>
+<div class="card color-certificates"><i class="fas fa-certificate"></i><h3>Essentials of MS Excel - Formulas & Function</h3><span>Cambridge International University, London | 2025</span></div>
+<div class="card color-certificates"><i class="fas fa-certificate"></i><h3>E-Governance</h3><span>Cambridge International University, London | 2025</span></div>
+<div class="card color-certificates"><i class="fas fa-certificate"></i><h3>Basics of Legal Writing</h3><span>Cambridge International University, London | 2025</span></div>
+<div class="card color-certificates"><i class="fas fa-certificate"></i><h3>Human Resource Management</h3><span>Cambridge International University, London | 2025</span></div>
+<div class="card color-certificates"><i class="fas fa-certificate"></i><h3>Leadership & Human Behavior in Change Management</h3><span>Cambridge International University, London | 2025</span></div>
+</div>
 </div>
 
-<!-- KEY SKILLS -->
+<!-- SKILLS -->
 <div class="section">
-<h2>Key Skills</h2>
-<ul>
-<li><strong>IT & Networking:</strong> Cisco Devices, Routers & Switches Administration, IP Routing (OSPF, EIGRP, RIP), Wireless Network Management, Server Administration (File & Mail Server), Microsoft Office, Computer Maintenance & File Management, Cyber & Network Security, Time Management & Teamwork</li>
-<li><strong>Shipping & Operations:</strong> Port & Container Handling Operations, Shipping Documentation & Customs Procedures, Logistics & Supply Chain Coordination, Maritime Safety & Regulations Awareness, Operations Support & Team Leadership</li>
-</ul>
+<h2><i class="fas fa-lightbulb"></i> Key Skills</h2>
+<div class="badges">
+<span>IT Systems & Networking</span>
+<span>Cisco Routers & Switches</span>
+<span>Server Administration</span>
+<span>Technical Support</span>
+<span>Shipping & Logistics</span>
+<span>Operations Management</span>
+<span>MS Office & Reporting</span>
+<span>Teaching & Capacity Building</span>
+</div>
 </div>
 
 <!-- LANGUAGES -->
 <div class="section">
-<h2>Languages</h2>
-<ul>
-<li>Somali – Native</li>
-<li>English – Fluent</li>
-<li>Arabic – Basic</li>
-</ul>
+<h2><i class="fas fa-language"></i> Languages</h2>
+<div class="badges">
+<span>Somali – Native</span>
+<span>English – Fluent</span>
+<span>Arabic – Basic</span>
+</div>
 </div>
 
 <!-- REFERENCES -->
 <div class="section">
-<h2>References</h2>
-<ul>
-<li>Mr. Abdiqadir Ahmed Muse – Lecturer | Email: mouse17-561@diu.edu.b</li>
-</ul>
+<h2><i class="fas fa-user-tie"></i> References</h2>
+<p>Mr. Abdiqadir Ahmed Muse – Lecturer | Email: mouse17-561@diu.edu.b</p>
 </div>
 
-<!-- PRINT -->
-<div class="print">
-<button onclick="window.print()">Print / Save as PDF</button>
+<!-- PRINT BUTTON -->
+<div class="print-btn">
+<button onclick="window.print()"><i class="fas fa-print"></i> Print / Save as PDF</button>
 </div>
 
 </div>
-
 </body>
 </html>
