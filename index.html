@@ -6,16 +6,19 @@
 <title>Eng Khadar Ali Aqli | IT & Shipping Operations Professional</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 <style>
 :root{
 --primary:#2563eb;
 --secondary:#16a34a;
 --tertiary:#a855f7;
---dark:#020617;
 --light:#f8fafc;
 --text:#0f172a;
 --muted:#64748b;
+--yellow:#fef3c7;
+--blue:#dbeafe;
+--green:#dcfce7;
+--purple:#ede9fe;
+--pink:#ffe4e6;
 }
 
 /* RESET */
@@ -61,26 +64,30 @@ transition:0.3s;
 .btn-outline{border:2px solid #fff;color:#fff}
 .btn-outline:hover{background:#fff;color:#020617}
 
-/* Animated background using keyframes */
+/* Animated waving flag background */
 header::before{
 content:"";
 position:absolute;
 top:0;left:0;width:100%;height:100%;
-background:linear-gradient(270deg,#009933,#ffffff,#ff0000);
-background-size:600% 600%;
+background:url('https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Somaliland.svg');
+background-size:cover;
+background-position:center;
 z-index:-1;
-animation: gradientBG 15s ease infinite;
+animation: waveFlag 6s infinite linear;
+transform-origin:center;
 }
-@keyframes gradientBG{
-0%{background-position:0% 50%}
-50%{background-position:100% 50%}
-100%{background-position:0% 50%}
+@keyframes waveFlag{
+0%{transform:rotate(0deg);}
+25%{transform:rotate(0.5deg);}
+50%{transform:rotate(0deg);}
+75%{transform:rotate(-0.5deg);}
+100%{transform:rotate(0deg);}
 }
 @keyframes gradientText{
 0%,100%{background-position:0% 50%}
 50%{background-position:100% 50%}
 }
-  
+
 /* NAV */
 nav{background:#020617;position:sticky;top:0;z-index:100;}
 nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;padding:14px;}
@@ -91,8 +98,6 @@ nav ul li a:hover{color:#38bdf8}
 section{max-width:1100px;margin:60px auto;padding:60px;border-radius:14px;box-shadow:0 12px 35px rgba(0,0,0,.08); transition:all 0.7s ease; opacity:0; transform:translateY(30px);}
 section.show{opacity:1; transform:translateY(0);}
 section h2{border-bottom:3px solid var(--primary);display:inline-block;padding-bottom:6px;margin-bottom:30px;}
-ul{padding-left:20px;}
-li{margin-bottom:12px;}
 
 /* CARDS */
 .cards{display:flex; flex-wrap:wrap; gap:15px;}
@@ -102,10 +107,11 @@ li{margin-bottom:12px;}
 .card i{position:absolute; top:15px; right:15px; font-size:1.3rem; color:rgba(0,0,0,0.1);}
 .card h3{margin-top:0;}
 .card span{color:var(--muted); font-size:0.9rem; display:block; margin-bottom:6px;}
-.color-experience{background:#dbeafe;}
-.color-certificates{background:#dcfce7;}
-.color-skills{background:#ede9fe;}
-.color-education{background:#fff4e6;}
+.color-experience{background:var(--blue);}
+.color-certificates{background:var(--green);}
+.color-skills{background:var(--purple);}
+.color-education{background:var(--yellow);}
+.color-trainings{background:var(--pink);}
 
 /* SKILLS */
 .skill{margin-bottom:18px;}
@@ -222,6 +228,8 @@ footer{background:#020617;color:#cbd5f5;text-align:center;padding:30px;margin-to
 
 <section id="trainings">
 <h2>Trainings & Seminars</h2>
+<div class="cards">
+<div class="card color-trainings"><i class="fas fa-ship"></i>
 <h3>Shipping & Maritime</h3>
 <ul>
 <li>Port & Container Handling – Berbera (2020)</li>
@@ -231,6 +239,8 @@ footer{background:#020617;color:#cbd5f5;text-align:center;padding:30px;margin-to
 <li>Maritime Safety & First Aid – Gabiley (2023)</li>
 <li>Ship & Port Communication Systems – Berbera (2025)</li>
 </ul>
+</div>
+<div class="card color-trainings"><i class="fas fa-laptop-code"></i>
 <h3>IT & Networking</h3>
 <ul>
 <li>Network Security – Gabiley (2014)</li>
@@ -239,6 +249,8 @@ footer{background:#020617;color:#cbd5f5;text-align:center;padding:30px;margin-to
 <li>CCTV Installation & Configuration – Burco (2020)</li>
 <li>Biometric Systems Management – Hargeisa (2020)</li>
 </ul>
+</div>
+</div>
 </section>
 
 <section id="certificates">
@@ -289,7 +301,6 @@ footer{background:#020617;color:#cbd5f5;text-align:center;padding:30px;margin-to
 <h2>Portfolio</h2>
 <div class="gallery">
 <img src="images/IMG_7117.jpeg">
-<img src="images/IMG_7993.jpeg">
 <img src="images/IMG_7993.jpeg">
 <img src="images/IMG_8834.jpeg">
 <img src="images/IMG_8925.jpeg">
