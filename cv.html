@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Khadar Ali Aqli – Modern Interactive CV</title>
+<title>Khadar Ali Aqli – Animated Interactive CV</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -11,9 +11,9 @@
 body {
     font-family: 'Inter', sans-serif;
     background: #f0f4f8;
-    margin:0;
-    padding:0;
+    margin:0; padding:0;
     color:#0f172a;
+    overflow-x:hidden;
 }
 .cv-container {
     max-width: 1000px;
@@ -24,81 +24,42 @@ body {
     box-shadow: 0 20px 50px rgba(0,0,0,.08);
 }
 .header {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:space-between;
-    gap:15px;
-    border-bottom:3px solid #2563eb;
-    padding-bottom:20px;
+    display:flex; flex-wrap:wrap; justify-content:space-between; gap:15px;
+    border-bottom:3px solid #2563eb; padding-bottom:20px;
 }
 .header h1 { font-size:2.6rem; margin-bottom:5px;}
 .header .subtitle { color:#2563eb; font-weight:600; font-size:1.05rem;}
 .contact p {margin:4px 0;}
 h2 {
-    margin-top:40px;
-    font-size:1.45rem;
-    display:inline-block;
-    padding-bottom:6px;
-    border-bottom:2px solid #2563eb;
+    margin-top:40px; font-size:1.45rem;
+    display:inline-block; padding-bottom:6px; border-bottom:2px solid #2563eb;
 }
-.section { margin-top:25px;}
-.cards {
-    display:flex;
-    flex-wrap:wrap;
-    gap:15px;
-}
+.section { margin-top:25px; opacity:0; transform: translateY(30px); transition: all 0.7s ease;}
+.section.show {opacity:1; transform: translateY(0);}
+.cards { display:flex; flex-wrap:wrap; gap:15px;}
 .card {
-    flex:1 1 45%;
-    min-width:250px;
-    background:#e0e7ff;
-    border-radius:12px;
-    padding:15px 20px;
-    transition:transform 0.3s ease, box-shadow 0.3s ease;
-    cursor:default;
-    position:relative;
+    flex:1 1 45%; min-width:250px; background:#e0e7ff; border-radius:12px;
+    padding:15px 20px; transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position:relative; cursor:default;
 }
-.card:hover {
-    transform:translateY(-5px);
-    box-shadow:0 10px 20px rgba(0,0,0,0.2);
-}
-.card i {
-    position:absolute;
-    top:15px;
-    right:15px;
-    font-size:1.3rem;
-    color:rgba(30,58,138,0.5);
-}
+.card:hover { transform:translateY(-5px); box-shadow:0 10px 20px rgba(0,0,0,0.2);}
+.card i { position:absolute; top:15px; right:15px; font-size:1.3rem; color:rgba(30,58,138,0.5);}
 .card h3 { margin-top:0; color:#1e3a8a;}
 .card span { color:#64748b; font-size:0.9rem; display:block; margin-bottom:6px;}
 .badges span {
-    display:inline-block;
-    background:#dbeafe;
-    color:#1e3a8a;
-    padding:6px 12px;
-    border-radius:20px;
-    font-size:.85rem;
-    margin:4px 6px 4px 0;
+    display:inline-block; background:#dbeafe; color:#1e3a8a;
+    padding:6px 12px; border-radius:20px; font-size:.85rem; margin:4px 6px 4px 0;
 }
-.print-btn {
-    text-align:center;
-    margin-top:40px;
-}
+.print-btn { text-align:center; margin-top:40px;}
 .print-btn button {
-    padding:12px 30px;
-    font-weight:600;
-    border:none;
-    background:#2563eb;
-    color:#fff;
-    border-radius:8px;
-    cursor:pointer;
+    padding:12px 30px; font-weight:600; border:none;
+    background:#2563eb; color:#fff; border-radius:8px; cursor:pointer;
 }
 .color-experience {background:#dbeafe;}
 .color-certificates {background:#dcfce7;}
 .color-skills {background:#ede9fe;}
 .color-languages {background:#ffedd5;}
-@media (max-width:600px){
-    .cards {flex-direction:column;}
-}
+@media (max-width:600px){ .cards {flex-direction:column;} }
 </style>
 </head>
 
@@ -138,29 +99,21 @@ teamwork, problem-solving, and contributing to humanitarian and development proj
 <p>Coordinated shipping, logistics, and port operations. Managed documentation and operational systems. Supported IT systems and reporting workflows.</p>
 </div>
 <div class="card color-experience"><i class="fas fa-cogs"></i>
-<h3>Admin & Finance Officer</h3><span>Global ICT Institute of Technology | 2019</span>
-</div>
+<h3>Admin & Finance Officer</h3><span>Global ICT Institute of Technology | 2019</span></div>
 <div class="card color-experience"><i class="fas fa-chalkboard-teacher"></i>
-<h3>Lecturer</h3><span>New Generation University | 2019</span>
-</div>
+<h3>Lecturer</h3><span>New Generation University | 2019</span></div>
 <div class="card color-experience"><i class="fas fa-chalkboard"></i>
-<h3>Manager & Lecturer</h3><span>Horsed Computer Science Institute | 2019</span>
-</div>
+<h3>Manager & Lecturer</h3><span>Horsed Computer Science Institute | 2019</span></div>
 <div class="card color-experience"><i class="fas fa-box"></i>
-<h3>Commercial Department Staff</h3><span>WBH Bill Clark | 2018–2019</span>
-</div>
+<h3>Commercial Department Staff</h3><span>WBH Bill Clark | 2018–2019</span></div>
 <div class="card color-experience"><i class="fas fa-users"></i>
-<h3>Assistant Manager</h3><span>Dhidar Company | 2013–2016</span>
-</div>
+<h3>Assistant Manager</h3><span>Dhidar Company | 2013–2016</span></div>
 <div class="card color-experience"><i class="fas fa-school"></i>
-<h3>Teacher</h3><span>Sheikh Madar Primary School | 2009</span>
-</div>
+<h3>Teacher</h3><span>Sheikh Madar Primary School | 2009</span></div>
 <div class="card color-experience"><i class="fas fa-network-wired"></i>
-<h3>IT & Network Assistant</h3><span>Africa Online, Hargeisa | 2005</span>
-</div>
+<h3>IT & Network Assistant</h3><span>Africa Online, Hargeisa | 2005</span></div>
 <div class="card color-experience"><i class="fas fa-home"></i>
-<h3>Private Home Teacher – Qur’an & Somali</h3><span>2007–2009</span>
-</div>
+<h3>Private Home Teacher – Qur’an & Somali</h3><span>2007–2009</span></div>
 </div>
 </div>
 
@@ -214,5 +167,18 @@ teamwork, problem-solving, and contributing to humanitarian and development proj
 </div>
 
 </div>
+
+<script>
+// Scroll animation
+const sections = document.querySelectorAll('.section');
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){ entry.target.classList.add('show'); }
+    });
+},{threshold:0.2});
+
+sections.forEach(section => {observer.observe(section);});
+</script>
+
 </body>
 </html>
