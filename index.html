@@ -44,12 +44,20 @@
             --white: #FFFFFF; /* Dominant base */
             --border-gray: #D3D3D3; /* Borders */
             --shadow: rgba(0, 0, 0, 0.1); /* Subtle shadows */
+            --color-education: #F5F5F5; /* Grey for Education */
+            --color-experience: #E0F7FA; /* Light cyan for Professional Experience */
+            --color-trainings: #E8F5E9; /* Light green for Trainings */
+            --color-certificates: #F3E5F5; /* Light purple for Certificates */
 
             /* Dark mode variables */
             --bg-dark: #1A1A1A;
             --text-light: #E0E0E0;
             --primary-dark: #336699;
             --accent-dark: #00A0A0;
+            --color-education-dark: #333333;
+            --color-experience-dark: #004D40;
+            --color-trainings-dark: #1B5E20;
+            --color-certificates-dark: #4A148C;
         }
 
         /* Dark mode */
@@ -98,6 +106,10 @@
             background: var(--text-light);
             color: #000033;
         }
+        body.dark-mode #education { background: var(--color-education-dark); }
+        body.dark-mode #experience { background: var(--color-experience-dark); }
+        body.dark-mode #trainings { background: var(--color-trainings-dark); }
+        body.dark-mode #certificates { background: var(--color-certificates-dark); }
 
         /* RESET */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -121,7 +133,36 @@
             overflow: hidden;
         }
 
-        /* Simplified animations: Remove excessive stars/moon for clean gov-like look; keep subtle */
+        /* Stars */
+        .star {
+            position: absolute;
+            width: 2px; height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite alternate;
+        }
+        @keyframes twinkle {
+            0% { opacity: 0.2; }
+            50% { opacity: 1; }
+            100% { opacity: 0.2; }
+        }
+
+        /* Moon */
+        .moon {
+            position: absolute;
+            top: 20px; right: 20px;
+            width: 80px; height: 80px;
+            background: #fefbd8;
+            border-radius: 50%;
+            box-shadow: 0 0 30px 10px #fefbd8;
+            animation: floatMoon 6s ease-in-out infinite alternate;
+        }
+        @keyframes floatMoon {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
         .headshot {
             width: 150px;
             height: 150px;
@@ -163,6 +204,10 @@
         section { max-width: 1200px; margin: 60px auto; padding: 40px; border-radius: 14px; background: var(--white); box-shadow: 0 12px 35px var(--shadow); transition: opacity 0.7s ease, transform 0.7s ease; opacity: 0; transform: translateY(30px); }
         section.show { opacity: 1; transform: translateY(0); }
         section h2 { border-bottom: 3px solid var(--accent-teal); display: inline-block; padding-bottom: 6px; margin-bottom: 30px; }
+        #education { background: var(--color-education); }
+        #experience { background: var(--color-experience); }
+        #trainings { background: var(--color-trainings); }
+        #certificates { background: var(--color-certificates); }
 
         /* Timeline for Education and Experience */
         .timeline { position: relative; max-width: 100%; margin: 0 auto; }
@@ -212,6 +257,10 @@
         .social-links a { color: var(--white); margin: 0 10px; font-size: 1.5rem; text-decoration: none; }
         .social-links a:hover { color: var(--accent-teal); }
 
+        /* Gallery */
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+        .gallery img { width: 100%; border-radius: 12px; loading: lazy; }
+
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             header { padding: 100px 10px 50px; }
@@ -244,6 +293,7 @@
 <body>
 
     <header>
+        <div class="moon"></div>
         <img src="https://via.placeholder.com/150?text=Headshot" alt="Professional headshot of Khadar Ali Aqli" class="headshot" loading="lazy">
         <h1>Khadar Ali Aqli</h1>
         <p class="tagline">IT & Shipping Operations Professional | Computer Scientist</p>
@@ -577,6 +627,14 @@
             </div>
         </div>
         <!-- Add more modals as needed -->
+        <!-- Restored Gallery -->
+        <h3>Additional Visuals</h3>
+        <div class="gallery">
+            <img src="images/IMG_7117.jpeg" alt="Project visual 1">
+            <img src="images/IMG_7993.jpeg" alt="Project visual 2">
+            <img src="images/IMG_8834.jpeg" alt="Project visual 3">
+            <img src="images/IMG_8925.jpeg" alt="Project visual 4">
+        </div>
     </section>
 
     <section id="contact">
@@ -612,6 +670,53 @@
     </div>
 
     <script>
+        // ==== STATIC TWINKLING STARS ====
+        for (let i = 0; i < 500; i++) {
+            let star = document.createElement('div');
+            star.classList.add('star');
+            star.style.top = Math.random() * 100 + '%';
+            star.style.left = Math.random() * 100 + '%';
+            const size = Math.random() * 2.5 + 0.5;
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            star.style.opacity = Math.random();
+            star.style.animationDuration = (Math.random() * 3 + 1) + 's';
+            star.style.boxShadow = `0 0 ${Math.random()*4 + 1}px #fff`;
+            document.querySelector('header').appendChild(star);
+        }
+
+        // ==== SHOOTING STARS ====
+        function createShootingStar() {
+            let star = document.createElement('div');
+            star.classList.add('star');
+            star.style.position = 'absolute';
+            star.style.top = Math.random() * 50 + '%';
+            star.style.left = '-5%';
+            star.style.width = '2px';
+            star.style.height = '2px';
+            star.style.background = 'white';
+            star.style.boxShadow = '0 0 8px white';
+            star.style.opacity = '0.8';
+            star.style.transform = 'rotate(45deg)';
+            document.querySelector('header').appendChild(star);
+            let start = null;
+            function animate(timestamp) {
+                if (!start) start = timestamp;
+                const progress = (timestamp - start) / 1500;
+                star.style.left = (-5 + 105 * progress) + '%';
+                star.style.top = (parseFloat(star.style.top) + 5 * progress) + '%';
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    star.remove();
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+        setInterval(() => {
+            if (Math.random() < 0.7) createShootingStar();
+        }, 2000);
+
         // Scroll Animations
         const sections = document.querySelectorAll('section');
         const observer = new IntersectionObserver(entries => {
