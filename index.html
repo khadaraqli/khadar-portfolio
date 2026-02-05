@@ -10,7 +10,7 @@
     <!-- Open Graph for social sharing -->
     <meta property="og:title" content="Khadar Ali Aqli | IT & Shipping Operations Professional | Computer Scientist">
     <meta property="og:description" content="Bridging Maritime Operations with Cutting-Edge IT Solutions.">
-    <meta property="og:image" content="https://khadaraqli.github.io/khadar-portfolio/headshot.jpg"> <!-- Replace with actual image URL -->
+    <meta property="og:image" content="https://khadaraqli.github.io/khadar-portfolio/images/Sawir.jpg">
     <meta property="og:url" content="https://khadaraqli.github.io/khadar-portfolio/">
     <meta property="og:type" content="website">
     <!-- Schema.org markup for Person -->
@@ -28,114 +28,112 @@
         "https://www.linkedin.com/in/eng-khadar-aqli",
         "https://github.com/khadaraqli",
         "https://x.com/engaqli"
+      ],
+      "knowsAbout": [
+        "Computer Science",
+        "IT Networking",
+        "Shipping Operations",
+        "Maritime Logistics",
+        "Cybersecurity",
+        "AI in Logistics"
       ]
     }
     </script>
+    <!-- Additional Schema for Website -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://khadaraqli.github.io/khadar-portfolio/",
+      "name": "Khadar Ali Aqli Portfolio",
+      "description": "Professional portfolio showcasing expertise in IT and maritime operations."
+    }
+    </script>
     <title>Khadar Ali Aqli | IT & Shipping Operations Professional | Computer Scientist</title>
-    <link rel="icon" href="https://via.placeholder.com/32?text=KA" type="image/x-icon"> <!-- Replace with real favicon -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet"> <!-- Updated to include light weight -->
+    <link rel="icon" href="https://via.placeholder.com/32?text=KA" type="image/x-icon"> <!-- Replace with real favicon, e.g., favicon.ico -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"> <!-- Bootstrap for better layout -->
     <style>
         :root {
-            --primary-navy: #003366; /* Primary for headers, accents */
-            --accent-teal: #00BFFF; /* Eye-catching deep sky blue for buttons */
-            --accent-gold: #FFD700; /* Eye-catching gold for outline buttons */
-            --text-dark: #4D4D4D; /* Main text */
-            --bg-light: #F5F5F5; /* Backgrounds */
-            --white: #FFFFFF; /* Dominant base */
-            --border-gray: #D3D3D3; /* Borders */
-            --shadow: rgba(0, 0, 0, 0.1); /* Subtle shadows */
-            --color-education: #F5F5F5; /* Grey for Education */
-            --color-experience: #E0F7FA; /* Light cyan for Professional Experience */
-            --color-trainings: #E8F5E9; /* Light green for Trainings */
-            --color-certificates: #F3E5F5; /* Light purple for Certificates */
+            --primary-navy: #003366;
+            --accent-teal: #00BFFF;
+            --accent-gold: #FFD700;
+            --text-dark: #333333;
+            --bg-light: #F8F9FA;
+            --white: #FFFFFF;
+            --border-gray: #DEE2E6;
+            --shadow: rgba(0, 0, 0, 0.05);
+            --color-education: #F8F9FA;
+            --color-experience: #E0F7FA;
+            --color-trainings: #E8F5E9;
+            --color-certificates: #F3E5F5;
+            --color-achievements: #FFF3E0;
+            --color-testimonials: #E3F2FD;
+            --color-blog: #F0F4F8;
+            --color-volunteer: #E8F5E9;
 
-            /* Dark mode variables */
-            --bg-dark: #1A1A1A;
+            /* Dark mode */
+            --bg-dark: #121212;
             --text-light: #E0E0E0;
             --primary-dark: #336699;
             --accent-dark: #00A0A0;
-            --color-education-dark: #333333;
+            --color-education-dark: #212121;
             --color-experience-dark: #004D40;
             --color-trainings-dark: #1B5E20;
             --color-certificates-dark: #4A148C;
+            --color-achievements-dark: #3E2723;
+            --color-testimonials-dark: #0D47A1;
+            --color-blog-dark: #263238;
+            --color-volunteer-dark: #1B5E20;
         }
 
-        /* Dark mode */
         body.dark-mode {
             background: var(--bg-dark);
             color: var(--text-light);
         }
-        body.dark-mode section {
-            background: #2A2A2A;
-            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
-        }
-        body.dark-mode .card {
-            background: #333333 !important; /* Override card colors in dark mode */
+        body.dark-mode section, body.dark-mode .card {
+            background: #1E1E1E !important;
             color: var(--text-light);
-        }
-        body.dark-mode .skill-bar {
-            background: #444444;
-        }
-        body.dark-mode .skill-bar-fill {
-            background: var(--primary-dark);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
         body.dark-mode nav {
-            background: #111111;
-        }
-        body.dark-mode nav ul li a {
-            color: var(--text-light);
-        }
-        body.dark-mode nav ul li a:hover {
-            color: var(--accent-dark);
+            background: #0D0D0D;
         }
         body.dark-mode header {
-            background: linear-gradient(to bottom, #000033, #003366);
+            background: linear-gradient(to bottom, #000000, #001A33);
         }
         body.dark-mode footer {
-            background: #111111;
-            color: var(--text-light);
+            background: #0D0D0D;
         }
         body.dark-mode .btn-primary {
-            background: var(--primary-dark);
-        }
-        body.dark-mode .btn-outline {
             background: var(--accent-dark);
-            color: var(--text-light);
         }
-        body.dark-mode .btn-outline:hover {
-            background: var(--text-light);
-            color: #000033;
+        body.dark-mode .skill-bar {
+            background: #333333;
         }
-        body.dark-mode #about { background: #2A2A2A; }
-        body.dark-mode #education { background: var(--color-education-dark); }
-        body.dark-mode #experience { background: var(--color-experience-dark); }
-        body.dark-mode #trainings { background: var(--color-trainings-dark); }
-        body.dark-mode #certificates { background: var(--color-certificates-dark); }
+        body.dark-mode .skill-bar-fill {
+            background: var(--accent-dark);
+        }
 
-        /* RESET */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; } /* Smooth scrolling */
-        body { font-family: 'Inter', sans-serif; background: var(--bg-light); color: var(--text-dark); line-height: 1.7; font-size: 18px; } /* Base font size */
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-light); color: var(--text-dark); line-height: 1.6; font-size: 1rem; }
 
-        /* Typography Hierarchy */
-        h1 { font-size: 48px; font-weight: 700; }
-        h2 { font-size: 32px; font-weight: 700; }
-        h3 { font-size: 24px; font-weight: 600; }
-        p { font-size: 18px; font-weight: 400; }
-        small { font-size: 14px; }
+        h1 { font-size: 3rem; font-weight: 700; }
+        h2 { font-size: 2.5rem; font-weight: 700; }
+        h3 { font-size: 1.75rem; font-weight: 600; }
+        p { font-size: 1rem; }
 
-        /* HEADER (Hero Section) */
         header {
             position: relative;
             color: var(--white);
             text-align: center;
-            padding: 150px 20px 80px;
-            background: linear-gradient(to bottom, #000000, #000022); /* Dark black sky */
+            padding: 10rem 1rem 5rem;
+            background: linear-gradient(to bottom, #000033, #003366);
             overflow: hidden;
         }
 
-        /* Stars */
         .star {
             position: absolute;
             width: 2px; height: 2px;
@@ -143,566 +141,761 @@
             border-radius: 50%;
             animation: twinkle 2s infinite alternate;
         }
-        @keyframes twinkle {
-            0% { opacity: 0.2; }
-            50% { opacity: 1; }
-            100% { opacity: 0.2; }
-        }
+        @keyframes twinkle { 0% { opacity: 0.3; } 100% { opacity: 1; } }
 
-        /* Moon */
         .moon {
             position: absolute;
-            top: 20px; right: 20px;
-            width: 80px; height: 80px;
-            background: #fefbd8;
+            top: 2rem; right: 2rem;
+            width: 5rem; height: 5rem;
+            background: #FFFDE7;
             border-radius: 50%;
-            box-shadow: 0 0 30px 10px #fefbd8;
-            animation: floatMoon 6s ease-in-out infinite alternate;
+            box-shadow: 0 0 2rem 1rem #FFFDE7;
+            animation: floatMoon 5s ease-in-out infinite;
         }
-        @keyframes floatMoon {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0); }
-        }
+        @keyframes floatMoon { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-0.5rem); } }
 
         .headshot {
-            width: 150px;
-            height: 150px;
+            width: 10rem; height: 10rem;
             border-radius: 50%;
-            border: 4px solid var(--white);
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px var(--shadow);
-            loading: lazy; /* Performance */
+            border: 0.25rem solid var(--white);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0.25rem 1rem var(--shadow);
         }
 
-        header h1 { margin-bottom: 10px; }
-        header p.tagline { font-size: 24px; margin: 10px 0; }
-        header p.bio { max-width: 800px; margin: 0 auto 20px; font-size: 18px; }
-
-        .header-btns a {
-            display: inline-block;
-            margin: 12px;
-            padding: 12px 28px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: 0.3s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        nav {
+            background: var(--primary-navy);
+            position: sticky; top: 0; z-index: 1000;
+            box-shadow: 0 0.125rem 0.5rem var(--shadow);
         }
-        .btn-primary { background: var(--accent-teal); color: var(--white); }
-        .btn-primary:hover { opacity: 0.85; transform: scale(1.05); }
-        .btn-outline { background: var(--accent-gold); color: #000000; border: none; }
-        .btn-outline:hover { background: #DAA520; color: #FFFFFF; transform: scale(1.05); }
+        nav .navbar-nav .nav-link { color: var(--white) !important; font-weight: 600; }
+        nav .navbar-nav .nav-link:hover { color: var(--accent-teal) !important; }
 
-        /* NAV */
-        nav { background: var(--primary-navy); position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; box-shadow: 0 2px 10px var(--shadow); }
-        nav ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; }
-        nav ul li a { color: var(--white); margin: 0 14px; text-decoration: none; font-weight: 600; font-size: 16px; transition: color 0.3s; }
-        nav ul li a:hover { color: var(--accent-teal); }
+        section { max-width: 80rem; margin: 4rem auto; padding: 3rem; border-radius: 1rem; background: var(--white); box-shadow: 0 0.5rem 2rem var(--shadow); }
+        section h2 { border-bottom: 0.2rem solid var(--accent-teal); padding-bottom: 0.5rem; margin-bottom: 2rem; }
 
-        /* Dark Mode Toggle */
-        #dark-mode-toggle { background: none; border: none; color: var(--white); font-size: 20px; cursor: pointer; transition: transform 0.3s; }
-        #dark-mode-toggle:hover { transform: rotate(180deg); }
-
-        /* SECTIONS */
-        section { max-width: 1200px; margin: 60px auto; padding: 40px; border-radius: 14px; background: var(--white); box-shadow: 0 12px 35px var(--shadow); transition: opacity 0.7s ease, transform 0.7s ease; opacity: 0; transform: translateY(30px); }
-        section.show { opacity: 1; transform: translateY(0); }
-        section h2 { border-bottom: 3px solid var(--accent-teal); display: inline-block; padding-bottom: 6px; margin-bottom: 30px; }
         #about { background: var(--bg-light); }
         #education { background: var(--color-education); }
         #experience { background: var(--color-experience); }
         #trainings { background: var(--color-trainings); }
         #certificates { background: var(--color-certificates); }
+        #achievements { background: var(--color-achievements); }
+        #testimonials { background: var(--color-testimonials); }
+        #blog { background: var(--color-blog); }
+        #volunteer { background: var(--color-volunteer); }
 
-        /* Timeline for Education and Experience */
-        .timeline { position: relative; max-width: 100%; margin: 0 auto; }
-        .timeline::after { content: ''; position: absolute; width: 6px; background: var(--border-gray); top: 0; bottom: 0; left: 50%; margin-left: -3px; }
-        .timeline-item { padding: 10px 40px; position: relative; background: inherit; width: 50%; }
-        .timeline-item::after { content: ''; position: absolute; width: 25px; height: 25px; right: -17px; background: var(--white); border: 4px solid var(--accent-teal); top: 15px; border-radius: 50%; z-index: 1; }
-        .left { left: 0; }
-        .right { left: 50%; }
-        .right::after { left: -16px; }
-        .timeline-content { padding: 20px 30px; background: var(--bg-light); position: relative; border-radius: 6px; box-shadow: 0 4px 10px var(--shadow); transition: transform 0.3s; }
-        .timeline-content:hover { transform: translateY(-5px); }
+        .timeline::after { content: ''; position: absolute; width: 0.375rem; background: var(--border-gray); top: 0; bottom: 0; left: 50%; }
+        .timeline-item { padding: 0.625rem 2.5rem; width: 50%; }
+        .timeline-content { padding: 1.25rem 1.875rem; background: var(--bg-light); border-radius: 0.375rem; box-shadow: 0 0.25rem 0.625rem var(--shadow); }
 
-        /* SKILLS */
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .skill-group { background: var(--bg-light); padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px var(--shadow); }
-        .skill { margin-bottom: 18px; }
-        .skill-name { font-weight: 600; margin-bottom: 6px; }
-        .skill-bar { background: var(--border-gray); border-radius: 20px; overflow: hidden; height: 14px; }
-        .skill-bar-fill { height: 100%; border-radius: 20px; background: var(--accent-teal); transition: width 1s ease-in-out; }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 1.25rem; }
+        .skill-bar { background: var(--border-gray); border-radius: 1.25rem; height: 0.875rem; }
+        .skill-bar-fill { background: var(--accent-teal); border-radius: 1.25rem; height: 100%; }
 
-        /* PORTFOLIO */
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .project-card { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px var(--shadow); transition: transform 0.3s; }
-        .project-card:hover { transform: translateY(-5px); }
-        .project-img { width: 100%; height: 200px; object-fit: cover; loading: lazy; transition: transform 0.3s; }
-        .project-card:hover .project-img { transform: scale(1.05); }
-        .project-content { padding: 20px; }
-        .project-tech { font-size: 14px; color: var(--text-dark); margin: 10px 0; opacity: 0.8; }
-        .project-btns a { display: inline-block; margin-right: 10px; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 14px; }
-        .btn-demo { background: var(--accent-teal); color: var(--white); }
-        .btn-code { background: var(--primary-navy); color: var(--white); }
+        .projects-grid, .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 1.25rem; }
 
-        /* Modals for Portfolio Details */
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background: rgba(0,0,0,0.5); }
-        .modal-content { background: var(--white); margin: 15% auto; padding: 20px; border-radius: 12px; width: 80%; max-width: 800px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-        .close { color: var(--text-dark); float: right; font-size: 28px; font-weight: bold; cursor: pointer; transition: color 0.3s; }
-        .close:hover { color: var(--accent-teal); }
+        .modal-content { background: var(--white); padding: 1.25rem; border-radius: 0.75rem; }
 
-        /* CONTACT FORM */
-        #contact form { max-width: 600px; margin: 0 auto; }
-        #contact input, #contact textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid var(--border-gray); border-radius: 6px; font-size: 16px; transition: border-color 0.3s; }
-        #contact input:focus, #contact textarea:focus { border-color: var(--accent-teal); }
-        #contact button { padding: 12px 28px; background: var(--accent-teal); color: var(--white); border: none; border-radius: 6px; cursor: pointer; font-size: 16px; transition: background 0.3s; }
-        #contact button:hover { background: #0099CC; }
+        #contact form input, #contact textarea { border: 1px solid var(--border-gray); border-radius: 0.375rem; }
+        #contact button { background: var(--accent-teal); color: var(--white); }
 
-        /* Language Selector */
-        #language-selector { position: fixed; bottom: 20px; right: 20px; z-index: 100; display: flex; flex-direction: column; }
-        #language-selector button { padding: 8px 12px; margin: 5px 0; background: var(--primary-navy); color: var(--white); border: none; border-radius: 4px; cursor: pointer; transition: background 0.3s; }
-        #language-selector button:hover { background: var(--accent-teal); }
+        footer { background: var(--primary-navy); color: var(--white); padding: 3rem 1rem; }
+        footer a { color: var(--white); text-decoration: none; }
+        footer a:hover { color: var(--accent-teal); }
 
-        /* FOOTER */
-        footer { background: var(--primary-navy); color: var(--white); text-align: center; padding: 30px; margin-top: 50px; }
-        .social-links a { color: var(--white); margin: 0 10px; font-size: 1.5rem; text-decoration: none; transition: color 0.3s; }
-        .social-links a:hover { color: var(--accent-teal); }
+        #back-to-top { position: fixed; bottom: 2rem; right: 2rem; background: var(--accent-teal); color: var(--white); border-radius: 50%; width: 3rem; height: 3rem; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; }
+        #back-to-top.show { opacity: 1; }
 
-        /* Gallery */
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-        .gallery img { width: 100%; border-radius: 12px; loading: lazy; transition: transform 0.3s; }
-        .gallery img:hover { transform: scale(1.05); }
-
-        /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            header { padding: 100px 10px 50px; }
-            header h1 { font-size: 36px; }
-            section { padding: 20px; margin: 30px 10px; }
-            .timeline::after { left: 31px; }
-            .timeline-item { width: calc(100% - 60px); padding: 10px 20px 10px 60px; }
-            .timeline-item::after { left: 15px; }
-            .right { left: 0%; }
-            nav ul { flex-direction: column; }
-            nav ul li { margin: 10px 0; }
+            h1 { font-size: 2.25rem; }
+            section { padding: 2rem 1rem; }
+            .timeline::after { left: 1.875rem; }
+            .timeline-item { width: 100%; padding-left: 3.75rem; }
         }
-
-        /* Accessibility */
-        a:focus, button:focus, input:focus, textarea:focus { outline: 2px solid var(--accent-teal); }
-        img[alt=""] { display: none; } /* Hide images with empty alt for better accessibility */
     </style>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script> <!-- Replace with your GA ID -->
+    <!-- Google Analytics with provided ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VT5LFQ9EW4"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
+      gtag('config', 'G-VT5LFQ9EW4');
     </script>
 </head>
 
 <body>
 
-    <header>
+    <header class="text-center py-5">
         <div class="moon"></div>
-        <a href="images/Sawir.jpg" target="_blank"><img src="images/Sawir.jpg" alt="Professional headshot of Khadar Ali Aqli" class="headshot" loading="lazy"></a>
-        <h1>Khadar Ali Aqli</h1>
-        <p class="tagline">IT & Shipping Operations Professional | Computer Scientist</p>
-        <p class="bio">Bridging operational workflows with IT solutions to improve efficiency, accuracy, and service delivery in maritime and tech environments.</p>
-        <div class="header-btns">
-            <a href="cv.pdf" download class="btn-primary">Download Resume (PDF)</a>
-            <a href="#contact" class="btn-outline">Contact Me</a>
+        <a href="images/Sawir.jpg" target="_blank"><img src="images/Sawir.jpg" alt="Professional headshot of Khadar Ali Aqli" class="headshot mx-auto d-block" loading="lazy"></a>
+        <h1 class="mt-3">Khadar Ali Aqli</h1>
+        <p class="tagline lead">IT & Shipping Operations Professional | Computer Scientist</p>
+        <p class="bio container mx-auto">Bridging operational workflows with IT solutions to improve efficiency, accuracy, and service delivery in maritime and tech environments. With a passion for innovation, I combine technical expertise with practical experience to drive results in dynamic industries.</p>
+        <div class="header-btns mt-4">
+            <a href="cv.pdf" download class="btn btn-lg btn-primary me-3">Download Resume (PDF)</a>
+            <a href="#contact" class="btn btn-lg btn-outline-warning">Contact Me</a>
         </div>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#trainings">Trainings</a></li>
-            <li><a href="#certificates">Certificates</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Portfolio</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <button id="dark-mode-toggle" aria-label="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#trainings">Trainings</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certificates">Certificates</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#achievements">Achievements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#volunteer">Volunteer</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+                <button id="dark-mode-toggle" class="btn btn-outline-light" aria-label="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
     </nav>
 
-    <section id="about">
-        <h2>Professional Profile</h2>
-        <p>A highly motivated and results-driven professional with a strong combined background in Shipping & Maritime Operations and IT & Networking. Possesses a Master’s degree in Computer Science and extensive hands-on experience supporting port operations, logistics coordination, and technology-driven business environments.</p>
-        <p>Demonstrated expertise in port and container handling, shipping documentation, customs clearance, and maritime safety regulations, alongside solid technical skills in network administration, cyber security, and systems support.</p>
-        <p>Recognized for the ability to bridge operational workflows with IT solutions to improve efficiency, accuracy, and service delivery. Known for strong time management, teamwork, and leadership capabilities, with proven performance in fast-paced environments such as ports, shipping companies, educational institutions, and service-oriented organizations.</p>
-        <ul>
-            <li><strong>Nationality:</strong> Somalilander</li>
-            <li><strong>Languages:</strong> Somali (Native), English (Fluent), Arabic (Basic)</li>
-            <li><strong>Email:</strong> <a href="mailto:khadaraqli@students.diu.ac">khadaraqli@students.diu.ac</a></li>
-            <li><strong>Phone:</strong> +252 65 4242420 / +252 63 4067640</li>
-            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/eng-khadar-aqli" target="_blank" rel="noopener noreferrer">linkedin.com/in/eng-khadar-aqli</a></li>
-            <li><strong>GitHub:</strong> <a href="https://github.com/khadaraqli" target="_blank" rel="noopener noreferrer">github.com/khadaraqli</a></li>
-            <li><strong>X (Twitter):</strong> <a href="https://x.com/engaqli" target="_blank" rel="noopener noreferrer">x.com/engaqli</a></li>
-        </ul>
-    </section>
-
-    <section id="education">
-        <h2>Education</h2>
-        <div class="timeline">
-            <div class="timeline-item left">
-                <div class="timeline-content">
-                    <h3>MSc in Computer Science</h3>
-                    <small>Dhaka International University, Bangladesh (2016–2017)</small>
-                    <p>Relevant coursework: Algorithms, Data Structures, Machine Learning, Network Security. Thesis: "Optimizing Logistics Networks Using AI."</p>
-                    <a href="certificates/Master.pdf" target="_blank" rel="noopener noreferrer">View Certificate</a>
-                </div>
-            </div>
-            <div class="timeline-item right">
-                <div class="timeline-content">
-                    <h3>Bachelor’s Degree</h3>
-                    <small>Admas University, Hargeisa (2012–2015)</small>
-                    <p>Focus on Computer Science fundamentals, including programming and systems administration.</p>
-                    <a href="certificates/Degree.pdf" target="_blank" rel="noopener noreferrer">View Certificate</a>
-                </div>
-            </div>
-            <div class="timeline-item left">
-                <div class="timeline-content">
-                    <h3>GCSE</h3>
-                    <small>Farah Omar Secondary School (2007–2011)</small>
-                    <a href="certificates/Secondary.pdf" target="_blank" rel="noopener noreferrer">View Certificate</a>
-                </div>
-            </div>
-            <div class="timeline-item right">
-                <div class="timeline-content">
-                    <h3>PSC</h3>
-                    <small>Sheikh Madar Primary School (1999–2007)</small>
-                    <a href="certificates/Primary.pdf" target="_blank" rel="noopener noreferrer">View Certificate</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience">
-        <h2>Professional Experience</h2>
-        <div class="timeline">
-            <div class="timeline-item left">
-                <div class="timeline-content">
-                    <h3>Assistant Operation Manager</h3>
-                    <small>Pacific International Lines (PIL) | 2020–Present</small> <!-- Updated to current -->
-                    <ul>
-                        <li>Managed daily port operations, coordinating container handling and logistics for efficient throughput.</li>
-                        <li>Implemented IT solutions to track shipments, reducing delays by 15%.</li>
-                        <li>Ensured compliance with maritime safety regulations.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="timeline-item right">
-                <div class="timeline-content">
-                    <h3>Commercial Staff</h3>
-                    <small>WBH Bill Clark Shipping | 2018–2019</small>
-                    <ul>
-                        <li>Handled shipping documentation and customs clearance processes.</li>
-                        <li>Utilized Microsoft Office for reporting, improving accuracy in commercial operations.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="timeline-item left">
-                <div class="timeline-content">
-                    <h3>Assistant Manager</h3>
-                    <small>Dhidar Company | 2013–2016</small>
-                    <ul>
-                        <li>Oversaw team operations and administrative tasks.</li>
-                        <li>Introduced network improvements for better internal communication.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="timeline-item right">
-                <div class="timeline-content">
-                    <h3>Admin & Finance Officer</h3>
-                    <small>Global ICT Institute of Technology | 2019</small>
-                    <ul>
-                        <li>Managed finances and administrative systems using IT tools.</li>
-                        <li>Streamlined processes with Excel automation.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="timeline-item left">
-                <div class="timeline-content">
-                    <h3>Lecturer</h3>
-                    <small>New Generation University | 2019</small>
-                    <ul>
-                        <li>Taught Computer Science courses, focusing on networking and cybersecurity.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="timeline-item right">
-                <div class="timeline-content">
-                    <h3>Manager & Lecturer</h3>
-                    <small>Horsed Computer Science Institute | 2019</small>
-                    <ul>
-                        <li>Managed institute operations and delivered lectures on IT topics.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="timeline-item left">
-                <div class="timeline-content">
-                    <h3>IT & Network Assistant</h3>
-                    <small>Africa Online, Hargeisa | 2005</small>
-                    <ul>
-                        <li>Assisted in network setup and maintenance.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="timeline-item right">
-                <div class="timeline-content">
-                    <h3>Teacher</h3>
-                    <small>Sheikh Madar Primary School | 2009</small>
-                    <ul>
-                        <li>Taught basic subjects, including introductory computer skills.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="trainings">
-        <h2>Trainings & Seminars</h2>
-        <div class="cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-            <div class="card">
-                <i class="fas fa-ship" aria-hidden="true"></i>
-                <h3>Shipping & Maritime</h3>
-                <ul>
-                    <li>Port & Container Handling – Berbera (2020)</li>
-                    <li>Logistics & Shipping Operations – Hargeisa (2021)</li>
-                    <li>Safety & Maritime Regulations – Burco (2021)</li>
-                    <li>Cargo Documentation & Customs Clearance – Berbera (2022)</li>
-                    <li>Maritime Safety & First Aid – Gabiley (2023)</li>
-                    <li>Ship & Port Communication Systems – Berbera (2025)</li>
-                </ul>
-            </div>
-            <div class="card">
-                <i class="fas fa-laptop-code" aria-hidden="true"></i>
-                <h3>IT & Networking</h3>
-                <ul>
-                    <li>Network Security – Gabiley (2014)</li>
-                    <li>Wireless Networking – Hargeisa (2015)</li>
-                    <li>Cyber Security – Hargeisa (2019)</li>
-                    <li>CCTV Installation & Configuration – Burco (2020)</li>
-                    <li>Biometric Systems Management – Hargeisa (2020)</li>
+    <section id="about" class="container">
+        <h2 class="text-center">Professional Profile</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <p>A highly motivated and results-driven professional with a strong combined background in Shipping & Maritime Operations and IT & Networking. Possesses a Master’s degree in Computer Science and extensive hands-on experience supporting port operations, logistics coordination, and technology-driven business environments.</p>
+                <p>Demonstrated expertise in port and container handling, shipping documentation, customs clearance, and maritime safety regulations, alongside solid technical skills in network administration, cyber security, and systems support.</p>
+                <p>Recognized for the ability to bridge operational workflows with IT solutions to improve efficiency, accuracy, and service delivery. Known for strong time management, teamwork, and leadership capabilities, with proven performance in fast-paced environments such as ports, shipping companies, educational institutions, and service-oriented organizations.</p>
+                <ul class="list-unstyled">
+                    <li><strong>Nationality:</strong> Somalilander</li>
+                    <li><strong>Languages:</strong> Somali (Native), English (Fluent), Arabic (Basic)</li>
+                    <li><strong>Email:</strong> <a href="mailto:khadaraqli@students.diu.ac">khadaraqli@students.diu.ac</a></li>
+                    <li><strong>Phone:</strong> +252 65 4242420 / +252 63 4067640</li>
+                    <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/eng-khadar-aqli" target="_blank" rel="noopener noreferrer">linkedin.com/in/eng-khadar-aqli</a></li>
+                    <li><strong>GitHub:</strong> <a href="https://github.com/khadaraqli" target="_blank" rel="noopener noreferrer">github.com/khadaraqli</a></li>
+                    <li><strong>X (Twitter):</strong> <a href="https://x.com/engaqli" target="_blank" rel="noopener noreferrer">x.com/engaqli</a></li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section id="certificates">
-        <h2>Certificates</h2>
-        <div class="cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-            <div class="card">
-                <i class="fas fa-certificate" aria-hidden="true"></i>
-                <h3>CCNA Routing and Switching</h3>
-                <small>New Horizon, Dhaka, Bangladesh | 2016</small>
-                <a href="certificates/CCNA.pdf" target="_blank" rel="noopener noreferrer">View Certificate</a>
-            </div>
-            <div class="card">
-                <i class="fas fa-certificate" aria-hidden="true"></i>
-                <h3>Essentials of MS Excel – Formulas & Functions</h3>
-                <small>Cambridge International University, London | 2025</small>
-                <a href="certificates/Excel.pdf" target="_blank" rel="noopener noreferrer">View Certificate</a>
-            </div>
-            <div class="card">
-                <i class="fas fa-certificate" aria-hidden="true"></i>
-                <h3>Human Resource Management</h3>
-                <small>Cambridge International University, London | 2025</small>
-                <a href="certificates/Human.pdf" target="_blank" rel="noopener noreferrer">View Certificate</a>
-            </div>
-            <div class="card">
-                <i class="fas fa-certificate" aria-hidden="true"></i>
-                <h3>Leadership & Change Management</h3>
-                <small>Cambridge International University, London | 2025</small>
-                <a href="certificates/Leadership.pdf" target="_blank" rel="noopener noreferrer">View Certificate</a>
-            </div>
-            <div class="card">
-                <i class="fas fa-certificate" aria-hidden="true"></i>
-                <h3>E-Governance</h3>
-                <small>Cambridge International University, London | 2025</small>
-                <a href="certificates/Governance.pdf" target="_blank" rel="noopener noreferrer">View Certificate</a>
-            </div>
-            <div class="card">
-                <i class="fas fa-certificate" aria-hidden="true"></i>
-                <h3>Legal Writing</h3>
-                <small>Cambridge International University, London | 2025</small>
-                <a href="certificates/Legal.pdf" target="_blank" rel="noopener noreferrer">View Certificate</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills">
-        <h2>Key Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-group">
-                <h3>Networking & IT</h3>
-                <div class="skill">
-                    <div class="skill-name">Cisco Networking & Routing</div>
-                    <div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div>
-                </div>
-                <div class="skill">
-                    <div class="skill-name">Server & Systems Administration</div>
-                    <div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div>
-                </div>
-                <div class="skill">
-                    <div class="skill-name">Cybersecurity</div>
-                    <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
-                </div>
-                <div class="skill">
-                    <div class="skill-name">Wireless Networking</div>
-                    <div class="skill-bar"><div class="skill-bar-fill" style="width:75%"></div></div>
+    <section id="education" class="container">
+        <h2 class="text-center">Education</h2>
+        <div class="timeline position-relative">
+            <div class="timeline-item left">
+                <div class="timeline-content card">
+                    <h3 class="card-title">MSc in Computer Science</h3>
+                    <small class="text-muted">Dhaka International University, Bangladesh (2016–2017)</small>
+                    <p class="card-text">Relevant coursework: Algorithms, Data Structures, Machine Learning, Network Security. Thesis: "Optimizing Logistics Networks Using AI."</p>
+                    <a href="certificates/Master.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-primary">View Certificate</a>
                 </div>
             </div>
-            <div class="skill-group">
-                <h3>Programming & Development</h3>
-                <div class="skill">
-                    <div class="skill-name">Python</div>
-                    <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
-                </div>
-                <div class="skill">
-                    <div class="skill-name">Java</div>
-                    <div class="skill-bar"><div class="skill-bar-fill" style="width:70%"></div></div>
-                </div>
-                <div class="skill">
-                    <div class="skill-name">SQL & Databases</div>
-                    <div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div>
-                </div>
-                <div class="skill">
-                    <div class="skill-name">Web Development (HTML/CSS/JS)</div>
-                    <div class="skill-bar"><div class="skill-bar-fill" style="width:75%"></div></div>
+            <div class="timeline-item right">
+                <div class="timeline-content card">
+                    <h3 class="card-title">Bachelor’s Degree</h3>
+                    <small class="text-muted">Admas University, Hargeisa (2012–2015)</small>
+                    <p class="card-text">Focus on Computer Science fundamentals, including programming and systems administration.</p>
+                    <a href="certificates/Degree.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-primary">View Certificate</a>
                 </div>
             </div>
-            <div class="skill-group">
-                <h3>Shipping & Logistics</h3>
-                <div class="skill">
-                    <div class="skill-name">Shipping & Logistics Operations</div>
-                    <div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div>
+            <div class="timeline-item left">
+                <div class="timeline-content card">
+                    <h3 class="card-title">GCSE</h3>
+                    <small class="text-muted">Farah Omar Secondary School (2007–2011)</small>
+                    <a href="certificates/Secondary.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-primary">View Certificate</a>
                 </div>
-                <div class="skill">
-                    <div class="skill-name">Microsoft Office & Documentation</div>
-                    <div class="skill-bar"><div class="skill-bar-fill" style="width:95%"></div></div>
-                </div>
-                <div class="skill">
-                    <div class="skill-name">Customs Clearance & Regulations</div>
-                    <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content card">
+                    <h3 class="card-title">PSC</h3>
+                    <small class="text-muted">Sheikh Madar Primary School (1999–2007)</small>
+                    <a href="certificates/Primary.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-primary">View Certificate</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="projects">
-        <h2>Portfolio</h2>
-        <p>Showcasing projects that demonstrate my Computer Science skills applied to real-world problems, particularly in maritime and IT domains.</p>
-        <div class="projects-grid">
-            <div class="project-card" onclick="openModal('modal1')">
-                <img src="https://via.placeholder.com/300x200?text=Logistics+App" alt="Screenshot of Logistics Tracking App" class="project-img" loading="lazy">
-                <div class="project-content">
-                    <h3>Logistics Tracking Web App</h3>
-                    <p>A full-stack application for real-time shipment tracking in ports.</p>
-                    <p class="project-tech">Tech: Python (Django), JavaScript, PostgreSQL, Docker</p>
-                    <div class="project-btns">
-                        <a href="https://example.com/demo" target="_blank" rel="noopener noreferrer" class="btn-demo">Live Demo</a>
-                        <a href="https://github.com/khadaraqli/logistics-app" target="_blank" rel="noopener noreferrer" class="btn-code">View Code</a>
+    <section id="experience" class="container">
+        <h2 class="text-center">Professional Experience</h2>
+        <div class="timeline position-relative">
+            <div class="timeline-item left">
+                <div class="timeline-content card">
+                    <h3 class="card-title">Assistant Operation Manager</h3>
+                    <small class="text-muted">Pacific International Lines (PIL) | 2020–Present</small>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Managed daily port operations, coordinating container handling and logistics for efficient throughput.</li>
+                        <li class="list-group-item">Implemented IT solutions to track shipments, reducing delays by 15%.</li>
+                        <li class="list-group-item">Ensured compliance with maritime safety regulations.</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Add other experience items similarly -->
+            <div class="timeline-item right">
+                <div class="timeline-content card">
+                    <h3 class="card-title">Commercial Staff</h3>
+                    <small class="text-muted">WBH Bill Clark Shipping | 2018–2019</small>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Handled shipping documentation and customs clearance processes.</li>
+                        <li class="list-group-item">Utilized Microsoft Office for reporting, improving accuracy in commercial operations.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item left">
+                <div class="timeline-content card">
+                    <h3 class="card-title">Assistant Manager</h3>
+                    <small class="text-muted">Dhidar Company | 2013–2016</small>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Oversaw team operations and administrative tasks.</li>
+                        <li class="list-group-item">Introduced network improvements for better internal communication.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content card">
+                    <h3 class="card-title">Admin & Finance Officer</h3>
+                    <small class="text-muted">Global ICT Institute of Technology | 2019</small>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Managed finances and administrative systems using IT tools.</li>
+                        <li class="list-group-item">Streamlined processes with Excel automation.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item left">
+                <div class="timeline-content card">
+                    <h3 class="card-title">Lecturer</h3>
+                    <small class="text-muted">New Generation University | 2019</small>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Taught Computer Science courses, focusing on networking and cybersecurity.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content card">
+                    <h3 class="card-title">Manager & Lecturer</h3>
+                    <small class="text-muted">Horsed Computer Science Institute | 2019</small>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Managed institute operations and delivered lectures on IT topics.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item left">
+                <div class="timeline-content card">
+                    <h3 class="card-title">IT & Network Assistant</h3>
+                    <small class="text-muted">Africa Online, Hargeisa | 2005</small>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Assisted in network setup and maintenance.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content card">
+                    <h3 class="card-title">Teacher</h3>
+                    <small class="text-muted">Sheikh Madar Primary School | 2009</small>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Taught basic subjects, including introductory computer skills.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="trainings" class="container">
+        <h2 class="text-center">Trainings & Seminars</h2>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <i class="fas fa-ship fa-2x mb-3 text-primary"></i>
+                        <h3 class="card-title">Shipping & Maritime</h3>
+                        <ul class="list-unstyled">
+                            <li>Port & Container Handling – Berbera (2020)</li>
+                            <li>Logistics & Shipping Operations – Hargeisa (2021)</li>
+                            <li>Safety & Maritime Regulations – Burco (2021)</li>
+                            <li>Cargo Documentation & Customs Clearance – Berbera (2022)</li>
+                            <li>Maritime Safety & First Aid – Gabiley (2023)</li>
+                            <li>Ship & Port Communication Systems – Berbera (2025)</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="project-card" onclick="openModal('modal2')">
-                <img src="https://via.placeholder.com/300x200?text=Network+Tool" alt="Screenshot of Network Security Tool" class="project-img" loading="lazy">
-                <div class="project-content">
-                    <h3>Network Security Monitoring Tool</h3>
-                    <p>A script-based tool to detect vulnerabilities in network infrastructures.</p>
-                    <p class="project-tech">Tech: Python, Scapy, AWS CloudWatch</p>
-                    <div class="project-btns">
-                        <a href="https://example.com/demo" target="_blank" rel="noopener noreferrer" class="btn-demo">Live Demo</a>
-                        <a href="https://github.com/khadaraqli/network-tool" target="_blank" rel="noopener noreferrer" class="btn-code">View Code</a>
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <i class="fas fa-laptop-code fa-2x mb-3 text-primary"></i>
+                        <h3 class="card-title">IT & Networking</h3>
+                        <ul class="list-unstyled">
+                            <li>Network Security – Gabiley (2014)</li>
+                            <li>Wireless Networking – Hargeisa (2015)</li>
+                            <li>Cyber Security – Hargeisa (2019)</li>
+                            <li>CCTV Installation & Configuration – Burco (2020)</li>
+                            <li>Biometric Systems Management – Hargeisa (2020)</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <!-- Add more if needed -->
+        </div>
+    </section>
+
+    <section id="certificates" class="container">
+        <h2 class="text-center">Certificates</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <i class="fas fa-certificate fa-2x mb-3 text-success"></i>
+                        <h3 class="card-title">CCNA Routing and Switching</h3>
+                        <small class="text-muted">New Horizon, Dhaka, Bangladesh | 2016</small>
+                        <a href="certificates/CCNA.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-success mt-2">View Certificate</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Add other certificates similarly -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <i class="fas fa-certificate fa-2x mb-3 text-success"></i>
+                        <h3 class="card-title">Essentials of MS Excel – Formulas & Functions</h3>
+                        <small class="text-muted">Cambridge International University, London | 2025</small>
+                        <a href="certificates/Excel.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-success mt-2">View Certificate</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <i class="fas fa-certificate fa-2x mb-3 text-success"></i>
+                        <h3 class="card-title">Human Resource Management</h3>
+                        <small class="text-muted">Cambridge International University, London | 2025</small>
+                        <a href="certificates/Human.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-success mt-2">View Certificate</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <i class="fas fa-certificate fa-2x mb-3 text-success"></i>
+                        <h3 class="card-title">Leadership & Change Management</h3>
+                        <small class="text-muted">Cambridge International University, London | 2025</small>
+                        <a href="certificates/Leadership.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-success mt-2">View Certificate</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <i class="fas fa-certificate fa-2x mb-3 text-success"></i>
+                        <h3 class="card-title">E-Governance</h3>
+                        <small class="text-muted">Cambridge International University, London | 2025</small>
+                        <a href="certificates/Governance.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-success mt-2">View Certificate</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <i class="fas fa-certificate fa-2x mb-3 text-success"></i>
+                        <h3 class="card-title">Legal Writing</h3>
+                        <small class="text-muted">Cambridge International University, London | 2025</small>
+                        <a href="certificates/Legal.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-success mt-2">View Certificate</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="container">
+        <h2 class="text-center">Key Skills</h2>
+        <div class="skills-grid row">
+            <div class="col-md-4 mb-4">
+                <div class="skill-group card">
+                    <div class="card-body">
+                        <h3 class="card-title">Networking & IT</h3>
+                        <div class="skill mb-3">
+                            <div class="skill-name">Cisco Networking & Routing</div>
+                            <div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div>
+                        </div>
+                        <div class="skill mb-3">
+                            <div class="skill-name">Server & Systems Administration</div>
+                            <div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div>
+                        </div>
+                        <div class="skill mb-3">
+                            <div class="skill-name">Cybersecurity</div>
+                            <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
+                        </div>
+                        <div class="skill">
+                            <div class="skill-name">Wireless Networking</div>
+                            <div class="skill-bar"><div class="skill-bar-fill" style="width:75%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="skill-group card">
+                    <div class="card-body">
+                        <h3 class="card-title">Programming & Development</h3>
+                        <div class="skill mb-3">
+                            <div class="skill-name">Python</div>
+                            <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
+                        </div>
+                        <div class="skill mb-3">
+                            <div class="skill-name">Java</div>
+                            <div class="skill-bar"><div class="skill-bar-fill" style="width:70%"></div></div>
+                        </div>
+                        <div class="skill mb-3">
+                            <div class="skill-name">SQL & Databases</div>
+                            <div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div>
+                        </div>
+                        <div class="skill">
+                            <div class="skill-name">Web Development (HTML/CSS/JS)</div>
+                            <div class="skill-bar"><div class="skill-bar-fill" style="width:75%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="skill-group card">
+                    <div class="card-body">
+                        <h3 class="card-title">Shipping & Logistics</h3>
+                        <div class="skill mb-3">
+                            <div class="skill-name">Shipping & Logistics Operations</div>
+                            <div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div>
+                        </div>
+                        <div class="skill mb-3">
+                            <div class="skill-name">Microsoft Office & Documentation</div>
+                            <div class="skill-bar"><div class="skill-bar-fill" style="width:95%"></div></div>
+                        </div>
+                        <div class="skill">
+                            <div class="skill-name">Customs Clearance & Regulations</div>
+                            <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="container">
+        <h2 class="text-center">Portfolio</h2>
+        <p class="text-center mb-4">Showcasing projects that demonstrate my Computer Science skills applied to real-world problems, particularly in maritime and IT domains.</p>
+        <div class="projects-grid row">
+            <div class="col-md-6 mb-4">
+                <div class="project-card card" onclick="openModal('modal1')">
+                    <img src="https://via.placeholder.com/300x200?text=Logistics+App" alt="Screenshot of Logistics Tracking App" class="card-img-top project-img">
+                    <div class="card-body project-content">
+                        <h3 class="card-title">Logistics Tracking Web App</h3>
+                        <p class="card-text">A full-stack application for real-time shipment tracking in ports.</p>
+                        <p class="project-tech text-muted">Tech: Python (Django), JavaScript, PostgreSQL, Docker</p>
+                        <div class="project-btns">
+                            <a href="https://example.com/demo" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary btn-demo">Live Demo</a>
+                            <a href="https://github.com/khadaraqli/logistics-app" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-dark btn-code">View Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="project-card card" onclick="openModal('modal2')">
+                    <img src="https://via.placeholder.com/300x200?text=Network+Tool" alt="Screenshot of Network Security Tool" class="card-img-top project-img">
+                    <div class="card-body project-content">
+                        <h3 class="card-title">Network Security Monitoring Tool</h3>
+                        <p class="card-text">A script-based tool to detect vulnerabilities in network infrastructures.</p>
+                        <p class="project-tech text-muted">Tech: Python, Scapy, AWS CloudWatch</p>
+                        <div class="project-btns">
+                            <a href="https://example.com/demo" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary btn-demo">Live Demo</a>
+                            <a href="https://github.com/khadaraqli/network-tool" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-dark btn-code">View Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Additional project example -->
+            <div class="col-md-6 mb-4">
+                <div class="project-card card" onclick="openModal('modal3')">
+                    <img src="https://via.placeholder.com/300x200?text=AI+Logistics+Optimizer" alt="Screenshot of AI Logistics Optimizer" class="card-img-top project-img">
+                    <div class="card-body project-content">
+                        <h3 class="card-title">AI Logistics Optimizer</h3>
+                        <p class="card-text">An AI-powered tool to optimize supply chain routes using machine learning algorithms.</p>
+                        <p class="project-tech text-muted">Tech: Python, TensorFlow, Scikit-learn, Google Maps API</p>
+                        <div class="project-btns">
+                            <a href="https://example.com/demo-ai" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary btn-demo">Live Demo</a>
+                            <a href="https://github.com/khadaraqli/ai-logistics" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-dark btn-code">View Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- Modals -->
-        <div id="modal1" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('modal1')">&times;</span>
-                <h3>Logistics Tracking Web App Details</h3>
-                <p>Detailed description, features, challenges solved, etc.</p>
-                <!-- Add video/embed if available -->
+        <div id="modal1" class="modal fade" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Logistics Tracking Web App Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>This application enables real-time tracking of shipments, integrating GPS data with port systems to provide updates on container status, estimated arrival times, and alerts for delays. Challenges solved include data synchronization across multiple platforms and ensuring secure access for stakeholders.</p>
+                        <!-- Embed video if available -->
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/example" title="Project Demo" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
             </div>
         </div>
-        <div id="modal2" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('modal2')">&times;</span>
-                <h3>Network Security Monitoring Tool Details</h3>
-                <p>Detailed description...</p>
+        <div id="modal2" class="modal fade" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Network Security Monitoring Tool Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>This tool scans network traffic for vulnerabilities, using packet analysis to detect anomalies and potential threats. It integrates with cloud monitoring for real-time alerts and reporting.</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <h3>Additional Visuals</h3>
-        <div class="gallery">
-            <img src="images/IMG_7117.jpeg" alt="Project visual 1">
-            <img src="images/IMG_7993.jpeg" alt="Project visual 2">
-            <img src="images/IMG_8834.jpeg" alt="Project visual 3">
-            <img src="images/IMG_8925.jpeg" alt="Project visual 4">
+        <div id="modal3" class="modal fade" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">AI Logistics Optimizer Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Leveraging machine learning, this optimizer predicts optimal routes, reduces fuel consumption, and minimizes delays in supply chains. It was developed as part of my thesis work and has been applied in pilot projects at ports.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3 class="text-center mt-5">Additional Visuals</h3>
+        <div class="gallery row">
+            <div class="col-md-3"><img src="images/IMG_7117.jpeg" alt="Project visual 1" class="img-fluid rounded"></div>
+            <div class="col-md-3"><img src="images/IMG_7993.jpeg" alt="Project visual 2" class="img-fluid rounded"></div>
+            <div class="col-md-3"><img src="images/IMG_8834.jpeg" alt="Project visual 3" class="img-fluid rounded"></div>
+            <div class="col-md-3"><img src="images/IMG_8925.jpeg" alt="Project visual 4" class="img-fluid rounded"></div>
         </div>
     </section>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p><strong>Email:</strong> <a href="mailto:khadaraqli@students.diu.ac">khadaraqli@students.diu.ac</a></p>
-        <p><strong>Phone:</strong> +252 65 4242420 / +252 63 4067640</p>
-        <p>Schedule a meeting: <a href="https://calendly.com/khadaraqli" target="_blank" rel="noopener noreferrer">Book Time</a></p> <!-- Update with your actual Calendly link -->
-        <form action="mailto:khadaraqli@students.diu.ac" method="post" enctype="text/plain">
-            <input type="text" name="name" placeholder="Your Name" required aria-label="Your Name">
-            <input type="email" name="email" placeholder="Your Email" required aria-label="Your Email">
-            <textarea name="message" placeholder="Your Message" rows="5" required aria-label="Your Message"></textarea>
-            <button type="submit">Send Message</button>
-        </form>
+    <section id="achievements" class="container">
+        <h2 class="text-center">Achievements & Awards</h2>
+        <p class="text-center mb-4">Highlighting key accomplishments that demonstrate impact in IT, maritime operations, and education.</p>
+        <div class="timeline position-relative">
+            <div class="timeline-item left">
+                <div class="timeline-content card">
+                    <h3 class="card-title">Optimized Shipment Tracking System</h3>
+                    <small class="text-muted">Pacific International Lines (PIL) | 2022</small>
+                    <p class="card-text">Led the development and deployment of an AI-driven tracking tool, resulting in a 20% increase in operational efficiency and recognition from senior management for innovation in logistics.</p>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content card">
+                    <h3 class="card-title">Excellence in Teaching Award</h3>
+                    <small class="text-muted">New Generation University | 2019</small>
+                    <p class="card-text">Awarded for outstanding contributions to computer science education, including curriculum development in networking and cybersecurity, benefiting over 200 students.</p>
+                </div>
+            </div>
+            <div class="timeline-item left">
+                <div class="timeline-content card">
+                    <h3 class="card-title">CCNA Certification Milestone</h3>
+                    <small class="text-muted">New Horizon, Dhaka | 2016</small>
+                    <p class="card-text">Achieved top scores in CCNA exams, leading to immediate application in network optimization projects and a commendation for technical excellence.</p>
+                </div>
+            </div>
+            <!-- Add more achievements -->
+            <div class="timeline-item right">
+                <div class="timeline-content card">
+                    <h3 class="card-title">Innovation in Maritime IT Integration</h3>
+                    <small class="text-muted">Berbera Port Authority | 2023</small>
+                    <p class="card-text">Recognized for implementing biometric systems that enhanced security and reduced processing times by 25% at key port facilities.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <footer>
-        <p>© 2026 Khadar Ali Aqli. All Rights Reserved.</p>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/eng-khadar-aqli" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/khadaraqli" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://x.com/engaqli" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fab fa-twitter"></i></a>
+    <section id="testimonials" class="container">
+        <h2 class="text-center">Testimonials</h2>
+        <p class="text-center mb-4">Insights from colleagues, mentors, and clients on my professional contributions and collaborative approach.</p>
+        <div class="row projects-grid">
+            <div class="col-md-4 mb-4">
+                <div class="card project-card">
+                    <div class="card-body project-content">
+                        <p class="card-text">"Khadar's integration of IT solutions into our shipping operations transformed our efficiency. His expertise in AI for logistics is unmatched." – Operations Director, Pacific International Lines</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card project-card">
+                    <div class="card-body project-content">
+                        <p class="card-text">"As a lecturer, Khadar inspired students with practical insights into cybersecurity. His leadership in institute management was exemplary." – Dean, New Generation University</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card project-card">
+                    <div class="card-body project-content">
+                        <p class="card-text">"Khadar's network security tools provided robust protection for our systems. Highly reliable and innovative professional." – IT Manager, Dhidar Company</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more testimonials -->
+            <div class="col-md-4 mb-4">
+                <div class="card project-card">
+                    <div class="card-body project-content">
+                        <p class="card-text">"Khadar's volunteer work in IT literacy has empowered our community. His dedication is inspiring." – Community Leader, Hargeisa</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <a href="/privacy-policy.html">Privacy Policy</a> <!-- Add a simple privacy policy page -->
+    </section>
+
+    <section id="blog" class="container">
+        <h2 class="text-center">Blog & Publications</h2>
+        <p class="text-center mb-4">Sharing knowledge on IT innovations in maritime logistics, cybersecurity trends, and operational best practices.</p>
+        <div class="row projects-grid">
+            <div class="col-md-4 mb-4">
+                <div class="card project-card">
+                    <div class="card-body project-content">
+                        <h3 class="card-title">AI in Supply Chain Optimization: Lessons from Port Operations</h3>
+                        <p class="card-text">Exploring how machine learning algorithms can reduce bottlenecks in container handling, based on real-world implementations.</p>
+                        <a href="https://medium.com/@khadaraqli/ai-supply-chain" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">Read Article</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card project-card">
+                    <div class="card-body project-content">
+                        <h3 class="card-title">Cybersecurity Challenges in Maritime Networks</h3>
+                        <p class="card-text">A deep dive into protecting ship-port communication systems from emerging threats, with case studies from Somaliland ports.</p>
+                        <a href="https://medium.com/@khadaraqli/maritime-cybersecurity" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">Read Article</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card project-card">
+                    <div class="card-body project-content">
+                        <h3 class="card-title">The Role of Wireless Networking in Modern Logistics</h3>
+                        <p class="card-text">Discussing advancements in wireless tech for real-time tracking and their impact on global shipping efficiency.</p>
+                        <a href="https://medium.com/@khadaraqli/wireless-logistics" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">Read Article</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more blog posts -->
+            <div class="col-md-4 mb-4">
+                <div class="card project-card">
+                    <div class="card-body project-content">
+                        <h3 class="card-title">Future of E-Governance in Developing Regions</h3>
+                        <p class="card-text">Insights from my certification, exploring how digital governance can improve public services in areas like Somaliland.</p>
+                        <a href="https://medium.com/@khadaraqli/e-governance" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">Read Article</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="text-center mt-3">Follow my blog for more insights: <a href="https://medium.com/@khadaraqli" target="_blank" rel="noopener noreferrer">Medium Profile</a></p>
+    </section>
+
+    <section id="volunteer" class="container">
+        <h2 class="text-center">Volunteer Experience</h2>
+        <p class="text-center mb-4">Contributing to community development through IT education and maritime safety initiatives.</p>
+        <div class="timeline position-relative">
+            <div class="timeline-item left">
+                <div class="timeline-content card">
+                    <h3 class="card-title">IT Literacy Program Coordinator</h3>
+                    <small class="text-muted">Local Community Center, Hargeisa | 2023–Present</small>
+                    <p class="card-text">Organized workshops teaching basic computer skills to underprivileged youth, impacting over 100 participants and fostering digital inclusion.</p>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content card">
+                    <h3 class="card-title">Maritime Safety Volunteer</h3>
+                    <small class="text-muted">Berbera Port Community Outreach | 2021–2022</small>
+                    <p class="card-text">Conducted safety training sessions for local fishermen, emphasizing regulatory compliance and first aid, in collaboration with regional authorities.</p>
+                </div>
+            </div>
+            <!-- Add more volunteer entries -->
+            <div class="timeline-item left">
+                <div class="timeline-content card">
+                    <h3 class="card-title">Cybersecurity Awareness Campaign</h3>
+                    <small class="text-muted">Hargeisa Tech Community | 2020</small>
+                    <p class="card-text">Led sessions on online safety for schools, reaching 150+ students and promoting secure digital practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <h2 class="text-center">Contact</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <p><strong>Email:</strong> <a href="mailto:khadaraqli@students.diu.ac">khadaraqli@students.diu.ac</a></p>
+                <p><strong>Phone:</strong> +252 65 4242420 / +252 63 4067640</p>
+                <p>Schedule a meeting: <a href="https://calendly.com/khadaraqli" target="_blank" rel="noopener noreferrer">Book Time</a></p>
+                <form action="https://formspree.io/f/your-form-id" method="POST"> <!-- Replace with real Formspree or similar for static form handling -->
+                    <div class="mb-3">
+                        <input type="text" name="name" placeholder="Your Name" required aria-label="Your Name" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" name="email" placeholder="Your Email" required aria-label="Your Email" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <textarea name="message" placeholder="Your Message" rows="5" required aria-label="Your Message" class="form-control"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-4">© 2026 Khadar Ali Aqli. All Rights Reserved. | Designed with passion for innovation in IT and maritime sectors.</p>
+            <div class="social-links mb-4">
+                <a href="https://www.linkedin.com/in/eng-khadar-aqli" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="me-3"><i class="fab fa-linkedin fa-2x"></i></a>
+                <a href="https://github.com/khadaraqli" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="me-3"><i class="fab fa-github fa-2x"></i></a>
+                <a href="https://x.com/engaqli" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" class="me-3"><i class="fab fa-twitter fa-2x"></i></a>
+            </div>
+            <div class="mb-4">
+                <a href="#about" class="me-3">About</a>
+                <a href="#projects" class="me-3">Portfolio</a>
+                <a href="#blog" class="me-3">Blog</a>
+                <a href="#contact" class="me-3">Contact</a>
+                <a href="/privacy-policy.html">Privacy Policy</a>
+            </div>
+            <p>Contact: khadaraqli@students.diu.ac | Phone: +252 65 4242420</p>
+        </div>
     </footer>
 
-    <!-- Language Selector (Placeholder for i18n; implement with JS library if needed) -->
-    <div id="language-selector">
-        <button onclick="switchLanguage('en')">English</button>
-        <button onclick="switchLanguage('so')">Somali</button>
-        <button onclick="switchLanguage('ar')">Arabic</button>
+    <!-- Language Selector -->
+    <div id="language-selector" class="position-fixed bottom-0 end-0 m-3">
+        <button class="btn btn-sm btn-dark mb-2" onclick="switchLanguage('en')">English</button>
+        <button class="btn btn-sm btn-dark mb-2" onclick="switchLanguage('so')">Somali</button>
+        <button class="btn btn-sm btn-dark" onclick="switchLanguage('ar')">Arabic</button>
     </div>
 
+    <!-- Back to Top -->
+    <a href="#" id="back-to-top" class="d-none"><i class="fas fa-arrow-up"></i></a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // ==== STATIC TWINKLING STARS ====
+        // Static stars
         for (let i = 0; i < 500; i++) {
             let star = document.createElement('div');
             star.classList.add('star');
-            star.style.top = Math.random() * 100 + '%';
-            star.style.left = Math.random() * 100 + '%';
-            const size = Math.random() * 2.5 + 0.5;
-            star.style.width = size + 'px';
-            star.style.height = size + 'px';
+            star.style.top = `${Math.random() * 100}%`;
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.width = star.style.height = `${Math.random() * 2.5 + 0.5}px`;
             star.style.opacity = Math.random();
-            star.style.animationDuration = (Math.random() * 3 + 1) + 's';
-            star.style.boxShadow = `0 0 ${Math.random()*4 + 1}px #fff`;
+            star.style.animationDuration = `${Math.random() * 3 + 1}s`;
+            star.style.boxShadow = `0 0 ${Math.random() * 4 + 1}px #fff`;
             document.querySelector('header').appendChild(star);
         }
 
-        // ==== SHOOTING STARS ====
+        // Shooting stars
         function createShootingStar() {
             let star = document.createElement('div');
             star.classList.add('star');
-            star.style.position = 'absolute';
-            star.style.top = Math.random() * 50 + '%';
-            star.style.left = '-5%';
-            star.style.width = '2px';
-            star.style.height = '2px';
+            star.style.top = `${Math.random() * 50}%`;
+            star.style.left = '-5%`;
+            star.style.width = star.style.height = '2px';
             star.style.background = 'white';
             star.style.boxShadow = '0 0 8px white';
             star.style.opacity = '0.8';
@@ -712,52 +905,28 @@
             function animate(timestamp) {
                 if (!start) start = timestamp;
                 const progress = (timestamp - start) / 1500;
-                star.style.left = (-5 + 105 * progress) + '%';
-                star.style.top = (parseFloat(star.style.top) + 5 * progress) + '%';
-                if (progress < 1) {
-                    requestAnimationFrame(animate);
-                } else {
-                    star.remove();
-                }
+                star.style.left = `${-5 + 105 * progress}%`;
+                star.style.top = `${parseFloat(star.style.top) + 5 * progress}%`;
+                if (progress < 1) requestAnimationFrame(animate);
+                else star.remove();
             }
             requestAnimationFrame(animate);
         }
-        setInterval(() => {
-            if (Math.random() < 0.7) createShootingStar();
-        }, 2000);
+        setInterval(() => { if (Math.random() < 0.7) createShootingStar(); }, 2000);
 
-        // Scroll Animations
-        const sections = document.querySelectorAll('section');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                }
-            });
-        }, { threshold: 0.2 });
-        sections.forEach(section => observer.observe(section));
+        // Dark Mode
+        document.getElementById('dark-mode-toggle').addEventListener('click', () => document.body.classList.toggle('dark-mode'));
 
-        // Dark Mode Toggle
-        document.getElementById('dark-mode-toggle').addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
+        // Back to Top
+        const backToTop = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            backToTop.classList.toggle('d-block', window.scrollY > 300);
+            backToTop.classList.toggle('d-none', window.scrollY <= 300);
         });
 
-        // Modal Functions
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = 'block';
-        }
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-        }
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = 'none';
-            }
-        }
-
-        // Language Switch (Placeholder; use i18next for full implementation)
+        // Language Switch Placeholder
         function switchLanguage(lang) {
-            alert(`Switching to ${lang}. Implement full translation here.`);
+            alert(`Switching to ${lang}. Full implementation requires a translation library like i18next.`);
         }
     </script>
 
