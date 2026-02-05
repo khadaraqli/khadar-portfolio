@@ -75,7 +75,7 @@
 
             /* Dark mode */
             --bg-dark: #121212;
-            --text-light: #E0E0E0;
+            --text-light: #f0f0f0;
             --primary-dark: #336699;
             --accent-dark: #00A0A0;
             --color-education-dark: #212121;
@@ -101,7 +101,7 @@
             background: #0D0D0D;
         }
         body.dark-mode header {
-            background: linear-gradient(to bottom, #000000, #001A33);
+            background: linear-gradient(to bottom, #000000, #000022);
         }
         body.dark-mode footer {
             background: #0D0D0D;
@@ -130,7 +130,7 @@
             color: var(--white);
             text-align: center;
             padding: 10rem 1rem 5rem;
-            background: linear-gradient(to bottom, #000033, #003366);
+            background: linear-gradient(to bottom, #000000, #000000);
             overflow: hidden;
         }
 
@@ -141,7 +141,7 @@
             border-radius: 50%;
             animation: twinkle 2s infinite alternate;
         }
-        @keyframes twinkle { 0% { opacity: 0.3; } 100% { opacity: 1; } }
+        @keyframes twinkle { 0% { opacity: 0.5; } 100% { opacity: 1; } }
 
         .moon {
             position: absolute;
@@ -152,7 +152,7 @@
             box-shadow: 0 0 2rem 1rem #FFFDE7;
             animation: floatMoon 5s ease-in-out infinite;
         }
-        @keyframes floatMoon { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-0.5rem); } }
+        @keyframes floatMoon { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-0.5rem) scale(1.05) rotate(5deg); } }
 
         .headshot {
             width: 10rem; height: 10rem;
@@ -210,6 +210,29 @@
             section { padding: 2rem 1rem; }
             .timeline::after { left: 1.875rem; }
             .timeline-item { width: 100%; padding-left: 3.75rem; }
+        }
+
+        /* Enhanced Education Section */
+        #education .timeline-content {
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            border-left: 5px solid var(--accent-teal);
+            transition: transform 0.3s ease;
+        }
+        #education .timeline-content:hover {
+            transform: translateY(-5px);
+        }
+        #education .card-title {
+            color: var(--primary-navy);
+        }
+        #education .btn-outline-primary {
+            border-radius: 20px;
+            padding: 0.5rem 1.5rem;
+            font-weight: 600;
+            transition: background 0.3s, color 0.3s;
+        }
+        #education .btn-outline-primary:hover {
+            background: var(--accent-teal);
+            color: white;
         }
     </style>
     <!-- Google Analytics with provided ID -->
@@ -828,8 +851,8 @@
             <div class="col-lg-6">
                 <p><strong>Email:</strong> <a href="mailto:khadaraqli@students.diu.ac">khadaraqli@students.diu.ac</a></p>
                 <p><strong>Phone:</strong> +252 65 4242420 / +252 63 4067640</p>
-                <p>Schedule a meeting: <a href="https://calendly.com/khadaraqli" target="_blank" rel="noopener noreferrer">Book Time</a></p>
-                <form action="https://formspree.io/f/your-form-id" method="POST"> <!-- Replace with real Formspree or similar for static form handling -->
+                <p>Schedule a meeting: <a href="mailto:khadaraqli@students.diu.ac?subject=Schedule a Meeting&body=Please provide your available times.">Book Time</a></p>
+                <form action="mailto:khadaraqli@students.diu.ac" method="post" enctype="text/plain">
                     <div class="mb-3">
                         <input type="text" name="name" placeholder="Your Name" required aria-label="Your Name" class="form-control">
                     </div>
@@ -932,3 +955,4 @@
 
 </body>
 </html>
+```Admas
