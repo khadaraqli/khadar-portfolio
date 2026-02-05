@@ -1,237 +1,765 @@
-        /* Dark mode variables */
-        --bg-dark: #1A1A1A;
-        --text-light: #E0E0E0;
-        --primary-dark: #336699;
-        --accent-dark: #00A0A0;
-        --color-education-dark: #333333;
-        --color-experience-dark: #004D40;
-        --color-trainings-dark: #1B5E20;
-        --color-certificates-dark: #4A148C;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Khadar Ali Aqli, MSc in Computer Science specializing in IT for shipping and maritime operations.">
+    <meta name="keywords" content="Computer Science, IT Networking, Shipping Operations, Maritime Logistics, Portfolio">
+    <meta name="author" content="Khadar Ali Aqli">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph for social sharing -->
+    <meta property="og:title" content="Khadar Ali Aqli | IT & Shipping Operations Professional | Computer Scientist">
+    <meta property="og:description" content="Bridging Maritime Operations with Cutting-Edge IT Solutions.">
+    <meta property="og:image" content="https://khadaraqli.github.io/khadar-portfolio/headshot.jpg"> <!-- Replace with actual image URL -->
+    <meta property="og:url" content="https://khadaraqli.github.io/khadar-portfolio/">
+    <meta property="og:type" content="website">
+    <!-- Schema.org markup for Person -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Khadar Ali Aqli",
+      "jobTitle": "IT & Shipping Operations Professional | Computer Scientist",
+      "nationality": "Somalilander",
+      "email": "khadaraqli@students.diu.ac",
+      "telephone": "+252 65 4242420",
+      "url": "https://khadaraqli.github.io/khadar-portfolio/",
+      "sameAs": [
+        "https://www.linkedin.com/in/eng-khadar-aqli",
+        "https://github.com/khadaraqli",
+        "https://x.com/engaqli"
+      ]
     }
+    </script>
+    <title>Khadar Ali Aqli | IT & Shipping Operations Professional | Computer Scientist</title>
+    <link rel="icon" href="https://via.placeholder.com/32?text=KA" type="image/x-icon"> <!-- Replace with real favicon -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet"> <!-- Updated to include light weight -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-navy: #003366; /* Primary for headers, accents */
+            --accent-teal: #00BFFF; /* Eye-catching deep sky blue for buttons */
+            --accent-gold: #FFD700; /* Eye-catching gold for outline buttons */
+            --text-dark: #4D4D4D; /* Main text */
+            --bg-light: #F5F5F5; /* Backgrounds */
+            --white: #FFFFFF; /* Dominant base */
+            --border-gray: #D3D3D3; /* Borders */
+            --shadow: rgba(0, 0, 0, 0.1); /* Subtle shadows */
+            --color-education: #F5F5F5; /* Grey for Education */
+            --color-experience: #E0F7FA; /* Light cyan for Professional Experience */
+            --color-trainings: #E8F5E9; /* Light green for Trainings */
+            --color-certificates: #F3E5F5; /* Light purple for Certificates */
 
-    /* Dark mode */
-    body.dark-mode {
-        background: var(--bg-dark);
-        color: var(--text-light);
-    }
-    body.dark-mode section {
-        background: #2A2A2A;
-        box-shadow: 0 12px 35px rgba(0,0,0,0.3);
-    }
-    body.dark-mode .card {
-        background: #333333 !important; /* Override card colors in dark mode */
-        color: var(--text-light);
-    }
-    body.dark-mode .skill-bar {
-        background: #444444;
-    }
-    body.dark-mode .skill-bar-fill {
-        background: var(--primary-dark);
-    }
-    body.dark-mode nav {
-        background: #111111;
-    }
-    body.dark-mode nav ul li a {
-        color: var(--text-light);
-    }
-    body.dark-mode nav ul li a:hover {
-        color: var(--accent-dark);
-    }
-    body.dark-mode header {
-        background: linear-gradient(to bottom, #000033, #003366);
-    }
-    body.dark-mode footer {
-        background: #111111;
-        color: var(--text-light);
-    }
-    body.dark-mode .btn-primary {
-        background: var(--primary-dark);
-    }
-    body.dark-mode .btn-outline {
-        border-color: var(--text-light);
-        color: var(--text-light);
-    }
-    body.dark-mode .btn-outline:hover {
-        background: var(--text-light);
-        color: #000033;
-    }
-    body.dark-mode #education { background: var(--color-education-dark); }
-    body.dark-mode #experience { background: var(--color-experience-dark); }
-    body.dark-mode #trainings { background: var(--color-trainings-dark); }
-    body.dark-mode #certificates { background: var(--color-certificates-dark); }
+            /* Dark mode variables */
+            --bg-dark: #1A1A1A;
+            --text-light: #E0E0E0;
+            --primary-dark: #336699;
+            --accent-dark: #00A0A0;
+            --color-education-dark: #333333;
+            --color-experience-dark: #004D40;
+            --color-trainings-dark: #1B5E20;
+            --color-certificates-dark: #4A148C;
+        }
 
-    /* RESET */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; } /* Smooth scrolling */
-    body { font-family: 'Inter', sans-serif; background: var(--bg-light); color: var(--text-dark); line-height: 1.7; font-size: 18px; } /* Base font size */
+        /* Dark mode */
+        body.dark-mode {
+            background: var(--bg-dark);
+            color: var(--text-light);
+        }
+        body.dark-mode section {
+            background: #2A2A2A;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+        }
+        body.dark-mode .card {
+            background: #333333 !important; /* Override card colors in dark mode */
+            color: var(--text-light);
+        }
+        body.dark-mode .skill-bar {
+            background: #444444;
+        }
+        body.dark-mode .skill-bar-fill {
+            background: var(--primary-dark);
+        }
+        body.dark-mode nav {
+            background: #111111;
+        }
+        body.dark-mode nav ul li a {
+            color: var(--text-light);
+        }
+        body.dark-mode nav ul li a:hover {
+            color: var(--accent-dark);
+        }
+        body.dark-mode header {
+            background: linear-gradient(to bottom, #000033, #003366);
+        }
+        body.dark-mode footer {
+            background: #111111;
+            color: var(--text-light);
+        }
+        body.dark-mode .btn-primary {
+            background: var(--primary-dark);
+        }
+        body.dark-mode .btn-outline {
+            background: var(--accent-dark);
+            color: var(--text-light);
+        }
+        body.dark-mode .btn-outline:hover {
+            background: var(--text-light);
+            color: #000033;
+        }
+        body.dark-mode #about { background: #2A2A2A; }
+        body.dark-mode #education { background: var(--color-education-dark); }
+        body.dark-mode #experience { background: var(--color-experience-dark); }
+        body.dark-mode #trainings { background: var(--color-trainings-dark); }
+        body.dark-mode #certificates { background: var(--color-certificates-dark); }
 
-    /* Typography Hierarchy */
-    h1 { font-size: 48px; font-weight: 700; }
-    h2 { font-size: 32px; font-weight: 700; }
-    h3 { font-size: 24px; font-weight: 600; }
-    p { font-size: 18px; font-weight: 400; }
-    small { font-size: 14px; }
+        /* RESET */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; } /* Smooth scrolling */
+        body { font-family: 'Inter', sans-serif; background: var(--bg-light); color: var(--text-dark); line-height: 1.7; font-size: 18px; } /* Base font size */
 
-    /* HEADER (Hero Section) */
-    header {
-        position: relative;
-        color: var(--white);
-        text-align: center;
-        padding: 150px 20px 80px;
-        background: linear-gradient(to bottom, #000000, #000022); /* Updated to dark black sky */
-        overflow: hidden;
-    }
+        /* Typography Hierarchy */
+        h1 { font-size: 48px; font-weight: 700; }
+        h2 { font-size: 32px; font-weight: 700; }
+        h3 { font-size: 24px; font-weight: 600; }
+        p { font-size: 18px; font-weight: 400; }
+        small { font-size: 14px; }
 
-    /* Stars */
-    .star {
-        position: absolute;
-        width: 2px; height: 2px;
-        background: white;
-        border-radius: 50%;
-        animation: twinkle 2s infinite alternate;
-    }
-    @keyframes twinkle {
-        0% { opacity: 0.2; }
-        50% { opacity: 1; }
-        100% { opacity: 0.2; }
-    }
+        /* HEADER (Hero Section) */
+        header {
+            position: relative;
+            color: var(--white);
+            text-align: center;
+            padding: 150px 20px 80px;
+            background: linear-gradient(to bottom, #000000, #000022); /* Dark black sky */
+            overflow: hidden;
+        }
 
-    /* Moon */
-    .moon {
-        position: absolute;
-        top: 20px; right: 20px;
-        width: 80px; height: 80px;
-        background: #fefbd8;
-        border-radius: 50%;
-        box-shadow: 0 0 30px 10px #fefbd8;
-        animation: floatMoon 6s ease-in-out infinite alternate;
-    }
-    @keyframes floatMoon {
-        0% { transform: translateY(0); }
-        50% { transform: translateY(-10px); }
-        100% { transform: translateY(0); }
-    }
+        /* Stars */
+        .star {
+            position: absolute;
+            width: 2px; height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite alternate;
+        }
+        @keyframes twinkle {
+            0% { opacity: 0.2; }
+            50% { opacity: 1; }
+            100% { opacity: 0.2; }
+        }
 
-    .headshot {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        border: 4px solid var(--white);
-        margin-bottom: 20px;
-        box-shadow: 0 4px 15px var(--shadow);
-        loading: lazy; /* Performance */
-    }
+        /* Moon */
+        .moon {
+            position: absolute;
+            top: 20px; right: 20px;
+            width: 80px; height: 80px;
+            background: #fefbd8;
+            border-radius: 50%;
+            box-shadow: 0 0 30px 10px #fefbd8;
+            animation: floatMoon 6s ease-in-out infinite alternate;
+        }
+        @keyframes floatMoon {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
 
-    header h1 { margin-bottom: 10px; }
-    header p.tagline { font-size: 24px; margin: 10px 0; }
-    header p.bio { max-width: 800px; margin: 0 auto 20px; font-size: 18px; }
+        .headshot {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--white);
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px var(--shadow);
+            loading: lazy; /* Performance */
+        }
 
-    .header-btns a {
-        display: inline-block;
-        margin: 12px;
-        padding: 12px 28px;
-        border-radius: 8px;
-        font-weight: 600;
-        text-decoration: none;
-        transition: 0.3s;
-    }
-    .btn-primary { background: var(--accent-teal); color: var(--white); }
-    .btn-primary:hover { opacity: 0.85; }
-    .btn-outline { background: #FFD700; color: #000000; border: none; } /* Updated to eye-catching gold */
-    .btn-outline:hover { background: #DAA520; color: #FFFFFF; }
+        header h1 { margin-bottom: 10px; }
+        header p.tagline { font-size: 24px; margin: 10px 0; }
+        header p.bio { max-width: 800px; margin: 0 auto 20px; font-size: 18px; }
 
-    /* NAV */
-    nav { background: var(--primary-navy); position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; }
-    nav ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; }
-    nav ul li a { color: var(--white); margin: 0 14px; text-decoration: none; font-weight: 600; font-size: 16px; }
-    nav ul li a:hover { color: var(--accent-teal); }
+        .header-btns a {
+            display: inline-block;
+            margin: 12px;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .btn-primary { background: var(--accent-teal); color: var(--white); }
+        .btn-primary:hover { opacity: 0.85; transform: scale(1.05); }
+        .btn-outline { background: var(--accent-gold); color: #000000; border: none; }
+        .btn-outline:hover { background: #DAA520; color: #FFFFFF; transform: scale(1.05); }
 
-    /* Dark Mode Toggle */
-    #dark-mode-toggle { background: none; border: none; color: var(--white); font-size: 20px; cursor: pointer; }
+        /* NAV */
+        nav { background: var(--primary-navy); position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; box-shadow: 0 2px 10px var(--shadow); }
+        nav ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; }
+        nav ul li a { color: var(--white); margin: 0 14px; text-decoration: none; font-weight: 600; font-size: 16px; transition: color 0.3s; }
+        nav ul li a:hover { color: var(--accent-teal); }
 
-    /* SECTIONS */
-    section { max-width: 1200px; margin: 60px auto; padding: 40px; border-radius: 14px; background: var(--white); box-shadow: 0 12px 35px var(--shadow); transition: opacity 0.7s ease, transform 0.7s ease; opacity: 0; transform: translateY(30px); }
-    section.show { opacity: 1; transform: translateY(0); }
-    section h2 { border-bottom: 3px solid var(--accent-teal); display: inline-block; padding-bottom: 6px; margin-bottom: 30px; }
-    #education { background: var(--color-education); }
-    #experience { background: var(--color-experience); }
-    #trainings { background: var(--color-trainings); }
-    #certificates { background: var(--color-certificates); }
+        /* Dark Mode Toggle */
+        #dark-mode-toggle { background: none; border: none; color: var(--white); font-size: 20px; cursor: pointer; transition: transform 0.3s; }
+        #dark-mode-toggle:hover { transform: rotate(180deg); }
 
-    /* Timeline for Education and Experience */
-    .timeline { position: relative; max-width: 100%; margin: 0 auto; }
-    .timeline::after { content: ''; position: absolute; width: 6px; background: var(--border-gray); top: 0; bottom: 0; left: 50%; margin-left: -3px; }
-    .timeline-item { padding: 10px 40px; position: relative; background: inherit; width: 50%; }
-    .timeline-item::after { content: ''; position: absolute; width: 25px; height: 25px; right: -17px; background: var(--white); border: 4px solid var(--accent-teal); top: 15px; border-radius: 50%; z-index: 1; }
-    .left { left: 0; }
-    .right { left: 50%; }
-    .right::after { left: -16px; }
-    .timeline-content { padding: 20px 30px; background: var(--bg-light); position: relative; border-radius: 6px; box-shadow: 0 4px 10px var(--shadow); }
+        /* SECTIONS */
+        section { max-width: 1200px; margin: 60px auto; padding: 40px; border-radius: 14px; background: var(--white); box-shadow: 0 12px 35px var(--shadow); transition: opacity 0.7s ease, transform 0.7s ease; opacity: 0; transform: translateY(30px); }
+        section.show { opacity: 1; transform: translateY(0); }
+        section h2 { border-bottom: 3px solid var(--accent-teal); display: inline-block; padding-bottom: 6px; margin-bottom: 30px; }
+        #about { background: var(--bg-light); }
+        #education { background: var(--color-education); }
+        #experience { background: var(--color-experience); }
+        #trainings { background: var(--color-trainings); }
+        #certificates { background: var(--color-certificates); }
 
-    /* SKILLS */
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-    .skill-group { background: var(--bg-light); padding: 20px; border-radius: 12px; }
-    .skill { margin-bottom: 18px; }
-    .skill-name { font-weight: 600; margin-bottom: 6px; }
-    .skill-bar { background: var(--border-gray); border-radius: 20px; overflow: hidden; height: 14px; }
-    .skill-bar-fill { height: 100%; border-radius: 20px; background: var(--accent-teal); transition: width 1s ease-in-out; }
+        /* Timeline for Education and Experience */
+        .timeline { position: relative; max-width: 100%; margin: 0 auto; }
+        .timeline::after { content: ''; position: absolute; width: 6px; background: var(--border-gray); top: 0; bottom: 0; left: 50%; margin-left: -3px; }
+        .timeline-item { padding: 10px 40px; position: relative; background: inherit; width: 50%; }
+        .timeline-item::after { content: ''; position: absolute; width: 25px; height: 25px; right: -17px; background: var(--white); border: 4px solid var(--accent-teal); top: 15px; border-radius: 50%; z-index: 1; }
+        .left { left: 0; }
+        .right { left: 50%; }
+        .right::after { left: -16px; }
+        .timeline-content { padding: 20px 30px; background: var(--bg-light); position: relative; border-radius: 6px; box-shadow: 0 4px 10px var(--shadow); transition: transform 0.3s; }
+        .timeline-content:hover { transform: translateY(-5px); }
 
-    /* PORTFOLIO */
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-    .project-card { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px var(--shadow); transition: transform 0.3s; }
-    .project-card:hover { transform: translateY(-5px); }
-    .project-img { width: 100%; height: 200px; object-fit: cover; loading: lazy; }
-    .project-content { padding: 20px; }
-    .project-tech { font-size: 14px; color: var(--text-dark); margin: 10px 0; opacity: 0.8; }
-    .project-btns a { display: inline-block; margin-right: 10px; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 14px; }
-    .btn-demo { background: var(--accent-teal); color: var(--white); }
-    .btn-code { background: var(--primary-navy); color: var(--white); }
+        /* SKILLS */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .skill-group { background: var(--bg-light); padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px var(--shadow); }
+        .skill { margin-bottom: 18px; }
+        .skill-name { font-weight: 600; margin-bottom: 6px; }
+        .skill-bar { background: var(--border-gray); border-radius: 20px; overflow: hidden; height: 14px; }
+        .skill-bar-fill { height: 100%; border-radius: 20px; background: var(--accent-teal); transition: width 1s ease-in-out; }
 
-    /* Modals for Portfolio Details */
-    .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background: rgba(0,0,0,0.5); }
-    .modal-content { background: var(--white); margin: 15% auto; padding: 20px; border-radius: 12px; width: 80%; max-width: 800px; }
-    .close { color: var(--text-dark); float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
+        /* PORTFOLIO */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .project-card { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px var(--shadow); transition: transform 0.3s; }
+        .project-card:hover { transform: translateY(-5px); }
+        .project-img { width: 100%; height: 200px; object-fit: cover; loading: lazy; transition: transform 0.3s; }
+        .project-card:hover .project-img { transform: scale(1.05); }
+        .project-content { padding: 20px; }
+        .project-tech { font-size: 14px; color: var(--text-dark); margin: 10px 0; opacity: 0.8; }
+        .project-btns a { display: inline-block; margin-right: 10px; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 14px; }
+        .btn-demo { background: var(--accent-teal); color: var(--white); }
+        .btn-code { background: var(--primary-navy); color: var(--white); }
 
-    /* CONTACT FORM */
-    #contact form { max-width: 600px; margin: 0 auto; }
-    #contact input, #contact textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid var(--border-gray); border-radius: 6px; font-size: 16px; }
-    #contact button { padding: 12px 28px; background: var(--accent-teal); color: var(--white); border: none; border-radius: 6px; cursor: pointer; font-size: 16px; }
+        /* Modals for Portfolio Details */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background: rgba(0,0,0,0.5); }
+        .modal-content { background: var(--white); margin: 15% auto; padding: 20px; border-radius: 12px; width: 80%; max-width: 800px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .close { color: var(--text-dark); float: right; font-size: 28px; font-weight: bold; cursor: pointer; transition: color 0.3s; }
+        .close:hover { color: var(--accent-teal); }
 
-    /* Language Selector */
-    #language-selector { position: fixed; bottom: 20px; right: 20px; z-index: 100; }
-    #language-selector button { padding: 8px 12px; margin: 5px; background: var(--primary-navy); color: var(--white); border: none; border-radius: 4px; cursor: pointer; }
+        /* CONTACT FORM */
+        #contact form { max-width: 600px; margin: 0 auto; }
+        #contact input, #contact textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid var(--border-gray); border-radius: 6px; font-size: 16px; transition: border-color 0.3s; }
+        #contact input:focus, #contact textarea:focus { border-color: var(--accent-teal); }
+        #contact button { padding: 12px 28px; background: var(--accent-teal); color: var(--white); border: none; border-radius: 6px; cursor: pointer; font-size: 16px; transition: background 0.3s; }
+        #contact button:hover { background: #0099CC; }
 
-    /* FOOTER */
-    footer { background: var(--primary-navy); color: var(--white); text-align: center; padding: 30px; margin-top: 50px; }
-    .social-links a { color: var(--white); margin: 0 10px; font-size: 1.5rem; text-decoration: none; }
-    .social-links a:hover { color: var(--accent-teal); }
+        /* Language Selector */
+        #language-selector { position: fixed; bottom: 20px; right: 20px; z-index: 100; display: flex; flex-direction: column; }
+        #language-selector button { padding: 8px 12px; margin: 5px 0; background: var(--primary-navy); color: var(--white); border: none; border-radius: 4px; cursor: pointer; transition: background 0.3s; }
+        #language-selector button:hover { background: var(--accent-teal); }
 
-    /* Gallery */
-    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-    .gallery img { width: 100%; border-radius: 12px; loading: lazy; }
+        /* FOOTER */
+        footer { background: var(--primary-navy); color: var(--white); text-align: center; padding: 30px; margin-top: 50px; }
+        .social-links a { color: var(--white); margin: 0 10px; font-size: 1.5rem; text-decoration: none; transition: color 0.3s; }
+        .social-links a:hover { color: var(--accent-teal); }
 
-    /* Mobile Responsiveness */
-    @media (max-width: 768px) {
-        header { padding: 100px 10px 50px; }
-        header h1 { font-size: 36px; }
-        section { padding: 20px; margin: 30px 10px; }
-        .timeline::after { left: 31px; }
-        .timeline-item { width: calc(100% - 60px); padding: 10px 20px 10px 60px; }
-        .timeline-item::after { left: 15px; }
-        .right { left: 0%; }
-        nav ul { flex-direction: column; }
-        nav ul li { margin: 10px 0; }
-    }
+        /* Gallery */
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+        .gallery img { width: 100%; border-radius: 12px; loading: lazy; transition: transform 0.3s; }
+        .gallery img:hover { transform: scale(1.05); }
 
-    /* Accessibility */
-    a:focus, button:focus, input:focus, textarea:focus { outline: 2px solid var(--accent-teal); }
-    img { alt: ""; } /* Ensure all images have alt */
-</style>
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script> <!-- Replace with your GA ID -->
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            header { padding: 100px 10px 50px; }
+            header h1 { font-size: 36px; }
+            section { padding: 20px; margin: 30px 10px; }
+            .timeline::after { left: 31px; }
+            .timeline-item { width: calc(100% - 60px); padding: 10px 20px 10px 60px; }
+            .timeline-item::after { left: 15px; }
+            .right { left: 0%; }
+            nav ul { flex-direction: column; }
+            nav ul li { margin: 10px 0; }
+        }
+
+        /* Accessibility */
+        a:focus, button:focus, input:focus, textarea:focus { outline: 2px solid var(--accent-teal); }
+        img[alt=""] { display: none; } /* Hide images with empty alt for better accessibility */
+    </style>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script> <!-- Replace with your GA ID -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <div class="moon"></div>
+        <a href="images/Sawir.jpg" target="_blank"><img src="images/Sawir.jpg" alt="Professional headshot of Khadar Ali Aqli" class="headshot" loading="lazy"></a>
+        <h1>Khadar Ali Aqli</h1>
+        <p class="tagline">IT & Shipping Operations Professional | Computer Scientist</p>
+        <p class="bio">Bridging operational workflows with IT solutions to improve efficiency, accuracy, and service delivery in maritime and tech environments.</p>
+        <div class="header-btns">
+            <a href="cv.pdf" download class="btn-primary">Download Resume (PDF)</a>
+            <a href="#contact" class="btn-outline">Contact Me</a>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#trainings">Trainings</a></li>
+            <li><a href="#certificates">Certificates</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button id="dark-mode-toggle" aria-label="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
+    </nav>
+
+    <section id="about">
+        <h2>Professional Profile</h2>
+        <p>A highly motivated and results-driven professional with a strong combined background in Shipping & Maritime Operations and IT & Networking. Possesses a Master’s degree in Computer Science and extensive hands-on experience supporting port operations, logistics coordination, and technology-driven business environments.</p>
+        <p>Demonstrated expertise in port and container handling, shipping documentation, customs clearance, and maritime safety regulations, alongside solid technical skills in network administration, cyber security, and systems support.</p>
+        <p>Recognized for the ability to bridge operational workflows with IT solutions to improve efficiency, accuracy, and service delivery. Known for strong time management, teamwork, and leadership capabilities, with proven performance in fast-paced environments such as ports, shipping companies, educational institutions, and service-oriented organizations.</p>
+        <ul>
+            <li><strong>Nationality:</strong> Somalilander</li>
+            <li><strong>Languages:</strong> Somali (Native), English (Fluent), Arabic (Basic)</li>
+            <li><strong>Email:</strong> <a href="mailto:khadaraqli@students.diu.ac">khadaraqli@students.diu.ac</a></li>
+            <li><strong>Phone:</strong> +252 65 4242420 / +252 63 4067640</li>
+            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/eng-khadar-aqli" target="_blank" rel="noopener noreferrer">linkedin.com/in/eng-khadar-aqli</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/khadaraqli" target="_blank" rel="noopener noreferrer">github.com/khadaraqli</a></li>
+            <li><strong>X (Twitter):</strong> <a href="https://x.com/engaqli" target="_blank" rel="noopener noreferrer">x.com/engaqli</a></li>
+        </ul>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>MSc in Computer Science</h3>
+                    <small>Dhaka International University, Bangladesh (2016–2017)</small>
+                    <p>Relevant coursework: Algorithms, Data Structures, Machine Learning, Network Security. Thesis: "Optimizing Logistics Networks Using AI."</p>
+                    <a href="certificates/Master.pdf" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <h3>Bachelor’s Degree</h3>
+                    <small>Admas University, Hargeisa (2012–2015)</small>
+                    <p>Focus on Computer Science fundamentals, including programming and systems administration.</p>
+                    <a href="certificates/Degree.pdf" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                </div>
+            </div>
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>GCSE</h3>
+                    <small>Farah Omar Secondary School (2007–2011)</small>
+                    <a href="certificates/Secondary.pdf" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <h3>PSC</h3>
+                    <small>Sheikh Madar Primary School (1999–2007)</small>
+                    <a href="certificates/Primary.pdf" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Professional Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>Assistant Operation Manager</h3>
+                    <small>Pacific International Lines (PIL) | 2020–Present</small> <!-- Updated to current -->
+                    <ul>
+                        <li>Managed daily port operations, coordinating container handling and logistics for efficient throughput.</li>
+                        <li>Implemented IT solutions to track shipments, reducing delays by 15%.</li>
+                        <li>Ensured compliance with maritime safety regulations.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <h3>Commercial Staff</h3>
+                    <small>WBH Bill Clark Shipping | 2018–2019</small>
+                    <ul>
+                        <li>Handled shipping documentation and customs clearance processes.</li>
+                        <li>Utilized Microsoft Office for reporting, improving accuracy in commercial operations.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>Assistant Manager</h3>
+                    <small>Dhidar Company | 2013–2016</small>
+                    <ul>
+                        <li>Oversaw team operations and administrative tasks.</li>
+                        <li>Introduced network improvements for better internal communication.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <h3>Admin & Finance Officer</h3>
+                    <small>Global ICT Institute of Technology | 2019</small>
+                    <ul>
+                        <li>Managed finances and administrative systems using IT tools.</li>
+                        <li>Streamlined processes with Excel automation.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>Lecturer</h3>
+                    <small>New Generation University | 2019</small>
+                    <ul>
+                        <li>Taught Computer Science courses, focusing on networking and cybersecurity.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <h3>Manager & Lecturer</h3>
+                    <small>Horsed Computer Science Institute | 2019</small>
+                    <ul>
+                        <li>Managed institute operations and delivered lectures on IT topics.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>IT & Network Assistant</h3>
+                    <small>Africa Online, Hargeisa | 2005</small>
+                    <ul>
+                        <li>Assisted in network setup and maintenance.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <h3>Teacher</h3>
+                    <small>Sheikh Madar Primary School | 2009</small>
+                    <ul>
+                        <li>Taught basic subjects, including introductory computer skills.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="trainings">
+        <h2>Trainings & Seminars</h2>
+        <div class="cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+            <div class="card">
+                <i class="fas fa-ship" aria-hidden="true"></i>
+                <h3>Shipping & Maritime</h3>
+                <ul>
+                    <li>Port & Container Handling – Berbera (2020)</li>
+                    <li>Logistics & Shipping Operations – Hargeisa (2021)</li>
+                    <li>Safety & Maritime Regulations – Burco (2021)</li>
+                    <li>Cargo Documentation & Customs Clearance – Berbera (2022)</li>
+                    <li>Maritime Safety & First Aid – Gabiley (2023)</li>
+                    <li>Ship & Port Communication Systems – Berbera (2025)</li>
+                </ul>
+            </div>
+            <div class="card">
+                <i class="fas fa-laptop-code" aria-hidden="true"></i>
+                <h3>IT & Networking</h3>
+                <ul>
+                    <li>Network Security – Gabiley (2014)</li>
+                    <li>Wireless Networking – Hargeisa (2015)</li>
+                    <li>Cyber Security – Hargeisa (2019)</li>
+                    <li>CCTV Installation & Configuration – Burco (2020)</li>
+                    <li>Biometric Systems Management – Hargeisa (2020)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="certificates">
+        <h2>Certificates</h2>
+        <div class="cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+            <div class="card">
+                <i class="fas fa-certificate" aria-hidden="true"></i>
+                <h3>CCNA Routing and Switching</h3>
+                <small>New Horizon, Dhaka, Bangladesh | 2016</small>
+                <a href="certificates/CCNA.pdf" target="_blank" rel="noopener noreferrer">View Certificate</a>
+            </div>
+            <div class="card">
+                <i class="fas fa-certificate" aria-hidden="true"></i>
+                <h3>Essentials of MS Excel – Formulas & Functions</h3>
+                <small>Cambridge International University, London | 2025</small>
+                <a href="certificates/Excel.pdf" target="_blank" rel="noopener noreferrer">View Certificate</a>
+            </div>
+            <div class="card">
+                <i class="fas fa-certificate" aria-hidden="true"></i>
+                <h3>Human Resource Management</h3>
+                <small>Cambridge International University, London | 2025</small>
+                <a href="certificates/Human.pdf" target="_blank" rel="noopener noreferrer">View Certificate</a>
+            </div>
+            <div class="card">
+                <i class="fas fa-certificate" aria-hidden="true"></i>
+                <h3>Leadership & Change Management</h3>
+                <small>Cambridge International University, London | 2025</small>
+                <a href="certificates/Leadership.pdf" target="_blank" rel="noopener noreferrer">View Certificate</a>
+            </div>
+            <div class="card">
+                <i class="fas fa-certificate" aria-hidden="true"></i>
+                <h3>E-Governance</h3>
+                <small>Cambridge International University, London | 2025</small>
+                <a href="certificates/Governance.pdf" target="_blank" rel="noopener noreferrer">View Certificate</a>
+            </div>
+            <div class="card">
+                <i class="fas fa-certificate" aria-hidden="true"></i>
+                <h3>Legal Writing</h3>
+                <small>Cambridge International University, London | 2025</small>
+                <a href="certificates/Legal.pdf" target="_blank" rel="noopener noreferrer">View Certificate</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Key Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-group">
+                <h3>Networking & IT</h3>
+                <div class="skill">
+                    <div class="skill-name">Cisco Networking & Routing</div>
+                    <div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Server & Systems Administration</div>
+                    <div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Cybersecurity</div>
+                    <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Wireless Networking</div>
+                    <div class="skill-bar"><div class="skill-bar-fill" style="width:75%"></div></div>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h3>Programming & Development</h3>
+                <div class="skill">
+                    <div class="skill-name">Python</div>
+                    <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Java</div>
+                    <div class="skill-bar"><div class="skill-bar-fill" style="width:70%"></div></div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">SQL & Databases</div>
+                    <div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Web Development (HTML/CSS/JS)</div>
+                    <div class="skill-bar"><div class="skill-bar-fill" style="width:75%"></div></div>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h3>Shipping & Logistics</h3>
+                <div class="skill">
+                    <div class="skill-name">Shipping & Logistics Operations</div>
+                    <div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Microsoft Office & Documentation</div>
+                    <div class="skill-bar"><div class="skill-bar-fill" style="width:95%"></div></div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Customs Clearance & Regulations</div>
+                    <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Portfolio</h2>
+        <p>Showcasing projects that demonstrate my Computer Science skills applied to real-world problems, particularly in maritime and IT domains.</p>
+        <div class="projects-grid">
+            <div class="project-card" onclick="openModal('modal1')">
+                <img src="https://via.placeholder.com/300x200?text=Logistics+App" alt="Screenshot of Logistics Tracking App" class="project-img" loading="lazy">
+                <div class="project-content">
+                    <h3>Logistics Tracking Web App</h3>
+                    <p>A full-stack application for real-time shipment tracking in ports.</p>
+                    <p class="project-tech">Tech: Python (Django), JavaScript, PostgreSQL, Docker</p>
+                    <div class="project-btns">
+                        <a href="https://example.com/demo" target="_blank" rel="noopener noreferrer" class="btn-demo">Live Demo</a>
+                        <a href="https://github.com/khadaraqli/logistics-app" target="_blank" rel="noopener noreferrer" class="btn-code">View Code</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" onclick="openModal('modal2')">
+                <img src="https://via.placeholder.com/300x200?text=Network+Tool" alt="Screenshot of Network Security Tool" class="project-img" loading="lazy">
+                <div class="project-content">
+                    <h3>Network Security Monitoring Tool</h3>
+                    <p>A script-based tool to detect vulnerabilities in network infrastructures.</p>
+                    <p class="project-tech">Tech: Python, Scapy, AWS CloudWatch</p>
+                    <div class="project-btns">
+                        <a href="https://example.com/demo" target="_blank" rel="noopener noreferrer" class="btn-demo">Live Demo</a>
+                        <a href="https://github.com/khadaraqli/network-tool" target="_blank" rel="noopener noreferrer" class="btn-code">View Code</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more if needed -->
+        </div>
+        <!-- Modals -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal1')">&times;</span>
+                <h3>Logistics Tracking Web App Details</h3>
+                <p>Detailed description, features, challenges solved, etc.</p>
+                <!-- Add video/embed if available -->
+            </div>
+        </div>
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal2')">&times;</span>
+                <h3>Network Security Monitoring Tool Details</h3>
+                <p>Detailed description...</p>
+            </div>
+        </div>
+        <h3>Additional Visuals</h3>
+        <div class="gallery">
+            <img src="images/IMG_7117.jpeg" alt="Project visual 1">
+            <img src="images/IMG_7993.jpeg" alt="Project visual 2">
+            <img src="images/IMG_8834.jpeg" alt="Project visual 3">
+            <img src="images/IMG_8925.jpeg" alt="Project visual 4">
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p><strong>Email:</strong> <a href="mailto:khadaraqli@students.diu.ac">khadaraqli@students.diu.ac</a></p>
+        <p><strong>Phone:</strong> +252 65 4242420 / +252 63 4067640</p>
+        <p>Schedule a meeting: <a href="https://calendly.com/khadaraqli" target="_blank" rel="noopener noreferrer">Book Time</a></p> <!-- Update with your actual Calendly link -->
+        <form action="mailto:khadaraqli@students.diu.ac" method="post" enctype="text/plain">
+            <input type="text" name="name" placeholder="Your Name" required aria-label="Your Name">
+            <input type="email" name="email" placeholder="Your Email" required aria-label="Your Email">
+            <textarea name="message" placeholder="Your Message" rows="5" required aria-label="Your Message"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2026 Khadar Ali Aqli. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/eng-khadar-aqli" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/khadaraqli" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://x.com/engaqli" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fab fa-twitter"></i></a>
+        </div>
+        <a href="/privacy-policy.html">Privacy Policy</a> <!-- Add a simple privacy policy page -->
+    </footer>
+
+    <!-- Language Selector (Placeholder for i18n; implement with JS library if needed) -->
+    <div id="language-selector">
+        <button onclick="switchLanguage('en')">English</button>
+        <button onclick="switchLanguage('so')">Somali</button>
+        <button onclick="switchLanguage('ar')">Arabic</button>
+    </div>
+
+    <script>
+        // ==== STATIC TWINKLING STARS ====
+        for (let i = 0; i < 500; i++) {
+            let star = document.createElement('div');
+            star.classList.add('star');
+            star.style.top = Math.random() * 100 + '%';
+            star.style.left = Math.random() * 100 + '%';
+            const size = Math.random() * 2.5 + 0.5;
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            star.style.opacity = Math.random();
+            star.style.animationDuration = (Math.random() * 3 + 1) + 's';
+            star.style.boxShadow = `0 0 ${Math.random()*4 + 1}px #fff`;
+            document.querySelector('header').appendChild(star);
+        }
+
+        // ==== SHOOTING STARS ====
+        function createShootingStar() {
+            let star = document.createElement('div');
+            star.classList.add('star');
+            star.style.position = 'absolute';
+            star.style.top = Math.random() * 50 + '%';
+            star.style.left = '-5%';
+            star.style.width = '2px';
+            star.style.height = '2px';
+            star.style.background = 'white';
+            star.style.boxShadow = '0 0 8px white';
+            star.style.opacity = '0.8';
+            star.style.transform = 'rotate(45deg)';
+            document.querySelector('header').appendChild(star);
+            let start = null;
+            function animate(timestamp) {
+                if (!start) start = timestamp;
+                const progress = (timestamp - start) / 1500;
+                star.style.left = (-5 + 105 * progress) + '%';
+                star.style.top = (parseFloat(star.style.top) + 5 * progress) + '%';
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    star.remove();
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+        setInterval(() => {
+            if (Math.random() < 0.7) createShootingStar();
+        }, 2000);
+
+        // Scroll Animations
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.2 });
+        sections.forEach(section => observer.observe(section));
+
+        // Dark Mode Toggle
+        document.getElementById('dark-mode-toggle').addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        // Modal Functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+
+        // Language Switch (Placeholder; use i18next for full implementation)
+        function switchLanguage(lang) {
+            alert(`Switching to ${lang}. Implement full translation here.`);
+        }
+    </script>
+
+</body>
+</html>
