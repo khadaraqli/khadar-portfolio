@@ -130,7 +130,7 @@
             color: var(--white);
             text-align: center;
             padding: 10rem 1rem 5rem;
-            background: linear-gradient(to bottom, #000000, #000000);
+            background: url('https://thumbs.dreamstime.com/b/full-moon-night-sky-clouds-stars-celestial-breathtaking-full-moon-illuminates-dramatic-night-sky-filled-fluffy-clouds-406962192.jpg') no-repeat center center / cover;
             overflow: hidden;
         }
 
@@ -149,7 +149,7 @@
             width: 5rem; height: 5rem;
             background: #FFFDE7;
             border-radius: 50%;
-            box-shadow: 0 0 2rem 1rem #FFFDE7;
+            box-shadow: 0 0 3rem 1.5rem #FFFDE7;
             animation: floatMoon 5s ease-in-out infinite;
         }
         @keyframes floatMoon { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-0.5rem) scale(1.05) rotate(5deg); } }
@@ -319,6 +319,20 @@
             padding: 1.5rem;
         }
         #blog .btn-primary {
+            border-radius: 20px;
+        }
+
+        /* Portfolio Section Style */
+        #projects .card {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border-radius: 12px;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        #projects .card-body {
+            padding: 1.5rem;
+        }
+        #projects .btn {
             border-radius: 20px;
         }
     </style>
@@ -654,7 +668,7 @@
     <section id="skills" class="container">
         <h2 class="text-center">Key Skills</h2>
         <div class="row">
-            <div class="col-md-4 mb-4">
+            <div class="col-md-6 mb-4">
                 <div class="card h-100" style="background: linear-gradient(135deg, #f0f4f8, #d6e4f0); border-radius: 10px;">
                     <div class="card-body">
                         <h3 class="card-title">Networking & IT</h3>
@@ -677,7 +691,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mb-4">
+            <div class="col-md-6 mb-4">
                 <div class="card h-100" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb); border-radius: 15px;">
                     <div class="card-body">
                         <h3 class="card-title">Programming & Development</h3>
@@ -700,7 +714,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mb-4">
+            <div class="col-md-6 mb-4 mx-auto">
                 <div class="card h-100" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2); border-radius: 10px;">
                     <div class="card-body">
                         <h3 class="card-title">Shipping & Logistics</h3>
@@ -725,11 +739,11 @@
     <section id="projects" class="container">
         <h2 class="text-center">Portfolio</h2>
         <p class="text-center mb-4">Showcasing projects that demonstrate my Computer Science skills applied to real-world problems, particularly in maritime and IT domains.</p>
-        <div class="projects-grid row">
+        <div class="row">
             <div class="col-md-6 mb-4">
-                <div class="project-card card" onclick="openModal('modal1')">
+                <div class="card h-100" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-radius: 12px;">
                     <img src="https://via.placeholder.com/300x200?text=Logistics+App" alt="Screenshot of Logistics Tracking App" class="card-img-top project-img">
-                    <div class="card-body project-content">
+                    <div class="card-body">
                         <h3 class="card-title">Logistics Tracking Web App</h3>
                         <p class="card-text">A full-stack application for real-time shipment tracking in ports.</p>
                         <p class="project-tech text-muted">Tech: Python (Django), JavaScript, PostgreSQL, Docker</p>
@@ -741,9 +755,9 @@
                 </div>
             </div>
             <div class="col-md-6 mb-4">
-                <div class="project-card card" onclick="openModal('modal2')">
+                <div class="card h-100" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-radius: 12px;">
                     <img src="https://via.placeholder.com/300x200?text=Network+Tool" alt="Screenshot of Network Security Tool" class="card-img-top project-img">
-                    <div class="card-body project-content">
+                    <div class="card-body">
                         <h3 class="card-title">Network Security Monitoring Tool</h3>
                         <p class="card-text">A script-based tool to detect vulnerabilities in network infrastructures.</p>
                         <p class="project-tech text-muted">Tech: Python, Scapy, AWS CloudWatch</p>
@@ -754,11 +768,10 @@
                     </div>
                 </div>
             </div>
-            <!-- Additional project example -->
-            <div class="col-md-6 mb-4">
-                <div class="project-card card" onclick="openModal('modal3')">
+            <div class="col-md-6 mb-4 mx-auto">
+                <div class="card h-100" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-radius: 12px;">
                     <img src="https://via.placeholder.com/300x200?text=AI+Logistics+Optimizer" alt="Screenshot of AI Logistics Optimizer" class="card-img-top project-img">
-                    <div class="card-body project-content">
+                    <div class="card-body">
                         <h3 class="card-title">AI Logistics Optimizer</h3>
                         <p class="card-text">An AI-powered tool to optimize supply chain routes using machine learning algorithms.</p>
                         <p class="project-tech text-muted">Tech: Python, TensorFlow, Scikit-learn, Google Maps API</p>
@@ -873,28 +886,28 @@
         <p class="text-center mb-4">Insights from colleagues, mentors, and clients on my professional contributions and collaborative approach.</p>
         <div class="row">
             <div class="col-md-6 mb-4">
-                <div class="card h-100" style="background: linear-gradient(135deg, #e0f7fa, #b2ebf2); border-radius: 12px;">
+                <div class="card h-100">
                     <div class="card-body">
                         <p class="card-text">"Khadar's integration of IT solutions into our shipping operations transformed our efficiency. His expertise in AI for logistics is unmatched." – Operations Director, Pacific International Lines</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 mb-4">
-                <div class="card h-100" style="background: linear-gradient(135deg, #e0f7fa, #b2ebf2); border-radius: 12px;">
+                <div class="card h-100">
                     <div class="card-body">
                         <p class="card-text">"As a lecturer, Khadar inspired students with practical insights into cybersecurity. His leadership in institute management was exemplary." – Dean, New Generation University</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 mb-4">
-                <div class="card h-100" style="background: linear-gradient(135deg, #e0f7fa, #b2ebf2); border-radius: 12px;">
+                <div class="card h-100">
                     <div class="card-body">
                         <p class="card-text">"Khadar's network security tools provided robust protection for our systems. Highly reliable and innovative professional." – IT Manager, Dhidar Company</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 mb-4">
-                <div class="card h-100" style="background: linear-gradient(135deg, #e0f7fa, #b2ebf2); border-radius: 12px;">
+                <div class="card h-100">
                     <div class="card-body">
                         <p class="card-text">"Khadar's volunteer work in IT literacy has empowered our community. His dedication is inspiring." – Community Leader, Hargeisa</p>
                     </div>
@@ -908,7 +921,7 @@
         <p class="text-center mb-4">Sharing knowledge on IT innovations in maritime logistics, cybersecurity trends, and operational best practices.</p>
         <div class="row">
             <div class="col-md-6 mb-4">
-                <div class="card h-100" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7); border-radius: 8px;">
+                <div class="card h-100">
                     <div class="card-body">
                         <h3 class="card-title">AI in Supply Chain Optimization: Lessons from Port Operations</h3>
                         <p class="card-text">Exploring how machine learning algorithms can reduce bottlenecks in container handling, based on real-world implementations.</p>
@@ -917,7 +930,7 @@
                 </div>
             </div>
             <div class="col-md-6 mb-4">
-                <div class="card h-100" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7); border-radius: 8px;">
+                <div class="card h-100">
                     <div class="card-body">
                         <h3 class="card-title">Cybersecurity Challenges in Maritime Networks</h3>
                         <p class="card-text">A deep dive into protecting ship-port communication systems from emerging threats, with case studies from Somaliland ports.</p>
@@ -926,7 +939,7 @@
                 </div>
             </div>
             <div class="col-md-6 mb-4">
-                <div class="card h-100" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7); border-radius: 8px;">
+                <div class="card h-100">
                     <div class="card-body">
                         <h3 class="card-title">The Role of Wireless Networking in Modern Logistics</h3>
                         <p class="card-text">Discussing advancements in wireless tech for real-time tracking and their impact on global shipping efficiency.</p>
@@ -935,7 +948,7 @@
                 </div>
             </div>
             <div class="col-md-6 mb-4">
-                <div class="card h-100" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7); border-radius: 8px;">
+                <div class="card h-100">
                     <div class="card-body">
                         <h3 class="card-title">Future of E-Governance in Developing Regions</h3>
                         <p class="card-text">Insights from my certification, exploring how digital governance can improve public services in areas like Somaliland.</p>
