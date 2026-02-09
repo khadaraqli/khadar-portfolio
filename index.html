@@ -335,6 +335,37 @@
         #projects .btn {
             border-radius: 20px;
         }
+
+        /* Key Skills Section Style */
+        #skills {
+            background: #f0f6fd;
+        }
+        #skills .card {
+            background: white;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        #skills .card-body {
+            padding: 1.5rem;
+        }
+        #skills .card-title {
+            color: var(--primary-navy);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        #skills i {
+            color: var(--primary-navy);
+        }
+        #skills ul.list-unstyled li {
+            color: #333;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        #skills ul.list-unstyled li:before {
+            content: "• ";
+            color: var(--primary-navy);
+        }
     </style>
     <!-- Google Analytics with provided ID -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VT5LFQ9EW4"></script>
@@ -707,69 +738,117 @@
 
     <section id="skills" class="container">
         <h2 class="text-center">Key Skills</h2>
-        <div class="row">
-            <div class="col-md-6 mb-4">
-                <div class="card h-100" style="background: linear-gradient(135deg, #f0f4f8, #d6e4f0); border-radius: 10px;">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">
+            <div class="col">
+                <div class="card h-100">
                     <div class="card-body">
+                        <i class="fas fa-network-wired fa-2x mb-3"></i>
                         <h3 class="card-title">Networking & IT</h3>
-                        <div class="skill mb-3">
-                            <div class="skill-name">Cisco Networking & Routing</div>
-                            <div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div>
-                        </div>
-                        <div class="skill mb-3">
-                            <div class="skill-name">Server & Systems Administration</div>
-                            <div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div>
-                        </div>
-                        <div class="skill mb-3">
-                            <div class="skill-name">Cybersecurity</div>
-                            <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
-                        </div>
-                        <div class="skill">
-                            <div class="skill-name">Wireless Networking</div>
-                            <div class="skill-bar"><div class="skill-bar-fill" style="width:75%"></div></div>
-                        </div>
+                        <ul class="list-unstyled">
+                            <li>Cisco Networking & Routing (CCNA)</li>
+                            <li>Network Configuration & Troubleshooting</li>
+                            <li>IP Addressing & Subnetting</li>
+                            <li>Wireless Networking Fundamentals</li>
+                            <li>Basic Cybersecurity Principles</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 mb-4">
-                <div class="card h-100" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb); border-radius: 15px;">
+            <div class="col">
+                <div class="card h-100">
                     <div class="card-body">
-                        <h3 class="card-title">Programming & Development</h3>
-                        <div class="skill mb-3">
-                            <div class="skill-name">Python</div>
-                            <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
-                        </div>
-                        <div class="skill mb-3">
-                            <div class="skill-name">Java</div>
-                            <div class="skill-bar"><div class="skill-bar-fill" style="width:70%"></div></div>
-                        </div>
-                        <div class="skill mb-3">
-                            <div class="skill-name">SQL & Databases</div>
-                            <div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div>
-                        </div>
-                        <div class="skill">
-                            <div class="skill-name">Web Development (HTML/CSS/JS)</div>
-                            <div class="skill-bar"><div class="skill-bar-fill" style="width:75%"></div></div>
-                        </div>
+                        <i class="fas fa-brain fa-2x mb-3"></i>
+                        <h3 class="card-title">Systems, Data & Technology</h3>
+                        <ul class="list-unstyled">
+                            <li>Data Science Fundamentals</li>
+                            <li>Data Analysis & Interpretation</li>
+                            <li>E-Governance Systems & Digital Transformation</li>
+                            <li>AI Tools & ChatGPT Applications</li>
+                            <li>Technology-Driven Problem Solving</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 mb-4 mx-auto">
-                <div class="card h-100" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2); border-radius: 10px;">
+            <div class="col">
+                <div class="card h-100">
                     <div class="card-body">
+                        <i class="fas fa-code fa-2x mb-3"></i>
+                        <h3 class="card-title">Programming & Web Technologies</h3>
+                        <ul class="list-unstyled">
+                            <li>Python Programming</li>
+                            <li>Java Programming</li>
+                            <li>SQL & Database Management</li>
+                            <li>Web Development (HTML, CSS, JavaScript)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <i class="fas fa-calculator fa-2x mb-3"></i>
+                        <h3 class="card-title">Business, Accounting & Office Skills</h3>
+                        <ul class="list-unstyled">
+                            <li>Accounting Principles & Financial Records</li>
+                            <li>Microsoft Excel (Formulas & Functions)</li>
+                            <li>Microsoft Office & Professional Documentation</li>
+                            <li>Data Reporting & Presentation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <i class="fas fa-users fa-2x mb-3"></i>
+                        <h3 class="card-title">Management & Leadership</h3>
+                        <ul class="list-unstyled">
+                            <li>Human Resource Management</li>
+                            <li>Leadership & Change Management</li>
+                            <li>Organizational Development</li>
+                            <li>Team Coordination & Decision-Making</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <i class="fas fa-gavel fa-2x mb-3"></i>
+                        <h3 class="card-title">Legal, Governance & Compliance</h3>
+                        <ul class="list-unstyled">
+                            <li>Legal Writing & Documentation</li>
+                            <li>E-Governance & Public Administration</li>
+                            <li>Policy Interpretation & Regulatory Awareness</li>
+                            <li>Customs Clearance & Trade Regulations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <i class="fas fa-ship fa-2x mb-3"></i>
                         <h3 class="card-title">Shipping & Logistics</h3>
-                        <div class="skill mb-3">
-                            <div class="skill-name">Shipping & Logistics Operations</div>
-                            <div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div>
-                        </div>
-                        <div class="skill mb-3">
-                            <div class="skill-name">Microsoft Office & Documentation</div>
-                            <div class="skill-bar"><div class="skill-bar-fill" style="width:95%"></div></div>
-                        </div>
-                        <div class="skill">
-                            <div class="skill-name">Customs Clearance & Regulations</div>
-                            <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
-                        </div>
+                        <ul class="list-unstyled">
+                            <li>Shipping & Logistics Operations</li>
+                            <li>International Trade Procedures</li>
+                            <li>Documentation & Compliance in Logistics</li>
+                            <li>Supply Chain Coordination</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <i class="fas fa-comments fa-2x mb-3"></i>
+                        <h3 class="card-title">Communication & Language</h3>
+                        <ul class="list-unstyled">
+                            <li>English Language Proficiency</li>
+                            <li>Professional Communication</li>
+                            <li>Technical & Business Writing</li>
+                        </ul>
                     </div>
                 </div>
             </div>
