@@ -162,6 +162,13 @@
             box-shadow: 0 0.25rem 1rem var(--shadow);
         }
 
+        @media (min-width: 992px) {
+            .headshot {
+                width: 15rem;
+                height: 15rem;
+            }
+        }
+
         nav {
             background: var(--primary-navy);
             position: sticky; top: 0; z-index: 1000;
@@ -365,6 +372,37 @@
         #skills ul.list-unstyled li:before {
             content: "• ";
             color: var(--primary-navy);
+        }
+
+        /* Enhanced Certificates Section Style */
+        #certificates .card {
+            background: white;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        #certificates .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+        }
+        #certificates .card-body {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        #certificates i {
+            color: var(--accent-teal);
+        }
+        #certificates .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        #certificates .text-muted {
+            font-size: 0.9rem;
+        }
+        #certificates .btn {
+            border-radius: 20px;
+            font-size: 0.9rem;
         }
     </style>
     <!-- Google Analytics with provided ID -->
@@ -642,7 +680,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Add other certificates similarly -->
             <div class="col-md-4 mb-4">
                 <div class="card">
                     <div class="card-body">
@@ -730,6 +767,16 @@
                         <h3 class="card-title">Data Science Certificate</h3>
                         <small class="text-muted">Cambridge International University, Liverpool | Issued on 23 January 2026</small>
                         <a href="certificates/Data.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-success mt-2">View Certificate</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <i class="fas fa-certificate fa-2x mb-3 text-success"></i>
+                        <h3 class="card-title">Building Effective Teaching Strategies</h3>
+                        <small class="text-muted"></small>
+                        <a href="certificates/Building.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-success mt-2">View Certificate</a>
                     </div>
                 </div>
             </div>
@@ -848,6 +895,7 @@
                             <li>English Language Proficiency</li>
                             <li>Professional Communication</li>
                             <li>Technical & Business Writing</li>
+                            <li>Building Effective Teaching Strategies</li>
                         </ul>
                     </div>
                 </div>
@@ -861,7 +909,7 @@
         <div class="row">
             <div class="col-md-6 mb-4">
                 <div class="card h-100" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-radius: 12px;">
-                    <img src="https://via.placeholder.com/300x200?text=Logistics+App" alt="Screenshot of Logistics Tracking App" class="card-img-top project-img">
+                    <img src="images/Logistics.JPG" alt="Screenshot of Logistics Tracking App" class="card-img-top project-img">
                     <div class="card-body">
                         <h3 class="card-title">Logistics Tracking Web App</h3>
                         <p class="card-text">A full-stack application for real-time shipment tracking in ports.</p>
@@ -875,7 +923,7 @@
             </div>
             <div class="col-md-6 mb-4">
                 <div class="card h-100" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-radius: 12px;">
-                    <img src="https://via.placeholder.com/300x200?text=Network+Tool" alt="Screenshot of Network Security Tool" class="card-img-top project-img">
+                    <img src="images/Security.PNG" alt="Screenshot of Network Security Tool" class="card-img-top project-img">
                     <div class="card-body">
                         <h3 class="card-title">Network Security Monitoring Tool</h3>
                         <p class="card-text">A script-based tool to detect vulnerabilities in network infrastructures.</p>
@@ -889,7 +937,7 @@
             </div>
             <div class="col-md-6 mb-4 mx-auto">
                 <div class="card h-100" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-radius: 12px;">
-                    <img src="https://via.placeholder.com/300x200?text=AI+Logistics+Optimizer" alt="Screenshot of AI Logistics Optimizer" class="card-img-top project-img">
+                    <img src="images/Ai.PNG" alt="Screenshot of AI Logistics Optimizer" class="card-img-top project-img">
                     <div class="card-body">
                         <h3 class="card-title">AI Logistics Optimizer</h3>
                         <p class="card-text">An AI-powered tool to optimize supply chain routes using machine learning algorithms.</p>
@@ -1226,3 +1274,4 @@
 
 </body>
 </html>
+```="modal
