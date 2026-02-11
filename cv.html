@@ -188,10 +188,10 @@
         .achievements ul li { position: relative; padding-left: 25px; margin-bottom: 12px; }
         .achievements ul li::before { content: '\f058'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; color: var(--secondary); }
 
-        /* PRINT BUTTON */
-        .print-btn { text-align: center; margin: 40px 0; }
-        .print-btn button { padding: 14px 35px; font-weight: 600; border: none; background: var(--primary); color: #fff; border-radius: 50px; cursor: pointer; transition: all 0.3s; }
-        .print-btn button:hover { background: #1e40af; transform: translateY(-2px); }
+        /* DOWNLOAD BUTTON */
+        .download-btn { text-align: center; margin: 40px 0; }
+        .download-btn a { padding: 14px 35px; font-weight: 600; background: var(--primary); color: #fff; border-radius: 50px; text-decoration: none; transition: all 0.3s; display: inline-block; }
+        .download-btn a:hover { background: #1e40af; transform: translateY(-2px); }
 
         /* FOOTER */
         footer { background: var(--dark); color: #d1d5db; text-align: center; padding: 25px; margin-top: 60px; }
@@ -210,7 +210,7 @@
         <h1>Khadar Ali Aqli</h1>
         <p>Multidisciplinary Professional in IT, Networking, Shipping & Logistics, Auditing & Accounting, Leadership, and Communication</p>
         <div class="header-btns">
-            <a href="#" class="btn-primary" onclick="window.print()">Print / Save CV</a>
+            <a href="cv.pdf" download class="btn-primary">Download CV</a>
             <a href="mailto:khadaraqli@students.diu.ac" class="btn-outline">Contact Me</a>
         </div>
     </header>
@@ -381,8 +381,8 @@
         <p><strong>Mr. Abdiqadir Ahmed Muse</strong> – Lecturer | Email: mouse17-561@diu.edu.bd | Phone: Available upon request</p>
     </section>
 
-    <div class="print-btn">
-        <button onclick="window.print()"><i class="fas fa-print"></i> Print / Save as PDF</button>
+    <div class="download-btn">
+        <a href="cv.pdf" download><i class="fas fa-download"></i> Download CV as PDF</a>
     </div>
 
     <footer>
@@ -417,4 +417,4 @@
 
 </body>
 </html>
-``` 0
+```; box
