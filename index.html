@@ -25,7 +25,7 @@
       "telephone": "+252 65 4242420",
       "url": "https://khadaraqli.github.io/khadar-portfolio/",
       "sameAs": [
-        "https://www.linkedin.com/in/eng-khadar-aqli-9bb42119a",target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="me-3"><i class="fab fa-linkedin fa-2x"></i></a>
+        "https://www.linkedin.com/in/eng-khadar-aqli-9bb42119a",
         "https://github.com/khadaraqli",
         "https://x.com/engaqli"
       ],
@@ -39,7 +39,7 @@
       ]
     }
     </script>
-    <!-- Additional Schema for Website -->
+    <!--.org markup for Website -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -50,10 +50,10 @@
     }
     </script>
     <title>Khadar Ali Aqli | IT & Shipping Operations Professional | Computer Scientist</title>
-    <link rel="icon" href="https://via.placeholder.com/32?text=KA" type="image/x-icon"> <!-- Replace with real favicon, e.g., favicon.ico -->
+    <link rel="icon" href="https://via.placeholder.com/32?text=KA" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"> <!-- Bootstrap for better layout -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
         :root {
             --primary-navy: #003366;
@@ -125,34 +125,120 @@
         h3 { font-size: 1.75rem; font-weight: 600; }
         p { font-size: 1.1rem; }
 
+        /* ===== HERO NIGHT SKY BACKGROUND (OPTIMIZED) ===== */
         header {
             position: relative;
-            color: var(--white);
+            color: #ffffff;
             text-align: center;
             padding: 10rem 1rem 5rem;
-            background: url('https://thumbs.dreamstime.com/b/full-moon-night-sky-clouds-stars-celestial-breathtaking-full-moon-illuminates-dramatic-night-sky-filled-fluffy-clouds-406962192.jpg') no-repeat center center / cover;
+            background: radial-gradient(ellipse at top, #0f1c2e 0%, #05060a 100%);
             overflow: hidden;
+        }
+
+        /* Soft overlay for readability */
+        header::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 25, 0.35);
+            z-index: 9;
+        }
+
+        .stars-layer {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
         }
 
         .star {
             position: absolute;
-            width: 2px; height: 2px;
-            background: white;
+            background: #ffffff;
             border-radius: 50%;
-            animation: twinkle 2s infinite alternate;
+            animation: twinkle 3s infinite alternate ease-in-out;
         }
-        @keyframes twinkle { 0% { opacity: 0.2; } 100% { opacity: 1; } }
 
+        @keyframes twinkle {
+            from { opacity: 0.3; }
+            to { opacity: 1; }
+        }
+
+        /* Moon */
         .moon {
             position: absolute;
-            top: 2rem; right: 2rem;
-            width: 5rem; height: 5rem;
-            background: #FFFDE7;
+            top: 12%;
+            left: 8%;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle at 30% 30%, #fffbe6 10%, #f5f6d4 40%, #d4d4aa 100%);
             border-radius: 50%;
-            box-shadow: 0 0 3rem 1.5rem #FFFDE7;
-            animation: floatMoon 5s ease-in-out infinite;
+            box-shadow: 0 0 50px 15px #ffffff, 0 0 100px 30px #ffffcc;
+            z-index: 5;
+            animation: moveMoon 240s ease-in-out infinite alternate;
         }
-        @keyframes floatMoon { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-0.5rem) scale(1.05) rotate(5deg); } }
+
+        @keyframes moveMoon {
+            0% { left: 8%; top: 12%; }
+            50% { top: 15%; }
+            100% { left: calc(100% - 160px); top: 10%; }
+        }
+
+        /* Clouds */
+        .cloud {
+            position: absolute;
+            width: 320px;
+            height: 100px;
+            background: #ffffff;
+            border-radius: 150px;
+            opacity: 0.08;
+            filter: blur(2px);
+            animation: drift linear infinite;
+        }
+
+        .cloud::before,
+        .cloud::after {
+            content: '';
+            position: absolute;
+            background: #ffffff;
+            border-radius: 50%;
+        }
+
+        .cloud::before {
+            width: 160px;
+            height: 160px;
+            top: -80px;
+            left: 40px;
+        }
+
+        .cloud::after {
+            width: 120px;
+            height: 150px;
+            top: -70px;
+            left: 180px;
+        }
+
+        .far { opacity: 0.05; animation-duration: 800s; transform: scale(1.5); z-index: 2; }
+        .mid { opacity: 0.09; animation-duration: 500s; transform: scale(1.2); z-index: 3; }
+        .near { opacity: 0.14; animation-duration: 300s; transform: scale(0.9); z-index: 10; }
+
+        .reverse { animation-direction: reverse; }
+
+        @keyframes drift {
+            from { transform: translateX(-100vw); }
+            to { transform: translateX(100vw); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 11;
+        }
+
+        @media (max-width: 768px) {
+            .moon {
+                width: 80px;
+                height: 80px;
+                animation-duration: 180s;
+            }
+        }
 
         .headshot {
             width: 10rem; height: 10rem;
@@ -417,7 +503,7 @@
             background: linear-gradient(135deg, var(--accent-gold), var(--accent-teal));
         }
     </style>
-    <!-- Google Analytics with provided ID -->
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VT5LFQ9EW4"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -426,20 +512,85 @@
       gtag('config', 'G-VT5LFQ9EW4');
     </script>
 </head>
-
 <body>
 
-    <header class="text-center py-5">
+    <!-- ===================== HERO SECTION START ===================== -->
+    <header>
+
+        <div class="stars-layer"></div>
+
+        <div class="cloud far" style="top:10%; animation-delay:-100s;"></div>
+        <div class="cloud far reverse" style="top:25%; animation-delay:-300s;"></div>
+        <div class="cloud mid" style="top:18%; animation-delay:-200s;"></div>
+
         <div class="moon"></div>
-        <a href="images/Sawir.jpg" target="_blank"><img src="images/Sawir.jpg" alt="Professional headshot of Khadar Ali Aqli" class="headshot mx-auto d-block" loading="lazy"></a>
-        <h1 class="mt-3">Khadar Ali Aqli</h1>
-        <p class="tagline lead">IT & Shipping Operations Professional | Computer Scientist</p>
-        <p class="bio container mx-auto">Bridging operational workflows with IT solutions to improve efficiency, accuracy, and service delivery in maritime and tech environments. With a passion for innovation, I combine technical expertise with practical experience to drive results in dynamic industries.</p>
-        <div class="header-btns mt-4">
-              <a href="cv.html" class="btn-primary">Download Resume (PDF)</a>
-            <a href="#contact" class="btn-outline">Contact Me</a>
+
+        <div class="cloud near" style="top:22%; animation-delay:-50s;"></div>
+
+        <div class="hero-content">
+            <a href="images/Sawir.jpg" target="_blank">
+                <img src="images/Sawir.jpg" class="headshot">
+            </a>
+
+            <h1>Khadar Ali Aqli</h1>
+            <p class="lead">
+                Technology, Maritime & Financial Governance Professional
+            </p>
+
+            <p>
+                Integrating IT, maritime operations, financial management, auditing, and governance to enhance efficiency, transparency, compliance, and strategic organizational performance.
+            </p>
+
+            <div class="mt-4">
+                <a href="cv.html" class="btn btn-primary">Download Resume</a>
+                <a href="#contact" class="btn btn-outline-light">Contact Me</a>
+            </div>
         </div>
     </header>
+
+    <script>
+    /* Stars */
+    const starsLayer = document.querySelector('.stars-layer');
+    for (let i = 0; i < 350; i++) {
+        let star = document.createElement('div');
+        star.classList.add('star');
+        star.style.top = Math.random() * 100 + '%';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.width = star.style.height = (Math.random() * 2 + 0.5) + 'px';
+        star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+        star.style.animationDelay = (Math.random() * 4) + 's';
+        starsLayer.appendChild(star);
+    }
+
+    /* Shooting Stars */
+    function shootingStar() {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.width = '3px';
+        star.style.height = '3px';
+        star.style.top = Math.random() * 40 + '%';
+        star.style.left = '-5%';
+        star.style.boxShadow = '0 0 10px white';
+        document.querySelector('header').appendChild(star);
+
+        let start = null;
+        function animate(timestamp) {
+            if (!start) start = timestamp;
+            const progress = (timestamp - start) / 1000;
+            star.style.left = (-5 + 120 * progress) + '%';
+            star.style.top = (parseFloat(star.style.top) + 8 * progress) + '%';
+            star.style.opacity = 1 - progress;
+            if (progress < 1) requestAnimationFrame(animate);
+            else star.remove();
+        }
+        requestAnimationFrame(animate);
+    }
+
+    setInterval(() => {
+        if (Math.random() < 0.15) shootingStar();
+    }, 2500);
+    </script>
+    <!-- ===================== HERO SECTION END ===================== -->
 
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
@@ -639,7 +790,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 mb-4">
+            <div class] = "col-md-6 mb-4">
                 <div class="card h-100">
                     <div class="card-body">
                         <i class="fas fa-briefcase fa-2x mb-3 text-success"></i>
@@ -820,7 +971,7 @@
                         <i class="fas fa-certificate fa-2x mb-3 text-success"></i>
                         <h3 class="card-title">English Language Certificate</h3>
                         <small class="text-muted">Cambridge International University, Manchester | 2026</small>
-                        <a href="certificates/English.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-success mt-2">View Certificate</a>
+                        <a href="certificates/English.pdf" target="_blank" rel="noopener noreferrer" class="Bn btn-sm btn-outline-success mt-2">View Certificate</a>
                     </div>
                 </div>
             </div>
@@ -844,7 +995,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mb-4">
+            <div class –="col-md-4 mb-4">
                 <div class="card">
                     <div class="card-body">
                         <i class="fas fa-certificate fa-2x mb-3 text-success"></i>
@@ -905,7 +1056,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
+丈夫            <div class="col">
                 <div class="card h-100">
                     <div class="card-body">
                         <i class="fas fa-brain fa-2x mb-3"></i>
@@ -1113,7 +1264,7 @@
         <h3 class="text-center mt-5">Additional Visuals</h3>
         <div class="gallery row">
             <div class="col-md-3"><img src="images/IMG_7117.jpeg" alt="Project visual 1" class="img-fluid rounded"></div>
-            <div class="col-md-3"><img src="images/IMG_7993.jpeg" alt="Project visual 2" class="img-fluid rounded"></div>
+            <div class="col-md-3"><img src<number="images/IMG_7993.jpeg" alt="Project visual 2" class="img-fluid rounded"></div>
             <div class="col-md-3"><img src="images/IMG_8834.jpeg" alt="Project visual 3" class="img-fluid rounded"></div>
             <div class="col-md-3"><img src="images/IMG_8925.jpeg" alt="Project visual 4" class="img-fluid rounded"></div>
         </div>
@@ -1216,7 +1367,7 @@
             </div>
             <div class="col-md-6 mb-4">
                 <div class="card h-100">
-                    <div class="card-body">
+                <div class="card-body">
                         <h3 class="card-title">Cybersecurity Challenges in Maritime Networks</h3>
                         <p class="card-text">A deep dive into protecting ship-port communication systems from emerging threats, with case studies from Somaliland ports.</p>
                         <a href="https://medium.com/@khadaraqli/maritime-cybersecurity" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">Read Article</a>
