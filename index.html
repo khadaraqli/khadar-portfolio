@@ -7,6 +7,7 @@
   <meta name="keywords" content="Computer Science, IT Networking, Shipping Operations, Maritime Logistics, Portfolio, Digital Governance, Cybersecurity">
   <meta name="author" content="Khadar Ali Aqli">
   <meta name="robots" content="index, follow">
+
   <!-- Open Graph -->
   <meta property="og:title" content="Khadar Ali Aqli | IT & Shipping Operations Professional | Computer Scientist">
   <meta property="og:description" content="Bridging Maritime Operations with Cutting-Edge IT Solutions. Technology, Maritime & Financial Governance Professional.">
@@ -18,6 +19,7 @@
   <meta name="twitter:title" content="Khadar Ali Aqli | IT & Maritime Professional">
   <meta name="twitter:description" content="Technology, Maritime & Financial Governance Professional.">
   <meta name="twitter:image" content="https://khadaraqli.github.io/khadar-portfolio/images/Sawir.jpg">
+
   <!-- Schema.org -->
   <script type="application/ld+json">
   {
@@ -46,13 +48,17 @@
     "description": "Professional portfolio showcasing expertise in IT and maritime operations."
   }
   </script>
+
   <title>Khadar Ali Aqli | IT & Shipping Operations Professional</title>
+
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='15' fill='%23003366'/><text y='.9em' font-size='60' x='50%' dominant-baseline='middle' text-anchor='middle' fill='%2300BFFF'>K</text></svg>">
+
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
   <style>
     /* ===== CSS VARIABLES ===== */
     :root {
@@ -75,6 +81,7 @@
       --radius-sm: 8px;
       --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
     }
+
     body.dark {
       --off-white: #0D1B2E;
       --text: #E8EFF8;
@@ -85,9 +92,11 @@
       --shadow-sm: 0 2px 12px rgba(0,0,0,0.3);
       --shadow-md: 0 8px 32px rgba(0,0,0,0.4);
     }
+
     /* ===== RESET & BASE ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+
     body {
       font-family: 'DM Sans', sans-serif;
       color: var(--text);
@@ -95,13 +104,16 @@
       transition: background 0.3s, color 0.3s;
       overflow-x: hidden;
     }
+
     h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
     /* ===== SCROLL PROGRESS BAR ===== */
     #progress-bar {
       position: fixed; top: 0; left: 0; height: 3px;
       background: linear-gradient(90deg, var(--teal), var(--gold));
       width: 0%; z-index: 9999; transition: width 0.1s;
     }
+
     /* ===== NAVBAR ===== */
     #navbar {
       position: fixed; top: 3px; left: 0; right: 0; z-index: 1000;
@@ -119,6 +131,7 @@
     .nav-brand span { color: var(--teal); }
     .navbar-toggler { border: 1px solid rgba(255,255,255,0.3); }
     .navbar-toggler-icon { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); }
+
     .navbar-nav { gap: 0.1rem; }
     .nav-item.dropdown { position: relative; }
     .nav-link-main {
@@ -152,6 +165,7 @@
     }
     .dropdown-menu-custom a:hover { background: rgba(0,200,212,0.15); color: var(--teal); }
     .nav-item.dropdown:hover .dropdown-menu-custom { display: block; }
+
     #dark-toggle {
       background: rgba(255,255,255,0.1);
       border: 1px solid rgba(255,255,255,0.2);
@@ -160,30 +174,32 @@
       cursor: pointer; transition: var(--transition);
     }
     #dark-toggle:hover { background: var(--teal); border-color: var(--teal); }
+
     /* ===== HERO ===== */
     #hero {
       position: relative; min-height: 100vh;
       display: flex; align-items: center; justify-content: center;
-      background: #020A18;   /* very dark navy — nearly black */
+      background: linear-gradient(180deg, #000510 0%, #010d20 40%, #021530 70%, #021B3A 100%);
       overflow: hidden; padding: 120px 20px 80px;
     }
-    /* Remove the blue grid overlay — it conflicts with the night sky */
-    .hero-bg-grid { display: none; }
-    .hero-glow {
-      position: absolute; width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(0,200,212,0.07) 0%, transparent 70%);
-      top: 60%; left: 50%; transform: translate(-50%,-50%);
-      pointer-events: none; z-index: 1;
-    }
-    #nightsky-canvas {
+    .hero-bg-grid {
       position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      pointer-events: none; z-index: 0;
+      background-image: linear-gradient(rgba(0,200,212,0.04) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(0,200,212,0.04) 1px, transparent 1px);
+      background-size: 50px 50px;
     }
-    /* PhD section — reduce excessive padding */
-    #phd-agenda { padding: 3rem 0 2rem; }
-    #phd-agenda .section-header { margin-bottom: 2rem; }
-    #academic-cv { padding: 3rem 0; }
+    .hero-glow {
+      position: absolute; width: 600px; height: 600px;
+      background: radial-gradient(ellipse at 30% 40%, rgba(0,80,160,0.15) 0%, transparent 55%),
+              radial-gradient(ellipse at 70% 60%, rgba(0,200,212,0.08) 0%, transparent 50%),
+              radial-gradient(circle, rgba(0,200,212,0.10) 0%, transparent 70%);
+      top: 50%; left: 50%; transform: translate(-50%,-50%);
+      pointer-events: none;
+    }
+    #stars-canvas {
+      position: absolute; inset: 0; pointer-events: none;
+    }
+
     .hero-inner {
       position: relative; z-index: 2;
       display: flex; align-items: center; gap: 4rem;
@@ -194,62 +210,38 @@
       .hero-social { justify-content: center !important; }
       .hero-btns { justify-content: center !important; }
     }
+
     .hero-photo-wrap {
       flex-shrink: 0; position: relative;
-      display: flex; flex-direction: column; align-items: center;
     }
-    /* ── Perfect Circle Fix ─────────────────────────────────────
-       Use explicit equal width+height at every breakpoint.
-       aspect-ratio:1/1 enforces square before border-radius
-       applies, preventing the "bottom-bulge" on mobile.
-    ───────────────────────────────────────────────────────────── */
     .hero-photo-ring {
-      width: 220px; height: 220px;      /* equal sides = true square */
-      aspect-ratio: 1 / 1;             /* belt-and-suspenders */
-      border-radius: 50%;
+      width: 240px; height: 240px; border-radius: 50%;
       background: conic-gradient(var(--teal), var(--gold), var(--teal), var(--gold), var(--teal));
-      padding: 4px;
-      animation: spin-ring 8s linear infinite;
-      flex-shrink: 0;                  /* never distort inside flex */
-      box-sizing: border-box;
+      padding: 4px; animation: spin-ring 8s linear infinite;
+      box-shadow: 0 0 0 3px rgba(0,200,212,0.2), 0 0 30px rgba(0,200,212,0.3), 0 0 60px rgba(245,185,66,0.15);
     }
     @keyframes spin-ring {
-      from { filter: hue-rotate(0deg); }
-      to   { filter: hue-rotate(360deg); }
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
     .hero-photo-inner {
-      width: 100%; height: 100%;
-      aspect-ratio: 1 / 1;            /* stays square even if parent flexes */
-      border-radius: 50%;
-      background: var(--navy);
-      overflow: hidden;
+      width: 100%; height: 100%; border-radius: 50%;
+      background: var(--navy); overflow: hidden;
       border: 3px solid var(--navy);
-      box-sizing: border-box;
-      display: flex; align-items: center; justify-content: center;
     }
     .hero-photo-inner img {
-      /* fill the circle perfectly on every device */
-      display: block;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      border-radius: 50%;             /* extra safety */
-      flex-shrink: 0;
+      width: 100%; height: 100%; object-fit: cover; object-position: top;
+      filter: none !important; -webkit-filter: none !important;
     }
     .hero-badge {
-      position: absolute; bottom: 6px; right: -14px;
+      position: absolute; bottom: 10px; right: -10px;
       background: var(--teal); color: var(--navy);
       font-size: 0.75rem; font-weight: 700;
       padding: 0.35rem 0.9rem; border-radius: 20px;
       white-space: nowrap;
       box-shadow: 0 4px 12px rgba(0,200,212,0.4);
     }
-    @media(max-width: 900px) {
-      .hero-photo-ring { width: 180px; height: 180px; }
-    }
-    @media(max-width: 480px) {
-      .hero-photo-ring { width: 155px; height: 155px; }
-    }
+
     .hero-text { flex: 1; }
     .hero-tag {
       display: inline-block; background: rgba(0,200,212,0.15);
@@ -312,6 +304,7 @@
       background: var(--teal); border-color: var(--teal);
       color: var(--navy); transform: translateY(-3px);
     }
+
     /* ===== STATS COUNTER SECTION ===== */
     #stats {
       background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
@@ -334,11 +327,13 @@
     .stat-divider {
       width: 1px; background: rgba(255,255,255,0.1);
     }
+
     /* ===== SECTIONS ===== */
     section {
       padding: 5rem 0;
     }
     section:nth-child(even) { background: var(--section-alt); }
+
     .section-header { text-align: center; margin-bottom: 3.5rem; }
     .section-header h2 {
       font-size: clamp(1.8rem, 4vw, 2.6rem);
@@ -355,6 +350,7 @@
       border-radius: 2px;
     }
     .section-header p { color: var(--text-muted); margin-top: 0.75rem; font-size: 1.05rem; }
+
     /* ===== CARD BASE ===== */
     .kcard {
       background: var(--card-bg);
@@ -381,6 +377,7 @@
     }
     body.dark .kcard h3 { color: var(--white); }
     .kcard small { color: var(--text-muted); font-size: 0.82rem; }
+
     /* ===== ABOUT ===== */
     .about-grid {
       display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
@@ -398,6 +395,7 @@
     .info-list li strong { color: var(--navy); min-width: 90px; }
     body.dark .info-list li strong { color: var(--teal); }
     .info-list li a { color: var(--teal); text-decoration: none; }
+
     /* ===== TIMELINE ===== */
     .timeline { position: relative; padding-left: 2.5rem; }
     .timeline::before {
@@ -430,6 +428,7 @@
     .tl-org { color: var(--text-muted); font-size: 0.88rem; font-weight: 500; margin-bottom: 0.7rem; }
     .tl-card p, .tl-card li { font-size: 0.9rem; color: var(--text); line-height: 1.7; }
     .tl-card ul { padding-left: 1.2rem; margin: 0; }
+
     /* ===== SKILL BARS ===== */
     .skill-bar-wrap { margin-bottom: 1.2rem; }
     .skill-bar-label {
@@ -446,6 +445,7 @@
       background: linear-gradient(90deg, var(--teal), var(--gold));
       transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
     }
+
     /* ===== SKILL CARDS ===== */
     .skill-card {
       background: var(--card-bg); border: 1px solid var(--border);
@@ -471,6 +471,7 @@
     }
     .skill-card ul li:last-child { border-bottom: none; }
     .skill-card ul li::before { content: "▸ "; color: var(--teal); }
+
     /* ===== TECH TOOLKIT ===== */
     .tech-badge {
       display: inline-block;
@@ -478,6 +479,7 @@
       color: var(--teal); font-size: 0.8rem; font-weight: 600;
       padding: 0.3rem 0.85rem; border-radius: 20px; margin: 0.3rem;
     }
+
     /* ===== PROJECT CARDS ===== */
     .project-card {
       background: var(--card-bg); border: 1px solid var(--border);
@@ -508,6 +510,7 @@
       padding: 0.2rem 0.6rem; border-radius: 6px;
     }
     body.dark .project-tech span { background: rgba(255,255,255,0.05); }
+
     /* ===== CERTIFICATES ===== */
     .cert-card {
       background: var(--card-bg); border: 1px solid var(--border);
@@ -534,6 +537,7 @@
       transition: var(--transition);
     }
     .btn-cert:hover { transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,200,212,0.4); color: var(--navy); }
+
     /* ===== TESTIMONIALS ===== */
     .testimonial-card {
       background: linear-gradient(135deg, var(--card-bg), rgba(0,200,212,0.04));
@@ -547,6 +551,7 @@
     }
     .testimonial-card p { font-style: italic; color: var(--text); line-height: 1.8; font-size: 0.95rem; }
     .testimonial-author { margin-top: 1rem; font-weight: 600; color: var(--teal); font-size: 0.88rem; }
+
     /* ===== BLOG ===== */
     .blog-card {
       background: var(--card-bg); border: 1px solid var(--border);
@@ -562,6 +567,7 @@
     }
     .blog-card h3 { font-size: 1rem; font-family: 'DM Sans',sans-serif; font-weight: 600; margin-bottom: 0.75rem; line-height: 1.5; }
     .blog-card p { color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.2rem; }
+
     /* ===== ACHIEVEMENTS ===== */
     .achievement-card {
       background: var(--card-bg); border: 1px solid var(--border);
@@ -572,6 +578,7 @@
     .achievement-card:hover { transform: translateX(5px); box-shadow: var(--shadow-md); }
     .achievement-icon { color: var(--gold); font-size: 1.8rem; margin-bottom: 0.8rem; }
     .achievement-org { color: var(--text-muted); font-size: 0.82rem; margin-bottom: 0.7rem; }
+
     /* ===== RESEARCH CARDS ===== */
     .research-focus-item {
       display: flex; align-items: center; gap: 0.75rem;
@@ -583,6 +590,7 @@
     .research-focus-item::before { content: '⬡'; color: var(--teal); font-size: 0.9rem; }
     .research-focus-item span { font-size: 0.93rem; color: var(--text); }
     body.dark .research-focus-item span { color: var(--white); }
+
     /* ===== CONTACT ===== */
     .contact-box {
       background: var(--card-bg); border: 1px solid var(--border);
@@ -607,6 +615,7 @@
       font-size: 1rem; cursor: pointer; transition: var(--transition);
     }
     .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,200,212,0.4); }
+
     .contact-info-item {
       display: flex; align-items: center; gap: 1rem;
       padding: 1rem 0; border-bottom: 1px solid var(--border);
@@ -619,6 +628,7 @@
       color: var(--teal); font-size: 1rem; flex-shrink: 0;
     }
     .contact-info-item a { color: var(--teal); text-decoration: none; font-size: 0.92rem; }
+
     /* ===== FOOTER ===== */
     footer {
       background: var(--navy);
@@ -645,6 +655,7 @@
     .footer-divider {
       border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 2rem 0 1.5rem;
     }
+
     /* ===== BACK TO TOP ===== */
     #back-to-top {
       position: fixed; bottom: 2rem; right: 2rem;
@@ -658,6 +669,7 @@
     }
     #back-to-top.visible { opacity: 1; pointer-events: all; }
     #back-to-top:hover { transform: translateY(-3px); }
+
     /* ===== LANGUAGE SELECTOR ===== */
     #lang-selector {
       position: fixed; bottom: 5.5rem; right: 2rem;
@@ -671,11 +683,13 @@
       transition: var(--transition);
     }
     #lang-selector button:hover { background: var(--teal); color: var(--navy); }
+
     /* ===== DIAGRAM ===== */
     .diagram-container {
       background: var(--card-bg); border: 1px solid var(--border);
       border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem;
     }
+
     /* ===== VOLUNTEER ===== */
     .volunteer-card {
       background: var(--card-bg); border: 1px solid var(--border);
@@ -684,6 +698,7 @@
       transition: var(--transition); box-shadow: var(--shadow-sm);
     }
     .volunteer-card:hover { transform: translateX(4px); box-shadow: var(--shadow-md); }
+
     /* ===== GALLERY ===== */
     .gallery-img {
       border-radius: var(--radius); overflow: hidden;
@@ -694,6 +709,7 @@
       transition: transform 0.4s ease;
     }
     .gallery-img:hover img { transform: scale(1.05); }
+
     /* ===== SCROLL REVEAL ===== */
     .reveal {
       opacity: 0; transform: translateY(30px);
@@ -705,6 +721,7 @@
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
     .reveal-left.visible { opacity: 1; transform: translateX(0); }
+
     /* ===== WORKING PAPERS ===== */
     .paper-card {
       background: var(--card-bg); border: 1px solid var(--border);
@@ -716,6 +733,7 @@
     .paper-card:hover { border-color: var(--teal); transform: translateX(4px); }
     .paper-card h3 { font-size: 1rem; font-family: 'DM Sans',sans-serif; font-weight: 600; margin: 0; }
     @media(max-width:600px) { .paper-card { flex-direction: column; align-items: flex-start; } }
+
     /* ===== PROFESSOR ALIGNMENT ===== */
     .align-card {
       background: var(--card-bg); border: 1px solid var(--border);
@@ -731,6 +749,7 @@
     }
     .align-card h3 { font-size: 1rem; font-family:'DM Sans',sans-serif; font-weight:700; margin-bottom:0.5rem; }
     .align-card p { font-size: 0.88rem; color: var(--text-muted); font-style: italic; }
+
     /* ===== MOBILE NAV ===== */
     @media(max-width:991px) {
       #navbarNav { background: rgba(2,27,58,0.98); padding: 1rem; border-radius: 0 0 16px 16px; }
@@ -738,6 +757,7 @@
       .nav-item.dropdown.open .dropdown-menu-custom { display: block; }
       .stat-divider { display: none; }
     }
+
     /* ===== DARK MODE EXTRAS ===== */
     body.dark .kcard { background: var(--card-bg); border-color: var(--border); }
     body.dark .form-control::placeholder { color: var(--text-muted); }
@@ -750,11 +770,27 @@
     body.dark .tl-card { background: var(--card-bg); border-color: var(--border); }
     body.dark .about-text p, body.dark .tl-card p, body.dark .tl-card li { color: rgba(232,239,248,0.85); }
     body.dark section:nth-child(even) { background: var(--section-alt); }
+
+    /* ── SECTION HEADER: always visible, never animated ── */
+    .section-header {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+    /* ── MOON CANVAS ── */
+    #moon-canvas {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none; z-index: 1;
+    }
+    /* ── RICHER STARS ── */
   </style>
 </head>
 <body>
+
 <!-- Scroll Progress -->
 <div id="progress-bar"></div>
+
 <!-- ===== NAVBAR ===== -->
 <nav id="navbar">
   <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap gap-2">
@@ -828,11 +864,13 @@
     </div>
   </div>
 </nav>
+
 <!-- ===== HERO ===== -->
 <section id="hero">
   <div class="hero-bg-grid"></div>
-  <canvas id="nightsky-canvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;"></canvas>
   <div class="hero-glow"></div>
+  <canvas id="stars-canvas"></canvas>
+    <canvas id="moon-canvas"></canvas>
   <div class="hero-inner">
     <div class="hero-photo-wrap reveal-left">
       <div class="hero-photo-ring">
@@ -862,6 +900,7 @@
     </div>
   </div>
 </section>
+
 <!-- ===== STATS ===== -->
 <section id="stats">
   <div class="container">
@@ -893,10 +932,11 @@
     </div>
   </div>
 </section>
+
 <!-- ===== ABOUT ===== -->
 <section id="about">
   <div class="container">
-    <div class="section-header reveal">
+    <div class="section-header">
       <h2>Professional Profile</h2>
       <p>Multidisciplinary expertise bridging technology, maritime & governance</p>
     </div>
@@ -922,10 +962,11 @@
     </div>
   </div>
 </section>
+
 <!-- ===== RESEARCH ===== -->
 <section id="research">
   <div class="container">
-    <div class="section-header reveal"><h2>Research Profile</h2><p>Advancing digital governance for emerging states</p></div>
+    <div class="section-header"><h2>Research Profile</h2><p>Advancing digital governance for emerging states</p></div>
     <div class="row g-4">
       <div class="col-lg-5 reveal-left">
         <div class="kcard h-100">
@@ -942,11 +983,8 @@
       <div class="col-lg-7 reveal">
         <div class="kcard mb-4">
           <div class="kcard-icon"><i class="fas fa-quote-left"></i></div>
-          <h3 class="mb-3">Research Statement</h3>
-          <p style="font-style:italic; line-height:1.9; font-size:0.96rem; color:var(--text-muted); margin-bottom:1rem;">"I am a Computer Science graduate and multidisciplinary professional specialising in the intersection of Information Technology, Public Governance, and Maritime Operations. My research is driven by a fundamental conviction: that secure, scalable, and interoperable digital infrastructure is not merely a technical goal — it is a prerequisite for accountable governance, institutional resilience, and inclusive development in the twenty-first century."</p>
-          <p style="line-height:1.88; font-size:0.93rem; color:var(--text); margin-bottom:1rem;">Drawing on over two decades of practical experience spanning port operations, network administration, cybersecurity implementation, and financial governance, my academic work is uniquely grounded in the realities of operational environments in the Horn of Africa and broader emerging-state contexts. I bring to research not only theoretical rigour, but a practitioner's understanding of where institutional systems fail — and where thoughtfully engineered digital solutions can succeed.</p>
-          <p style="line-height:1.88; font-size:0.93rem; color:var(--text); margin-bottom:1rem;">My primary research objective is to bridge the structural gap that persists between ICT system implementation and governance frameworks in developing and post-conflict states. Too often, technology is deployed without adequate alignment to institutional processes, legal structures, or cybersecurity requirements — resulting in systems that are vulnerable, fragmented, or abandoned. Through applied systems engineering, security-by-design principles, and comparative policy analysis, I aim to develop governance architecture models that are both technically robust and institutionally coherent.</p>
-          <p style="line-height:1.88; font-size:0.93rem; color:var(--text);">I am particularly focused on the role of blockchain technology, distributed systems, and identity management frameworks in enabling transparent, tamper-resistant public administration. By aligning technical architecture with policy and legal interoperability requirements, I seek to contribute replicable models that can serve as reference frameworks for digital transformation efforts across Africa, the Middle East, and other regions navigating the transition from analogue to digital governance. Ultimately, my research vision is to generate knowledge that is not only academically significant but directly actionable by governments, institutions, and development organisations committed to building fairer, more secure digital societies.</p>
+          <h3 class="mb-2">Research Statement</h3>
+          <p style="font-style:italic; line-height:1.85; font-size:0.95rem; color:var(--text-muted);">"I am a Computer Science graduate specializing in the intersection of Information Technology and Public Governance. My research focuses on designing secure, scalable, and interoperable digital governance architectures for emerging and developing states. My objective is to bridge the structural gap between ICT infrastructure design and institutional governance systems through applied systems engineering and cybersecurity frameworks."</p>
         </div>
         <div class="kcard">
           <h3 class="mb-3">Academic Research Profiles</h3>
@@ -996,30 +1034,24 @@
     </div>
   </div>
 </section>
+
 <!-- ===== PHD AGENDA ===== -->
 <section id="phd-agenda">
   <div class="container">
-    <div class="section-header reveal"><h2>PhD Research Agenda</h2><p>Designing the digital future for emerging states</p></div>
+    <div class="section-header"><h2>PhD Research Agenda</h2><p>Designing the digital future for emerging states</p></div>
     <div class="row g-4">
-      <div class="col-lg-10 mx-auto reveal">
-
-        <!-- Proposed Title Card -->
+      <div class="col-lg-8 mx-auto reveal">
         <div class="kcard mb-4">
           <div class="kcard-icon"><i class="fas fa-flask"></i></div>
-          <h3 style="color:var(--teal); font-size:1.15rem; font-family:'DM Sans',sans-serif; font-weight:700; margin-bottom:0.75rem;">Proposed Research Title</h3>
-          <p style="font-size:1.08rem; font-style:italic; line-height:1.75; color:var(--text); margin-bottom:1.2rem; border-left:3px solid var(--teal); padding-left:1rem;">"Designing Secure and Scalable Digital Governance Architectures for Emerging States: A Framework for Interoperable, Cyber-Resilient, and Institutionally Coherent Public Digital Infrastructure"</p>
-          <p style="font-size:0.93rem; color:var(--text); line-height:1.88; margin-bottom:1rem;">This research addresses one of the most pressing governance challenges of the contemporary era: the absence of coherent, secure, and scalable digital infrastructure within emerging and transitional states. Across the Horn of Africa, Sub-Saharan Africa, and similar regions, governments have invested in isolated digital systems — identity registries, customs platforms, land records, public finance tools — yet these systems routinely fail to communicate with one another, lack robust security architectures, and remain misaligned with the institutional and legal frameworks that should govern them.</p>
-          <p style="font-size:0.93rem; color:var(--text); line-height:1.88; margin-bottom:1rem;">The proposed research offers a departure from purely technical approaches by situating digital governance architecture within its broader political, institutional, and operational context. It draws on established systems engineering methodologies, international cybersecurity standards (including ISO 27001 and NIST frameworks), and comparative analysis of successful e-governance transformations in the European Union, Estonia, and Rwanda to construct an evidence-based reference architecture model applicable to states in earlier stages of digital transition.</p>
-          <p style="font-size:0.93rem; color:var(--text); line-height:1.88;">Central to the research is the argument that interoperability — the capacity of distinct government systems to exchange, interpret, and act upon shared data — cannot be achieved through technical integration alone. It requires deliberate alignment between technical standards, institutional mandates, legal frameworks, and cybersecurity policy. The research will produce a layered governance architecture model that addresses each of these dimensions, alongside prototype validation through case studies drawn from Somaliland and comparable post-conflict governance environments.</p>
+          <h3 style="color:var(--teal); font-size:1.1rem; font-family:'DM Sans',sans-serif; font-weight:700; margin-bottom:0.5rem;">Proposed Research Title</h3>
+          <p style="font-size:1.05rem; font-style:italic; line-height:1.7; color:var(--text);">"Designing Secure and Scalable Digital Governance Architectures for Emerging States"</p>
         </div>
-
         <div class="row g-3">
           <div class="col-md-6">
             <div class="kcard h-100">
               <div class="kcard-icon"><i class="fas fa-exclamation-triangle"></i></div>
               <h3 style="font-size:1rem; font-family:'DM Sans',sans-serif; font-weight:700; margin-bottom:0.75rem;">Research Problem</h3>
-              <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.8; margin-bottom:0.75rem;">Many emerging states lack integrated, secure, and interoperable digital governance infrastructures. There is often a structural disconnect between ICT system implementation and the governance frameworks that should guide, regulate, and sustain them.</p>
-              <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.8;">This disconnect manifests as siloed e-government deployments, uncoordinated data architectures, critical cybersecurity vulnerabilities in public systems, and a persistent inability to deliver integrated digital public services at scale. Without an overarching architecture model, investments in digital government remain fragmented, inefficient, and unsustainable.</p>
+              <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.75;">Many emerging states lack integrated, secure, and interoperable digital governance infrastructures. There is often a structural disconnect between ICT system implementation and governance frameworks.</p>
             </div>
           </div>
           <div class="col-md-6">
@@ -1027,12 +1059,10 @@
               <div class="kcard-icon"><i class="fas fa-bullseye"></i></div>
               <h3 style="font-size:1rem; font-family:'DM Sans',sans-serif; font-weight:700; margin-bottom:0.75rem;">Research Objectives</h3>
               <ul class="info-list" style="font-size:0.87rem;">
-                <li>Develop a scalable, layered e-governance architecture model adaptable to low-resource state contexts</li>
-                <li>Integrate internationally recognised cybersecurity frameworks into national public systems design</li>
-                <li>Design technical and institutional interoperability standards applicable across multiple ministries and agencies</li>
-                <li>Propose a policy-technology alignment framework linking ICT architecture to governance mandates</li>
-                <li>Validate the framework through prototype development and real-world case study application</li>
-                <li>Produce actionable policy recommendations for governments and development organisations</li>
+                <li>Develop a scalable e-governance architecture model</li>
+                <li>Integrate cybersecurity frameworks into national public systems</li>
+                <li>Design interoperability standards across ministries</li>
+                <li>Propose a policy-technology alignment framework</li>
               </ul>
             </div>
           </div>
@@ -1041,12 +1071,11 @@
               <div class="kcard-icon"><i class="fas fa-cogs"></i></div>
               <h3 style="font-size:1rem; font-family:'DM Sans',sans-serif; font-weight:700; margin-bottom:0.75rem;">Methodology</h3>
               <ul class="info-list" style="font-size:0.87rem;">
-                <li>Systematic comparative analysis of EU, Estonian, and Rwandan digital governance systems</li>
-                <li>Multi-layered systems architecture modelling using enterprise architecture frameworks (TOGAF, Zachman)</li>
-                <li>Cybersecurity risk assessment and threat-modelling aligned to NIST and ISO 27001</li>
-                <li>Prototype governance architecture framework development and simulation</li>
-                <li>Qualitative case study validation in Somaliland and comparable emerging-state environments</li>
-                <li>Expert interviews with policymakers, IT directors, and governance specialists</li>
+                <li>Comparative analysis of EU digital governance systems</li>
+                <li>Systems architecture modeling</li>
+                <li>Cybersecurity risk assessment</li>
+                <li>Prototype framework development</li>
+                <li>Case study validation</li>
               </ul>
             </div>
           </div>
@@ -1055,12 +1084,9 @@
               <div class="kcard-icon"><i class="fas fa-star"></i></div>
               <h3 style="font-size:1rem; font-family:'DM Sans',sans-serif; font-weight:700; margin-bottom:0.75rem;">Expected Contribution</h3>
               <ul class="info-list" style="font-size:0.87rem;">
-                <li>A replicable digital governance reference architecture model for emerging states</li>
-                <li>A cybersecurity-integrated public systems blueprint aligned to international standards</li>
-                <li>An interoperability framework bridging technical and institutional governance layers</li>
-                <li>An adaptable policy-technology alignment tool for post-conflict and transitional governments</li>
-                <li>Peer-reviewed publications advancing the academic literature on e-governance architecture</li>
-                <li>A practical roadmap informing digital transformation policy across the African continent</li>
+                <li>A digital governance reference architecture model</li>
+                <li>A cybersecurity-integrated public systems blueprint</li>
+                <li>An adaptable framework for developing and post-conflict states</li>
               </ul>
             </div>
           </div>
@@ -1069,10 +1095,11 @@
     </div>
   </div>
 </section>
+
 <!-- ===== ACADEMIC CV ===== -->
 <section id="academic-cv">
   <div class="container">
-    <div class="section-header reveal"><h2>Academic CV</h2></div>
+    <div class="section-header"><h2>Academic CV</h2></div>
     <div class="row justify-content-center">
       <div class="col-lg-7 text-center reveal">
         <div class="kcard">
@@ -1088,10 +1115,11 @@
     </div>
   </div>
 </section>
+
 <!-- ===== APPLIED RESEARCH ===== -->
 <section id="applied-research">
   <div class="container">
-    <div class="section-header reveal"><h2>Applied Research &amp; Technical Integration</h2><p>Practical foundations for academic research development</p></div>
+    <div class="section-header"><h2>Applied Research &amp; Technical Integration</h2><p>Practical foundations for academic research development</p></div>
     <div class="row g-3 justify-content-center">
       <div class="col-lg-8">
         <div class="row g-3">
@@ -1105,10 +1133,11 @@
     </div>
   </div>
 </section>
+
 <!-- ===== WORKING PAPERS ===== -->
 <section id="working-papers">
   <div class="container">
-    <div class="section-header reveal"><h2>Working Papers &amp; Ongoing Research</h2><p>All manuscripts authored by Khadar Ali Aqli (2026)</p></div>
+    <div class="section-header"><h2>Working Papers &amp; Ongoing Research</h2><p>All manuscripts authored by Khadar Ali Aqli (2026)</p></div>
     <div class="col-lg-8 mx-auto">
       <div class="paper-card reveal">
         <div><h3>Shipping Line &amp; Maritime Logistics <span style="font-size:0.75rem;color:var(--gold);margin-left:0.5rem;background:rgba(245,185,66,0.1);padding:0.2rem 0.5rem;border-radius:10px;">Manuscript in Preparation</span></h3></div>
@@ -1126,10 +1155,11 @@
     </div>
   </div>
 </section>
+
 <!-- ===== FUTURE VISION ===== -->
 <section id="future-vision">
   <div class="container">
-    <div class="section-header reveal"><h2>Future Research Vision</h2><p>5-Year Strategic Plan (2026–2031)</p></div>
+    <div class="section-header"><h2>Future Research Vision</h2><p>5-Year Strategic Plan (2026–2031)</p></div>
     <div class="row g-3 justify-content-center">
       <div class="col-lg-8">
         <div class="row g-3">
@@ -1143,10 +1173,11 @@
     </div>
   </div>
 </section>
+
 <!-- ===== PROFESSOR ALIGNMENT ===== -->
 <section id="professor-alignment">
   <div class="container">
-    <div class="section-header reveal"><h2>Professor Alignment &amp; Strategic Positioning</h2><p>Academic positioning for PhD supervision</p></div>
+    <div class="section-header"><h2>Professor Alignment &amp; Strategic Positioning</h2><p>Academic positioning for PhD supervision</p></div>
     <div class="row g-3">
       <div class="col-md-6 col-lg-4 reveal">
         <div class="align-card"><div class="align-num">01</div><h3>Research Direction Clarity</h3><p>"My research agenda focuses on bridging IT infrastructure and governance systems through secure, scalable, and interoperable digital solutions."</p></div>
@@ -1166,10 +1197,11 @@
     </div>
   </div>
 </section>
+
 <!-- ===== EDUCATION ===== -->
 <section id="education">
   <div class="container">
-    <div class="section-header reveal"><h2>Education</h2><p>Academic journey and qualifications</p></div>
+    <div class="section-header"><h2>Education</h2><p>Academic journey and qualifications</p></div>
     <div class="row g-4">
       <div class="col-lg-6 reveal">
         <div class="tl-item">
@@ -1216,10 +1248,11 @@
     </div>
   </div>
 </section>
+
 <!-- ===== EXPERIENCE ===== -->
 <section id="experience">
   <div class="container">
-    <div class="section-header reveal"><h2>Professional Experience</h2><p>20+ years of hands-on experience across IT, maritime & education</p></div>
+    <div class="section-header"><h2>Professional Experience</h2><p>20+ years of hands-on experience across IT, maritime & education</p></div>
     <div class="row" style="position:relative;">
       <div class="col-lg-10 mx-auto">
         <div class="timeline">
@@ -1335,10 +1368,11 @@
     </div>
   </div>
 </section>
+
 <!-- ===== TRAININGS ===== -->
 <section id="trainings">
   <div class="container">
-    <div class="section-header reveal"><h2>Trainings &amp; Seminars</h2><p>Continuous professional development across disciplines</p></div>
+    <div class="section-header"><h2>Trainings &amp; Seminars</h2><p>Continuous professional development across disciplines</p></div>
     <div class="row g-4">
       <div class="col-md-6 reveal">
         <div class="kcard h-100">
@@ -1403,10 +1437,11 @@
     </div>
   </div>
 </section>
+
 <!-- ===== CERTIFICATES ===== -->
 <section id="certificates">
   <div class="container">
-    <div class="section-header reveal"><h2>Certificates</h2><p>Professional qualifications and recognised credentials</p></div>
+    <div class="section-header"><h2>Certificates</h2><p>Professional qualifications and recognised credentials</p></div>
     <div class="row g-3">
       <div class="col-sm-6 col-md-4 col-lg-3 reveal"><div class="cert-card"><div class="cert-icon"><i class="fas fa-network-wired"></i></div><h3>CCNA Routing and Switching</h3><small>New Horizon, Dhaka, Bangladesh | 2016</small><a href="certificates/CCNA.pdf" target="_blank" rel="noopener" class="btn-cert">View Certificate</a></div></div>
       <div class="col-sm-6 col-md-4 col-lg-3 reveal"><div class="cert-card"><div class="cert-icon"><i class="fas fa-table"></i></div><h3>Essentials of MS Excel</h3><small>Cambridge International University, London | 2025</small><a href="certificates/Excel.pdf" target="_blank" rel="noopener" class="btn-cert">View Certificate</a></div></div>
@@ -1426,10 +1461,12 @@
     </div>
   </div>
 </section>
+
 <!-- ===== SKILLS ===== -->
 <section id="skills">
   <div class="container">
-    <div class="section-header reveal"><h2>Key Skills</h2><p>Technical expertise and professional competencies</p></div>
+    <div class="section-header"><h2>Key Skills</h2><p>Technical expertise and professional competencies</p></div>
+
     <!-- Animated Skill Bars -->
     <div class="row g-4 mb-5">
       <div class="col-lg-6 reveal">
@@ -1453,6 +1490,7 @@
         </div>
       </div>
     </div>
+
     <!-- Skill Category Cards -->
     <div class="row g-3">
       <div class="col-sm-6 col-lg-4 col-xl-3 reveal"><div class="skill-card h-100"><div class="skill-card-icon"><i class="fas fa-network-wired"></i></div><h3>Networking &amp; IT</h3><ul><li>Cisco Networking &amp; Routing (CCNA)</li><li>Network Configuration &amp; Troubleshooting</li><li>IP Addressing &amp; Subnetting</li><li>Wireless Networking Fundamentals</li><li>Basic Cybersecurity Principles</li></ul></div></div>
@@ -1465,6 +1503,7 @@
       <div class="col-sm-6 col-lg-4 col-xl-3 reveal"><div class="skill-card h-100"><div class="skill-card-icon"><i class="fas fa-comments"></i></div><h3>Communication &amp; Language</h3><ul><li>English Language Proficiency</li><li>Professional Communication</li><li>Technical &amp; Business Writing</li><li>Building Effective Teaching Strategies</li></ul></div></div>
       <div class="col-sm-6 col-lg-4 col-xl-3 reveal"><div class="skill-card h-100"><div class="skill-card-icon"><i class="fas fa-file-invoice-dollar"></i></div><h3>Auditing &amp; Accounting</h3><ul><li>Introduction to Business Accounting</li><li>Payroll Accounting</li><li>Auditing Accounting</li><li>Financial Statement Analysis</li></ul></div></div>
     </div>
+
     <!-- Advanced Technical Toolkit -->
     <div class="mt-5 reveal">
       <h3 class="text-center mb-4" style="font-size:1.3rem;">Advanced Technical Toolkit</h3>
@@ -1478,10 +1517,11 @@
     </div>
   </div>
 </section>
+
 <!-- ===== PORTFOLIO ===== -->
 <section id="projects">
   <div class="container">
-    <div class="section-header reveal"><h2>Portfolio</h2><p>Projects demonstrating Computer Science skills applied to real-world problems</p></div>
+    <div class="section-header"><h2>Portfolio</h2><p>Projects demonstrating Computer Science skills applied to real-world problems</p></div>
     <div class="row g-4 mb-5">
       <div class="col-md-4 reveal">
         <div class="project-card">
@@ -1535,6 +1575,7 @@
         </div>
       </div>
     </div>
+
     <!-- Additional Visuals -->
     <h3 class="text-center mb-4 reveal" style="font-size:1.2rem;">Additional Project Visuals</h3>
     <div class="row g-3">
@@ -1545,10 +1586,11 @@
     </div>
   </div>
 </section>
+
 <!-- ===== ACHIEVEMENTS ===== -->
 <section id="achievements">
   <div class="container">
-    <div class="section-header reveal"><h2>Achievements &amp; Awards</h2><p>Key accomplishments demonstrating impact in IT, maritime, and education</p></div>
+    <div class="section-header"><h2>Achievements &amp; Awards</h2><p>Key accomplishments demonstrating impact in IT, maritime, and education</p></div>
     <div class="row g-4">
       <div class="col-md-6 reveal">
         <div class="achievement-card">
@@ -1585,10 +1627,11 @@
     </div>
   </div>
 </section>
+
 <!-- ===== TESTIMONIALS ===== -->
 <section id="testimonials">
   <div class="container">
-    <div class="section-header reveal"><h2>Testimonials</h2><p>What colleagues, mentors, and clients say</p></div>
+    <div class="section-header"><h2>Testimonials</h2><p>What colleagues, mentors, and clients say</p></div>
     <div class="row g-4">
       <div class="col-md-6 reveal">
         <div class="testimonial-card">
@@ -1617,10 +1660,11 @@
     </div>
   </div>
 </section>
+
 <!-- ===== BLOG ===== -->
 <section id="blog">
   <div class="container">
-    <div class="section-header reveal"><h2>Blog &amp; Publications</h2><p>Sharing knowledge on IT, maritime logistics, and cybersecurity</p></div>
+    <div class="section-header"><h2>Blog &amp; Publications</h2><p>Sharing knowledge on IT, maritime logistics, and cybersecurity</p></div>
     <div class="row g-4">
       <div class="col-md-6 reveal">
         <div class="blog-card">
@@ -1660,10 +1704,11 @@
     </div>
   </div>
 </section>
+
 <!-- ===== VOLUNTEER ===== -->
 <section id="volunteer">
   <div class="container">
-    <div class="section-header reveal"><h2>Volunteer Experience</h2><p>Contributing to community development through IT and maritime safety</p></div>
+    <div class="section-header"><h2>Volunteer Experience</h2><p>Contributing to community development through IT and maritime safety</p></div>
     <div class="row g-4">
       <div class="col-md-4 reveal">
         <div class="volunteer-card">
@@ -1692,10 +1737,11 @@
     </div>
   </div>
 </section>
+
 <!-- ===== CONTACT ===== -->
 <section id="contact">
   <div class="container">
-    <div class="section-header reveal"><h2>Contact</h2><p>Let's connect and discuss opportunities</p></div>
+    <div class="section-header"><h2>Contact</h2><p>Let's connect and discuss opportunities</p></div>
     <div class="row g-4 justify-content-center">
       <div class="col-lg-4 reveal-left">
         <div class="contact-box h-100">
@@ -1733,6 +1779,7 @@
     </div>
   </div>
 </section>
+
 <!-- ===== FOOTER ===== -->
 <footer>
   <div class="container">
@@ -1772,200 +1819,98 @@
     <p style="text-align:center;font-size:0.83rem;color:rgba(255,255,255,0.4);">© 2026 Khadar Ali Aqli. All Rights Reserved. | Designed with passion for innovation in IT and maritime sectors.</p>
   </div>
 </footer>
+
 <!-- Back to Top -->
 <button id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
 <!-- Language Selector -->
 <div id="lang-selector">
   <button onclick="switchLanguage('en')">EN</button>
   <button onclick="switchLanguage('so')">SO</button>
   <button onclick="switchLanguage('ar')">AR</button>
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-// ===== NIGHT SKY ANIMATION =====
+
+  // ── MOON: travels left→right, grows to full at centre ──
+  (function(){
+    var mc = document.getElementById('moon-canvas');
+    if(!mc) return;
+    var mx2 = mc.getContext('2d');
+    var mp = 0, MS = 0.00055;
+    function rmoon(){ mc.width=mc.offsetWidth||innerWidth; mc.height=mc.offsetHeight||innerHeight; }
+    function drawMoon(x,y,r,ph){
+      mx2.save();
+      var gr=r+r*ph*1.3, g2=mx2.createRadialGradient(x,y,r*0.3,x,y,gr);
+      g2.addColorStop(0,'rgba(255,245,180,'+(0.2+ph*0.4)+')');
+      g2.addColorStop(0.5,'rgba(255,220,80,'+(0.06+ph*0.14)+')');
+      g2.addColorStop(1,'rgba(255,200,50,0)');
+      mx2.beginPath(); mx2.arc(x,y,gr,0,Math.PI*2);
+      mx2.fillStyle=g2; mx2.fill();
+      mx2.save(); mx2.beginPath(); mx2.arc(x,y,r,0,Math.PI*2); mx2.clip();
+      var b=Math.round(155+ph*100),gv=Math.round(b*0.91),bv=Math.round(b*0.70);
+      mx2.fillStyle='rgb('+b+','+gv+','+bv+')';
+      mx2.fillRect(x-r,y-r,r*2,r*2);
+      if(ph<0.97){ var ss=r*(1-ph*1.88); mx2.beginPath(); mx2.arc(x+ss,y,r*0.95,0,Math.PI*2); mx2.fillStyle='rgba(1,13,32,0.97)'; mx2.fill(); }
+      if(ph>0.6){ var ca=(ph-0.6)/0.4*0.13; [{ox:-0.22,oy:-0.18,r2:0.13},{ox:0.26,oy:0.12,r2:0.09},{ox:-0.05,oy:0.27,r2:0.11}].forEach(function(c){ mx2.beginPath(); mx2.arc(x+c.ox*r,y+c.oy*r,c.r2*r,0,Math.PI*2); mx2.fillStyle='rgba(120,110,75,'+ca+')'; mx2.fill(); }); }
+      mx2.restore(); mx2.restore();
+    }
+    function animMoon(){
+      mx2.clearRect(0,0,mc.width,mc.height);
+      mp+=MS; if(mp>1) mp=0;
+      var W=mc.width,H=mc.height;
+      var px=-80+(W+160)*mp, ph=1-Math.abs(mp-0.5)*2;
+      var minR=Math.max(32,W*0.038), maxR=Math.max(68,W*0.078);
+      var radius=minR+(maxR-minR)*ph;
+      var py=H*0.5-Math.sin(mp*Math.PI)*H*0.07;
+      drawMoon(px,py,radius,ph);
+      requestAnimationFrame(animMoon);
+    }
+    rmoon(); animMoon();
+    window.addEventListener('resize',rmoon);
+  })();
+
+  // ===== STARS CANVAS =====
 (function(){
-  var canvas = document.getElementById('nightsky-canvas');
-  if(!canvas) return;
-  var ctx = canvas.getContext('2d');
-  var W=0, H=0;
-
+  const canvas = document.getElementById('stars-canvas');
+  const ctx = canvas.getContext('2d');
+  let stars = [];
   function resize(){
-    var hero = document.getElementById('hero');
-    W = canvas.width  = (hero && hero.offsetWidth  > 0 ? hero.offsetWidth  : window.innerWidth);
-    H = canvas.height = (hero && hero.offsetHeight > 0 ? hero.offsetHeight : window.innerHeight);
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
   }
-
-  // STARS
-  var stars=[];
   function initStars(){
-    stars=[];
-    var n=Math.min(460, Math.floor(W*H/2500));
-    for(var i=0;i<n;i++){
+    stars = [];
+    for(let i=0;i<520;i++){
       stars.push({
-        x:Math.random()*W, y:Math.random()*H*0.90,
-        r:Math.random()*1.65+0.20,
-        a:0.25+Math.random()*0.75,
-        da:(Math.random()*0.008+0.003)*(Math.random()<.5?1:-1),
-        sh:false,sx:0,sy:0,svx:0,svy:0,sl:0,sml:0
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height,
+        r: Math.random()*2+0.2,
+        alpha: Math.random()*0.6+0.2,
+        speed: Math.random()*0.004+0.001,
+        color: i%15===0?'255,220,180':i%8===0?'180,210,255':'255,255,255'
       });
     }
   }
-
-  // MOON
-  var moonT=0;
-  function getMoon(){
-    var xf = 0.5+0.46*Math.sin(moonT*Math.PI*2-Math.PI/2);
-    var c  = 1-Math.abs(xf-0.5)*2;
-    var br = Math.max(16,Math.min(32,W*0.026));
-    return {
-      x: br*2.5+(W-br*5)*xf,
-      y: H*0.12+Math.sin(moonT*Math.PI*4)*H*0.035,
-      r: br*(0.50+0.50*c),
-      glow:0.08+0.30*c,
-      bri:0.55+0.45*c,
-      c:c
-    };
-  }
-
-  // CLOUDS
-  var clouds=[];
-  function mkCloud(sx){
-    var sc=0.5+Math.random()*0.95;
-    return{
-      x:sx!==undefined?sx:-300*sc-Math.random()*150,
-      y:H*(0.06+Math.random()*0.32),
-      sc:sc, spd:0.10+Math.random()*0.22,
-      al:0.05+Math.random()*0.09
-    };
-  }
-  function initClouds(){
-    clouds=[];
-    var n=Math.ceil(W/370)+3;
-    for(var i=0;i<n;i++) clouds.push(mkCloud(Math.random()*(W+400)-200));
-  }
-
-  function init(){ resize(); initStars(); initClouds(); }
-
-  // DRAW STAR
-  function drawStar(s){
-    s.a+=s.da;
-    if(s.a>=1){s.a=1;s.da=-Math.abs(s.da);}
-    if(s.a<=0.06){s.a=0.06;s.da=Math.abs(s.da);}
-    if(s.r>0.85){
-      var g=ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,s.r*4.2);
-      g.addColorStop(0,'rgba(210,228,255,'+(s.a*0.50)+')');
-      g.addColorStop(1,'rgba(210,228,255,0)');
-      ctx.beginPath();ctx.arc(s.x,s.y,s.r*4.2,0,Math.PI*2);
-      ctx.fillStyle=g;ctx.fill();
-    }
-    ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
-    ctx.fillStyle='rgba(228,242,255,'+s.a+')';ctx.fill();
-  }
-
-  // SHOOTING STARS
-  var shotT=0;
-  function tickShoot(dt){
-    shotT+=dt;
-    if(shotT>2800+Math.random()*3600){
-      shotT=0;
-      var s=stars[Math.floor(Math.random()*stars.length)];
-      if(!s.sh){
-        s.sh=true;s.sx=Math.random()*W*0.6;s.sy=Math.random()*H*0.28;
-        var a=0.20+Math.random()*0.20,sp=5+Math.random()*4.5;
-        s.svx=Math.cos(a)*sp;s.svy=Math.sin(a)*sp;s.sl=0;s.sml=48+Math.random()*38;
-      }
-    }
-    for(var i=0;i<stars.length;i++){
-      var s=stars[i];if(!s.sh)continue;
-      s.sl++;
-      var p=s.sl/s.sml;
-      var x0=s.sx-s.svx*11,y0=s.sy-s.svy*11;
-      var g=ctx.createLinearGradient(x0,y0,s.sx,s.sy);
-      g.addColorStop(0,'rgba(255,255,255,0)');
-      g.addColorStop(1,'rgba(255,255,255,'+(0.92*(1-p))+')');
-      ctx.save();ctx.strokeStyle=g;ctx.lineWidth=1.7;
-      ctx.beginPath();ctx.moveTo(x0,y0);ctx.lineTo(s.sx,s.sy);ctx.stroke();ctx.restore();
-      s.sx+=s.svx;s.sy+=s.svy;
-      if(s.sl>=s.sml||s.sx>W+60||s.sy>H*0.72)s.sh=false;
-    }
-  }
-
-  // DRAW MOON
-  function drawMoon(){
-    moonT+=0.00042;if(moonT>=1)moonT-=1;
-    var m=getMoon();
-    // halo
-    var hr=m.r*4.0;
-    var h=ctx.createRadialGradient(m.x,m.y,m.r*0.5,m.x,m.y,hr);
-    h.addColorStop(0,'rgba(255,252,195,'+m.glow+')');
-    h.addColorStop(0.45,'rgba(255,250,180,'+(m.glow*0.35)+')');
-    h.addColorStop(1,'rgba(255,248,160,0)');
-    ctx.beginPath();ctx.arc(m.x,m.y,hr,0,Math.PI*2);ctx.fillStyle=h;ctx.fill();
-    // body
-    var v=Math.round(255*m.bri);
-    var b=ctx.createRadialGradient(m.x-m.r*.30,m.y-m.r*.30,m.r*.05,m.x,m.y,m.r);
-    b.addColorStop(0,'rgb('+v+','+v+','+Math.round(v*.92)+')');
-    b.addColorStop(0.65,'rgb('+Math.round(v*.96)+','+Math.round(v*.96)+','+Math.round(v*.86)+')');
-    b.addColorStop(1,'rgb('+Math.round(v*.86)+','+Math.round(v*.86)+','+Math.round(v*.76)+')');
-    ctx.beginPath();ctx.arc(m.x,m.y,m.r,0,Math.PI*2);ctx.fillStyle=b;ctx.fill();
-    // crescent (disappears at centre = full moon)
-    var co=m.r*0.58*(1-m.c);
-    if(co>0.8){
-      ctx.save();ctx.globalCompositeOperation='destination-out';
-      ctx.beginPath();ctx.arc(m.x+co,m.y-m.r*.06,m.r*0.90,0,Math.PI*2);
-      ctx.fillStyle='rgba(0,0,0,'+(0.40*(1-m.c))+')';ctx.fill();ctx.restore();
-    }
-    // craters
-    ctx.save();ctx.globalAlpha=0.16*m.bri;
-    [[m.r*.23,-m.r*.19,m.r*.10],[-m.r*.16,m.r*.21,m.r*.07],[m.r*.04,m.r*.34,m.r*.05]].forEach(function(d){
-      ctx.beginPath();ctx.arc(m.x+d[0],m.y+d[1],d[2],0,Math.PI*2);
-      ctx.fillStyle='rgba(175,160,115,1)';ctx.fill();
-    });ctx.restore();
-  }
-
-  // DRAW CLOUD
-  function drawCloud(c){
-    ctx.save();ctx.globalAlpha=c.al;
-    [[0,0,90,40],[-63,17,68,31],[63,17,70,31],[-30,-13,52,27],[30,-13,52,27],[0,-7,42,21]].forEach(function(p){
-      var px=c.x+p[0]*c.sc,py=c.y+p[1]*c.sc,rw=p[2]*c.sc,rh=p[3]*c.sc;
-      var g=ctx.createRadialGradient(px,py,0,px,py,rw);
-      g.addColorStop(0,'rgba(145,170,210,1)');
-      g.addColorStop(0.6,'rgba(125,152,198,0.62)');
-      g.addColorStop(1,'rgba(105,135,185,0)');
-      ctx.beginPath();ctx.ellipse(px,py,rw,rh,0,0,Math.PI*2);
-      ctx.fillStyle=g;ctx.fill();
+  function drawStars(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    stars.forEach(s=>{
+      s.alpha += s.speed;
+      if(s.alpha>0.85||s.alpha<0.1) s.speed*=-1;
+      ctx.beginPath();
+      ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(${s.color||'255,255,255'},${s.alpha})`;
+      ctx.fill();
     });
-    ctx.restore();
-    c.x+=c.spd;
-    if(c.x>W+310*c.sc){
-      c.x=-305*c.sc;c.y=H*(0.06+Math.random()*.32);
-      c.sc=0.5+Math.random()*.95;c.al=0.05+Math.random()*.09;
-    }
+    requestAnimationFrame(drawStars);
   }
-
-  // FRAME LOOP
-  var lastT=0;
-  function frame(ts){
-    var dt=ts-lastT;lastT=ts;
-    ctx.clearRect(0,0,W,H);
-    clouds.forEach(drawCloud);
-    drawMoon();
-    stars.forEach(drawStar);
-    tickShoot(dt);
-    requestAnimationFrame(frame);
-  }
-
-  function start(){
-    init();
-    requestAnimationFrame(function(ts){lastT=ts;requestAnimationFrame(frame);});
-  }
-  if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded',start);
-  } else {
-    start();
-  }
-  window.addEventListener('resize',function(){resize();initStars();initClouds();});
+  resize();
+  initStars();
+  drawStars();
+  window.addEventListener('resize', ()=>{ resize(); initStars(); });
 })();
+
 // ===== TYPING EFFECT =====
 (function(){
   const phrases = [
@@ -1995,16 +1940,19 @@
   style.textContent='@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}';
   document.head.appendChild(style);
 })();
+
 // ===== SCROLL PROGRESS =====
 window.addEventListener('scroll',function(){
   const bar = document.getElementById('progress-bar');
   const total = document.documentElement.scrollHeight - window.innerHeight;
   bar.style.width = (window.scrollY/total*100)+'%';
 });
+
 // ===== BACK TO TOP =====
 const btt = document.getElementById('back-to-top');
 window.addEventListener('scroll',()=>btt.classList.toggle('visible', window.scrollY>400));
 btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
 // ===== DARK MODE =====
 function toggleDark(){
   document.body.classList.toggle('dark');
@@ -2020,18 +1968,21 @@ const dtMob = document.getElementById('dark-toggle-mob');
 if(dtMob) dtMob.addEventListener('click', toggleDark);
 // Restore preference
 if(localStorage.getItem('darkMode')==='true'){ toggleDark(); }
+
 // ===== MOBILE NAV =====
 document.getElementById('mob-toggle').addEventListener('click',function(){
   const nav = document.getElementById('mob-nav');
   nav.classList.toggle('d-none');
 });
 function closeMob(){ document.getElementById('mob-nav').classList.add('d-none'); }
+
 // ===== SCROLL REVEAL =====
 const revealEls = document.querySelectorAll('.reveal, .reveal-left');
 const observer = new IntersectionObserver(entries=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); }});
 },{threshold:0.1});
 revealEls.forEach(el=>observer.observe(el));
+
 // ===== SKILL BARS =====
 const skillObs = new IntersectionObserver(entries=>{
   entries.forEach(e=>{
@@ -2044,6 +1995,7 @@ const skillObs = new IntersectionObserver(entries=>{
   });
 },{threshold:0.3});
 document.querySelectorAll('.kcard').forEach(c=>skillObs.observe(c));
+
 // ===== COUNTER ANIMATION =====
 const counterObs = new IntersectionObserver(entries=>{
   entries.forEach(e=>{
@@ -2062,6 +2014,7 @@ const counterObs = new IntersectionObserver(entries=>{
 },{threshold:0.5});
 const statsSection = document.getElementById('stats');
 if(statsSection) counterObs.observe(statsSection);
+
 // ===== ACTIVE NAV =====
 const sections = document.querySelectorAll('section[id]');
 window.addEventListener('scroll',()=>{
@@ -2071,6 +2024,7 @@ window.addEventListener('scroll',()=>{
     l.classList.toggle('active', l.getAttribute('href')==='#'+cur);
   });
 });
+
 // ===== LANGUAGE SWITCH =====
 function switchLanguage(lang){
   alert('Switching to '+lang+'. Full translation requires i18next or a translation library. You can integrate it with your preferred i18n framework.');
