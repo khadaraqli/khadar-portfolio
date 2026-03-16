@@ -1192,4 +1192,25 @@ const cntObs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
       e.target.querySelectorAll('.stat-num').forEach(el=>{
-        const
+        const target=+el.dataset.target;
+        let count=0,step=Math.ceil(target/60);
+        const iv=setInterval(()=>{count+=step;if(count>=target){count=target;clearInterval(iv);}el.textContent=count+'+';},28);
+      });
+      cntObs.unobserve(e.target);
+    }
+  });
+},{threshold:.5});
+const st=document.getElementById('stats');if(st)cntObs.observe(st);
+
+/* ── Active nav highlight ── */
+const sections=document.querySelectorAll('section[id]');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-220)cur=s.id;});
+  document.querySelectorAll('.nav-link[href]').forEach(l=>{
+    l.classList.toggle('active',l.getAttribute('href')==='#'+cur);
+  });
+});
+</script>
+</body>
+</html>
