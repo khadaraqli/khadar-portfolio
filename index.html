@@ -120,6 +120,60 @@ body.theme-light #testimonials{
   background:linear-gradient(135deg,#1e3a8a,#2a4fa0);
 }
 
+/* ═══ THEME: SUNSET ORANGE ═══ */
+body.theme-sunset {
+  --navy:   #2d1000; --navy-2: #4a1a00; --navy-3: #612400;
+  --teal:   #f97316; --teal-d: #ea580c;
+  --gold:   #fbbf24;
+  --bg:     #fff8f0; --bg-2: #fff0e0;
+  --text:   #2d1000; --muted: #7c4010;
+  --border: #fcd9b0; --card: #ffffff;
+  --shadow-sm: 0 2px 14px rgba(45,16,0,.08);
+  --shadow-md: 0 8px 32px rgba(45,16,0,.13);
+}
+body.theme-sunset #hero,body.theme-sunset #stats,body.theme-sunset footer{
+  background:linear-gradient(135deg,#2d1000 0%,#4a1a00 50%,#3d1500 100%);
+}
+body.theme-sunset #testimonials{
+  background:linear-gradient(135deg,#2d1000,#4a1a00);
+}
+
+/* ═══ THEME: OCEAN TEAL ═══ */
+body.theme-ocean {
+  --navy:   #003344; --navy-2: #004d66; --navy-3: #006680;
+  --teal:   #00b4d8; --teal-d: #0096c7;
+  --gold:   #f0c040;
+  --bg:     #f0faff; --bg-2: #e0f4fc;
+  --text:   #003344; --muted: #2a6a80;
+  --border: #b0dff0; --card: #ffffff;
+  --shadow-sm: 0 2px 14px rgba(0,51,68,.08);
+  --shadow-md: 0 8px 32px rgba(0,51,68,.13);
+}
+body.theme-ocean #hero,body.theme-ocean #stats,body.theme-ocean footer{
+  background:linear-gradient(135deg,#003344 0%,#004d66 50%,#003a55 100%);
+}
+body.theme-ocean #testimonials{
+  background:linear-gradient(135deg,#003344,#004d66);
+}
+
+/* ═══ THEME: SLATE CHARCOAL ═══ */
+body.theme-slate {
+  --navy:   #1a1a2e; --navy-2: #252540; --navy-3: #303055;
+  --teal:   #a0aec0; --teal-d: #718096;
+  --gold:   #e2b96f;
+  --bg:     #f7f8fa; --bg-2: #edf0f5;
+  --text:   #1a1a2e; --muted: #5a6070;
+  --border: #d0d5e0; --card: #ffffff;
+  --shadow-sm: 0 2px 14px rgba(26,26,46,.08);
+  --shadow-md: 0 8px 32px rgba(26,26,46,.13);
+}
+body.theme-slate #hero,body.theme-slate #stats,body.theme-slate footer{
+  background:linear-gradient(135deg,#1a1a2e 0%,#252540 50%,#1e1e38 100%);
+}
+body.theme-slate #testimonials{
+  background:linear-gradient(135deg,#1a1a2e,#252540);
+}
+
 /* ═══ THEME PICKER UI ═══ */
 #theme-picker{display:flex;align-items:center;gap:5px;padding:4px 8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:30px;}
 .theme-dot{width:20px;height:20px;border-radius:50%;border:2px solid rgba(255,255,255,.3);cursor:pointer;transition:transform .2s,border-color .2s;padding:0;flex-shrink:0;}
@@ -607,13 +661,16 @@ footer{background:var(--navy);color:rgba(255,255,255,.55);padding:3.5rem 1.5rem 
       <div class="nav-item"><a href="#contact" class="nav-link">Contact</a></div>
     </div>
     <div class="nav-actions">
-      <!-- 5-Theme Colour Picker -->
+      <!-- 8-Theme Colour Picker -->
       <div id="theme-picker" aria-label="Choose colour theme">
-        <button class="theme-dot active" data-theme="navy"    title="Navy Blue (Default)" style="background:linear-gradient(135deg,#021B3A,#00C8D4);"></button>
-        <button class="theme-dot"        data-theme="forest"  title="Forest Green"        style="background:linear-gradient(135deg,#0a2e1a,#2ecc71);"></button>
-        <button class="theme-dot"        data-theme="crimson" title="Deep Crimson"         style="background:linear-gradient(135deg,#2a0a0a,#e05c5c);"></button>
-        <button class="theme-dot"        data-theme="purple"  title="Royal Purple"         style="background:linear-gradient(135deg,#1a0a2e,#9b59b6);"></button>
-        <button class="theme-dot"        data-theme="light"   title="Clean Light"          style="background:linear-gradient(135deg,#f0f4ff,#3a7bd5);"></button>
+        <button class="theme-dot active" data-theme="navy"    title="Navy Blue"      style="background:linear-gradient(135deg,#021B3A,#00C8D4);"></button>
+        <button class="theme-dot"        data-theme="forest"  title="Forest Green"   style="background:linear-gradient(135deg,#0a2e1a,#2ecc71);"></button>
+        <button class="theme-dot"        data-theme="crimson" title="Deep Crimson"   style="background:linear-gradient(135deg,#2a0a0a,#e05c5c);"></button>
+        <button class="theme-dot"        data-theme="purple"  title="Royal Purple"   style="background:linear-gradient(135deg,#1a0a2e,#9b59b6);"></button>
+        <button class="theme-dot"        data-theme="light"   title="Clean Light"    style="background:linear-gradient(135deg,#dde8ff,#3a7bd5);"></button>
+        <button class="theme-dot"        data-theme="sunset"  title="Sunset Orange"  style="background:linear-gradient(135deg,#2d1000,#f97316);"></button>
+        <button class="theme-dot"        data-theme="ocean"   title="Ocean Teal"     style="background:linear-gradient(135deg,#003344,#00b4d8);"></button>
+        <button class="theme-dot"        data-theme="slate"   title="Slate Charcoal" style="background:linear-gradient(135deg,#1a1a2e,#a0aec0);"></button>
       </div>
       <a href="cv.html" class="nav-link nav-btn"><i class="fas fa-download" style="margin-right:.35rem;"></i>CV</a>
       <button class="mob-toggle" id="mob-toggle" aria-label="Menu">
@@ -838,7 +895,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.55);padding:3.5rem 1.5rem 
         <a href="https://www.linkedin.com/in/eng-khadar-aqli-9bb42119a" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
         <a href="https://github.com/khadaraqli" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
         <a href="https://x.com/engaqli" target="_blank" rel="noopener" aria-label="X/Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="/cdn-cgi/l/email-protection#aac1c2cbcecbd8cbdbc6c3ead9dedfcecfc4ded984cec3df84cbc9" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="mailto:khadaraqli@students.diu.ac" aria-label="Email"><i class="fas fa-envelope"></i></a>
       </div>
     </div>
   </div>
@@ -870,7 +927,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.55);padding:3.5rem 1.5rem 
           <ul class="info-list">
             <li><i class="fas fa-flag"></i><strong>Nationality</strong><span>Somalilander</span></li>
             <li><i class="fas fa-language"></i><strong>Languages</strong><span>Somali (Native), English (Fluent), Arabic (Basic)</span></li>
-            <li><i class="fas fa-envelope"></i><strong>Email</strong><a href="/cdn-cgi/l/email-protection#1d76757c797c6f7c6c71745d6e6968797873696e33797468337c7e"><span class="__cf_email__" data-cfemail="c6adaea7a2a7b4a7b7aaaf86b5b2b3a2a3a8b2b5e8a2afb3e8a7a5">[email&#160;protected]</span></a></li>
+            <li><i class="fas fa-envelope"></i><strong>Email</strong><a href="mailto:khadaraqli@students.diu.ac">khadaraqli@students.diu.ac</a></li>
             <li><i class="fas fa-phone"></i><strong>Phone</strong><span>+252 65 4242420 / +252 63 4067640</span></li>
             <li><i class="fab fa-linkedin"></i><strong>LinkedIn</strong><a href="https://www.linkedin.com/in/eng-khadar-aqli-9bb42119a" target="_blank" rel="noopener">eng-khadar-aqli</a></li>
             <li><i class="fab fa-github"></i><strong>GitHub</strong><a href="https://github.com/khadaraqli" target="_blank" rel="noopener">github.com/khadaraqli</a></li>
@@ -908,10 +965,12 @@ footer{background:var(--navy);color:rgba(255,255,255,.55);padding:3.5rem 1.5rem 
         <div class="kcard reveal">
           <h3>Academic Research Profiles</h3>
           <ul class="info-list">
-            <li><i class="fas fa-book"></i><strong>Google Scholar</strong><a href="#" target="_blank">View Profile</a></li>
-            <li><i class="fas fa-id-card"></i><strong>ORCID</strong><a href="#" target="_blank">0000-0000-0000-0000</a></li>
-            <li><i class="fas fa-users"></i><strong>ResearchGate</strong><a href="#" target="_blank">View Profile</a></li>
-            <li><i class="fab fa-linkedin"></i><strong>Academic LinkedIn</strong><a href="https://www.linkedin.com/in/eng-khadar-aqli" target="_blank">View Profile</a></li>
+            <li><i class="fas fa-book"></i><strong>Google Scholar</strong><a href="https://scholar.google.com/citations?user=khadaraqli" target="_blank" rel="noopener">Coming Soon — View Profile</a></li>
+            <li><i class="fas fa-id-card"></i><strong>ORCID</strong><a href="https://orcid.org/0009-0001-9662-6467" target="_blank" rel="noopener">0009-0001-9662-6467</a></li>
+            <li><i class="fas fa-users"></i><strong>ResearchGate</strong><a href="https://www.researchgate.net/profile/Khadar-Aqli" target="_blank" rel="noopener">Coming Soon — View Profile</a></li>
+            <li><i class="fas fa-graduation-cap"></i><strong>Academia.edu</strong><a href="https://independent.academia.edu/KhadarAqli" target="_blank" rel="noopener">Coming Soon — View Profile</a></li>
+            <li><i class="fab fa-linkedin"></i><strong>LinkedIn</strong><a href="https://www.linkedin.com/in/eng-khadar-aqli-9bb42119a" target="_blank" rel="noopener">View Profile</a></li>
+            <li><i class="fab fa-github"></i><strong>GitHub</strong><a href="https://github.com/khadaraqli" target="_blank" rel="noopener">View Profile</a></li>
           </ul>
         </div>
       </div>
@@ -1006,10 +1065,39 @@ footer{background:var(--navy);color:rgba(255,255,255,.55);padding:3.5rem 1.5rem 
   <div class="container">
     <div class="section-header reveal"><div class="section-eyebrow">Publications</div><h2>Working Papers &amp; <em>Ongoing Research</em></h2><p>All manuscripts authored by Khadar Ali Aqli (2026)</p></div>
     <div class="grid-3">
-      <div class="paper-card reveal"><div class="paper-sub"><i class="fas fa-ship" style="margin-right:.4rem;"></i>Maritime &amp; Logistics</div><h3>Shipping Line &amp; Maritime Logistics</h3><p style="font-size:.82rem;color:var(--muted);line-height:1.65;">Manuscript in preparation covering shipping operations and maritime logistics systems.</p><a href="working-papers/shipping-line-maritime-logistics.pdf" target="_blank" rel="noopener"><i class="fas fa-download"></i> Download PDF</a></div>
-      <div class="paper-card reveal"><div class="paper-sub"><i class="fas fa-landmark" style="margin-right:.4rem;"></i>Governance &amp; IT</div><h3>Government Digital Systems &amp; IT Governance</h3><p style="font-size:.82rem;color:var(--muted);line-height:1.65;">Research on digital governance frameworks and IT systems for public sector institutions.</p><a href="working-papers/government-it-governance.pdf" target="_blank" rel="noopener"><i class="fas fa-download"></i> Download PDF</a></div>
-      <div class="paper-card reveal"><div class="paper-sub"><i class="fas fa-network-wired" style="margin-right:.4rem;"></i>Infrastructure</div><h3>IT Infrastructure &amp; Network Systems</h3><p style="font-size:.82rem;color:var(--muted);line-height:1.65;">Technical paper examining IT infrastructure design and network system architectures.</p><a href="working-papers/it-infrastructure-network.pdf" target="_blank" rel="noopener"><i class="fas fa-download"></i> Download PDF</a></div>
+
+      <div class="paper-card reveal">
+        <div class="paper-sub"><i class="fas fa-ship" style="margin-right:.4rem;"></i>Maritime &amp; Logistics</div>
+        <h3>Shipping Line &amp; Maritime Logistics Operations</h3>
+        <p style="font-size:.83rem;color:var(--muted);line-height:1.7;margin-top:.6rem;">This working paper examines operational frameworks within international shipping lines, with a focus on port logistics efficiency, container handling workflows, and IT-driven documentation systems. Drawing on field experience at Pacific International Lines, it proposes improvements to maritime supply chain coordination in emerging port economies.</p>
+        <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem;">
+          <a href="working-papers/shipping-line-maritime-logistics.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.35rem;font-size:.76rem;font-weight:600;background:rgba(0,200,212,.08);color:var(--teal);border:1px solid rgba(0,200,212,.3);border-radius:20px;padding:.32rem .85rem;transition:all .2s;"><i class="fas fa-file-pdf"></i> View Publication</a>
+          <a href="working-papers/shipping-line-maritime-logistics.pdf" download target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.35rem;font-size:.76rem;font-weight:600;background:rgba(0,200,212,.08);color:var(--teal);border:1px solid rgba(0,200,212,.3);border-radius:20px;padding:.32rem .85rem;transition:all .2s;"><i class="fas fa-download"></i> Download PDF</a>
+        </div>
+      </div>
+
+      <div class="paper-card reveal">
+        <div class="paper-sub"><i class="fas fa-landmark" style="margin-right:.4rem;"></i>Governance &amp; IT</div>
+        <h3>Government Digital Systems &amp; IT Governance</h3>
+        <p style="font-size:.83rem;color:var(--muted);line-height:1.7;margin-top:.6rem;">This paper investigates the structural design of government digital systems, examining how IT governance frameworks can be applied to strengthen public sector institutional capacity. It addresses interoperability challenges, cybersecurity policy integration, and the alignment between national ICT strategies and e-government delivery in developing and post-conflict states.</p>
+        <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem;">
+          <a href="working-papers/government-it-governance.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.35rem;font-size:.76rem;font-weight:600;background:rgba(0,200,212,.08);color:var(--teal);border:1px solid rgba(0,200,212,.3);border-radius:20px;padding:.32rem .85rem;transition:all .2s;"><i class="fas fa-file-pdf"></i> View Publication</a>
+          <a href="working-papers/government-it-governance.pdf" download target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.35rem;font-size:.76rem;font-weight:600;background:rgba(0,200,212,.08);color:var(--teal);border:1px solid rgba(0,200,212,.3);border-radius:20px;padding:.32rem .85rem;transition:all .2s;"><i class="fas fa-download"></i> Download PDF</a>
+        </div>
+      </div>
+
+      <div class="paper-card reveal">
+        <div class="paper-sub"><i class="fas fa-network-wired" style="margin-right:.4rem;"></i>Infrastructure</div>
+        <h3>IT Infrastructure &amp; Network Systems Architecture</h3>
+        <p style="font-size:.83rem;color:var(--muted);line-height:1.7;margin-top:.6rem;">This technical paper presents a comprehensive analysis of IT infrastructure design principles, covering network topology, routing and switching protocols, cybersecurity hardening, and system resilience. It proposes a scalable architecture model suitable for deployment in resource-constrained institutional environments in the Horn of Africa region.</p>
+        <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem;">
+          <a href="working-papers/it-infrastructure-network.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.35rem;font-size:.76rem;font-weight:600;background:rgba(0,200,212,.08);color:var(--teal);border:1px solid rgba(0,200,212,.3);border-radius:20px;padding:.32rem .85rem;transition:all .2s;"><i class="fas fa-file-pdf"></i> View Publication</a>
+          <a href="working-papers/it-infrastructure-network.pdf" download target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.35rem;font-size:.76rem;font-weight:600;background:rgba(0,200,212,.08);color:var(--teal);border:1px solid rgba(0,200,212,.3);border-radius:20px;padding:.32rem .85rem;transition:all .2s;"><i class="fas fa-download"></i> Download PDF</a>
+        </div>
+      </div>
+
     </div>
+    <p class="reveal" style="text-align:center;font-size:.78rem;color:var(--muted);margin-top:1.5rem;"><i class="fas fa-info-circle" style="margin-right:.4rem;color:var(--teal);"></i>PDF files are stored in the <code style="background:var(--bg-2);padding:.1rem .4rem;border-radius:4px;font-size:.75rem;">working-papers/</code> folder of this repository. Ensure files are uploaded to that path on GitHub.</p>
   </div>
 </section>
 
@@ -1215,13 +1303,35 @@ footer{background:var(--navy);color:rgba(255,255,255,.55);padding:3.5rem 1.5rem 
   <div class="container">
     <div class="section-header reveal"><div class="section-eyebrow">Insights</div><h2>Blog &amp; <em>Publications</em></h2><p>Sharing knowledge on IT, maritime logistics, and cybersecurity</p></div>
     <div class="grid-2">
-      <div class="blog-card reveal"><div class="blog-tag">AI &amp; Logistics</div><h3>AI in Supply Chain Optimization: Lessons from Port Operations</h3><p>Exploring how machine learning algorithms can reduce bottlenecks in container handling, based on real-world implementations.</p><a href="https://medium.com/@khadaraqli/ai-supply-chain" target="_blank" rel="noopener" class="blog-link"><i class="fas fa-arrow-right"></i> Read Article</a></div>
-      <div class="blog-card reveal"><div class="blog-tag">Cybersecurity</div><h3>Cybersecurity Challenges in Maritime Networks</h3><p>A deep dive into protecting ship-port communication systems from emerging threats, with case studies from Somaliland ports.</p><a href="https://medium.com/@khadaraqli/maritime-cybersecurity" target="_blank" rel="noopener" class="blog-link"><i class="fas fa-arrow-right"></i> Read Article</a></div>
-      <div class="blog-card reveal"><div class="blog-tag">Networking</div><h3>The Role of Wireless Networking in Modern Logistics</h3><p>Discussing advancements in wireless tech for real-time tracking and their impact on global shipping efficiency.</p><a href="https://medium.com/@khadaraqli/wireless-logistics" target="_blank" rel="noopener" class="blog-link"><i class="fas fa-arrow-right"></i> Read Article</a></div>
-      <div class="blog-card reveal"><div class="blog-tag">E-Governance</div><h3>Future of E-Governance in Developing Regions</h3><p>Insights exploring how digital governance can improve public services in developing regions like Somaliland.</p><a href="https://medium.com/@khadaraqli/e-governance" target="_blank" rel="noopener" class="blog-link"><i class="fas fa-arrow-right"></i> Read Article</a></div>
+      <div class="blog-card reveal">
+        <div class="blog-tag">AI &amp; Logistics</div>
+        <h3>AI in Supply Chain Optimization: Lessons from Port Operations</h3>
+        <p>Exploring how machine learning algorithms can reduce bottlenecks in container handling, based on real-world implementations at Somaliland ports.</p>
+        <a href="https://www.linkedin.com/in/eng-khadar-aqli-9bb42119a/recent-activity/articles/" target="_blank" rel="noopener" class="blog-link"><i class="fas fa-external-link-alt"></i> View Publication</a>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-tag">Cybersecurity</div>
+        <h3>Cybersecurity Challenges in Maritime Networks</h3>
+        <p>A deep dive into protecting ship-port communication systems from emerging threats, with case studies from Somaliland ports and the Gulf of Aden region.</p>
+        <a href="https://www.linkedin.com/in/eng-khadar-aqli-9bb42119a/recent-activity/articles/" target="_blank" rel="noopener" class="blog-link"><i class="fas fa-external-link-alt"></i> View Publication</a>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-tag">Networking</div>
+        <h3>The Role of Wireless Networking in Modern Logistics</h3>
+        <p>Discussing advancements in wireless technology for real-time tracking and their measurable impact on global shipping efficiency and port throughput.</p>
+        <a href="https://www.linkedin.com/in/eng-khadar-aqli-9bb42119a/recent-activity/articles/" target="_blank" rel="noopener" class="blog-link"><i class="fas fa-external-link-alt"></i> View Publication</a>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-tag">E-Governance</div>
+        <h3>Future of E-Governance in Developing Regions</h3>
+        <p>Insights exploring how digital governance architectures can improve public service delivery and institutional transparency in developing regions like Somaliland.</p>
+        <a href="https://orcid.org/0009-0001-9662-6467" target="_blank" rel="noopener" class="blog-link"><i class="fas fa-external-link-alt"></i> View on ORCID</a>
+      </div>
     </div>
-    <div style="text-align:center;margin-top:2rem;" class="reveal">
-      <a href="https://medium.com/@khadaraqli" target="_blank" rel="noopener" class="btn-outline-hero" style="display:inline-flex;"><i class="fab fa-medium"></i> &nbsp;Follow on Medium</a>
+    <div style="text-align:center;margin-top:2rem;display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;" class="reveal">
+      <a href="https://www.linkedin.com/in/eng-khadar-aqli-9bb42119a/" target="_blank" rel="noopener" class="btn-outline-hero" style="display:inline-flex;font-size:.85rem;"><i class="fab fa-linkedin"></i>&nbsp; Articles on LinkedIn</a>
+      <a href="https://orcid.org/0009-0001-9662-6467" target="_blank" rel="noopener" class="btn-outline-hero" style="display:inline-flex;font-size:.85rem;"><i class="fas fa-id-card"></i>&nbsp; ORCID Profile</a>
+      <a href="https://github.com/khadaraqli" target="_blank" rel="noopener" class="btn-outline-hero" style="display:inline-flex;font-size:.85rem;"><i class="fab fa-github"></i>&nbsp; GitHub Projects</a>
     </div>
   </div>
 </section>
@@ -1246,10 +1356,10 @@ footer{background:var(--navy);color:rgba(255,255,255,.55);padding:3.5rem 1.5rem 
       <div class="reveal-l">
         <div class="contact-box">
           <h3>Get In Touch</h3>
-          <div class="contact-info-item"><div class="contact-info-icon"><i class="fas fa-envelope"></i></div><div><label>Email</label><a href="/cdn-cgi/l/email-protection#b2d9dad3d6d3c0d3c3dedbf2c1c6c7d6d7dcc6c19cd6dbc79cd3d1"><span class="__cf_email__" data-cfemail="650e0d040104170414090c2516111001000b11164b010c104b0406">[email&#160;protected]</span></a></div></div>
+          <div class="contact-info-item"><div class="contact-info-icon"><i class="fas fa-envelope"></i></div><div><label>Email</label><a href="mailto:khadaraqli@students.diu.ac">khadaraqli@students.diu.ac</a></div></div>
           <div class="contact-info-item"><div class="contact-info-icon"><i class="fas fa-phone"></i></div><div><label>Phone</label><span>+252 65 4242420 / +252 63 4067640</span></div></div>
           <div class="contact-info-item"><div class="contact-info-icon"><i class="fab fa-linkedin"></i></div><div><label>LinkedIn</label><a href="https://www.linkedin.com/in/eng-khadar-aqli-9bb42119a" target="_blank" rel="noopener">View Profile</a></div></div>
-          <div class="contact-info-item"><div class="contact-info-icon"><i class="fas fa-calendar-check"></i></div><div><label>Book a Meeting</label><a href="/cdn-cgi/l/email-protection#1f74777e7b7e6d7e6e73765f6c6b6a7b7a716b6c317b766a317e7c206c6a7d757a7c6b224c7c777a7b6a737a3f7e3f527a7a6b767178397d707b66224f737a7e6c7a3f6f6d7069767b7a3f66706a6d3f7e697e76737e7d737a3f6b76727a6c31">Schedule Time</a></div></div>
+          <div class="contact-info-item"><div class="contact-info-icon"><i class="fas fa-calendar-check"></i></div><div><label>Book a Meeting</label><a href="mailto:khadaraqli@students.diu.ac?subject=Schedule%20a%20Meeting&body=Please%20provide%20your%20available%20times." target="_blank">Schedule Time</a></div></div>
           <div class="contact-info-item" style="border-bottom:none;"><div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div><div><label>Location</label><span>Hargeisa, Somaliland</span></div></div>
         </div>
       </div>
@@ -1263,7 +1373,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.55);padding:3.5rem 1.5rem 
           <div class="form-group"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
           <div class="form-group"><label>Subject</label><input type="text" placeholder="How can I help you?"></div>
           <div class="form-group"><label>Message</label><textarea placeholder="Tell me about your project or opportunity…"></textarea></div>
-          <button class="btn-submit" onclick="alert('Thank you! Khadar will be in touch shortly.')"><i class="fas fa-paper-plane"></i> Send Message</button>
+          <button class="btn-submit" onclick="window.location.href='mailto:khadaraqli@students.diu.ac?subject=Message from Portfolio'"><i class="fas fa-paper-plane"></i> Send Message</button>
         </div>
       </div>
     </div>
@@ -1281,7 +1391,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.55);padding:3.5rem 1.5rem 
           <a href="https://www.linkedin.com/in/eng-khadar-aqli-9bb42119a" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
           <a href="https://github.com/khadaraqli" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
           <a href="https://x.com/engaqli" target="_blank" rel="noopener" aria-label="Twitter/X"><i class="fab fa-twitter"></i></a>
-          <a href="/cdn-cgi/l/email-protection#214a494045405340504d486152555445444f55520f4548540f4042" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="mailto:khadaraqli@students.diu.ac" aria-label="Email"><i class="fas fa-envelope"></i></a>
         </div>
       </div>
       <div class="footer-col">
@@ -1292,11 +1402,11 @@ footer{background:var(--navy);color:rgba(255,255,255,.55);padding:3.5rem 1.5rem 
         <a href="#projects">Portfolio</a>
         <a href="#blog">Blog</a>
         <a href="#contact">Contact</a>
-        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
       </div>
       <div class="footer-col">
         <h4>Contact Info</h4>
-        <div class="footer-contact-row"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8ce7e4ede8edfeedfde0e5ccfff8f9e8e9e2f8ffa2e8e5f9a2edef">[email&#160;protected]</a></div>
+        <div class="footer-contact-row"><a href="mailto:khadaraqli@students.diu.ac">khadaraqli@students.diu.ac</a></div>
         <div class="footer-contact-row">+252 65 4242420</div>
         <div class="footer-contact-row">+252 63 4067640</div>
         <div style="margin-top:.85rem;">
@@ -1310,138 +1420,176 @@ footer{background:var(--navy);color:rgba(255,255,255,.55);padding:3.5rem 1.5rem 
 
 <button id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 /* ── Stars canvas ── */
 (function(){
-  const c=document.getElementById('stars'),ctx=c.getContext('2d');
-  let stars=[];
+  var c=document.getElementById('stars');
+  if(!c)return;
+  var ctx=c.getContext('2d');
+  var stars=[];
   function resize(){c.width=c.offsetWidth;c.height=c.offsetHeight;}
-  function init(){stars=[];for(let i=0;i<280;i++)stars.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.4+.2,a:Math.random(),s:Math.random()*.005+.002});}
-  function draw(){ctx.clearRect(0,0,c.width,c.height);stars.forEach(s=>{s.a+=s.s;if(s.a>1||s.a<0)s.s*=-1;ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(255,255,255,${s.a})`;ctx.fill();});requestAnimationFrame(draw);}
+  function init(){
+    stars=[];
+    for(var i=0;i<280;i++){
+      stars.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.4+0.2,a:Math.random(),s:Math.random()*0.005+0.002});
+    }
+  }
+  function draw(){
+    ctx.clearRect(0,0,c.width,c.height);
+    for(var i=0;i<stars.length;i++){
+      var s=stars[i];
+      s.a+=s.s;
+      if(s.a>1||s.a<0)s.s*=-1;
+      ctx.beginPath();
+      ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+      ctx.fillStyle='rgba(255,255,255,'+s.a+')';
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
   resize();init();draw();
-  window.addEventListener('resize',()=>{resize();init();});
+  window.addEventListener('resize',function(){resize();init();});
 })();
 
 /* ── Typing effect ── */
 (function(){
-  const phrases=['Technology & IT Professional','Maritime Operations Expert','Digital Governance Researcher','Computer Science MSc','Cybersecurity Specialist','PhD Candidate (Aspiring)'];
-  let pi=0,ci=0,del=false;
-  const el=document.getElementById('typed-text');
+  var el=document.getElementById('typed-text');
+  if(!el)return;
+  var phrases=['Technology & IT Professional','Maritime Operations Expert','Digital Governance Researcher','Computer Science MSc','Cybersecurity Specialist','PhD Candidate (Aspiring)'];
+  var pi=0,ci=0,del=false;
   function type(){
-    const phrase=phrases[pi];
-    if(!del){el.textContent=phrase.slice(0,++ci);if(ci===phrase.length){del=true;setTimeout(type,2000);return;}}
-    else{el.textContent=phrase.slice(0,--ci);if(ci===0){del=false;pi=(pi+1)%phrases.length;}}
+    var phrase=phrases[pi];
+    if(!del){
+      el.textContent=phrase.slice(0,++ci);
+      if(ci===phrase.length){del=true;setTimeout(type,2000);return;}
+    } else {
+      el.textContent=phrase.slice(0,--ci);
+      if(ci===0){del=false;pi=(pi+1)%phrases.length;}
+    }
     setTimeout(type,del?50:80);
   }
   type();
-  const s=document.createElement('style');s.textContent='@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}';document.head.appendChild(s);
+  var st=document.createElement('style');
+  st.textContent='@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}';
+  document.head.appendChild(st);
 })();
 
-/* ── Scroll progress ── */
+/* ── Scroll progress + navbar + back-to-top ── */
 window.addEventListener('scroll',function(){
-  const bar=document.getElementById('progress-bar');
-  const total=document.documentElement.scrollHeight-window.innerHeight;
-  bar.style.width=(window.scrollY/total*100)+'%';
-  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>40);
-  document.getElementById('back-to-top').classList.toggle('visible',window.scrollY>400);
+  var bar=document.getElementById('progress-bar');
+  var nav=document.getElementById('navbar');
+  var btt=document.getElementById('back-to-top');
+  var total=document.documentElement.scrollHeight-window.innerHeight;
+  if(bar)bar.style.width=(window.scrollY/total*100)+'%';
+  if(nav)nav.classList.toggle('scrolled',window.scrollY>40);
+  if(btt)btt.classList.toggle('visible',window.scrollY>400);
 });
 
 /* ── Back to top ── */
-document.getElementById('back-to-top').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+var bttBtn=document.getElementById('back-to-top');
+if(bttBtn)bttBtn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
 
-/* ── 5-Theme switcher ── */
-const themes = ['navy','forest','crimson','purple','light'];
-const themeClasses = themes.map(t => t === 'navy' ? 'dark' : 'theme-'+t);
+/* ── 8-Theme switcher ── */
+var allThemes=['navy','forest','crimson','purple','light','sunset','ocean','slate'];
+var allClasses=['theme-forest','theme-crimson','theme-purple','theme-light','theme-sunset','theme-ocean','theme-slate'];
 
-function applyTheme(theme) {
-  // Remove all theme classes
-  document.body.classList.remove('dark','theme-forest','theme-crimson','theme-purple','theme-light');
-  // Apply selected theme class (navy = default, no extra class needed unless dark)
-  if (theme === 'navy') {
-    // default — no class
-  } else if (theme === 'light') {
-    document.body.classList.add('theme-light');
-  } else {
-    document.body.classList.add('theme-' + theme);
+function applyTheme(theme){
+  for(var i=0;i<allClasses.length;i++){
+    document.body.classList.remove(allClasses[i]);
   }
-  // Update active dot
-  document.querySelectorAll('.theme-dot').forEach(d => {
-    d.classList.toggle('active', d.dataset.theme === theme);
+  if(theme!=='navy'){
+    document.body.classList.add('theme-'+theme);
+  }
+  document.querySelectorAll('.theme-dot').forEach(function(d){
+    d.classList.toggle('active',d.dataset.theme===theme);
   });
-  // Update skill bar fills and hero background for active theme
-  try { localStorage.setItem('siteTheme', theme); } catch(e) {}
+  try{localStorage.setItem('siteTheme',theme);}catch(e){}
 }
 
-document.querySelectorAll('.theme-dot').forEach(dot => {
-  dot.addEventListener('click', () => applyTheme(dot.dataset.theme));
+document.querySelectorAll('.theme-dot').forEach(function(dot){
+  dot.addEventListener('click',function(){applyTheme(dot.dataset.theme);});
 });
 
-// Restore saved theme
-try {
-  const saved = localStorage.getItem('siteTheme');
-  if (saved && themes.includes(saved)) applyTheme(saved);
-} catch(e) {}
+try{
+  var saved=localStorage.getItem('siteTheme');
+  if(saved&&allThemes.indexOf(saved)!==-1)applyTheme(saved);
+}catch(e){}
 
 /* ── Mobile nav ── */
-document.getElementById('mob-toggle').addEventListener('click',function(){
+var mobToggle=document.getElementById('mob-toggle');
+if(mobToggle)mobToggle.addEventListener('click',function(){
   document.getElementById('mob-menu').classList.toggle('open');
 });
-function closeMob(){document.getElementById('mob-menu').classList.remove('open');}
-document.querySelectorAll('#mob-menu a').forEach(a=>a.addEventListener('click',closeMob));
+function closeMob(){
+  var m=document.getElementById('mob-menu');
+  if(m)m.classList.remove('open');
+}
+document.querySelectorAll('#mob-menu a').forEach(function(a){a.addEventListener('click',closeMob);});
 
 /* ── Desktop dropdown toggle ── */
 function toggleDD(id){
-  const el=document.getElementById(id);
-  el.classList.toggle('open');
+  var el=document.getElementById(id);
+  if(el)el.classList.toggle('open');
 }
 document.addEventListener('click',function(e){
-  document.querySelectorAll('.nav-item[id]').forEach(dd=>{
+  document.querySelectorAll('.nav-item[id]').forEach(function(dd){
     if(!dd.contains(e.target))dd.classList.remove('open');
   });
 });
 
 /* ── Scroll reveal ── */
-const revObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revObs.unobserve(e.target);}});
-},{threshold:.1});
-document.querySelectorAll('.reveal,.reveal-l').forEach(el=>revObs.observe(el));
+if('IntersectionObserver' in window){
+  var revObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('visible');revObs.unobserve(e.target);}
+    });
+  },{threshold:0.1});
+  document.querySelectorAll('.reveal,.reveal-l').forEach(function(el){revObs.observe(el);});
 
-/* ── Skill bars ── */
-const skillObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.querySelectorAll('.skill-bar-fill').forEach(b=>{b.style.width=b.dataset.width+'%';});
-      skillObs.unobserve(e.target);
-    }
-  });
-},{threshold:.3});
-document.querySelectorAll('.kcard').forEach(c=>skillObs.observe(c));
+  /* ── Skill bars ── */
+  var skillObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.querySelectorAll('.skill-bar-fill').forEach(function(b){b.style.width=b.dataset.width+'%';});
+        skillObs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.3});
+  document.querySelectorAll('.kcard').forEach(function(c){skillObs.observe(c);});
 
-/* ── Counter animation ── */
-const cntObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.querySelectorAll('.stat-num').forEach(el=>{
-        const target=+el.dataset.target;
-        let count=0,step=Math.ceil(target/60);
-        const iv=setInterval(()=>{count+=step;if(count>=target){count=target;clearInterval(iv);}el.textContent=count+'+';},28);
-      });
-      cntObs.unobserve(e.target);
-    }
-  });
-},{threshold:.5});
-const st=document.getElementById('stats');if(st)cntObs.observe(st);
+  /* ── Counter animation ── */
+  var cntObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.querySelectorAll('.stat-num').forEach(function(el){
+          var target=+el.dataset.target;
+          var count=0,step=Math.ceil(target/60);
+          var iv=setInterval(function(){
+            count+=step;
+            if(count>=target){count=target;clearInterval(iv);}
+            el.textContent=count+'+';
+          },28);
+        });
+        cntObs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.5});
+  var statEl=document.getElementById('stats');
+  if(statEl)cntObs.observe(statEl);
 
-/* ── Active nav highlight ── */
-const sections=document.querySelectorAll('section[id]');
-window.addEventListener('scroll',()=>{
-  let cur='';
-  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-220)cur=s.id;});
-  document.querySelectorAll('.nav-link[href]').forEach(l=>{
-    l.classList.toggle('active',l.getAttribute('href')==='#'+cur);
+  /* ── Active nav highlight ── */
+  var navSections=document.querySelectorAll('section[id]');
+  window.addEventListener('scroll',function(){
+    var cur='';
+    navSections.forEach(function(s){if(window.scrollY>=s.offsetTop-220)cur=s.id;});
+    document.querySelectorAll('.nav-link[href]').forEach(function(l){
+      l.classList.toggle('active',l.getAttribute('href')==='#'+cur);
+    });
   });
-});
+} else {
+  document.querySelectorAll('.reveal,.reveal-l').forEach(function(el){el.classList.add('visible');});
+  document.querySelectorAll('.skill-bar-fill').forEach(function(b){b.style.width=b.dataset.width+'%';});
+}
 </script>
 </body>
 </html>
