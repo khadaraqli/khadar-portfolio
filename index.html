@@ -613,6 +613,204 @@ footer{background:var(--navy);color:rgba(255,255,255,.55);padding:3.5rem 1.5rem 
 ═══════════════════════════════════════════ */
 #applied-research{background:var(--bg);}
 #future-vision{background:var(--bg-2);}
+
+
+/* ═════════ CINEMATIC HERO BACKGROUND OVERRIDE ═════════ */
+#hero{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  background:
+    radial-gradient(circle at 50% 32%, rgba(214,226,255,.14) 0%, rgba(214,226,255,.06) 12%, transparent 30%),
+    radial-gradient(circle at 50% 58%, rgba(126,149,189,.12) 0%, transparent 35%),
+    linear-gradient(180deg, #02040a 0%, #060b16 28%, #0a1220 58%, #101926 100%);
+  overflow:hidden;padding:120px clamp(1.2rem,5vw,3rem) 80px;isolation:isolate;
+}
+#hero-island-bg,#hero-island-overlay{display:none !important;}
+.cinematic-sky,.hero-vignette,.moon-orbit,.cloud-layer,.rain{position:absolute;inset:0;pointer-events:none;}
+.cinematic-sky{
+  z-index:0;
+  background:
+    radial-gradient(circle at 50% 28%, rgba(215,225,255,.08) 0%, rgba(215,225,255,.03) 15%, transparent 36%),
+    radial-gradient(circle at 50% 80%, rgba(185,206,255,.06) 0%, transparent 35%);
+}
+.hero-vignette{
+  z-index:4;
+  background:
+    radial-gradient(circle at center, transparent 35%, rgba(3,6,12,.18) 62%, rgba(1,3,8,.62) 100%),
+    linear-gradient(180deg, rgba(0,0,0,.16) 0%, rgba(0,0,0,.08) 30%, rgba(0,0,0,.3) 100%);
+}
+.moon-orbit{
+  z-index:1;
+  inset:auto auto auto 0;
+  top:11%;left:10%;width:230px;height:230px;
+  animation: moonTravel 22s ease-in-out infinite;
+  filter: drop-shadow(0 0 24px rgba(237,241,255,.35)) drop-shadow(0 0 60px rgba(200,215,255,.18));
+}
+.moon-glow,.moon{position:absolute;border-radius:50%;}
+.moon-glow{inset:-30%;background:radial-gradient(circle, rgba(222,230,255,.18) 0%, rgba(222,230,255,.08) 32%, transparent 70%);}
+.moon{
+  inset:18%;
+  background:
+    radial-gradient(circle at 35% 35%, rgba(255,255,255,.98) 0%, rgba(237,241,250,.98) 28%, rgba(203,211,226,.96) 58%, rgba(161,170,188,.92) 100%);
+  box-shadow: inset -26px -18px 35px rgba(115,125,145,.35), inset 12px 12px 20px rgba(255,255,255,.32);
+}
+.moon::before,.moon::after{content:'';position:absolute;border-radius:50%;background:rgba(120,128,145,.16);filter:blur(.5px);}
+.moon::before{width:24px;height:24px;top:28%;left:26%;box-shadow:52px 14px 0 4px rgba(120,128,145,.12), 72px 68px 0 -4px rgba(120,128,145,.14), 22px 82px 0 1px rgba(120,128,145,.11), 88px 38px 0 -6px rgba(120,128,145,.18);}
+.moon::after{
+  inset:-1px;
+  background:linear-gradient(90deg, rgba(0,0,0,.0) 32%, rgba(0,0,0,.54) 72%, rgba(0,0,0,.82) 100%);
+  mix-blend-mode:multiply;
+  transform-origin:left center;
+  animation: moonPhase 22s ease-in-out infinite;
+}
+@keyframes moonTravel{
+  0%{transform:translateX(0) translateY(10px) scale(.78);} 
+  25%{transform:translateX(22vw) translateY(-12px) scale(1.02);} 
+  50%{transform:translateX(39vw) translateY(0) scale(1.18);} 
+  75%{transform:translateX(58vw) translateY(10px) scale(1.02);} 
+  100%{transform:translateX(78vw) translateY(-4px) scale(.78);} 
+}
+@keyframes moonPhase{
+  0%{transform:scaleX(.88) translateX(58%);opacity:.95;}
+  25%{transform:scaleX(.46) translateX(24%);opacity:.76;}
+  50%{transform:scaleX(.02) translateX(0%);opacity:0;}
+  75%{transform:scaleX(.46) translateX(-24%);opacity:.76;}
+  100%{transform:scaleX(.88) translateX(-58%);opacity:.95;}
+}
+.cloud-layer{
+  z-index:2;opacity:.9;mix-blend-mode:screen;filter:blur(10px);
+  background-repeat:repeat-x;background-size:1400px 100%;
+}
+.cloud-back{
+  opacity:.42;filter:blur(18px);
+  background-image:
+    radial-gradient(ellipse at 10% 26%, rgba(255,255,255,.20) 0 6%, transparent 12%),
+    radial-gradient(ellipse at 22% 30%, rgba(255,255,255,.18) 0 8%, transparent 15%),
+    radial-gradient(ellipse at 38% 22%, rgba(255,255,255,.20) 0 7%, transparent 14%),
+    radial-gradient(ellipse at 58% 28%, rgba(255,255,255,.16) 0 9%, transparent 16%),
+    radial-gradient(ellipse at 74% 24%, rgba(255,255,255,.18) 0 8%, transparent 15%),
+    radial-gradient(ellipse at 92% 30%, rgba(255,255,255,.16) 0 7%, transparent 15%);
+  animation: cloudDriftBack 90s linear infinite;
+}
+.cloud-mid{
+  opacity:.40;filter:blur(20px);
+  background-image:
+    radial-gradient(ellipse at 8% 44%, rgba(219,226,239,.24) 0 8%, transparent 16%),
+    radial-gradient(ellipse at 28% 48%, rgba(236,241,248,.22) 0 10%, transparent 18%),
+    radial-gradient(ellipse at 48% 42%, rgba(215,223,238,.24) 0 8%, transparent 16%),
+    radial-gradient(ellipse at 67% 52%, rgba(231,237,246,.22) 0 11%, transparent 19%),
+    radial-gradient(ellipse at 88% 45%, rgba(216,224,237,.24) 0 9%, transparent 17%),
+    linear-gradient(180deg, transparent 0 28%, rgba(125,136,156,.06) 44%, transparent 70%);
+  animation: cloudDriftMid 68s linear infinite;
+}
+.cloud-front{
+  opacity:.50;filter:blur(16px);
+  background-image:
+    radial-gradient(ellipse at 12% 72%, rgba(208,214,225,.33) 0 11%, transparent 20%),
+    radial-gradient(ellipse at 26% 70%, rgba(252,253,255,.28) 0 12%, transparent 22%),
+    radial-gradient(ellipse at 42% 76%, rgba(208,214,225,.34) 0 13%, transparent 23%),
+    radial-gradient(ellipse at 58% 71%, rgba(252,253,255,.28) 0 12%, transparent 22%),
+    radial-gradient(ellipse at 74% 75%, rgba(208,214,225,.34) 0 13%, transparent 23%),
+    radial-gradient(ellipse at 90% 70%, rgba(252,253,255,.26) 0 11%, transparent 20%),
+    linear-gradient(180deg, transparent 0 52%, rgba(190,198,215,.10) 66%, rgba(78,87,107,.20) 100%);
+  animation: cloudDriftFront 48s linear infinite;
+}
+@keyframes cloudDriftBack{from{transform:translateX(0);}to{transform:translateX(-220px);}}
+@keyframes cloudDriftMid{from{transform:translateX(-80px);}to{transform:translateX(160px);}}
+@keyframes cloudDriftFront{from{transform:translateX(0);}to{transform:translateX(-140px);}}
+.rain{z-index:3;overflow:hidden;opacity:.95;}
+.rain-drop{position:absolute;top:-18%;width:2px;border-radius:999px;transform:rotate(10deg);animation-name: rainFall;animation-timing-function: linear;animation-iteration-count: infinite;}
+.rain-back .rain-drop{background:linear-gradient(to bottom, rgba(255,255,255,0), rgba(214,228,255,.42));box-shadow:0 0 4px rgba(214,228,255,.12);}
+.rain-front .rain-drop{background:linear-gradient(to bottom, rgba(255,255,255,0), rgba(240,246,255,.72));box-shadow:0 0 6px rgba(220,232,255,.22);}
+@keyframes rainFall{from{transform:translate3d(0,-12vh,0) rotate(10deg);}to{transform:translate3d(-8vw,112vh,0) rotate(10deg);}}
+canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:3;opacity:.98;}
+.hero-grid{background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:72px 72px;position:absolute;inset:0;z-index:1;opacity:.28;}
+.hero-glow{position:absolute;width:900px;height:900px;background:radial-gradient(circle,rgba(210,220,255,.07) 0%,rgba(0,0,0,0) 62%);top:42%;left:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:1;}
+.hero-inner{position:relative;z-index:5;}
+.hero-desc{color:rgba(255,255,255,.72);text-shadow:0 1px 10px rgba(0,0,0,.28);}
+.hero-tag{background:rgba(225,232,255,.08);border-color:rgba(225,232,255,.18);color:#d7e4ff;backdrop-filter:blur(8px);}
+.hero-name{text-shadow:0 10px 38px rgba(0,0,0,.36);}
+.hero-social a,.btn-outline-hero{backdrop-filter:blur(8px);} 
+@media(max-width:900px){
+  .moon-orbit{top:8%;left:4%;width:170px;height:170px;}
+  @keyframes moonTravel{
+    0%{transform:translateX(0) translateY(12px) scale(.8);} 
+    25%{transform:translateX(20vw) translateY(-4px) scale(.96);} 
+    50%{transform:translateX(34vw) translateY(0) scale(1.06);} 
+    75%{transform:translateX(48vw) translateY(8px) scale(.96);} 
+    100%{transform:translateX(58vw) translateY(-2px) scale(.8);} 
+  }
+  .cloud-front{opacity:.44;}
+}
+
+
+
+/* ═══════════════════════════════════════════
+   PORTFOLIO ENHANCEMENTS
+═══════════════════════════════════════════ */
+.hero-proof{display:flex;flex-wrap:wrap;gap:.7rem;margin:1rem 0 1.3rem;}
+.hero-proof-item{display:inline-flex;align-items:center;gap:.5rem;padding:.45rem .8rem;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.82);font-size:.78rem;font-weight:500;backdrop-filter:blur(6px);}
+.hero-proof-item i{color:var(--gold);}
+.hero-availability{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.1rem;}
+.hero-availability span{font-size:.72rem;font-weight:600;letter-spacing:.04em;color:#fff;padding:.32rem .72rem;border-radius:999px;background:rgba(0,200,212,.12);border:1px solid rgba(0,200,212,.28);}
+
+#value-proposition{background:var(--bg-2);}
+.value-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:1.4rem;}
+@media(max-width:980px){.value-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.value-grid{grid-template-columns:1fr;}}
+.value-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.35rem;box-shadow:var(--shadow-sm);transition:transform .25s,box-shadow .25s;}
+.value-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
+.value-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(0,200,212,.14),rgba(245,185,66,.12));color:var(--teal);font-size:1.15rem;margin-bottom:.95rem;}
+.value-card h3{font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:700;margin-bottom:.45rem;color:var(--text);}
+.value-card p{font-size:.84rem;line-height:1.7;color:var(--muted);}
+.value-cta{margin-top:1.4rem;padding:1.1rem 1.2rem;border-radius:var(--r);background:linear-gradient(135deg,var(--navy),var(--navy-2));display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;box-shadow:var(--shadow-md);}
+.value-cta strong{display:block;color:#fff;font-size:1rem;}
+.value-cta span{display:block;color:rgba(255,255,255,.62);font-size:.84rem;margin-top:.2rem;}
+.value-cta-buttons{display:flex;gap:.7rem;flex-wrap:wrap;}
+
+#impact-strip{background:linear-gradient(135deg,var(--navy),var(--navy-2));padding:4rem 1.5rem;}
+.impact-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+@media(max-width:980px){.impact-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.impact-grid{grid-template-columns:1fr;}}
+.impact-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:1.35rem;backdrop-filter:blur(8px);}
+.impact-kpi{font-family:'Cormorant Garamond',serif;font-size:2.3rem;line-height:1;color:var(--gold);margin-bottom:.5rem;}
+.impact-card h3{font-family:'DM Sans',sans-serif;font-size:.92rem;color:#fff;margin-bottom:.4rem;}
+.impact-card p{font-size:.82rem;line-height:1.65;color:rgba(255,255,255,.68);}
+
+.case-study-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:1.5rem;}
+@media(max-width:980px){.case-study-grid{grid-template-columns:1fr;}}
+.case-study-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.4rem;box-shadow:var(--shadow-sm);}
+.case-study-card h3{font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:.3rem;}
+.case-study-sub{font-size:.74rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--teal);margin-bottom:.9rem;}
+.case-study-list{display:flex;flex-direction:column;gap:.7rem;}
+.case-study-list li{font-size:.83rem;line-height:1.65;color:var(--muted);display:flex;gap:.55rem;align-items:flex-start;}
+.case-study-list li i{color:var(--teal);margin-top:.2rem;}
+.metric-chip-row{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1rem;}
+.metric-chip{font-size:.72rem;font-weight:700;padding:.26rem .65rem;border-radius:999px;background:rgba(0,200,212,.08);color:var(--teal);border:1px solid rgba(0,200,212,.24);}
+
+#github-focus{background:var(--bg);}
+.focus-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:1.3rem;align-items:stretch;}
+@media(max-width:900px){.focus-grid{grid-template-columns:1fr;}}
+.focus-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;box-shadow:var(--shadow-sm);}
+.focus-panel h3{font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.8rem;}
+.focus-list{display:flex;flex-direction:column;gap:.8rem;}
+.focus-list li{display:flex;gap:.7rem;align-items:flex-start;font-size:.84rem;color:var(--muted);line-height:1.65;}
+.focus-list li i{color:var(--teal);margin-top:.2rem;}
+.link-pills{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:1rem;}
+.link-pill{display:inline-flex;align-items:center;gap:.4rem;padding:.42rem .8rem;border-radius:999px;border:1px solid var(--border);background:var(--bg-2);font-size:.77rem;font-weight:600;color:var(--text);transition:all .2s;}
+.link-pill:hover{border-color:var(--teal);color:var(--teal);}
+.now-building{display:grid;gap:.8rem;}
+.now-item{padding:.9rem 1rem;border:1px solid var(--border);border-radius:var(--r-sm);background:var(--bg-2);}
+.now-item strong{display:block;font-size:.82rem;color:var(--text);margin-bottom:.2rem;}
+.now-item span{font-size:.8rem;color:var(--muted);line-height:1.6;}
+
+.contact-availability{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem;}
+.contact-availability span{font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:.3rem .65rem;border-radius:999px;background:var(--bg);border:1px solid var(--border);color:var(--muted);}
+.contact-cta-row{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1rem;}
+.contact-cta-row a{display:inline-flex;align-items:center;gap:.42rem;padding:.6rem .95rem;border-radius:9px;font-size:.8rem;font-weight:700;border:1px solid rgba(0,200,212,.25);background:rgba(0,200,212,.06);color:var(--teal);transition:all .2s;}
+.contact-cta-row a:hover{background:var(--teal);color:var(--navy);}
+.blog-status{display:inline-flex;align-items:center;gap:.35rem;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.55rem;}
+.blog-status::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px rgba(245,185,66,.12);}
+
 </style>
 </head>
 <body>
@@ -707,170 +905,20 @@ footer{background:var(--navy);color:rgba(255,255,255,.55);padding:3.5rem 1.5rem 
 
 <!-- ═══════ HERO ═══════ -->
 <section id="hero">
-  <!-- ── Sa'adadiin Island, Somaliland — full background illustration ── -->
-  <svg id="hero-island-bg" viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-    <defs>
-      <linearGradient id="hsky" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%"   stop-color="#a8d8f0"/>
-        <stop offset="30%"  stop-color="#6bb8d8"/>
-        <stop offset="65%"  stop-color="#3aa0c0"/>
-        <stop offset="100%" stop-color="#1a8aaa"/>
-      </linearGradient>
-      <linearGradient id="hsea" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%"   stop-color="#0d8faa"/>
-        <stop offset="30%"  stop-color="#0a7a95"/>
-        <stop offset="70%"  stop-color="#076880"/>
-        <stop offset="100%" stop-color="#045060"/>
-      </linearGradient>
-      <radialGradient id="hlagoon" cx="50%" cy="50%" r="55%">
-        <stop offset="0%"   stop-color="#40e0d8" stop-opacity="1"/>
-        <stop offset="45%"  stop-color="#1abfb8" stop-opacity="0.9"/>
-        <stop offset="100%" stop-color="#0d8faa"  stop-opacity="0"/>
-      </radialGradient>
-      <radialGradient id="hshallow" cx="50%" cy="50%" r="50%">
-        <stop offset="0%"   stop-color="#90ece8" stop-opacity="0.85"/>
-        <stop offset="100%" stop-color="#20c8c0" stop-opacity="0"/>
-      </radialGradient>
-      <radialGradient id="hsun" cx="75%" cy="8%" r="35%">
-        <stop offset="0%"   stop-color="#fff8d0" stop-opacity="0.55"/>
-        <stop offset="100%" stop-color="#fff8d0" stop-opacity="0"/>
-      </radialGradient>
-      <filter id="hblur4"><feGaussianBlur stdDeviation="4"/></filter>
-      <filter id="hblur8"><feGaussianBlur stdDeviation="8"/></filter>
-      <filter id="hblur2"><feGaussianBlur stdDeviation="2"/></filter>
-    </defs>
-
-    <!-- Sky -->
-    <rect width="1440" height="900" fill="url(#hsky)"/>
-    <!-- Horizon glow -->
-    <rect x="0" y="295" width="1440" height="60" fill="#5ab8d4" opacity="0.4" filter="url(#hblur8)"/>
-
-    <!-- Deep ocean -->
-    <rect x="0" y="330" width="1440" height="570" fill="url(#hsea)"/>
-
-    <!-- Ocean wave streaks -->
-    <g stroke="#fff" stroke-width="1" fill="none" opacity="0.07">
-      <path d="M0,390 Q360,382 720,390 Q1080,398 1440,390"/>
-      <path d="M0,430 Q360,422 720,430 Q1080,438 1440,430"/>
-      <path d="M0,475 Q360,467 720,475 Q1080,483 1440,475"/>
-      <path d="M0,520 Q360,512 720,520 Q1080,528 1440,520"/>
-      <path d="M0,568 Q360,560 720,568 Q1080,576 1440,568"/>
-      <path d="M0,618 Q360,610 720,618 Q1080,626 1440,618"/>
-      <path d="M0,670 Q360,662 720,670 Q1080,678 1440,670"/>
-      <path d="M0,725 Q360,717 720,725 Q1080,733 1440,725"/>
-      <path d="M0,785 Q360,777 720,785 Q1080,793 1440,785"/>
-      <path d="M0,845 Q360,837 720,845 Q1080,853 1440,845"/>
-    </g>
-
-    <!-- ── MAIN ISLAND (centre) ── -->
-    <!-- Outer reef glow -->
-    <ellipse cx="720" cy="600" rx="320" ry="120" fill="#28ddd5" opacity="0.18" filter="url(#hblur8)"/>
-    <!-- Reef foam ring outer -->
-    <ellipse cx="720" cy="600" rx="285" ry="100" fill="none" stroke="#b8f4f0" stroke-width="5" opacity="0.3" filter="url(#hblur4)"/>
-    <!-- Turquoise lagoon -->
-    <ellipse cx="720" cy="598" rx="240" ry="82" fill="url(#hlagoon)"/>
-    <!-- Inner shallows -->
-    <ellipse cx="720" cy="595" rx="185" ry="60" fill="url(#hshallow)"/>
-    <!-- Sandy beach ring -->
-    <ellipse cx="720" cy="588" rx="155" ry="48" fill="#e8d890" opacity="0.88"/>
-    <ellipse cx="720" cy="585" rx="138" ry="40" fill="#dece7a" opacity="0.8"/>
-    <!-- Landmass -->
-    <ellipse cx="720" cy="578" rx="115" ry="33" fill="#5a8a30"/>
-    <!-- Vegetation layers -->
-    <ellipse cx="720" cy="568" rx="98"  ry="28" fill="#4a7a24" filter="url(#hblur2)"/>
-    <ellipse cx="695" cy="560" rx="55"  ry="22" fill="#5c9432"/>
-    <ellipse cx="748" cy="558" rx="50"  ry="20" fill="#66a438"/>
-    <ellipse cx="720" cy="550" rx="42"  ry="18" fill="#78bc44"/>
-    <ellipse cx="700" cy="544" rx="28"  ry="14" fill="#8acf50"/>
-    <ellipse cx="740" cy="542" rx="26"  ry="13" fill="#82c44a"/>
-    <ellipse cx="720" cy="535" rx="22"  ry="11" fill="#96d858"/>
-    <ellipse cx="710" cy="530" rx="16"  ry="9"  fill="#a8e064"/>
-    <ellipse cx="732" cy="528" rx="15"  ry="8"  fill="#a0da5e"/>
-    <!-- Sun on canopy -->
-    <ellipse cx="708" cy="532" rx="12"  ry="6"  fill="#c4f07a" opacity="0.6"/>
-    <!-- Sandy beach highlights -->
-    <ellipse cx="720" cy="592" rx="140" ry="16" fill="#f4e8a8" opacity="0.45" filter="url(#hblur4)"/>
-    <ellipse cx="680" cy="586" rx="35"  ry="10" fill="#f8eeb8" opacity="0.4"/>
-    <ellipse cx="760" cy="588" rx="30"  ry="9"  fill="#f8eeb8" opacity="0.38"/>
-
-    <!-- ── SMALL ISLAND LEFT ── -->
-    <ellipse cx="200" cy="480" rx="65" ry="22" fill="#e0cc80" opacity="0.75"/>
-    <ellipse cx="200" cy="472" rx="52" ry="18" fill="#5a8a30" opacity="0.85"/>
-    <ellipse cx="200" cy="462" rx="40" ry="14" fill="#4a7a24"/>
-    <ellipse cx="200" cy="454" rx="28" ry="10" fill="#78bc44"/>
-    <ellipse cx="200" cy="448" rx="18" ry="7"  fill="#96d858"/>
-    <!-- lagoon small left -->
-    <ellipse cx="200" cy="485" rx="90" ry="28" fill="#28ddd5" opacity="0.15" filter="url(#hblur4)"/>
-
-    <!-- ── SMALL ISLAND RIGHT ── -->
-    <ellipse cx="1240" cy="510" rx="55" ry="18" fill="#e0cc80" opacity="0.7"/>
-    <ellipse cx="1240" cy="502" rx="44" ry="15" fill="#5a8a30" opacity="0.82"/>
-    <ellipse cx="1240" cy="493" rx="33" ry="12" fill="#4a7a24"/>
-    <ellipse cx="1240" cy="486" rx="22" ry="8"  fill="#78bc44"/>
-    <ellipse cx="1240" cy="480" rx="14" ry="6"  fill="#96d858"/>
-    <ellipse cx="1240" cy="516" rx="78" ry="24" fill="#28ddd5" opacity="0.13" filter="url(#hblur4)"/>
-
-    <!-- ── TINY DISTANT ISLANDS (horizon) ── -->
-    <ellipse cx="450"  cy="355" rx="28" ry="8"  fill="#dece7a" opacity="0.5"/>
-    <ellipse cx="450"  cy="350" rx="20" ry="7"  fill="#4a7a24" opacity="0.6"/>
-    <ellipse cx="980"  cy="358" rx="22" ry="7"  fill="#dece7a" opacity="0.45"/>
-    <ellipse cx="980"  cy="353" rx="16" ry="6"  fill="#4a7a24" opacity="0.55"/>
-    <ellipse cx="1120" cy="345" rx="16" ry="5"  fill="#dece7a" opacity="0.4"/>
-    <ellipse cx="320"  cy="360" rx="14" ry="5"  fill="#dece7a" opacity="0.38"/>
-
-    <!-- ── DHOW BOATS ── -->
-    <g transform="translate(380,450)" opacity="0.85">
-      <ellipse cx="0" cy="5" rx="28" ry="7" fill="#c8a858"/>
-      <line x1="0" y1="-22" x2="0" y2="5" stroke="#8a6820" stroke-width="2"/>
-      <polygon points="0,-22 -22,5 0,5" fill="#f4f0e8" opacity="0.92"/>
-    </g>
-    <g transform="translate(1060,475)" opacity="0.8">
-      <ellipse cx="0" cy="4" rx="22" ry="5.5" fill="#c8a858"/>
-      <line x1="0" y1="-18" x2="0" y2="4" stroke="#8a6820" stroke-width="1.8"/>
-      <polygon points="0,-18 -18,4 0,4" fill="#f4f0e8" opacity="0.88"/>
-    </g>
-    <g transform="translate(580,530)" opacity="0.7">
-      <ellipse cx="0" cy="3.5" rx="16" ry="4.5" fill="#c8a858"/>
-      <line x1="0" y1="-14" x2="0" y2="3.5" stroke="#8a6820" stroke-width="1.5"/>
-      <polygon points="0,-14 -14,3.5 0,3.5" fill="#f4f0e8" opacity="0.85"/>
-    </g>
-
-    <!-- ── CLOUDS ── -->
-    <g filter="url(#hblur4)" opacity="0.9">
-      <ellipse cx="180" cy="80"  rx="90"  ry="32" fill="#fff"/>
-      <ellipse cx="230" cy="62"  rx="70"  ry="38" fill="#fff"/>
-      <ellipse cx="130" cy="88"  rx="55"  ry="26" fill="#fff"/>
-      <ellipse cx="600" cy="55"  rx="75"  ry="28" fill="#fff"/>
-      <ellipse cx="650" cy="38"  rx="58"  ry="34" fill="#fff"/>
-      <ellipse cx="545" cy="62"  rx="48"  ry="22" fill="#fff"/>
-      <ellipse cx="1100" cy="70" rx="80"  ry="30" fill="#fff"/>
-      <ellipse cx="1155" cy="52" rx="62"  ry="36" fill="#fff"/>
-      <ellipse cx="1048" cy="78" rx="50"  ry="24" fill="#fff"/>
-      <ellipse cx="880"  cy="95" rx="48"  ry="18" fill="#fff" opacity="0.75"/>
-      <ellipse cx="920"  cy="80" rx="38"  ry="22" fill="#fff" opacity="0.75"/>
-      <ellipse cx="370"  cy="110" rx="42" ry="16" fill="#fff" opacity="0.65"/>
-      <ellipse cx="400"  cy="98"  rx="32" ry="18" fill="#fff" opacity="0.65"/>
-    </g>
-
-    <!-- Sun glow top-right -->
-    <rect width="1440" height="900" fill="url(#hsun)"/>
-
-    <!-- Ocean sparkles -->
-    <g fill="#fff" opacity="0.3">
-      <circle cx="300"  cy="420" r="2.5"/><circle cx="550"  cy="408" r="2"/>
-      <circle cx="850"  cy="415" r="2.5"/><circle cx="1150" cy="422" r="2"/>
-      <circle cx="140"  cy="470" r="2"/><circle cx="420"  cy="488" r="2.5"/>
-      <circle cx="660"  cy="650" r="2"/><circle cx="900"  cy="665" r="2.5"/>
-      <circle cx="1050" cy="540" r="2"/><circle cx="1300" cy="558" r="2"/>
-      <circle cx="200"  cy="600" r="1.8"/><circle cx="480"  cy="720" r="2"/>
-      <circle cx="960"  cy="740" r="2"/><circle cx="1380" cy="680" r="1.8"/>
-    </g>
-  </svg>
-  <!-- Dark overlay for text readability -->
-  <div id="hero-island-overlay"></div>
+  <div class="cinematic-sky"></div>
+  <div class="moon-orbit" aria-hidden="true">
+    <div class="moon-glow"></div>
+    <div class="moon"></div>
+  </div>
+  <div class="cloud-layer cloud-back"></div>
+  <div class="cloud-layer cloud-mid"></div>
+  <div class="cloud-layer cloud-front"></div>
+  <div class="rain rain-back" id="rain-back"></div>
+  <div class="rain rain-front" id="rain-front"></div>
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
   <canvas id="stars"></canvas>
+  <div class="hero-vignette"></div>
   <div class="hero-inner">
     <div class="hero-photo-wrap reveal-l">
       <div class="photo-frame">
@@ -884,13 +932,20 @@ footer{background:var(--navy);color:rgba(255,255,255,.55);padding:3.5rem 1.5rem 
     </div>
     <div class="hero-text reveal">
       <h1 class="hero-name">Khadar <strong>Ali Aqli</strong></h1>
-      <div class="hero-tag">Technology · Maritime · Governance</div>
+      <div class="hero-tag">Ports · Secure Systems · Digital Governance</div>
       <div class="hero-typed"><span id="typed-text"></span><span style="color:var(--teal);animation:blink 1s step-end infinite;">|</span></div>
-      <p class="hero-desc">Integrating IT, maritime operations, financial management, auditing, and governance to enhance efficiency, transparency, compliance, and strategic organizational performance.</p>
+      <p class="hero-desc">I build and improve secure digital workflows for ports, logistics, and public institutions — combining maritime operations, IT systems, cybersecurity, and governance into practical, measurable results.</p>
+      <div class="hero-proof">
+        <div class="hero-proof-item"><i class="fas fa-chart-line"></i><span>20+ years multidisciplinary experience</span></div>
+        <div class="hero-proof-item"><i class="fas fa-ship"></i><span>Port and shipping operations insight</span></div>
+        <div class="hero-proof-item"><i class="fas fa-shield-alt"></i><span>Cybersecurity and systems focus</span></div>
+      </div>
       <div class="hero-btns">
-        <a href="cv.html" class="btn-primary-hero"><i class="fas fa-download"></i> Download CV</a>
+        <a href="#projects" class="btn-primary-hero"><i class="fas fa-briefcase"></i> View Projects</a>
+        <a href="cv.html" class="btn-outline-hero"><i class="fas fa-download"></i> Download CV</a>
         <a href="#contact" class="btn-outline-hero"><i class="fas fa-paper-plane"></i> Contact Me</a>
       </div>
+      <div class="hero-availability"><span>Open to PhD opportunities</span><span>Available for consulting</span><span>Open to collaboration</span></div>
       <div class="hero-social">
         <a href="https://www.linkedin.com/in/eng-khadar-aqli-9bb42119a" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
         <a href="https://github.com/khadaraqli" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
@@ -904,11 +959,11 @@ footer{background:var(--navy);color:rgba(255,255,255,.55);padding:3.5rem 1.5rem 
 <!-- ═══════ STATS ═══════ -->
 <section id="stats">
   <div class="stats-grid">
-    <div class="stat-item reveal"><div class="stat-num" data-target="20">0</div><div class="stat-label">Years Experience</div></div>
-    <div class="stat-item reveal"><div class="stat-num" data-target="15">0</div><div class="stat-label">Certificates Earned</div></div>
-    <div class="stat-item reveal"><div class="stat-num" data-target="3">0</div><div class="stat-label">Featured Projects</div></div>
-    <div class="stat-item reveal"><div class="stat-num" data-target="200">0</div><div class="stat-label">Students Taught</div></div>
-    <div class="stat-item reveal"><div class="stat-num" data-target="25">0</div><div class="stat-label">% Efficiency Gained</div></div>
+    <div class="stat-item reveal"><div class="stat-num" data-target="20">20+</div><div class="stat-label">Years Experience</div></div>
+    <div class="stat-item reveal"><div class="stat-num" data-target="15">15+</div><div class="stat-label">Certificates Earned</div></div>
+    <div class="stat-item reveal"><div class="stat-num" data-target="3">3</div><div class="stat-label">Featured Projects</div></div>
+    <div class="stat-item reveal"><div class="stat-num" data-target="200">200+</div><div class="stat-label">Students Taught</div></div>
+    <div class="stat-item reveal"><div class="stat-num" data-target="25">25%</div><div class="stat-label">% Efficiency Gained</div></div>
   </div>
 </section>
 
@@ -934,6 +989,29 @@ footer{background:var(--navy);color:rgba(255,255,255,.55);padding:3.5rem 1.5rem 
             <li><i class="fab fa-twitter"></i><strong>X / Twitter</strong><a href="https://x.com/engaqli" target="_blank" rel="noopener">@engaqli</a></li>
           </ul>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ VALUE PROPOSITION ═══════ -->
+<section id="value-proposition" class="section">
+  <div class="container">
+    <div class="section-header reveal"><div class="section-eyebrow">Value</div><h2>Why <em>Work With Me</em></h2><p>A unique blend of operational depth, technical execution, and governance thinking</p></div>
+    <div class="value-grid">
+      <div class="value-card reveal"><div class="value-icon"><i class="fas fa-layer-group"></i></div><h3>Cross-Domain Strength</h3><p>I connect maritime operations, IT systems, auditing, and digital governance into one integrated problem-solving approach.</p></div>
+      <div class="value-card reveal"><div class="value-icon"><i class="fas fa-gauge-high"></i></div><h3>Results-Driven Delivery</h3><p>I focus on efficiency, compliance, and measurable impact — not just theory, tools, or certificates.</p></div>
+      <div class="value-card reveal"><div class="value-icon"><i class="fas fa-microscope"></i></div><h3>Research + Practice</h3><p>My profile bridges practical field experience with academic research in secure public digital infrastructure.</p></div>
+      <div class="value-card reveal"><div class="value-icon"><i class="fas fa-handshake-angle"></i></div><h3>Trusted Collaboration</h3><p>I communicate clearly, work across teams, and adapt quickly in fast-moving technical and operational environments.</p></div>
+    </div>
+    <div class="value-cta reveal">
+      <div>
+        <strong>Looking for a portfolio that shows both depth and direction?</strong>
+        <span>Explore projects, impact, and research focus — then let's talk about collaboration, consulting, or PhD opportunities.</span>
+      </div>
+      <div class="value-cta-buttons">
+        <a href="#projects" class="btn-primary-hero"><i class="fas fa-diagram-project"></i> Explore Work</a>
+        <a href="#contact" class="btn-outline-hero"><i class="fas fa-paper-plane"></i> Start a Conversation</a>
       </div>
     </div>
   </div>
@@ -965,10 +1043,10 @@ footer{background:var(--navy);color:rgba(255,255,255,.55);padding:3.5rem 1.5rem 
         <div class="kcard reveal">
           <h3>Academic Research Profiles</h3>
           <ul class="info-list">
-            <li><i class="fas fa-book"></i><strong>Google Scholar</strong><a href="https://scholar.google.com/citations?user=khadaraqli" target="_blank" rel="noopener">Coming Soon — View Profile</a></li>
+            <li><i class="fas fa-book"></i><strong>Google Scholar</strong><a href="https://scholar.google.com/citations?user=khadaraqli" target="_blank" rel="noopener">View Profile</a></li>
             <li><i class="fas fa-id-card"></i><strong>ORCID</strong><a href="https://orcid.org/0009-0001-9662-6467" target="_blank" rel="noopener">0009-0001-9662-6467</a></li>
-            <li><i class="fas fa-users"></i><strong>ResearchGate</strong><a href="https://www.researchgate.net/profile/Khadar-Aqli" target="_blank" rel="noopener">Coming Soon — View Profile</a></li>
-            <li><i class="fas fa-graduation-cap"></i><strong>Academia.edu</strong><a href="https://independent.academia.edu/KhadarAqli" target="_blank" rel="noopener">Coming Soon — View Profile</a></li>
+            <li><i class="fas fa-users"></i><strong>ResearchGate</strong><a href="https://www.researchgate.net/profile/Khadar-Aqli" target="_blank" rel="noopener">View Profile</a></li>
+            <li><i class="fas fa-graduation-cap"></i><strong>Academia.edu</strong><a href="https://independent.academia.edu/KhadarAqli" target="_blank" rel="noopener">View Profile</a></li>
             <li><i class="fab fa-linkedin"></i><strong>LinkedIn</strong><a href="https://www.linkedin.com/in/eng-khadar-aqli-9bb42119a" target="_blank" rel="noopener">View Profile</a></li>
             <li><i class="fab fa-github"></i><strong>GitHub</strong><a href="https://github.com/khadaraqli" target="_blank" rel="noopener">View Profile</a></li>
           </ul>
@@ -1253,15 +1331,33 @@ footer{background:var(--navy);color:rgba(255,255,255,.55);padding:3.5rem 1.5rem 
   </div>
 </section>
 
+
+<!-- ═══════ IMPACT STRIP ═══════ -->
+<section id="impact-strip">
+  <div class="impact-grid">
+    <div class="impact-card reveal"><div class="impact-kpi">20+</div><h3>Years of Experience</h3><p>Hands-on experience across maritime operations, IT systems, education, and organizational support.</p></div>
+    <div class="impact-card reveal"><div class="impact-kpi">15%</div><h3>Delay Reduction</h3><p>Operational improvements through technology-driven shipment tracking and workflow visibility.</p></div>
+    <div class="impact-card reveal"><div class="impact-kpi">25%</div><h3>Efficiency Gain</h3><p>Recognized for process improvements and security-conscious system support in real environments.</p></div>
+    <div class="impact-card reveal"><div class="impact-kpi">200+</div><h3>Learners Reached</h3><p>Taught and mentored students through computer science, networking, and cybersecurity-focused instruction.</p></div>
+  </div>
+</section>
+
 <!-- ═══════ PORTFOLIO ═══════ -->
 <section id="projects" class="section">
   <div class="container">
     <div class="section-header reveal"><div class="section-eyebrow">Portfolio</div><h2>Featured <em>Projects</em></h2><p>Computer Science skills applied to real-world problems</p></div>
     <div class="grid-3" style="margin-bottom:2.5rem;">
-      <div class="project-card reveal"><div class="project-img"><img src="images/Logistics.JPG" alt="Logistics Tracking App" onerror="this.parentElement.innerHTML='<div class=\'project-img-placeholder\'>🚢</div>'"></div><div class="project-body"><div class="project-type">Full-Stack Application</div><h3>Logistics Tracking Web App</h3><p>A full-stack application for real-time shipment tracking in ports, integrating GPS data with port systems for container status updates and delay alerts.</p><div class="project-tech"><span>Python (Django)</span><span>JavaScript</span><span>PostgreSQL</span><span>Docker</span></div><div class="project-links"><a href="https://example.com/demo" target="_blank" rel="noopener" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="https://github.com/khadaraqli/logistics-app" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> Code</a></div></div></div>
-      <div class="project-card reveal"><div class="project-img"><img src="images/Security.PNG" alt="Network Security Tool" onerror="this.parentElement.innerHTML='<div class=\'project-img-placeholder\'>🔐</div>'"></div><div class="project-body"><div class="project-type">Security Tool</div><h3>Network Security Monitoring Tool</h3><p>Script-based tool to detect vulnerabilities in network infrastructures using packet analysis for anomalies and real-time cloud alerts.</p><div class="project-tech"><span>Python</span><span>Scapy</span><span>AWS CloudWatch</span></div><div class="project-links"><a href="https://example.com/demo" target="_blank" rel="noopener" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="https://github.com/khadaraqli/network-tool" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> Code</a></div></div></div>
-      <div class="project-card reveal"><div class="project-img"><img src="images/Ai.PNG" alt="AI Logistics Optimizer" onerror="this.parentElement.innerHTML='<div class=\'project-img-placeholder\'>🤖</div>'"></div><div class="project-body"><div class="project-type">AI / Machine Learning</div><h3>AI Logistics Optimizer</h3><p>AI-powered tool using ML to optimize supply chain routes, reduce fuel consumption, and minimize delays. Applied in pilot projects at ports.</p><div class="project-tech"><span>Python</span><span>TensorFlow</span><span>Scikit-learn</span><span>Google Maps API</span></div><div class="project-links"><a href="https://example.com/demo-ai" target="_blank" rel="noopener" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="https://github.com/khadaraqli/ai-logistics" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> Code</a></div></div></div>
+      <div class="project-card reveal"><div class="project-img"><img src="images/Logistics.JPG" alt="Logistics Tracking App" onerror="this.parentElement.innerHTML='<div class=\'project-img-placeholder\'>🚢</div>'"></div><div class="project-body"><div class="project-type">Full-Stack Application</div><h3>Logistics Tracking Web App</h3><p>A portfolio project focused on real-time shipment visibility, port-side coordination, and data-backed alerts to reduce delays and improve container workflow control.</p><div class="project-tech"><span>Python (Django)</span><span>JavaScript</span><span>PostgreSQL</span><span>Docker</span></div><div class="project-links"><a href="#case-logistics" class="project-link"><i class="fas fa-book-open"></i> Case Study</a><a href="https://github.com/khadaraqli" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> GitHub Profile</a></div></div></div>
+      <div class="project-card reveal"><div class="project-img"><img src="images/Security.PNG" alt="Network Security Tool" onerror="this.parentElement.innerHTML='<div class=\'project-img-placeholder\'>🔐</div>'"></div><div class="project-body"><div class="project-type">Security Tool</div><h3>Network Security Monitoring Tool</h3><p>A security-focused monitoring concept for identifying suspicious network behaviour, strengthening operational visibility, and supporting safer digital infrastructure.</p><div class="project-tech"><span>Python</span><span>Scapy</span><span>AWS CloudWatch</span></div><div class="project-links"><a href="#case-security" class="project-link"><i class="fas fa-book-open"></i> Case Study</a><a href="https://github.com/khadaraqli" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> GitHub Profile</a></div></div></div>
+      <div class="project-card reveal"><div class="project-img"><img src="images/Ai.PNG" alt="AI Logistics Optimizer" onerror="this.parentElement.innerHTML='<div class=\'project-img-placeholder\'>🤖</div>'"></div><div class="project-body"><div class="project-type">AI / Machine Learning</div><h3>AI Logistics Optimizer</h3><p>A machine-learning concept built to improve route planning, reduce inefficiencies, and support smarter logistics decisions in complex port and supply-chain environments.</p><div class="project-tech"><span>Python</span><span>TensorFlow</span><span>Scikit-learn</span><span>Google Maps API</span></div><div class="project-links"><a href="#case-ai" class="project-link"><i class="fas fa-book-open"></i> Case Study</a><a href="https://github.com/khadaraqli" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> GitHub Profile</a></div></div></div>
     </div>
+    <div class="section-header reveal" style="margin-bottom:1rem;"><p style="font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);">Project Case Studies</p></div>
+    <div class="case-study-grid">
+      <div class="case-study-card reveal" id="case-logistics"><h3>Logistics Tracking Web App</h3><div class="case-study-sub">Visibility · Coordination · Delay Reduction</div><ul class="case-study-list"><li><i class="fas fa-circle-check"></i><span><strong>Challenge:</strong> Shipment status can become fragmented across port operations, documentation, and coordination workflows.</span></li><li><i class="fas fa-circle-check"></i><span><strong>Approach:</strong> Designed a workflow combining tracking visibility, status alerts, and structured logistics data for better operational decision-making.</span></li><li><i class="fas fa-circle-check"></i><span><strong>Value:</strong> Supports faster follow-up, better container awareness, and stronger process control in time-sensitive operations.</span></li></ul><div class="metric-chip-row"><span class="metric-chip">Django</span><span class="metric-chip">Real-Time Status</span><span class="metric-chip">Port Workflows</span></div></div>
+      <div class="case-study-card reveal" id="case-security"><h3>Network Security Monitoring Tool</h3><div class="case-study-sub">Monitoring · Detection · Cyber Resilience</div><ul class="case-study-list"><li><i class="fas fa-circle-check"></i><span><strong>Challenge:</strong> Operational networks need better visibility to detect anomalies before they turn into outages or security incidents.</span></li><li><i class="fas fa-circle-check"></i><span><strong>Approach:</strong> Built a security-oriented monitoring concept using packet analysis logic and alerting ideas for suspicious activity.</span></li><li><i class="fas fa-circle-check"></i><span><strong>Value:</strong> Strengthens awareness, troubleshooting speed, and cyber readiness for institutional and logistics environments.</span></li></ul><div class="metric-chip-row"><span class="metric-chip">Python</span><span class="metric-chip">Scapy</span><span class="metric-chip">Alerting Logic</span></div></div>
+      <div class="case-study-card reveal" id="case-ai"><h3>AI Logistics Optimizer</h3><div class="case-study-sub">Machine Learning · Routing · Smarter Planning</div><ul class="case-study-list"><li><i class="fas fa-circle-check"></i><span><strong>Challenge:</strong> Route planning and cargo movement decisions can create avoidable delays, costs, and inefficient resource use.</span></li><li><i class="fas fa-circle-check"></i><span><strong>Approach:</strong> Explored ML-assisted optimization ideas for route selection, timing, and supply-chain decision support.</span></li><li><i class="fas fa-circle-check"></i><span><strong>Value:</strong> Demonstrates how data science can improve logistics efficiency and support future port innovation.</span></li></ul><div class="metric-chip-row"><span class="metric-chip">TensorFlow</span><span class="metric-chip">Scikit-learn</span><span class="metric-chip">Optimization</span></div></div>
+    </div>
+
     <div class="section-header reveal" style="margin-bottom:1.5rem;"><p style="font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);">Additional Project Visuals</p></div>
     <div class="grid-4">
       <div class="gallery-img reveal"><img src="images/IMG_7117.jpeg" alt="Project visual 1"></div>
@@ -1298,31 +1394,63 @@ footer{background:var(--navy);color:rgba(255,255,255,.55);padding:3.5rem 1.5rem 
   </div>
 </section>
 
+
+<!-- ═══════ GITHUB FOCUS ═══════ -->
+<section id="github-focus" class="section">
+  <div class="container">
+    <div class="section-header reveal"><div class="section-eyebrow">Growth</div><h2>GitHub &amp; <em>Professional Focus</em></h2><p>Turning this portfolio into a stronger public record of work, research direction, and technical credibility</p></div>
+    <div class="focus-grid">
+      <div class="focus-panel reveal-l">
+        <h3>What this portfolio now highlights better</h3>
+        <ul class="focus-list">
+          <li><i class="fas fa-check-circle"></i><span>A clearer value proposition at the top of the page, so visitors immediately understand your unique combination of skills.</span></li>
+          <li><i class="fas fa-check-circle"></i><span>More proof-focused project storytelling through case studies instead of generic demo links.</span></li>
+          <li><i class="fas fa-check-circle"></i><span>Stronger conversion paths for collaboration, consulting, research, and PhD opportunities.</span></li>
+          <li><i class="fas fa-check-circle"></i><span>Direct links to the profiles that support your public credibility: GitHub, LinkedIn, and ORCID.</span></li>
+        </ul>
+        <div class="link-pills">
+          <a href="https://github.com/khadaraqli" target="_blank" rel="noopener" class="link-pill"><i class="fab fa-github"></i> GitHub Profile</a>
+          <a href="https://www.linkedin.com/in/eng-khadar-aqli-9bb42119a" target="_blank" rel="noopener" class="link-pill"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          <a href="https://orcid.org/0009-0001-9662-6467" target="_blank" rel="noopener" class="link-pill"><i class="fas fa-id-card"></i> ORCID</a>
+        </div>
+      </div>
+      <div class="focus-panel reveal">
+        <h3>Current priorities</h3>
+        <div class="now-building">
+          <div class="now-item"><strong>Build stronger public project documentation</strong><span>Turn project summaries into richer GitHub-ready case studies with screenshots, problem statements, and measurable outcomes.</span></div>
+          <div class="now-item"><strong>Expand research visibility</strong><span>Use ORCID, LinkedIn articles, and future publications to connect practical work with academic positioning.</span></div>
+          <div class="now-item"><strong>Increase collaboration readiness</strong><span>Make it easier for recruiters, supervisors, and collaborators to understand how you can contribute.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════ BLOG ═══════ -->
 <section id="blog" class="section">
   <div class="container">
     <div class="section-header reveal"><div class="section-eyebrow">Insights</div><h2>Blog &amp; <em>Publications</em></h2><p>Sharing knowledge on IT, maritime logistics, and cybersecurity</p></div>
     <div class="grid-2">
       <div class="blog-card reveal">
-        <div class="blog-tag">AI &amp; Logistics</div>
+        <div class="blog-status">Featured topic</div><div class="blog-tag">AI &amp; Logistics</div>
         <h3>AI in Supply Chain Optimization: Lessons from Port Operations</h3>
         <p>Exploring how machine learning algorithms can reduce bottlenecks in container handling, based on real-world implementations at Somaliland ports.</p>
         <a href="https://www.linkedin.com/in/eng-khadar-aqli-9bb42119a/recent-activity/articles/" target="_blank" rel="noopener" class="blog-link"><i class="fas fa-external-link-alt"></i> View Publication</a>
       </div>
       <div class="blog-card reveal">
-        <div class="blog-tag">Cybersecurity</div>
+        <div class="blog-status">Featured topic</div><div class="blog-tag">Cybersecurity</div>
         <h3>Cybersecurity Challenges in Maritime Networks</h3>
         <p>A deep dive into protecting ship-port communication systems from emerging threats, with case studies from Somaliland ports and the Gulf of Aden region.</p>
         <a href="https://www.linkedin.com/in/eng-khadar-aqli-9bb42119a/recent-activity/articles/" target="_blank" rel="noopener" class="blog-link"><i class="fas fa-external-link-alt"></i> View Publication</a>
       </div>
       <div class="blog-card reveal">
-        <div class="blog-tag">Networking</div>
+        <div class="blog-status">Featured topic</div><div class="blog-tag">Networking</div>
         <h3>The Role of Wireless Networking in Modern Logistics</h3>
         <p>Discussing advancements in wireless technology for real-time tracking and their measurable impact on global shipping efficiency and port throughput.</p>
         <a href="https://www.linkedin.com/in/eng-khadar-aqli-9bb42119a/recent-activity/articles/" target="_blank" rel="noopener" class="blog-link"><i class="fas fa-external-link-alt"></i> View Publication</a>
       </div>
       <div class="blog-card reveal">
-        <div class="blog-tag">E-Governance</div>
+        <div class="blog-status">Featured topic</div><div class="blog-tag">E-Governance</div>
         <h3>Future of E-Governance in Developing Regions</h3>
         <p>Insights exploring how digital governance architectures can improve public service delivery and institutional transparency in developing regions like Somaliland.</p>
         <a href="https://orcid.org/0009-0001-9662-6467" target="_blank" rel="noopener" class="blog-link"><i class="fas fa-external-link-alt"></i> View on ORCID</a>
@@ -1358,22 +1486,26 @@ footer{background:var(--navy);color:rgba(255,255,255,.55);padding:3.5rem 1.5rem 
           <h3>Get In Touch</h3>
           <div class="contact-info-item"><div class="contact-info-icon"><i class="fas fa-envelope"></i></div><div><label>Email</label><a href="mailto:khadaraqli@students.diu.ac">khadaraqli@students.diu.ac</a></div></div>
           <div class="contact-info-item"><div class="contact-info-icon"><i class="fas fa-phone"></i></div><div><label>Phone</label><span>+252 65 4242420 / +252 63 4067640</span></div></div>
+          <div class="contact-info-item"><div class="contact-info-icon"><i class="fab fa-whatsapp"></i></div><div><label>WhatsApp</label><a href="https://wa.me/252654242420" target="_blank" rel="noopener">Chat on WhatsApp</a></div></div>
           <div class="contact-info-item"><div class="contact-info-icon"><i class="fab fa-linkedin"></i></div><div><label>LinkedIn</label><a href="https://www.linkedin.com/in/eng-khadar-aqli-9bb42119a" target="_blank" rel="noopener">View Profile</a></div></div>
-          <div class="contact-info-item"><div class="contact-info-icon"><i class="fas fa-calendar-check"></i></div><div><label>Book a Meeting</label><a href="mailto:khadaraqli@students.diu.ac?subject=Schedule%20a%20Meeting&body=Please%20provide%20your%20available%20times." target="_blank">Schedule Time</a></div></div>
+          <div class="contact-info-item"><div class="contact-info-icon"><i class="fab fa-github"></i></div><div><label>GitHub</label><a href="https://github.com/khadaraqli" target="_blank" rel="noopener">Explore Projects</a></div></div>
+          <div class="contact-info-item"><div class="contact-info-icon"><i class="fas fa-calendar-check"></i></div><div><label>Schedule</label><a href="mailto:khadaraqli@students.diu.ac?subject=Schedule%20a%20Meeting&body=Hello%20Khadar,%0A%0AI%20would%20like%20to%20schedule%20a%20meeting.%20Please%20share%20your%20available%20times.%0A">Request a Meeting</a></div></div>
           <div class="contact-info-item" style="border-bottom:none;"><div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div><div><label>Location</label><span>Hargeisa, Somaliland</span></div></div>
+          <div class="contact-availability"><span>PhD</span><span>Consulting</span><span>Collaboration</span><span>Research</span></div>
+          <div class="contact-cta-row"><a href="mailto:khadaraqli@students.diu.ac?subject=PhD%20Opportunity"><i class="fas fa-user-graduate"></i> PhD Inquiry</a><a href="https://wa.me/252654242420" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Quick Chat</a></div>
         </div>
       </div>
       <div class="reveal">
         <div class="contact-box">
           <h3>Send a Message</h3>
           <div class="form-row">
-            <div class="form-group"><label>First Name</label><input type="text" placeholder="Your first name"></div>
-            <div class="form-group"><label>Last Name</label><input type="text" placeholder="Your last name"></div>
+            <div class="form-group"><label>First Name</label><input id="contact-first" type="text" placeholder="Your first name"></div>
+            <div class="form-group"><label>Last Name</label><input id="contact-last" type="text" placeholder="Your last name"></div>
           </div>
-          <div class="form-group"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
-          <div class="form-group"><label>Subject</label><input type="text" placeholder="How can I help you?"></div>
-          <div class="form-group"><label>Message</label><textarea placeholder="Tell me about your project or opportunity…"></textarea></div>
-          <button class="btn-submit" onclick="window.location.href='mailto:khadaraqli@students.diu.ac?subject=Message from Portfolio'"><i class="fas fa-paper-plane"></i> Send Message</button>
+          <div class="form-group"><label>Email Address</label><input id="contact-email" type="email" placeholder="your@email.com"></div>
+          <div class="form-group"><label>Subject</label><input id="contact-subject" type="text" placeholder="How can I help you?"></div>
+          <div class="form-group"><label>Message</label><textarea id="contact-message" placeholder="Tell me about your project, collaboration, or opportunity…"></textarea></div>
+          <button class="btn-submit" onclick="sendPortfolioMessage()"><i class="fas fa-paper-plane"></i> Send Message</button>
         </div>
       </div>
     </div>
@@ -1421,34 +1553,44 @@ footer{background:var(--navy);color:rgba(255,255,255,.55);padding:3.5rem 1.5rem 
 <button id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 
 <script>
-/* ── Stars canvas ── */
+/* ── Cinematic stars canvas ── */
 (function(){
   var c=document.getElementById('stars');
-  if(!c)return;
+  var hero=document.getElementById('hero');
+  if(!c||!hero)return;
   var ctx=c.getContext('2d');
-  var stars=[];
-  function resize(){c.width=c.offsetWidth;c.height=c.offsetHeight;}
+  var stars=[], shooting=[];
+  function resize(){c.width=hero.offsetWidth; c.height=hero.offsetHeight;}
   function init(){
     stars=[];
-    for(var i=0;i<280;i++){
-      stars.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.4+0.2,a:Math.random(),s:Math.random()*0.005+0.002});
+    var count=Math.max(180, Math.floor(c.width * c.height / 5200));
+    for(var i=0;i<count;i++){
+      stars.push({x:Math.random()*c.width,y:Math.random()*c.height*0.78,r:Math.random()*1.8+0.3,a:Math.random()*0.8+0.15,t:Math.random()*Math.PI*2,s:Math.random()*0.03+0.012,g:Math.random()*18+6});
     }
+  }
+  function spawnShooting(){
+    if(Math.random()<0.004){shooting.push({x:Math.random()*c.width*0.7+40,y:Math.random()*c.height*0.25,vx:-7-Math.random()*3,vy:3+Math.random()*2,a:1});}
   }
   function draw(){
     ctx.clearRect(0,0,c.width,c.height);
     for(var i=0;i<stars.length;i++){
-      var s=stars[i];
-      s.a+=s.s;
-      if(s.a>1||s.a<0)s.s*=-1;
-      ctx.beginPath();
-      ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
-      ctx.fillStyle='rgba(255,255,255,'+s.a+')';
-      ctx.fill();
+      var s=stars[i]; s.t+=s.s;
+      var tw=s.a + Math.sin(s.t)*0.18; var glow=s.g + Math.sin(s.t*1.4)*2;
+      ctx.beginPath(); ctx.fillStyle='rgba(255,255,255,'+(tw*0.32)+')'; ctx.arc(s.x,s.y,glow,0,Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.fillStyle='rgba(255,255,255,'+Math.max(0.12,tw)+')'; ctx.arc(s.x,s.y,s.r,0,Math.PI*2); ctx.fill();
+      if(s.r>1.25){ctx.strokeStyle='rgba(255,255,255,'+(tw*0.28)+')'; ctx.lineWidth=0.6; ctx.beginPath(); ctx.moveTo(s.x-s.g*0.5,s.y); ctx.lineTo(s.x+s.g*0.5,s.y); ctx.moveTo(s.x,s.y-s.g*0.5); ctx.lineTo(s.x,s.y+s.g*0.5); ctx.stroke();}
+    }
+    spawnShooting();
+    for(var j=shooting.length-1;j>=0;j--){
+      var m=shooting[j];
+      ctx.strokeStyle='rgba(255,255,255,'+m.a+')'; ctx.lineWidth=1.4; ctx.beginPath(); ctx.moveTo(m.x,m.y); ctx.lineTo(m.x-m.vx*6,m.y-m.vy*6); ctx.stroke();
+      m.x+=m.vx; m.y+=m.vy; m.a*=0.97;
+      if(m.a<0.05||m.x<-120||m.y>c.height+120)shooting.splice(j,1);
     }
     requestAnimationFrame(draw);
   }
-  resize();init();draw();
-  window.addEventListener('resize',function(){resize();init();});
+  resize(); init(); draw();
+  window.addEventListener('resize',function(){resize(); init();});
 })();
 
 /* ── Typing effect ── */
@@ -1567,7 +1709,7 @@ if('IntersectionObserver' in window){
           var iv=setInterval(function(){
             count+=step;
             if(count>=target){count=target;clearInterval(iv);}
-            el.textContent=count+'+';
+            var suffix = target===25 ? '%' : (target===3 ? '' : '+'); el.textContent=count + suffix;
           },28);
         });
         cntObs.unobserve(e.target);
@@ -1590,6 +1732,50 @@ if('IntersectionObserver' in window){
   document.querySelectorAll('.reveal,.reveal-l').forEach(function(el){el.classList.add('visible');});
   document.querySelectorAll('.skill-bar-fill').forEach(function(b){b.style.width=b.dataset.width+'%';});
 }
+
+
+/* ── Cinematic rain generator ── */
+(function(){
+  function buildRain(id,count,minH,maxH,minDur,maxDur,minOp,maxOp){
+    var wrap=document.getElementById(id); if(!wrap)return; wrap.innerHTML='';
+    for(var i=0;i<count;i++){
+      var d=document.createElement('span'); d.className='rain-drop';
+      var left=Math.random()*100;
+      var h=minH + Math.random()*(maxH-minH);
+      var dur=minDur + Math.random()*(maxDur-minDur);
+      var delay=Math.random()*-dur;
+      var op=minOp + Math.random()*(maxOp-minOp);
+      d.style.left=left+'%'; d.style.height=h+'px'; d.style.opacity=op.toFixed(2);
+      d.style.animationDuration=dur.toFixed(2)+'s'; d.style.animationDelay=delay.toFixed(2)+'s';
+      wrap.appendChild(d);
+    }
+  }
+  function render(){
+    var mobile=window.innerWidth<768;
+    buildRain('rain-back', mobile?70:110, 50, 95, 1.1, 1.8, .18, .45);
+    buildRain('rain-front', mobile?90:150, 70, 125, .8, 1.35, .28, .72);
+  }
+  render();
+  var timer;
+  window.addEventListener('resize', function(){clearTimeout(timer);timer=setTimeout(render,120);});
+})();
+
+/* ── Portfolio contact form helper ── */
+function sendPortfolioMessage(){
+  var first=(document.getElementById('contact-first')||{}).value||'';
+  var last=(document.getElementById('contact-last')||{}).value||'';
+  var email=(document.getElementById('contact-email')||{}).value||'';
+  var subject=(document.getElementById('contact-subject')||{}).value||'Message from Portfolio';
+  var message=(document.getElementById('contact-message')||{}).value||'';
+  var name=(first + ' ' + last).trim();
+  var body='Hello Khadar,%0A%0A' +
+    (message ? encodeURIComponent(message) : 'I would like to connect with you regarding your portfolio.') +
+    '%0A%0A' +
+    (name ? 'Name: ' + encodeURIComponent(name) + '%0A' : '') +
+    (email ? 'Email: ' + encodeURIComponent(email) + '%0A' : '');
+  window.location.href='mailto:khadaraqli@students.diu.ac?subject=' + encodeURIComponent(subject) + '&body=' + body;
+}
+
 </script>
 </body>
 </html>
