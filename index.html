@@ -194,6 +194,10 @@ img{max-width:100%;display:block;}
 ::-webkit-scrollbar{width:5px;}
 ::-webkit-scrollbar-track{background:var(--bg);}
 ::-webkit-scrollbar-thumb{background:var(--teal);border-radius:3px;}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;}
+  html{scroll-behavior:auto;}
+}
 
 /* ═══════════════════════════════════════════
    SCROLL PROGRESS
@@ -230,7 +234,7 @@ img{max-width:100%;display:block;}
 .mob-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
 .mob-toggle span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s;}
 /* Mobile nav */
-#mob-menu{display:none;background:rgba(2,27,58,.98);border-top:1px solid rgba(0,200,212,.12);padding:1rem 1.5rem 1.5rem;flex-direction:column;gap:.25rem;}
+#mob-menu{display:none;background:rgba(2,27,58,.98);border-top:1px solid rgba(0,200,212,.12);padding:1rem 1.5rem 1.5rem;flex-direction:column;gap:.25rem;max-height:calc(100vh - 70px);overflow-y:auto;}
 #mob-menu a{color:rgba(255,255,255,.78);font-size:.87rem;padding:.55rem .8rem;border-radius:6px;display:block;transition:all .2s;}
 #mob-menu a:hover{color:var(--teal);background:rgba(0,200,212,.08);}
 #mob-menu .mob-sep{height:1px;background:rgba(255,255,255,.07);margin:.5rem 0;}
@@ -265,89 +269,178 @@ img{max-width:100%;display:block;}
 .reveal-l.visible{opacity:1;transform:none;}
 
 /* ═══════════════════════════════════════════
-   HERO
+   HERO — calm cinematic night sky (rain removed)
 ═══════════════════════════════════════════ */
 #hero{
-  position:relative;min-height:100vh;
-  display:flex;align-items:center;
-  background:#021B3A;
-  overflow:hidden;padding:120px clamp(1.2rem,5vw,3rem) 80px;
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  background:
+    radial-gradient(circle at 50% 32%, rgba(214,226,255,.14) 0%, rgba(214,226,255,.06) 12%, transparent 30%),
+    radial-gradient(circle at 50% 58%, rgba(126,149,189,.12) 0%, transparent 35%),
+    linear-gradient(180deg, #02040a 0%, #060b16 28%, #0a1220 58%, #101926 100%);
+  overflow:hidden;padding:120px clamp(1.2rem,5vw,3rem) 80px;isolation:isolate;
 }
-/* Sa'adadiin Island — full hero background SVG */
-#hero-island-bg{
-  position:absolute;inset:0;width:100%;height:100%;
-  z-index:0;pointer-events:none;
-  preserveAspectRatio:xMidYMid slice;
+.cinematic-sky,.hero-vignette,.moon-orbit,.cloud-layer{position:absolute;inset:0;pointer-events:none;}
+.cinematic-sky{
+  z-index:0;
+  background:
+    radial-gradient(circle at 50% 28%, rgba(215,225,255,.08) 0%, rgba(215,225,255,.03) 15%, transparent 36%),
+    radial-gradient(circle at 50% 80%, rgba(185,206,255,.06) 0%, transparent 35%);
 }
-/* Dark overlay so text and photo stay crisp over the island scene */
-#hero-island-overlay{
-  position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(
-    135deg,
-    rgba(2,27,58,.82) 0%,
-    rgba(2,27,58,.65) 40%,
-    rgba(2,27,58,.50) 70%,
-    rgba(2,27,58,.72) 100%
-  );
+.hero-vignette{
+  z-index:4;
+  background:
+    radial-gradient(circle at center, transparent 35%, rgba(3,6,12,.18) 62%, rgba(1,3,8,.62) 100%),
+    linear-gradient(180deg, rgba(0,0,0,.16) 0%, rgba(0,0,0,.08) 30%, rgba(0,0,0,.3) 100%);
 }
-.hero-grid{background-image:linear-gradient(rgba(0,200,212,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,200,212,.03) 1px,transparent 1px);background-size:50px 50px;position:absolute;inset:0;z-index:2;}
-.hero-glow{position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(0,200,212,.08) 0%,transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:2;}
-canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:2;}
-.hero-inner{position:relative;z-index:3;max-width:1100px;margin:0 auto;width:100%;display:flex;align-items:center;gap:4rem;}
+.moon-orbit{
+  z-index:1;
+  inset:auto auto auto 0;
+  top:11%;left:10%;width:230px;height:230px;
+  animation: moonTravel 22s ease-in-out infinite;
+  filter: drop-shadow(0 0 24px rgba(237,241,255,.35)) drop-shadow(0 0 60px rgba(200,215,255,.18));
+}
+.moon-glow,.moon{position:absolute;border-radius:50%;}
+.moon-glow{inset:-30%;background:radial-gradient(circle, rgba(222,230,255,.18) 0%, rgba(222,230,255,.08) 32%, transparent 70%);}
+.moon{
+  inset:18%;
+  background:
+    radial-gradient(circle at 35% 35%, rgba(255,255,255,.98) 0%, rgba(237,241,250,.98) 28%, rgba(203,211,226,.96) 58%, rgba(161,170,188,.92) 100%);
+  box-shadow: inset -26px -18px 35px rgba(115,125,145,.35), inset 12px 12px 20px rgba(255,255,255,.32);
+}
+.moon::before,.moon::after{content:'';position:absolute;border-radius:50%;background:rgba(120,128,145,.16);filter:blur(.5px);}
+.moon::before{width:24px;height:24px;top:28%;left:26%;box-shadow:52px 14px 0 4px rgba(120,128,145,.12), 72px 68px 0 -4px rgba(120,128,145,.14), 22px 82px 0 1px rgba(120,128,145,.11), 88px 38px 0 -6px rgba(120,128,145,.18);}
+.moon::after{
+  inset:-1px;
+  background:linear-gradient(90deg, rgba(0,0,0,.0) 32%, rgba(0,0,0,.54) 72%, rgba(0,0,0,.82) 100%);
+  mix-blend-mode:multiply;
+  transform-origin:left center;
+  animation: moonPhase 22s ease-in-out infinite;
+}
+@keyframes moonTravel{
+  0%{transform:translateX(0) translateY(10px) scale(.78);}
+  25%{transform:translateX(22vw) translateY(-12px) scale(1.02);}
+  50%{transform:translateX(39vw) translateY(0) scale(1.18);}
+  75%{transform:translateX(58vw) translateY(10px) scale(1.02);}
+  100%{transform:translateX(78vw) translateY(-4px) scale(.78);}
+}
+@keyframes moonPhase{
+  0%{transform:scaleX(.88) translateX(58%);opacity:.95;}
+  25%{transform:scaleX(.46) translateX(24%);opacity:.76;}
+  50%{transform:scaleX(.02) translateX(0%);opacity:0;}
+  75%{transform:scaleX(.46) translateX(-24%);opacity:.76;}
+  100%{transform:scaleX(.88) translateX(-58%);opacity:.95;}
+}
+.cloud-layer{
+  z-index:2;opacity:.9;mix-blend-mode:screen;filter:blur(10px);
+  background-repeat:repeat-x;background-size:1400px 100%;
+}
+.cloud-back{
+  opacity:.42;filter:blur(18px);
+  background-image:
+    radial-gradient(ellipse at 10% 26%, rgba(255,255,255,.20) 0 6%, transparent 12%),
+    radial-gradient(ellipse at 22% 30%, rgba(255,255,255,.18) 0 8%, transparent 15%),
+    radial-gradient(ellipse at 38% 22%, rgba(255,255,255,.20) 0 7%, transparent 14%),
+    radial-gradient(ellipse at 58% 28%, rgba(255,255,255,.16) 0 9%, transparent 16%),
+    radial-gradient(ellipse at 74% 24%, rgba(255,255,255,.18) 0 8%, transparent 15%),
+    radial-gradient(ellipse at 92% 30%, rgba(255,255,255,.16) 0 7%, transparent 15%);
+  animation: cloudDriftBack 90s linear infinite;
+}
+.cloud-mid{
+  opacity:.40;filter:blur(20px);
+  background-image:
+    radial-gradient(ellipse at 8% 44%, rgba(219,226,239,.24) 0 8%, transparent 16%),
+    radial-gradient(ellipse at 28% 48%, rgba(236,241,248,.22) 0 10%, transparent 18%),
+    radial-gradient(ellipse at 48% 42%, rgba(215,223,238,.24) 0 8%, transparent 16%),
+    radial-gradient(ellipse at 67% 52%, rgba(231,237,246,.22) 0 11%, transparent 19%),
+    radial-gradient(ellipse at 88% 45%, rgba(216,224,237,.24) 0 9%, transparent 17%),
+    linear-gradient(180deg, transparent 0 28%, rgba(125,136,156,.06) 44%, transparent 70%);
+  animation: cloudDriftMid 68s linear infinite;
+}
+.cloud-front{
+  opacity:.50;filter:blur(16px);
+  background-image:
+    radial-gradient(ellipse at 12% 72%, rgba(208,214,225,.33) 0 11%, transparent 20%),
+    radial-gradient(ellipse at 26% 70%, rgba(252,253,255,.28) 0 12%, transparent 22%),
+    radial-gradient(ellipse at 42% 76%, rgba(208,214,225,.34) 0 13%, transparent 23%),
+    radial-gradient(ellipse at 58% 71%, rgba(252,253,255,.28) 0 12%, transparent 22%),
+    radial-gradient(ellipse at 74% 75%, rgba(208,214,225,.34) 0 13%, transparent 23%),
+    radial-gradient(ellipse at 90% 70%, rgba(252,253,255,.26) 0 11%, transparent 20%),
+    linear-gradient(180deg, transparent 0 52%, rgba(190,198,215,.10) 66%, rgba(78,87,107,.20) 100%);
+  animation: cloudDriftFront 48s linear infinite;
+}
+@keyframes cloudDriftBack{from{transform:translateX(0);}to{transform:translateX(-220px);}}
+@keyframes cloudDriftMid{from{transform:translateX(-80px);}to{transform:translateX(160px);}}
+@keyframes cloudDriftFront{from{transform:translateX(0);}to{transform:translateX(-140px);}}
+canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:3;opacity:.98;}
+.hero-grid{background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:72px 72px;position:absolute;inset:0;z-index:1;opacity:.28;}
+.hero-glow{position:absolute;width:900px;height:900px;background:radial-gradient(circle,rgba(210,220,255,.07) 0%,rgba(0,0,0,0) 62%);top:42%;left:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:1;}
+.hero-inner{position:relative;z-index:5;max-width:1100px;margin:0 auto;width:100%;display:flex;align-items:center;gap:4rem;}
 
-/* Photo */
+/* ── Profile photo — clean, perfectly centred circle ── */
 .hero-photo-wrap{flex-shrink:0;position:relative;}
 .photo-frame{
-  width:clamp(220px,25vw,280px);
-  aspect-ratio:1;
+  width:clamp(240px,26vw,300px);
+  aspect-ratio:1/1;
   border-radius:50%;
   position:relative;
+  display:flex;align-items:center;justify-content:center;
 }
-/* Static elegant circular frame — NO rotation */
 .photo-ring{
   width:100%;height:100%;border-radius:50%;
-  background:conic-gradient(var(--teal) 0deg,var(--gold) 120deg,var(--teal) 240deg,var(--teal-d) 360deg);
-  padding:4px;
-  box-shadow:0 0 0 2px rgba(0,200,212,.2), 0 0 0 8px rgba(0,180,200,.08), 0 10px 48px rgba(0,140,180,.4), 0 0 60px rgba(0,200,212,.15);
+  background:conic-gradient(from 210deg,var(--teal) 0deg,var(--gold) 130deg,var(--teal-d) 250deg,var(--teal) 360deg);
+  padding:5px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:
+    0 0 0 10px rgba(0,200,212,.06),
+    0 0 0 22px rgba(0,200,212,.025),
+    0 18px 60px rgba(0,0,0,.55),
+    0 0 90px rgba(0,200,212,.16);
 }
-/* Photo inner — clean circle, photo fully visible */
 .photo-inner{
   width:100%;height:100%;border-radius:50%;overflow:hidden;
-  border:4px solid rgba(255,255,255,.18);
-  position:relative;background:#0c6e8a;
+  border:6px solid #04101f;
+  position:relative;background:#0a1a30;
 }
-.island-bg{position:absolute;inset:0;width:100%;height:100%;z-index:0;}
 .photo-inner img{
-  width:100%;height:100%;object-fit:cover;object-position:center 15%;
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:50% 18%;
+  transform:scale(1.04);
   position:relative;z-index:1;
 }
 .hero-badge{
-  position:absolute;bottom:8px;right:-8px;
-  background:var(--teal);color:var(--navy);
+  position:absolute;bottom:12px;right:-4px;
+  background:linear-gradient(135deg,var(--teal),var(--teal-d));color:var(--navy);
   font-size:.72rem;font-weight:700;
-  padding:.32rem .85rem;border-radius:20px;
-  white-space:nowrap;box-shadow:0 4px 14px rgba(0,200,212,.4);
+  padding:.36rem .95rem;border-radius:20px;
+  white-space:nowrap;box-shadow:0 6px 18px rgba(0,200,212,.45);
+  border:1px solid rgba(255,255,255,.25);
 }
 /* Text */
 .hero-text{flex:1;}
-.hero-tag{display:inline-block;background:rgba(0,200,212,.12);border:1px solid rgba(0,200,212,.35);color:var(--teal);font-size:.75rem;font-weight:600;padding:.28rem .9rem;border-radius:20px;letter-spacing:.07em;text-transform:uppercase;margin-bottom:1.1rem;}
-.hero-name{font-size:clamp(2.4rem,5.5vw,4rem);color:#fff;line-height:1.08;margin-bottom:.6rem;font-weight:300;}
+.hero-tag{display:inline-block;background:rgba(225,232,255,.08);border:1px solid rgba(225,232,255,.18);color:#d7e4ff;font-size:.75rem;font-weight:600;padding:.28rem .9rem;border-radius:20px;letter-spacing:.07em;text-transform:uppercase;margin-bottom:1.1rem;backdrop-filter:blur(8px);}
+.hero-name{font-size:clamp(2.4rem,5.5vw,4rem);color:#fff;line-height:1.08;margin-bottom:.6rem;font-weight:300;text-shadow:0 10px 38px rgba(0,0,0,.36);}
 .hero-name strong{font-weight:600;color:var(--teal);}
 .hero-typed{font-size:1.05rem;color:rgba(255,255,255,.65);min-height:1.7rem;margin-bottom:1.1rem;}
 #typed-text{color:var(--gold);}
-.hero-desc{color:rgba(255,255,255,.58);font-size:.93rem;line-height:1.78;max-width:500px;margin-bottom:1.8rem;}
+.hero-desc{color:rgba(255,255,255,.72);font-size:.93rem;line-height:1.78;max-width:500px;margin-bottom:1.8rem;text-shadow:0 1px 10px rgba(0,0,0,.28);}
 .hero-btns{display:flex;gap:.85rem;flex-wrap:wrap;margin-bottom:1.8rem;}
 .btn-primary-hero{background:linear-gradient(135deg,var(--teal),var(--teal-d));color:var(--navy);font-weight:700;border:none;padding:.7rem 1.8rem;border-radius:9px;font-size:.9rem;transition:all .25s var(--ease);box-shadow:0 6px 20px rgba(0,200,212,.3);cursor:pointer;display:inline-flex;align-items:center;gap:.5rem;}
 .btn-primary-hero:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,200,212,.45);}
-.btn-outline-hero{background:transparent;border:1.5px solid rgba(255,255,255,.3);color:#fff;padding:.7rem 1.8rem;border-radius:9px;font-size:.9rem;font-weight:600;transition:all .25s var(--ease);display:inline-flex;align-items:center;gap:.5rem;}
+.btn-outline-hero{background:transparent;border:1.5px solid rgba(255,255,255,.3);color:#fff;padding:.7rem 1.8rem;border-radius:9px;font-size:.9rem;font-weight:600;transition:all .25s var(--ease);display:inline-flex;align-items:center;gap:.5rem;backdrop-filter:blur(8px);}
 .btn-outline-hero:hover{border-color:var(--teal);color:var(--teal);}
 .hero-social{display:flex;gap:.75rem;}
-.hero-social a{width:40px;height:40px;border-radius:9px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);color:rgba(255,255,255,.68);display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all .25s var(--ease);}
+.hero-social a{width:40px;height:40px;border-radius:9px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);color:rgba(255,255,255,.68);display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all .25s var(--ease);backdrop-filter:blur(8px);}
 .hero-social a:hover{background:var(--teal);border-color:var(--teal);color:var(--navy);transform:translateY(-3px);}
+@media(max-width:900px){
+  .moon-orbit{top:8%;left:4%;width:170px;height:170px;}
+  .cloud-front{opacity:.44;}
+}
 @media(max-width:800px){
   .hero-inner{flex-direction:column;text-align:center;gap:2.5rem;}
   .hero-btns,.hero-social{justify-content:center;}
   .hero-desc{margin-left:auto;margin-right:auto;}
+  .hero-badge{right:50%;transform:translateX(50%);bottom:-14px;}
 }
 
 /* ═══════════════════════════════════════════
@@ -601,148 +694,17 @@ footer{background:var(--navy);color:rgba(255,255,255,.55);padding:3.5rem 1.5rem 
 .footer-bottom{text-align:center;padding:1.2rem 0;font-size:.77rem;color:rgba(255,255,255,.28);}
 
 /* ═══════════════════════════════════════════
-   BACK TO TOP + LANG SELECTOR
+   BACK TO TOP
 ═══════════════════════════════════════════ */
 #back-to-top{position:fixed;bottom:1.8rem;right:1.8rem;z-index:800;width:42px;height:42px;border-radius:50%;background:var(--teal);color:var(--navy);border:none;cursor:pointer;font-size:1rem;box-shadow:0 4px 16px rgba(0,200,212,.4);opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;display:flex;align-items:center;justify-content:center;}
 #back-to-top.visible{opacity:1;pointer-events:all;}
 #back-to-top:hover{transform:translateY(-3px);}
-
 
 /* ═══════════════════════════════════════════
    SECTION ALT BACKGROUNDS
 ═══════════════════════════════════════════ */
 #applied-research{background:var(--bg);}
 #future-vision{background:var(--bg-2);}
-
-
-/* ═════════ CINEMATIC HERO BACKGROUND OVERRIDE ═════════ */
-#hero{
-  position:relative;min-height:100vh;display:flex;align-items:center;
-  background:
-    radial-gradient(circle at 50% 32%, rgba(214,226,255,.14) 0%, rgba(214,226,255,.06) 12%, transparent 30%),
-    radial-gradient(circle at 50% 58%, rgba(126,149,189,.12) 0%, transparent 35%),
-    linear-gradient(180deg, #02040a 0%, #060b16 28%, #0a1220 58%, #101926 100%);
-  overflow:hidden;padding:120px clamp(1.2rem,5vw,3rem) 80px;isolation:isolate;
-}
-#hero-island-bg,#hero-island-overlay{display:none !important;}
-.cinematic-sky,.hero-vignette,.moon-orbit,.cloud-layer,.rain{position:absolute;inset:0;pointer-events:none;}
-.cinematic-sky{
-  z-index:0;
-  background:
-    radial-gradient(circle at 50% 28%, rgba(215,225,255,.08) 0%, rgba(215,225,255,.03) 15%, transparent 36%),
-    radial-gradient(circle at 50% 80%, rgba(185,206,255,.06) 0%, transparent 35%);
-}
-.hero-vignette{
-  z-index:4;
-  background:
-    radial-gradient(circle at center, transparent 35%, rgba(3,6,12,.18) 62%, rgba(1,3,8,.62) 100%),
-    linear-gradient(180deg, rgba(0,0,0,.16) 0%, rgba(0,0,0,.08) 30%, rgba(0,0,0,.3) 100%);
-}
-.moon-orbit{
-  z-index:1;
-  inset:auto auto auto 0;
-  top:11%;left:10%;width:230px;height:230px;
-  animation: moonTravel 22s ease-in-out infinite;
-  filter: drop-shadow(0 0 24px rgba(237,241,255,.35)) drop-shadow(0 0 60px rgba(200,215,255,.18));
-}
-.moon-glow,.moon{position:absolute;border-radius:50%;}
-.moon-glow{inset:-30%;background:radial-gradient(circle, rgba(222,230,255,.18) 0%, rgba(222,230,255,.08) 32%, transparent 70%);}
-.moon{
-  inset:18%;
-  background:
-    radial-gradient(circle at 35% 35%, rgba(255,255,255,.98) 0%, rgba(237,241,250,.98) 28%, rgba(203,211,226,.96) 58%, rgba(161,170,188,.92) 100%);
-  box-shadow: inset -26px -18px 35px rgba(115,125,145,.35), inset 12px 12px 20px rgba(255,255,255,.32);
-}
-.moon::before,.moon::after{content:'';position:absolute;border-radius:50%;background:rgba(120,128,145,.16);filter:blur(.5px);}
-.moon::before{width:24px;height:24px;top:28%;left:26%;box-shadow:52px 14px 0 4px rgba(120,128,145,.12), 72px 68px 0 -4px rgba(120,128,145,.14), 22px 82px 0 1px rgba(120,128,145,.11), 88px 38px 0 -6px rgba(120,128,145,.18);}
-.moon::after{
-  inset:-1px;
-  background:linear-gradient(90deg, rgba(0,0,0,.0) 32%, rgba(0,0,0,.54) 72%, rgba(0,0,0,.82) 100%);
-  mix-blend-mode:multiply;
-  transform-origin:left center;
-  animation: moonPhase 22s ease-in-out infinite;
-}
-@keyframes moonTravel{
-  0%{transform:translateX(0) translateY(10px) scale(.78);} 
-  25%{transform:translateX(22vw) translateY(-12px) scale(1.02);} 
-  50%{transform:translateX(39vw) translateY(0) scale(1.18);} 
-  75%{transform:translateX(58vw) translateY(10px) scale(1.02);} 
-  100%{transform:translateX(78vw) translateY(-4px) scale(.78);} 
-}
-@keyframes moonPhase{
-  0%{transform:scaleX(.88) translateX(58%);opacity:.95;}
-  25%{transform:scaleX(.46) translateX(24%);opacity:.76;}
-  50%{transform:scaleX(.02) translateX(0%);opacity:0;}
-  75%{transform:scaleX(.46) translateX(-24%);opacity:.76;}
-  100%{transform:scaleX(.88) translateX(-58%);opacity:.95;}
-}
-.cloud-layer{
-  z-index:2;opacity:.9;mix-blend-mode:screen;filter:blur(10px);
-  background-repeat:repeat-x;background-size:1400px 100%;
-}
-.cloud-back{
-  opacity:.42;filter:blur(18px);
-  background-image:
-    radial-gradient(ellipse at 10% 26%, rgba(255,255,255,.20) 0 6%, transparent 12%),
-    radial-gradient(ellipse at 22% 30%, rgba(255,255,255,.18) 0 8%, transparent 15%),
-    radial-gradient(ellipse at 38% 22%, rgba(255,255,255,.20) 0 7%, transparent 14%),
-    radial-gradient(ellipse at 58% 28%, rgba(255,255,255,.16) 0 9%, transparent 16%),
-    radial-gradient(ellipse at 74% 24%, rgba(255,255,255,.18) 0 8%, transparent 15%),
-    radial-gradient(ellipse at 92% 30%, rgba(255,255,255,.16) 0 7%, transparent 15%);
-  animation: cloudDriftBack 90s linear infinite;
-}
-.cloud-mid{
-  opacity:.40;filter:blur(20px);
-  background-image:
-    radial-gradient(ellipse at 8% 44%, rgba(219,226,239,.24) 0 8%, transparent 16%),
-    radial-gradient(ellipse at 28% 48%, rgba(236,241,248,.22) 0 10%, transparent 18%),
-    radial-gradient(ellipse at 48% 42%, rgba(215,223,238,.24) 0 8%, transparent 16%),
-    radial-gradient(ellipse at 67% 52%, rgba(231,237,246,.22) 0 11%, transparent 19%),
-    radial-gradient(ellipse at 88% 45%, rgba(216,224,237,.24) 0 9%, transparent 17%),
-    linear-gradient(180deg, transparent 0 28%, rgba(125,136,156,.06) 44%, transparent 70%);
-  animation: cloudDriftMid 68s linear infinite;
-}
-.cloud-front{
-  opacity:.50;filter:blur(16px);
-  background-image:
-    radial-gradient(ellipse at 12% 72%, rgba(208,214,225,.33) 0 11%, transparent 20%),
-    radial-gradient(ellipse at 26% 70%, rgba(252,253,255,.28) 0 12%, transparent 22%),
-    radial-gradient(ellipse at 42% 76%, rgba(208,214,225,.34) 0 13%, transparent 23%),
-    radial-gradient(ellipse at 58% 71%, rgba(252,253,255,.28) 0 12%, transparent 22%),
-    radial-gradient(ellipse at 74% 75%, rgba(208,214,225,.34) 0 13%, transparent 23%),
-    radial-gradient(ellipse at 90% 70%, rgba(252,253,255,.26) 0 11%, transparent 20%),
-    linear-gradient(180deg, transparent 0 52%, rgba(190,198,215,.10) 66%, rgba(78,87,107,.20) 100%);
-  animation: cloudDriftFront 48s linear infinite;
-}
-@keyframes cloudDriftBack{from{transform:translateX(0);}to{transform:translateX(-220px);}}
-@keyframes cloudDriftMid{from{transform:translateX(-80px);}to{transform:translateX(160px);}}
-@keyframes cloudDriftFront{from{transform:translateX(0);}to{transform:translateX(-140px);}}
-.rain{z-index:3;overflow:hidden;opacity:.95;}
-.rain-drop{position:absolute;top:-18%;width:2px;border-radius:999px;transform:rotate(10deg);animation-name: rainFall;animation-timing-function: linear;animation-iteration-count: infinite;}
-.rain-back .rain-drop{background:linear-gradient(to bottom, rgba(255,255,255,0), rgba(214,228,255,.42));box-shadow:0 0 4px rgba(214,228,255,.12);}
-.rain-front .rain-drop{background:linear-gradient(to bottom, rgba(255,255,255,0), rgba(240,246,255,.72));box-shadow:0 0 6px rgba(220,232,255,.22);}
-@keyframes rainFall{from{transform:translate3d(0,-12vh,0) rotate(10deg);}to{transform:translate3d(-8vw,112vh,0) rotate(10deg);}}
-canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:3;opacity:.98;}
-.hero-grid{background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:72px 72px;position:absolute;inset:0;z-index:1;opacity:.28;}
-.hero-glow{position:absolute;width:900px;height:900px;background:radial-gradient(circle,rgba(210,220,255,.07) 0%,rgba(0,0,0,0) 62%);top:42%;left:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:1;}
-.hero-inner{position:relative;z-index:5;}
-.hero-desc{color:rgba(255,255,255,.72);text-shadow:0 1px 10px rgba(0,0,0,.28);}
-.hero-tag{background:rgba(225,232,255,.08);border-color:rgba(225,232,255,.18);color:#d7e4ff;backdrop-filter:blur(8px);}
-.hero-name{text-shadow:0 10px 38px rgba(0,0,0,.36);}
-.hero-social a,.btn-outline-hero{backdrop-filter:blur(8px);} 
-@media(max-width:900px){
-  .moon-orbit{top:8%;left:4%;width:170px;height:170px;}
-  @keyframes moonTravel{
-    0%{transform:translateX(0) translateY(12px) scale(.8);} 
-    25%{transform:translateX(20vw) translateY(-4px) scale(.96);} 
-    50%{transform:translateX(34vw) translateY(0) scale(1.06);} 
-    75%{transform:translateX(48vw) translateY(8px) scale(.96);} 
-    100%{transform:translateX(58vw) translateY(-2px) scale(.8);} 
-  }
-  .cloud-front{opacity:.44;}
-}
-
-
 
 /* ═══════════════════════════════════════════
    PORTFOLIO ENHANCEMENTS
@@ -903,7 +865,7 @@ canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:3;opacity:.98
   </div>
 </nav>
 
-<!-- ═══════ HERO ═══════ -->
+<!-- ═══════ HERO (rain removed — calm night sky with moon, clouds & stars) ═══════ -->
 <section id="hero">
   <div class="cinematic-sky"></div>
   <div class="moon-orbit" aria-hidden="true">
@@ -913,8 +875,6 @@ canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:3;opacity:.98
   <div class="cloud-layer cloud-back"></div>
   <div class="cloud-layer cloud-mid"></div>
   <div class="cloud-layer cloud-front"></div>
-  <div class="rain rain-back" id="rain-back"></div>
-  <div class="rain rain-front" id="rain-front"></div>
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
   <canvas id="stars"></canvas>
@@ -1175,7 +1135,6 @@ canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:3;opacity:.98
       </div>
 
     </div>
-    <p class="reveal" style="text-align:center;font-size:.78rem;color:var(--muted);margin-top:1.5rem;"><i class="fas fa-info-circle" style="margin-right:.4rem;color:var(--teal);"></i>PDF files are stored in the <code style="background:var(--bg-2);padding:.1rem .4rem;border-radius:4px;font-size:.75rem;">working-papers/</code> folder of this repository. Ensure files are uploaded to that path on GitHub.</p>
   </div>
 </section>
 
@@ -1331,7 +1290,6 @@ canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:3;opacity:.98
   </div>
 </section>
 
-
 <!-- ═══════ IMPACT STRIP ═══════ -->
 <section id="impact-strip">
   <div class="impact-grid">
@@ -1394,19 +1352,18 @@ canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:3;opacity:.98
   </div>
 </section>
 
-
 <!-- ═══════ GITHUB FOCUS ═══════ -->
 <section id="github-focus" class="section">
   <div class="container">
-    <div class="section-header reveal"><div class="section-eyebrow">Growth</div><h2>GitHub &amp; <em>Professional Focus</em></h2><p>Turning this portfolio into a stronger public record of work, research direction, and technical credibility</p></div>
+    <div class="section-header reveal"><div class="section-eyebrow">Growth</div><h2>GitHub &amp; <em>Professional Focus</em></h2><p>A public record of my work, research direction, and technical credibility</p></div>
     <div class="focus-grid">
       <div class="focus-panel reveal-l">
-        <h3>What this portfolio now highlights better</h3>
+        <h3>What this portfolio highlights</h3>
         <ul class="focus-list">
-          <li><i class="fas fa-check-circle"></i><span>A clearer value proposition at the top of the page, so visitors immediately understand your unique combination of skills.</span></li>
-          <li><i class="fas fa-check-circle"></i><span>More proof-focused project storytelling through case studies instead of generic demo links.</span></li>
-          <li><i class="fas fa-check-circle"></i><span>Stronger conversion paths for collaboration, consulting, research, and PhD opportunities.</span></li>
-          <li><i class="fas fa-check-circle"></i><span>Direct links to the profiles that support your public credibility: GitHub, LinkedIn, and ORCID.</span></li>
+          <li><i class="fas fa-check-circle"></i><span>A clear value proposition, so visitors immediately understand my combination of maritime, IT, and governance skills.</span></li>
+          <li><i class="fas fa-check-circle"></i><span>Proof-focused project storytelling through case studies with problem statements and outcomes.</span></li>
+          <li><i class="fas fa-check-circle"></i><span>Clear paths for collaboration, consulting, research, and PhD opportunities.</span></li>
+          <li><i class="fas fa-check-circle"></i><span>Direct links to the profiles that support my public credibility: GitHub, LinkedIn, and ORCID.</span></li>
         </ul>
         <div class="link-pills">
           <a href="https://github.com/khadaraqli" target="_blank" rel="noopener" class="link-pill"><i class="fab fa-github"></i> GitHub Profile</a>
@@ -1417,9 +1374,9 @@ canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:3;opacity:.98
       <div class="focus-panel reveal">
         <h3>Current priorities</h3>
         <div class="now-building">
-          <div class="now-item"><strong>Build stronger public project documentation</strong><span>Turn project summaries into richer GitHub-ready case studies with screenshots, problem statements, and measurable outcomes.</span></div>
-          <div class="now-item"><strong>Expand research visibility</strong><span>Use ORCID, LinkedIn articles, and future publications to connect practical work with academic positioning.</span></div>
-          <div class="now-item"><strong>Increase collaboration readiness</strong><span>Make it easier for recruiters, supervisors, and collaborators to understand how you can contribute.</span></div>
+          <div class="now-item"><strong>Public project documentation</strong><span>Publishing GitHub repositories with screenshots, problem statements, and measurable outcomes for each featured project.</span></div>
+          <div class="now-item"><strong>Research visibility</strong><span>Connecting practical work with academic positioning through ORCID, LinkedIn articles, and future publications.</span></div>
+          <div class="now-item"><strong>Collaboration readiness</strong><span>Making it easy for recruiters, supervisors, and collaborators to see where I can contribute.</span></div>
         </div>
       </div>
     </div>
@@ -1457,9 +1414,9 @@ canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:3;opacity:.98
       </div>
     </div>
     <div style="text-align:center;margin-top:2rem;display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;" class="reveal">
-      <a href="https://www.linkedin.com/in/eng-khadar-aqli-9bb42119a/" target="_blank" rel="noopener" class="btn-outline-hero" style="display:inline-flex;font-size:.85rem;"><i class="fab fa-linkedin"></i>&nbsp; Articles on LinkedIn</a>
-      <a href="https://orcid.org/0009-0001-9662-6467" target="_blank" rel="noopener" class="btn-outline-hero" style="display:inline-flex;font-size:.85rem;"><i class="fas fa-id-card"></i>&nbsp; ORCID Profile</a>
-      <a href="https://github.com/khadaraqli" target="_blank" rel="noopener" class="btn-outline-hero" style="display:inline-flex;font-size:.85rem;"><i class="fab fa-github"></i>&nbsp; GitHub Projects</a>
+      <a href="https://www.linkedin.com/in/eng-khadar-aqli-9bb42119a/" target="_blank" rel="noopener" class="btn-outline-hero" style="display:inline-flex;font-size:.85rem;border-color:var(--border);color:var(--text);"><i class="fab fa-linkedin"></i>&nbsp; Articles on LinkedIn</a>
+      <a href="https://orcid.org/0009-0001-9662-6467" target="_blank" rel="noopener" class="btn-outline-hero" style="display:inline-flex;font-size:.85rem;border-color:var(--border);color:var(--text);"><i class="fas fa-id-card"></i>&nbsp; ORCID Profile</a>
+      <a href="https://github.com/khadaraqli" target="_blank" rel="noopener" class="btn-outline-hero" style="display:inline-flex;font-size:.85rem;border-color:var(--border);color:var(--text);"><i class="fab fa-github"></i>&nbsp; GitHub Projects</a>
     </div>
   </div>
 </section>
@@ -1485,7 +1442,7 @@ canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:3;opacity:.98
         <div class="contact-box">
           <h3>Get In Touch</h3>
           <div class="contact-info-item"><div class="contact-info-icon"><i class="fas fa-envelope"></i></div><div><label>Email</label><a href="mailto:khadaraqli@students.diu.ac">khadaraqli@students.diu.ac</a></div></div>
-          <div class="contact-info-item"><div class="contact-info-icon"><i class="fas fa-phone"></i></div><div><label>Phone</label><span>+252 65 4242420 / +252 63 4067640</span></div></div>
+          <div class="contact-info-item"><div class="contact-info-icon"><i class="fas fa-phone"></i></div><div><label>Phone</label><span>+252 65 4242420 / +252 63 4240003</span></div></div>
           <div class="contact-info-item"><div class="contact-info-icon"><i class="fab fa-whatsapp"></i></div><div><label>WhatsApp</label><a href="https://wa.me/252654242420" target="_blank" rel="noopener">Chat on WhatsApp</a></div></div>
           <div class="contact-info-item"><div class="contact-info-icon"><i class="fab fa-linkedin"></i></div><div><label>LinkedIn</label><a href="https://www.linkedin.com/in/eng-khadar-aqli-9bb42119a" target="_blank" rel="noopener">View Profile</a></div></div>
           <div class="contact-info-item"><div class="contact-info-icon"><i class="fab fa-github"></i></div><div><label>GitHub</label><a href="https://github.com/khadaraqli" target="_blank" rel="noopener">Explore Projects</a></div></div>
@@ -1540,7 +1497,7 @@ canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:3;opacity:.98
         <h4>Contact Info</h4>
         <div class="footer-contact-row"><a href="mailto:khadaraqli@students.diu.ac">khadaraqli@students.diu.ac</a></div>
         <div class="footer-contact-row">+252 65 4242420</div>
-        <div class="footer-contact-row">+252 63 4067640</div>
+        <div class="footer-contact-row">+252 63 4240003</div>
         <div style="margin-top:.85rem;">
           <span style="background:rgba(0,200,212,.08);border:1px solid rgba(0,200,212,.25);color:var(--teal);font-size:.72rem;font-weight:600;padding:.25rem .8rem;border-radius:20px;">🌐 English · Somali · Arabic</span>
         </div>
@@ -1558,6 +1515,7 @@ canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:3;opacity:.98
   var c=document.getElementById('stars');
   var hero=document.getElementById('hero');
   if(!c||!hero)return;
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var ctx=c.getContext('2d');
   var stars=[], shooting=[];
   function resize(){c.width=hero.offsetWidth; c.height=hero.offsetHeight;}
@@ -1587,7 +1545,7 @@ canvas#stars{position:absolute;inset:0;pointer-events:none;z-index:3;opacity:.98
       m.x+=m.vx; m.y+=m.vy; m.a*=0.97;
       if(m.a<0.05||m.x<-120||m.y>c.height+120)shooting.splice(j,1);
     }
-    requestAnimationFrame(draw);
+    if(!reduced)requestAnimationFrame(draw);
   }
   resize(); init(); draw();
   window.addEventListener('resize',function(){resize(); init();});
@@ -1733,33 +1691,6 @@ if('IntersectionObserver' in window){
   document.querySelectorAll('.skill-bar-fill').forEach(function(b){b.style.width=b.dataset.width+'%';});
 }
 
-
-/* ── Cinematic rain generator ── */
-(function(){
-  function buildRain(id,count,minH,maxH,minDur,maxDur,minOp,maxOp){
-    var wrap=document.getElementById(id); if(!wrap)return; wrap.innerHTML='';
-    for(var i=0;i<count;i++){
-      var d=document.createElement('span'); d.className='rain-drop';
-      var left=Math.random()*100;
-      var h=minH + Math.random()*(maxH-minH);
-      var dur=minDur + Math.random()*(maxDur-minDur);
-      var delay=Math.random()*-dur;
-      var op=minOp + Math.random()*(maxOp-minOp);
-      d.style.left=left+'%'; d.style.height=h+'px'; d.style.opacity=op.toFixed(2);
-      d.style.animationDuration=dur.toFixed(2)+'s'; d.style.animationDelay=delay.toFixed(2)+'s';
-      wrap.appendChild(d);
-    }
-  }
-  function render(){
-    var mobile=window.innerWidth<768;
-    buildRain('rain-back', mobile?70:110, 50, 95, 1.1, 1.8, .18, .45);
-    buildRain('rain-front', mobile?90:150, 70, 125, .8, 1.35, .28, .72);
-  }
-  render();
-  var timer;
-  window.addEventListener('resize', function(){clearTimeout(timer);timer=setTimeout(render,120);});
-})();
-
 /* ── Portfolio contact form helper ── */
 function sendPortfolioMessage(){
   var first=(document.getElementById('contact-first')||{}).value||'';
@@ -1775,7 +1706,6 @@ function sendPortfolioMessage(){
     (email ? 'Email: ' + encodeURIComponent(email) + '%0A' : '');
   window.location.href='mailto:khadaraqli@students.diu.ac?subject=' + encodeURIComponent(subject) + '&body=' + body;
 }
-
 </script>
 </body>
 </html>
