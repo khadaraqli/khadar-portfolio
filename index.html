@@ -1050,6 +1050,90 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
  #hero::before { top: 132px; bottom: 18px; }
 }
 
+/* Consistent premium cards across every portfolio section. */
+:is(.value-card,.kcard,.info-card,.diagram-box,.paper-card,.align-card,.tl-card,.cert-card,.skill-card,.project-card,.achievement-card,.blog-card,.volunteer-card,.case-study-card,.focus-panel,.contact-box) {
+ --panel-accent: var(--teal-d);
+ position: relative;
+ isolation: isolate;
+ border: 1px solid color-mix(in srgb,var(--panel-accent) 20%,var(--border));
+ border-radius: 20px;
+ background: linear-gradient(145deg,color-mix(in srgb,var(--panel-accent) 5%,var(--card)),var(--card) 58%);
+ box-shadow: 0 2px 4px rgba(10,31,54,.025),0 12px 32px rgba(10,31,54,.065),inset 0 1px 0 rgba(255,255,255,.65);
+ transition: transform .38s cubic-bezier(.22,1,.36,1),box-shadow .38s ease,border-color .38s ease;
+}
+/* The accent rail is decorative: no dimensions or text positions change. */
+:is(.value-card,.kcard,.info-card,.diagram-box,.paper-card,.align-card,.tl-card,.cert-card,.skill-card,.achievement-card,.blog-card,.volunteer-card,.case-study-card,.focus-panel,.contact-box)::before {
+ content: ''; position: absolute; top: 0; left: 22px; right: 22px; height: 3px;
+ border-radius: 0 0 6px 6px; pointer-events: none;
+ background: linear-gradient(90deg,var(--panel-accent),color-mix(in srgb,var(--panel-accent) 35%,#b1dcd7),transparent);
+ opacity: .75; transition: opacity .38s ease;
+}
+:is(.value-card,.kcard,.info-card,.diagram-box,.paper-card,.align-card,.tl-card,.cert-card,.skill-card,.project-card,.achievement-card,.blog-card,.volunteer-card,.case-study-card,.focus-panel,.contact-box)::after {
+ content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: -1;
+ background: radial-gradient(ellipse at top right,color-mix(in srgb,var(--panel-accent) 14%,transparent),transparent 72%);
+ opacity: 0; transition: opacity .4s ease;
+}
+/* Coordinated accents distinguish the four value cards and research panels. */
+.value-card:nth-child(4n+2),#phd-agenda .grid-2>.kcard:nth-child(2) { --panel-accent: #3262ac; }
+.value-card:nth-child(4n+3),#phd-agenda .grid-2>.kcard:nth-child(3) { --panel-accent: #7960ad; }
+.value-card:nth-child(4n+4),#phd-agenda .grid-2>.kcard:nth-child(4) { --panel-accent: #986d28; }
+#research .grid-2>div:nth-child(2)>.kcard:first-child { --panel-accent: #3262ac; }
+#research .grid-2>div:nth-child(2)>.kcard:nth-child(2) { --panel-accent: #7960ad; }
+:is(.value-icon,.kcard-icon,.cert-icon,.skill-card-icon,.achievement-icon,.contact-info-icon) {
+ color: #fff;
+ background: linear-gradient(140deg,color-mix(in srgb,var(--panel-accent,var(--teal-d)) 70%,#172c46),var(--panel-accent,var(--teal-d)));
+ border: 1px solid rgba(255,255,255,.24);
+ box-shadow: 0 7px 15px color-mix(in srgb,var(--panel-accent,var(--teal-d)) 19%,transparent),inset 0 1px 0 rgba(255,255,255,.25);
+ transition: transform .38s ease,box-shadow .38s ease;
+}
+:is(.value-card,.kcard,.paper-card,.skill-card,.blog-card,.case-study-card,.focus-panel) h3 { letter-spacing: -.015em; }
+.research-focus-item {
+ border-color: color-mix(in srgb,var(--panel-accent,var(--teal-d)) 14%,var(--border));
+ background: color-mix(in srgb,var(--card) 75%,var(--bg-2));
+ box-shadow: inset 0 1px 0 rgba(255,255,255,.55);
+ transition: background .3s ease,border-color .3s ease,box-shadow .3s ease;
+}
+.research-focus-item::before { background: var(--panel-accent,var(--teal-d)); box-shadow: 0 0 0 4px color-mix(in srgb,var(--panel-accent,var(--teal-d)) 9%,transparent); }
+.info-list li { border-bottom-color: color-mix(in srgb,var(--border) 75%,transparent); }
+.diagram-box svg { filter: drop-shadow(0 3px 3px rgba(12,41,63,.04)); }
+:is(.testi-card,.impact-card) {
+ transition: transform .38s cubic-bezier(.22,1,.36,1),background .38s ease,border-color .38s ease,box-shadow .38s ease;
+ box-shadow: 0 10px 28px rgba(0,0,0,.09),inset 0 1px 0 rgba(255,255,255,.06);
+}
+/* Image frames receive the same finish. The portrait never zooms or crops. */
+.gallery-img { position: relative; border: 1px solid color-mix(in srgb,var(--teal) 25%,var(--border)); box-shadow: 0 10px 28px rgba(10,31,54,.09); transition: transform .38s ease,border-color .38s ease,box-shadow .38s ease; }
+.gallery-img::after,.project-img::after {
+ content: ''; position: absolute; inset: 0; pointer-events: none;
+ background: linear-gradient(135deg,rgba(47,198,191,.17),transparent 55%,rgba(91,102,189,.12));
+ opacity: 0; transition: opacity .4s ease;
+}
+.gallery-img img,.project-img img { transition: transform .6s cubic-bezier(.22,1,.36,1),filter .4s ease; }
+.photo-ring { transition: box-shadow .4s ease; }
+/* Keyboard users get the same color feedback when focusing a card link. */
+:is(.value-card,.kcard,.info-card,.diagram-box,.paper-card,.align-card,.tl-card,.cert-card,.skill-card,.project-card,.achievement-card,.blog-card,.volunteer-card,.case-study-card,.focus-panel,.contact-box):focus-within {
+ border-color: var(--panel-accent); box-shadow: 0 0 0 3px color-mix(in srgb,var(--panel-accent) 12%,transparent),0 14px 32px rgba(10,31,54,.1);
+}
+:is(.value-card,.kcard,.info-card,.diagram-box,.paper-card,.align-card,.tl-card,.cert-card,.skill-card,.project-card,.achievement-card,.blog-card,.volunteer-card,.case-study-card,.focus-panel,.contact-box):focus-within::after { opacity: 1; }
+@media (hover: hover) and (pointer: fine) {
+ :is(.value-card,.kcard,.info-card,.diagram-box,.paper-card,.align-card,.tl-card,.cert-card,.skill-card,.project-card,.achievement-card,.blog-card,.volunteer-card,.case-study-card,.focus-panel,.contact-box):hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb,var(--panel-accent) 64%,var(--border));
+  box-shadow: 0 6px 12px rgba(10,31,54,.035),0 22px 42px rgba(10,31,54,.12),0 0 0 1px color-mix(in srgb,var(--panel-accent) 9%,transparent);
+ }
+ :is(.value-card,.kcard,.info-card,.diagram-box,.paper-card,.align-card,.tl-card,.cert-card,.skill-card,.project-card,.achievement-card,.blog-card,.volunteer-card,.case-study-card,.focus-panel,.contact-box):hover::after { opacity: 1; }
+ :is(.value-card,.kcard,.cert-card,.skill-card,.achievement-card,.contact-box):hover :is(.value-icon,.kcard-icon,.cert-icon,.skill-card-icon,.achievement-icon,.contact-info-icon) { transform: translateY(-2px) rotate(-3deg); box-shadow: 0 9px 19px color-mix(in srgb,var(--panel-accent,var(--teal-d)) 26%,transparent); }
+ .research-focus-item:hover { background: color-mix(in srgb,var(--panel-accent,var(--teal-d)) 7%,var(--card)); border-color: color-mix(in srgb,var(--panel-accent,var(--teal-d)) 42%,var(--border)); box-shadow: inset 3px 0 0 var(--panel-accent,var(--teal-d)); }
+ :is(.testi-card,.impact-card):hover { transform: translateY(-4px); background: rgba(255,255,255,.095); border-color: color-mix(in srgb,var(--teal) 50%,transparent); box-shadow: 0 18px 36px rgba(0,0,0,.18); }
+ .gallery-img:hover { transform: translateY(-4px); border-color: var(--teal); box-shadow: 0 20px 40px rgba(10,31,54,.15); }
+ .gallery-img:hover::after,.project-card:hover .project-img::after { opacity: 1; }
+ .gallery-img:hover img,.project-card:hover .project-img img { transform: scale(1.035); filter: saturate(1.08); }
+ .hero-photo-wrap:hover .photo-ring { box-shadow: 0 26px 65px rgba(0,0,0,.3),0 0 0 9px rgba(105,213,206,.09),0 0 34px rgba(105,213,206,.16); }
+}
+@media (prefers-reduced-motion: reduce) {
+ :is(.value-card,.kcard,.info-card,.diagram-box,.paper-card,.align-card,.tl-card,.cert-card,.skill-card,.project-card,.achievement-card,.blog-card,.volunteer-card,.case-study-card,.focus-panel,.contact-box,.testi-card,.impact-card,.gallery-img):hover,
+ :is(.value-icon,.kcard-icon,.cert-icon,.skill-card-icon,.achievement-icon,.contact-info-icon),.gallery-img:hover img,.project-card:hover .project-img img { transform: none !important; }
+}
+
 </style>
 </head>
 <body>
