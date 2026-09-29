@@ -1134,6 +1134,112 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
  :is(.value-icon,.kcard-icon,.cert-icon,.skill-card-icon,.achievement-icon,.contact-info-icon),.gallery-img:hover img,.project-card:hover .project-img img { transform: none !important; }
 }
 
+/* Full card redesign: colored surfaces, high-contrast typography and depth. */
+body .premium-panel {
+ --surface-a: #113c4c; --surface-b: #092633; --panel-glow: #71e7d4;
+ --text: #f7fbff; --muted: #d3e2eb; --teal: #95f2e3; --teal-d: #167c88;
+ --card: #143b49; --bg: #102e3c; --bg-2: #1c4251; --border: #39606c;
+ --panel-accent: var(--panel-glow) !important;
+ position: relative; isolation: isolate; overflow: hidden;
+ padding: clamp(1.5rem,2.5vw,2.15rem);
+ border: 1px solid rgba(199,229,245,.16); border-radius: 24px;
+ background: linear-gradient(145deg,var(--surface-a),var(--surface-b));
+ color: var(--text);
+ box-shadow: 0 6px 12px rgba(9,30,46,.06),0 18px 38px rgba(9,30,46,.15),inset 0 1px 0 rgba(255,255,255,.12);
+ transition: transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease,border-color .4s ease;
+}
+body .premium-panel.tone-blue {
+ --surface-a: #193e69; --surface-b: #112741; --panel-glow: #9acbff;
+ --card: #1a3859; --bg: #122b46; --bg-2: #244566; --border: #46617d; --teal: #b5dbff;
+}
+body .premium-panel.tone-purple {
+ --surface-a: #43355f; --surface-b: #29233f; --panel-glow: #d6b7ff;
+ --card: #3c3253; --bg: #2d253f; --bg-2: #4a3e60; --border: #70607f; --teal: #e1caff;
+}
+body .premium-panel.tone-slate {
+ --surface-a: #344857; --surface-b: #1a2b38; --panel-glow: #f1d59b;
+ --card: #314452; --bg: #203340; --bg-2: #3b505e; --border: #62727d; --teal: #ffe0a3;
+}
+/* Large ambient corner detail replaces the thin top line. */
+body .premium-panel::before {
+ content: ''; position: absolute; top: -75px; right: -75px; left: auto;
+ width: 210px; height: 210px; border-radius: 50%; pointer-events: none; z-index: -1;
+ background: radial-gradient(circle,rgba(255,255,255,.12),rgba(255,255,255,.02) 64%,transparent 65%);
+ border: 1px solid rgba(255,255,255,.055); opacity: 1;
+ transition: transform .6s ease;
+}
+body .premium-panel::after {
+ content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: -1;
+ background: radial-gradient(ellipse at top right,color-mix(in srgb,var(--panel-glow) 24%,transparent),transparent 75%);
+ opacity: 0; transition: opacity .4s ease;
+}
+body .premium-panel h3 { color: var(--text); font-size: 1.08rem; line-height: 1.45; letter-spacing: -.015em; font-weight: 700; }
+body .premium-panel p,body .premium-panel li { color: var(--muted); line-height: 1.8; }
+body .premium-panel :is(.value-icon,.kcard-icon,.cert-icon,.skill-card-icon,.achievement-icon,.contact-info-icon) {
+ width: 56px; height: 56px; flex-shrink: 0; border-radius: 17px; font-size: 1.35rem;
+ margin-bottom: 1.25rem; color: var(--surface-b);
+ background: linear-gradient(135deg,#f5fcff,var(--panel-glow));
+ border: 1px solid rgba(255,255,255,.55);
+ box-shadow: 0 8px 22px rgba(0,0,0,.15),inset 0 1px 0 #fff;
+ transition: transform .4s ease,box-shadow .4s ease;
+}
+body .premium-panel :is(.contact-info-icon,.achievement-icon) { width: 44px; height: 44px; margin-bottom: 0; font-size: 1.1rem; }
+body .premium-panel :is(.volunteer-icon,.align-num) { color: var(--panel-glow); }
+body .premium-panel .align-num { opacity: .85; }
+body .premium-panel :is(.research-focus-item,.research-tech-item,.now-item) {
+ background: rgba(255,255,255,.065); border: 1px solid rgba(255,255,255,.12);
+ border-radius: 12px; color: var(--text); box-shadow: none;
+}
+body .premium-panel .research-focus-item { padding: .85rem 1rem; margin-bottom: .7rem; }
+body .premium-panel .research-focus-item::before { background: var(--panel-glow); box-shadow: 0 0 0 4px rgba(255,255,255,.06); }
+body .premium-panel .info-list li { border-bottom-color: rgba(255,255,255,.12); }
+body .premium-panel .info-list li strong { color: var(--text); }
+body .premium-panel :is(.info-list a,.info-list i,.contact-info-item a,.blog-link,.paper-sub,.project-type,.case-study-sub,.achievement-org,.tl-date,.tl-org,.volunteer-meta) { color: var(--teal); }
+body .premium-panel :is(.btn-cert,.project-link,.paper-card a,.contact-cta-row a,.link-pill) {
+ background: rgba(255,255,255,.08); color: var(--teal); border-color: rgba(255,255,255,.25);
+ border-radius: 9px; padding: .55rem .85rem; box-shadow: none;
+}
+body .premium-panel :is(.btn-cert,.project-link,.contact-cta-row a,.link-pill):hover { background: var(--panel-glow); color: var(--surface-b); border-color: var(--panel-glow); }
+body .premium-panel :is(.tech-badge,.project-tech span,.metric-chip,.blog-tag) { color: var(--teal); background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.18); }
+body .premium-panel .skill-bar-track { background: rgba(255,255,255,.12); }
+body .premium-panel .skill-bar-fill { background: linear-gradient(90deg,#56bfc4,var(--panel-glow)); }
+body .premium-panel .form-group input,body .premium-panel .form-group textarea { background: rgba(0,0,0,.15); border-color: rgba(255,255,255,.22); color: #fff; }
+body .premium-panel input::placeholder,body .premium-panel textarea::placeholder { color: #b3c5d1; opacity: 1; }
+body .premium-panel :is(.form-group label,.contact-info-item label,.contact-availability span) { color: #d3e2eb; }
+body .premium-panel .btn-submit { background: var(--panel-glow); color: var(--surface-b); }
+body .premium-panel.project-card { padding: 0; }
+body .premium-panel .project-body { padding: 1.65rem; }
+body .premium-panel .project-img { border-bottom: 1px solid rgba(255,255,255,.14); }
+body .premium-panel .project-links { border-color: rgba(255,255,255,.15); }
+body .premium-panel.diagram-box svg rect { fill: rgba(255,255,255,.055); stroke: var(--panel-glow); }
+body .premium-panel.diagram-box svg text { fill: var(--text); }
+body .premium-panel.diagram-box svg line { stroke: var(--panel-glow); }
+body .premium-panel.diagram-box svg marker path { fill: var(--panel-glow); }
+/* Give the section background and headings a stronger editorial treatment. */
+body :is(#value-proposition,#research,#phd-agenda) { background: #edf2f7; }
+body :is(#value-proposition,#research,#phd-agenda) .section-header h2 { color: #142f43; }
+body :is(#value-proposition,#research,#phd-agenda) .section-header h2 em { color: #096c79; }
+body :is(#value-proposition,#research,#phd-agenda) .section-header p { color: #4b6175; }
+body :is(#value-proposition,#research,#phd-agenda) .section-eyebrow { color: #096c79; }
+body #phd-agenda .container>div>.premium-panel:first-child { background: linear-gradient(115deg,#12354b,#1c5260); }
+body .value-cta { border: 1px solid rgba(111,203,204,.26); border-radius: 24px; box-shadow: 0 14px 34px rgba(10,34,52,.14); }
+body .premium-panel:focus-within { border-color: var(--panel-glow); box-shadow: 0 0 0 3px color-mix(in srgb,var(--panel-glow) 35%,transparent),0 20px 45px rgba(9,30,46,.18); }
+body .premium-panel:focus-within::after { opacity: 1; }
+@media (hover: hover) and (pointer: fine) {
+ body .premium-panel:hover { transform: translateY(-6px); border-color: var(--panel-glow); box-shadow: 0 24px 44px rgba(9,30,46,.22),0 0 0 1px color-mix(in srgb,var(--panel-glow) 20%,transparent); }
+ body .premium-panel:hover::after { opacity: 1; }
+ body .premium-panel:hover::before { transform: scale(1.17); }
+ body .premium-panel:hover :is(.value-icon,.kcard-icon,.cert-icon,.skill-card-icon) { transform: translateY(-3px) rotate(-4deg); box-shadow: 0 12px 25px rgba(0,0,0,.22); }
+ body .premium-panel .research-focus-item:hover { background: rgba(255,255,255,.13); border-color: var(--panel-glow); box-shadow: none; }
+}
+@media (max-width: 580px) {
+ body .premium-panel { border-radius: 20px; padding: 1.5rem; }
+ body .premium-panel.project-card { padding: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+ body .premium-panel:hover,body .premium-panel:hover::before,body .premium-panel:hover :is(.value-icon,.kcard-icon,.cert-icon,.skill-card-icon) { transform: none !important; }
+}
+
 </style>
 </head>
 <body>
@@ -1299,7 +1405,7 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
         <p>Recognized for the ability to bridge operational workflows, financial controls, and IT solutions to enhance efficiency, compliance, transparency, and service delivery. Known for strong analytical thinking, attention to detail, time management, teamwork, and leadership abilities, with proven performance in fast-paced environments.</p>
       </div>
       <div class="reveal">
-        <div class="info-card">
+        <div class="info-card premium-panel tone-teal">
           <ul class="info-list">
             <li><i class="fas fa-flag"></i><strong>Nationality</strong><span>Somalilander</span></li>
             <li><i class="fas fa-language"></i><strong>Languages</strong><span>Somali (Native), English (Fluent), Arabic (Basic)</span></li>
@@ -1320,10 +1426,10 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
   <div class="container">
     <div class="section-header reveal"><div class="section-eyebrow">Value</div><h2>Why <em>Work With Me</em></h2><p>A unique blend of operational depth, technical execution, and governance thinking</p></div>
     <div class="value-grid">
-      <div class="value-card reveal"><div class="value-icon"><i class="fas fa-layer-group"></i></div><h3>Cross-Domain Strength</h3><p>I connect maritime operations, IT systems, auditing, and digital governance into one integrated problem-solving approach.</p></div>
-      <div class="value-card reveal"><div class="value-icon"><i class="fas fa-gauge-high"></i></div><h3>Results-Driven Delivery</h3><p>I focus on efficiency, compliance, and measurable impact — not just theory, tools, or certificates.</p></div>
-      <div class="value-card reveal"><div class="value-icon"><i class="fas fa-microscope"></i></div><h3>Research + Practice</h3><p>My profile bridges practical field experience with academic research in secure public digital infrastructure.</p></div>
-      <div class="value-card reveal"><div class="value-icon"><i class="fas fa-handshake-angle"></i></div><h3>Trusted Collaboration</h3><p>I communicate clearly, work across teams, and adapt quickly in fast-moving technical and operational environments.</p></div>
+      <div class="value-card reveal premium-panel tone-teal"><div class="value-icon"><i class="fas fa-layer-group"></i></div><h3>Cross-Domain Strength</h3><p>I connect maritime operations, IT systems, auditing, and digital governance into one integrated problem-solving approach.</p></div>
+      <div class="value-card reveal premium-panel tone-blue"><div class="value-icon"><i class="fas fa-gauge-high"></i></div><h3>Results-Driven Delivery</h3><p>I focus on efficiency, compliance, and measurable impact — not just theory, tools, or certificates.</p></div>
+      <div class="value-card reveal premium-panel tone-purple"><div class="value-icon"><i class="fas fa-microscope"></i></div><h3>Research + Practice</h3><p>My profile bridges practical field experience with academic research in secure public digital infrastructure.</p></div>
+      <div class="value-card reveal premium-panel tone-slate"><div class="value-icon"><i class="fas fa-handshake-angle"></i></div><h3>Trusted Collaboration</h3><p>I communicate clearly, work across teams, and adapt quickly in fast-moving technical and operational environments.</p></div>
     </div>
     <div class="value-cta reveal">
       <div>
@@ -1344,7 +1450,7 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
     <div class="section-header reveal"><div class="section-eyebrow">Research</div><h2>Research <em>Profile</em></h2><p>Advancing digital governance for emerging states</p></div>
     <div class="grid-2" style="align-items:start;">
       <div class="reveal-l">
-        <div class="kcard">
+        <div class="kcard premium-panel tone-teal">
           <div class="kcard-icon"><i class="fas fa-microscope"></i></div>
           <h3>Research Focus Areas</h3>
           <div class="research-focus-item"><span>Digital Governance Systems</span></div>
@@ -1356,12 +1462,12 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:1.25rem;">
-        <div class="kcard reveal">
+        <div class="kcard reveal premium-panel tone-blue">
           <div class="kcard-icon"><i class="fas fa-quote-left"></i></div>
           <h3>Research Statement</h3>
           <p style="font-style:italic;line-height:1.85;font-size:.9rem;color:var(--muted);">"I am a Computer Science graduate specializing in the intersection of Information Technology and Public Governance. My research focuses on designing secure, scalable, and interoperable digital governance architectures for emerging and developing states. My objective is to bridge the structural gap between ICT infrastructure design and institutional governance systems through applied systems engineering and cybersecurity frameworks."</p>
         </div>
-        <div class="kcard reveal">
+        <div class="kcard reveal premium-panel tone-purple">
           <h3>Academic Research Profiles</h3>
           <ul class="info-list">
             <li><i class="fas fa-book"></i><strong>Google Scholar</strong><a href="https://scholar.google.com/citations?user=khadaraqli" target="_blank" rel="noopener">View Profile</a></li>
@@ -1375,7 +1481,7 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
       </div>
     </div>
     <div class="grid-2" style="margin-top:1.5rem;">
-      <div class="diagram-box reveal">
+      <div class="diagram-box reveal premium-panel tone-teal">
         <h5 style="text-align:center;margin-bottom:1rem;font-size:.95rem;font-weight:700;color:var(--text);">Digital Governance Architecture</h5>
         <svg width="100%" height="240" viewBox="0 0 520 240" xmlns="http://www.w3.org/2000/svg">
           <rect x="60" y="15" width="400" height="44" rx="8" fill="rgba(0,200,212,.1)" stroke="#021B3A" stroke-width="2.5"/>
@@ -1392,7 +1498,7 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
           <line x1="260" y1="179" x2="260" y2="195" stroke="#00C8D4" stroke-width="3" marker-end="url(#arr)"/>
         </svg>
       </div>
-      <div class="diagram-box reveal">
+      <div class="diagram-box reveal premium-panel tone-blue">
         <h5 style="text-align:center;margin-bottom:1rem;font-size:.95rem;font-weight:700;color:var(--text);">Cybersecurity Integration Framework</h5>
         <svg width="100%" height="175" viewBox="0 0 520 175" xmlns="http://www.w3.org/2000/svg">
           <rect x="60" y="25" width="400" height="38" rx="8" fill="rgba(245,185,66,.12)" stroke="#021B3A" stroke-width="2.5"/>
@@ -1412,16 +1518,16 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
   <div class="container">
     <div class="section-header reveal"><div class="section-eyebrow">PhD</div><h2>PhD Research <em>Agenda</em></h2><p>Designing the digital future for emerging states</p></div>
     <div style="max-width:860px;margin:0 auto;">
-      <div class="kcard reveal" style="margin-bottom:1.5rem;">
+      <div class="kcard reveal premium-panel tone-slate" style="margin-bottom:1.5rem;">
         <div class="kcard-icon"><i class="fas fa-flask"></i></div>
         <p style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--teal);margin-bottom:.4rem;">Proposed Research Title</p>
         <p style="font-size:1.05rem;font-style:italic;line-height:1.7;color:var(--text);">"Designing Secure and Scalable Digital Governance Architectures for Emerging States"</p>
       </div>
       <div class="grid-2" style="margin-bottom:1.25rem;">
-        <div class="kcard reveal"><div class="kcard-icon"><i class="fas fa-exclamation-triangle"></i></div><h3>Research Problem</h3><p style="font-size:.85rem;color:var(--muted);line-height:1.75;">Many emerging states lack integrated, secure, and interoperable digital governance infrastructures. There is often a structural disconnect between ICT system implementation and governance frameworks.</p></div>
-        <div class="kcard reveal"><div class="kcard-icon"><i class="fas fa-bullseye"></i></div><h3>Research Objectives</h3><ul class="info-list" style="font-size:.85rem;gap:.05rem;"><li style="padding:.3rem 0;"><span>Develop a scalable e-governance architecture model</span></li><li style="padding:.3rem 0;"><span>Integrate cybersecurity frameworks into national public systems</span></li><li style="padding:.3rem 0;"><span>Design interoperability standards across ministries</span></li><li style="padding:.3rem 0;"><span>Propose a policy-technology alignment framework</span></li></ul></div>
-        <div class="kcard reveal"><div class="kcard-icon"><i class="fas fa-cogs"></i></div><h3>Methodology</h3><ul class="info-list" style="font-size:.85rem;gap:.05rem;"><li style="padding:.3rem 0;"><span>Comparative analysis of EU digital governance systems</span></li><li style="padding:.3rem 0;"><span>Systems architecture modeling</span></li><li style="padding:.3rem 0;"><span>Cybersecurity risk assessment</span></li><li style="padding:.3rem 0;"><span>Prototype framework development</span></li><li style="padding:.3rem 0;"><span>Case study validation</span></li></ul></div>
-        <div class="kcard reveal"><div class="kcard-icon"><i class="fas fa-lightbulb"></i></div><h3>Expected Contribution</h3><ul class="info-list" style="font-size:.85rem;gap:.05rem;"><li style="padding:.3rem 0;"><span>A digital governance reference architecture model</span></li><li style="padding:.3rem 0;"><span>A cybersecurity-integrated public systems blueprint</span></li><li style="padding:.3rem 0;"><span>An adaptable framework for developing and post-conflict states</span></li></ul></div>
+        <div class="kcard reveal premium-panel tone-teal"><div class="kcard-icon"><i class="fas fa-exclamation-triangle"></i></div><h3>Research Problem</h3><p style="font-size:.85rem;color:var(--muted);line-height:1.75;">Many emerging states lack integrated, secure, and interoperable digital governance infrastructures. There is often a structural disconnect between ICT system implementation and governance frameworks.</p></div>
+        <div class="kcard reveal premium-panel tone-blue"><div class="kcard-icon"><i class="fas fa-bullseye"></i></div><h3>Research Objectives</h3><ul class="info-list" style="font-size:.85rem;gap:.05rem;"><li style="padding:.3rem 0;"><span>Develop a scalable e-governance architecture model</span></li><li style="padding:.3rem 0;"><span>Integrate cybersecurity frameworks into national public systems</span></li><li style="padding:.3rem 0;"><span>Design interoperability standards across ministries</span></li><li style="padding:.3rem 0;"><span>Propose a policy-technology alignment framework</span></li></ul></div>
+        <div class="kcard reveal premium-panel tone-purple"><div class="kcard-icon"><i class="fas fa-cogs"></i></div><h3>Methodology</h3><ul class="info-list" style="font-size:.85rem;gap:.05rem;"><li style="padding:.3rem 0;"><span>Comparative analysis of EU digital governance systems</span></li><li style="padding:.3rem 0;"><span>Systems architecture modeling</span></li><li style="padding:.3rem 0;"><span>Cybersecurity risk assessment</span></li><li style="padding:.3rem 0;"><span>Prototype framework development</span></li><li style="padding:.3rem 0;"><span>Case study validation</span></li></ul></div>
+        <div class="kcard reveal premium-panel tone-slate"><div class="kcard-icon"><i class="fas fa-lightbulb"></i></div><h3>Expected Contribution</h3><ul class="info-list" style="font-size:.85rem;gap:.05rem;"><li style="padding:.3rem 0;"><span>A digital governance reference architecture model</span></li><li style="padding:.3rem 0;"><span>A cybersecurity-integrated public systems blueprint</span></li><li style="padding:.3rem 0;"><span>An adaptable framework for developing and post-conflict states</span></li></ul></div>
       </div>
     </div>
   </div>
@@ -1432,7 +1538,7 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
   <div class="container">
     <div class="section-header reveal"><div class="section-eyebrow">Academic</div><h2>Academic <em>CV</em></h2><p>Formal academic summary and credentials</p></div>
     <div style="max-width:720px;margin:0 auto;">
-      <div class="kcard reveal">
+      <div class="kcard reveal premium-panel tone-teal">
         <div class="kcard-icon"><i class="fas fa-graduation-cap"></i></div>
         <h3>Academic Summary</h3>
         <p style="font-size:.88rem;color:var(--muted);line-height:1.75;margin-bottom:.75rem;"><strong style="color:var(--text);">Master of Science in Computer Science</strong></p>
@@ -1465,7 +1571,7 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
     <div class="section-header reveal"><div class="section-eyebrow">Publications</div><h2>Working Papers &amp; <em>Ongoing Research</em></h2><p>All manuscripts authored by Khadar Ali Aqli (2026)</p></div>
     <div class="grid-3">
 
-      <div class="paper-card reveal">
+      <div class="paper-card reveal premium-panel tone-teal">
         <div class="paper-sub"><i class="fas fa-ship" style="margin-right:.4rem;"></i>Maritime &amp; Logistics</div>
         <h3>Shipping Line &amp; Maritime Logistics Operations</h3>
         <p style="font-size:.83rem;color:var(--muted);line-height:1.7;margin-top:.6rem;">This working paper examines operational frameworks within international shipping lines, with a focus on port logistics efficiency, container handling workflows, and IT-driven documentation systems. Drawing on field experience at Pacific International Lines, it proposes improvements to maritime supply chain coordination in emerging port economies.</p>
@@ -1475,7 +1581,7 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
         </div>
       </div>
 
-      <div class="paper-card reveal">
+      <div class="paper-card reveal premium-panel tone-blue">
         <div class="paper-sub"><i class="fas fa-landmark" style="margin-right:.4rem;"></i>Governance &amp; IT</div>
         <h3>Government Digital Systems &amp; IT Governance</h3>
         <p style="font-size:.83rem;color:var(--muted);line-height:1.7;margin-top:.6rem;">This paper investigates the structural design of government digital systems, examining how IT governance frameworks can be applied to strengthen public sector institutional capacity. It addresses interoperability challenges, cybersecurity policy integration, and the alignment between national ICT strategies and e-government delivery in developing and post-conflict states.</p>
@@ -1485,7 +1591,7 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
         </div>
       </div>
 
-      <div class="paper-card reveal">
+      <div class="paper-card reveal premium-panel tone-purple">
         <div class="paper-sub"><i class="fas fa-network-wired" style="margin-right:.4rem;"></i>Infrastructure</div>
         <h3>IT Infrastructure &amp; Network Systems Architecture</h3>
         <p style="font-size:.83rem;color:var(--muted);line-height:1.7;margin-top:.6rem;">This technical paper presents a comprehensive analysis of IT infrastructure design principles, covering network topology, routing and switching protocols, cybersecurity hardening, and system resilience. It proposes a scalable architecture model suitable for deployment in resource-constrained institutional environments in the Horn of Africa region.</p>
@@ -1504,7 +1610,7 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
   <div class="container">
     <div class="section-header reveal"><div class="section-eyebrow">Vision</div><h2>Future Research <em>Vision</em></h2><p>5-Year Strategic Plan (2026–2031)</p></div>
     <div style="max-width:680px;margin:0 auto;">
-      <div class="kcard reveal">
+      <div class="kcard reveal premium-panel tone-blue">
         <div class="kcard-icon"><i class="fas fa-binoculars"></i></div>
         <h3>Strategic Research Roadmap</h3>
         <ul class="vision-list" style="margin-top:.5rem;">
@@ -1524,11 +1630,11 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
   <div class="container">
     <div class="section-header reveal"><div class="section-eyebrow">Positioning</div><h2>Professor Alignment &amp; <em>Strategic Positioning</em></h2><p>Academic positioning for PhD supervision</p></div>
     <div class="grid-3">
-      <div class="align-card reveal"><div class="align-num">01</div><h3>Research Direction Clarity</h3><p>"My research agenda focuses on bridging IT infrastructure and governance systems through secure, scalable, and interoperable digital solutions."</p></div>
-      <div class="align-card reveal"><div class="align-num">02</div><h3>Alignment With Supervisors</h3><p>"My work aligns with professors focusing on cybersecurity, distributed systems, and e-governance platforms in European universities."</p></div>
-      <div class="align-card reveal"><div class="align-num">03</div><h3>Technical Depth</h3><p>"Demonstrates hands-on system architecture, blockchain integration, cybersecurity modeling, and digital public infrastructure development."</p></div>
-      <div class="align-card reveal"><div class="align-num">04</div><h3>Academic Writing Capability</h3><p>"Proficient in preparing research proposals, manuscripts, technical whitepapers, and documentation suitable for peer-reviewed journals."</p></div>
-      <div class="align-card reveal"><div class="align-num">05</div><h3>Research Vision</h3><p>"Projects a 5-year research plan including prototype frameworks, EU collaboration, publication, and applied digital governance contribution."</p></div>
+      <div class="align-card reveal premium-panel tone-teal"><div class="align-num">01</div><h3>Research Direction Clarity</h3><p>"My research agenda focuses on bridging IT infrastructure and governance systems through secure, scalable, and interoperable digital solutions."</p></div>
+      <div class="align-card reveal premium-panel tone-blue"><div class="align-num">02</div><h3>Alignment With Supervisors</h3><p>"My work aligns with professors focusing on cybersecurity, distributed systems, and e-governance platforms in European universities."</p></div>
+      <div class="align-card reveal premium-panel tone-purple"><div class="align-num">03</div><h3>Technical Depth</h3><p>"Demonstrates hands-on system architecture, blockchain integration, cybersecurity modeling, and digital public infrastructure development."</p></div>
+      <div class="align-card reveal premium-panel tone-slate"><div class="align-num">04</div><h3>Academic Writing Capability</h3><p>"Proficient in preparing research proposals, manuscripts, technical whitepapers, and documentation suitable for peer-reviewed journals."</p></div>
+      <div class="align-card reveal premium-panel tone-teal"><div class="align-num">05</div><h3>Research Vision</h3><p>"Projects a 5-year research plan including prototype frameworks, EU collaboration, publication, and applied digital governance contribution."</p></div>
     </div>
   </div>
 </section>
@@ -1538,10 +1644,10 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
   <div class="container">
     <div class="section-header reveal"><div class="section-eyebrow">Education</div><h2>Academic <em>Qualifications</em></h2><p>Academic journey from primary school to postgraduate</p></div>
     <div class="timeline">
-      <div class="tl-item reveal"><div class="tl-dot"><i class="fas fa-graduation-cap"></i></div><div class="tl-card"><div class="tl-date">2016 – 2017</div><h3>MSc in Computer Science</h3><div class="tl-org"><i class="fas fa-map-marker-alt"></i> Dhaka International University, Bangladesh</div><p>Relevant coursework: Algorithms, Data Structures, Machine Learning, Network Security. Thesis: <em>"Optimizing Logistics Networks Using AI."</em></p><a href="certificates/Master.pdf" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View Certificate</a></div></div>
-      <div class="tl-item reveal"><div class="tl-dot"><i class="fas fa-university"></i></div><div class="tl-card"><div class="tl-date">2012 – 2015</div><h3>Bachelor's Degree in Computer Science</h3><div class="tl-org"><i class="fas fa-map-marker-alt"></i> Admas University, Hargeisa</div><p>Focus on Computer Science fundamentals, including programming and systems administration.</p><a href="certificates/Degree.pdf" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View Certificate</a></div></div>
-      <div class="tl-item reveal"><div class="tl-dot"><i class="fas fa-school"></i></div><div class="tl-card"><div class="tl-date">2007 – 2011</div><h3>GCSE – Secondary Certificate</h3><div class="tl-org"><i class="fas fa-map-marker-alt"></i> Farah Omar Secondary School</div><a href="certificates/Secondary.pdf" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View Certificate</a></div></div>
-      <div class="tl-item reveal"><div class="tl-dot"><i class="fas fa-book"></i></div><div class="tl-card"><div class="tl-date">1999 – 2007</div><h3>PSC – Primary School Certificate</h3><div class="tl-org"><i class="fas fa-map-marker-alt"></i> Sheikh Madar Primary School</div><a href="certificates/Primary.pdf" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View Certificate</a></div></div>
+      <div class="tl-item reveal"><div class="tl-dot"><i class="fas fa-graduation-cap"></i></div><div class="tl-card premium-panel tone-teal"><div class="tl-date">2016 – 2017</div><h3>MSc in Computer Science</h3><div class="tl-org"><i class="fas fa-map-marker-alt"></i> Dhaka International University, Bangladesh</div><p>Relevant coursework: Algorithms, Data Structures, Machine Learning, Network Security. Thesis: <em>"Optimizing Logistics Networks Using AI."</em></p><a href="certificates/Master.pdf" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View Certificate</a></div></div>
+      <div class="tl-item reveal"><div class="tl-dot"><i class="fas fa-university"></i></div><div class="tl-card premium-panel tone-blue"><div class="tl-date">2012 – 2015</div><h3>Bachelor's Degree in Computer Science</h3><div class="tl-org"><i class="fas fa-map-marker-alt"></i> Admas University, Hargeisa</div><p>Focus on Computer Science fundamentals, including programming and systems administration.</p><a href="certificates/Degree.pdf" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View Certificate</a></div></div>
+      <div class="tl-item reveal"><div class="tl-dot"><i class="fas fa-school"></i></div><div class="tl-card premium-panel tone-purple"><div class="tl-date">2007 – 2011</div><h3>GCSE – Secondary Certificate</h3><div class="tl-org"><i class="fas fa-map-marker-alt"></i> Farah Omar Secondary School</div><a href="certificates/Secondary.pdf" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View Certificate</a></div></div>
+      <div class="tl-item reveal"><div class="tl-dot"><i class="fas fa-book"></i></div><div class="tl-card premium-panel tone-slate"><div class="tl-date">1999 – 2007</div><h3>PSC – Primary School Certificate</h3><div class="tl-org"><i class="fas fa-map-marker-alt"></i> Sheikh Madar Primary School</div><a href="certificates/Primary.pdf" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View Certificate</a></div></div>
     </div>
   </div>
 </section>
@@ -1551,15 +1657,15 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
   <div class="container">
     <div class="section-header reveal"><div class="section-eyebrow">Career</div><h2>Professional <em>Experience</em></h2><p>20+ years of hands-on experience across IT, maritime &amp; education</p></div>
     <div class="timeline">
-      <div class="tl-item reveal"><div class="tl-dot"><i class="fas fa-ship"></i></div><div class="tl-card"><div class="tl-date">2020 – Present</div><h3>Assistant Operation Manager</h3><div class="tl-org"><i class="fas fa-building"></i> Pacific International Lines (PIL)</div><ul><li>Managed daily port operations, coordinating container handling and logistics for efficient throughput.</li><li>Implemented IT solutions to track shipments, reducing delays by <strong>15%</strong>.</li><li>Ensured compliance with maritime safety regulations.</li></ul></div></div>
-      <div class="tl-item reveal"><div class="tl-dot"><i class="fas fa-file-invoice-dollar"></i></div><div class="tl-card"><div class="tl-date">2024 – 2025</div><h3>Auditing &amp; Accounting</h3><div class="tl-org"><i class="fas fa-building"></i> International Maritime Shipping Services (IMSS)</div><ul><li>Applied auditing and accounting principles in operational and financial contexts.</li><li>Supported payroll, financial documentation, and record-keeping.</li><li>Conducted analysis of financial statements and internal controls.</li><li>Ensured compliance with organizational and regulatory standards.</li></ul></div></div>
-      <div class="tl-item reveal"><div class="tl-dot"><i class="fas fa-tools"></i></div><div class="tl-card"><div class="tl-date">2019</div><h3>Admin &amp; Finance Officer</h3><div class="tl-org"><i class="fas fa-building"></i> Global ICT Institute of Technology</div><ul><li>Managed finances and administrative systems using IT tools.</li><li>Streamlined processes with Excel automation.</li></ul></div></div>
-      <div class="tl-item reveal"><div class="tl-dot"><i class="fas fa-chalkboard-teacher"></i></div><div class="tl-card"><div class="tl-date">2019</div><h3>Lecturer – Computer Science</h3><div class="tl-org"><i class="fas fa-university"></i> New Generation University</div><ul><li>Taught Computer Science courses, focusing on networking and cybersecurity.</li></ul></div></div>
-      <div class="tl-item reveal"><div class="tl-dot"><i class="fas fa-laptop"></i></div><div class="tl-card"><div class="tl-date">2019</div><h3>Manager &amp; Lecturer</h3><div class="tl-org"><i class="fas fa-university"></i> Horsed Computer Science Institute</div><ul><li>Managed institute operations and delivered lectures on IT topics.</li></ul></div></div>
-      <div class="tl-item reveal"><div class="tl-dot"><i class="fas fa-anchor"></i></div><div class="tl-card"><div class="tl-date">2018 – 2019</div><h3>Commercial Staff</h3><div class="tl-org"><i class="fas fa-ship"></i> WBH Bill Clark Shipping</div><ul><li>Handled shipping documentation and customs clearance processes.</li><li>Utilized Microsoft Office for reporting, improving accuracy in commercial operations.</li></ul></div></div>
-      <div class="tl-item reveal"><div class="tl-dot"><i class="fas fa-briefcase"></i></div><div class="tl-card"><div class="tl-date">2013 – 2016</div><h3>Assistant Manager</h3><div class="tl-org"><i class="fas fa-building"></i> Dhidar Company</div><ul><li>Oversaw team operations and administrative tasks.</li><li>Introduced network improvements for better internal communication.</li></ul></div></div>
-      <div class="tl-item reveal"><div class="tl-dot"><i class="fas fa-chalkboard"></i></div><div class="tl-card"><div class="tl-date">2009</div><h3>Teacher</h3><div class="tl-org"><i class="fas fa-school"></i> Sheikh Madar Primary School</div><ul><li>Taught basic subjects, including introductory computer skills.</li></ul></div></div>
-      <div class="tl-item reveal"><div class="tl-dot"><i class="fas fa-wifi"></i></div><div class="tl-card"><div class="tl-date">2005</div><h3>IT &amp; Network Assistant</h3><div class="tl-org"><i class="fas fa-wifi"></i> Africa Online, Hargeisa</div><ul><li>Assisted in network setup and maintenance.</li></ul></div></div>
+      <div class="tl-item reveal"><div class="tl-dot"><i class="fas fa-ship"></i></div><div class="tl-card premium-panel tone-teal"><div class="tl-date">2020 – Present</div><h3>Assistant Operation Manager</h3><div class="tl-org"><i class="fas fa-building"></i> Pacific International Lines (PIL)</div><ul><li>Managed daily port operations, coordinating container handling and logistics for efficient throughput.</li><li>Implemented IT solutions to track shipments, reducing delays by <strong>15%</strong>.</li><li>Ensured compliance with maritime safety regulations.</li></ul></div></div>
+      <div class="tl-item reveal"><div class="tl-dot"><i class="fas fa-file-invoice-dollar"></i></div><div class="tl-card premium-panel tone-blue"><div class="tl-date">2024 – 2025</div><h3>Auditing &amp; Accounting</h3><div class="tl-org"><i class="fas fa-building"></i> International Maritime Shipping Services (IMSS)</div><ul><li>Applied auditing and accounting principles in operational and financial contexts.</li><li>Supported payroll, financial documentation, and record-keeping.</li><li>Conducted analysis of financial statements and internal controls.</li><li>Ensured compliance with organizational and regulatory standards.</li></ul></div></div>
+      <div class="tl-item reveal"><div class="tl-dot"><i class="fas fa-tools"></i></div><div class="tl-card premium-panel tone-purple"><div class="tl-date">2019</div><h3>Admin &amp; Finance Officer</h3><div class="tl-org"><i class="fas fa-building"></i> Global ICT Institute of Technology</div><ul><li>Managed finances and administrative systems using IT tools.</li><li>Streamlined processes with Excel automation.</li></ul></div></div>
+      <div class="tl-item reveal"><div class="tl-dot"><i class="fas fa-chalkboard-teacher"></i></div><div class="tl-card premium-panel tone-slate"><div class="tl-date">2019</div><h3>Lecturer – Computer Science</h3><div class="tl-org"><i class="fas fa-university"></i> New Generation University</div><ul><li>Taught Computer Science courses, focusing on networking and cybersecurity.</li></ul></div></div>
+      <div class="tl-item reveal"><div class="tl-dot"><i class="fas fa-laptop"></i></div><div class="tl-card premium-panel tone-teal"><div class="tl-date">2019</div><h3>Manager &amp; Lecturer</h3><div class="tl-org"><i class="fas fa-university"></i> Horsed Computer Science Institute</div><ul><li>Managed institute operations and delivered lectures on IT topics.</li></ul></div></div>
+      <div class="tl-item reveal"><div class="tl-dot"><i class="fas fa-anchor"></i></div><div class="tl-card premium-panel tone-blue"><div class="tl-date">2018 – 2019</div><h3>Commercial Staff</h3><div class="tl-org"><i class="fas fa-ship"></i> WBH Bill Clark Shipping</div><ul><li>Handled shipping documentation and customs clearance processes.</li><li>Utilized Microsoft Office for reporting, improving accuracy in commercial operations.</li></ul></div></div>
+      <div class="tl-item reveal"><div class="tl-dot"><i class="fas fa-briefcase"></i></div><div class="tl-card premium-panel tone-purple"><div class="tl-date">2013 – 2016</div><h3>Assistant Manager</h3><div class="tl-org"><i class="fas fa-building"></i> Dhidar Company</div><ul><li>Oversaw team operations and administrative tasks.</li><li>Introduced network improvements for better internal communication.</li></ul></div></div>
+      <div class="tl-item reveal"><div class="tl-dot"><i class="fas fa-chalkboard"></i></div><div class="tl-card premium-panel tone-slate"><div class="tl-date">2009</div><h3>Teacher</h3><div class="tl-org"><i class="fas fa-school"></i> Sheikh Madar Primary School</div><ul><li>Taught basic subjects, including introductory computer skills.</li></ul></div></div>
+      <div class="tl-item reveal"><div class="tl-dot"><i class="fas fa-wifi"></i></div><div class="tl-card premium-panel tone-teal"><div class="tl-date">2005</div><h3>IT &amp; Network Assistant</h3><div class="tl-org"><i class="fas fa-wifi"></i> Africa Online, Hargeisa</div><ul><li>Assisted in network setup and maintenance.</li></ul></div></div>
     </div>
   </div>
 </section>
@@ -1569,10 +1675,10 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
   <div class="container">
     <div class="section-header reveal"><div class="section-eyebrow">Development</div><h2>Trainings &amp; <em>Seminars</em></h2><p>Continuous professional development across disciplines</p></div>
     <div class="grid-2">
-      <div class="kcard reveal"><div class="kcard-icon"><i class="fas fa-ship"></i></div><h3>Shipping &amp; Maritime</h3><ul class="info-list" style="font-size:.83rem;"><li><span>Port &amp; Container Handling – Berbera (2020)</span></li><li><span>Logistics &amp; Shipping Operations – Hargeisa (2021)</span></li><li><span>Safety &amp; Maritime Regulations – Burco (2021)</span></li><li><span>Cargo Documentation &amp; Customs Clearance – Berbera (2022)</span></li><li><span>Maritime Safety &amp; First Aid – Gabiley (2023)</span></li><li><span>Ship &amp; Port Communication Systems – Berbera (2025)</span></li><li><span>International Trade &amp; Port Coordination – Djibouti (2022)</span></li><li><span>Supply Chain &amp; Logistics Tracking Systems – Hargeisa (2023)</span></li></ul></div>
-      <div class="kcard reveal"><div class="kcard-icon"><i class="fas fa-laptop-code"></i></div><h3>IT &amp; Networking</h3><ul class="info-list" style="font-size:.83rem;"><li><span>Network Security – Gabiley (2014)</span></li><li><span>Wireless Networking – Hargeisa (2015)</span></li><li><span>Advanced Routing &amp; Switching – Borama (2016)</span></li><li><span>Cyber Security – Hargeisa (2019)</span></li><li><span>CCTV Installation &amp; Configuration – Burco (2020)</span></li><li><span>Biometric Systems Management – Hargeisa (2020)</span></li><li><span>Database Management &amp; SQL – Dhaka (2017)</span></li><li><span>Network Infrastructure Deployment – Khulna (2017)</span></li><li><span>Systems Support &amp; IT Troubleshooting – Lawyacado (2021)</span></li></ul></div>
-      <div class="kcard reveal"><div class="kcard-icon"><i class="fas fa-file-invoice-dollar"></i></div><h3>Auditing &amp; Accounting</h3><ul class="info-list" style="font-size:.83rem;"><li><span>Fundamentals of Business Accounting – Hargeisa (2019)</span></li><li><span>Payroll Systems &amp; Financial Documentation – Borama (2020)</span></li><li><span>Auditing Principles &amp; Internal Controls – Djibouti (2022)</span></li><li><span>Financial Statement Analysis Workshop – Hargeisa (2023)</span></li><li><span>Public Sector Financial Compliance – Gabiley (2021)</span></li></ul></div>
-      <div class="kcard reveal"><div class="kcard-icon"><i class="fas fa-briefcase"></i></div><h3>Business, Governance &amp; Leadership</h3><ul class="info-list" style="font-size:.83rem;"><li><span>Human Resource Management Practices – Burco (2016)</span></li><li><span>Leadership &amp; Organizational Development – Hargeisa (2015)</span></li><li><span>E-Governance &amp; Digital Administration – Djibouti (2022)</span></li><li><span>Legal Documentation &amp; Policy Interpretation – Hargeisa (2023)</span></li><li><span>Professional Communication &amp; Report Writing – Borama (2019)</span></li><li><span>Training &amp; Instructional Methods – Hargeisa (2021)</span></li></ul></div>
+      <div class="kcard reveal premium-panel tone-purple"><div class="kcard-icon"><i class="fas fa-ship"></i></div><h3>Shipping &amp; Maritime</h3><ul class="info-list" style="font-size:.83rem;"><li><span>Port &amp; Container Handling – Berbera (2020)</span></li><li><span>Logistics &amp; Shipping Operations – Hargeisa (2021)</span></li><li><span>Safety &amp; Maritime Regulations – Burco (2021)</span></li><li><span>Cargo Documentation &amp; Customs Clearance – Berbera (2022)</span></li><li><span>Maritime Safety &amp; First Aid – Gabiley (2023)</span></li><li><span>Ship &amp; Port Communication Systems – Berbera (2025)</span></li><li><span>International Trade &amp; Port Coordination – Djibouti (2022)</span></li><li><span>Supply Chain &amp; Logistics Tracking Systems – Hargeisa (2023)</span></li></ul></div>
+      <div class="kcard reveal premium-panel tone-slate"><div class="kcard-icon"><i class="fas fa-laptop-code"></i></div><h3>IT &amp; Networking</h3><ul class="info-list" style="font-size:.83rem;"><li><span>Network Security – Gabiley (2014)</span></li><li><span>Wireless Networking – Hargeisa (2015)</span></li><li><span>Advanced Routing &amp; Switching – Borama (2016)</span></li><li><span>Cyber Security – Hargeisa (2019)</span></li><li><span>CCTV Installation &amp; Configuration – Burco (2020)</span></li><li><span>Biometric Systems Management – Hargeisa (2020)</span></li><li><span>Database Management &amp; SQL – Dhaka (2017)</span></li><li><span>Network Infrastructure Deployment – Khulna (2017)</span></li><li><span>Systems Support &amp; IT Troubleshooting – Lawyacado (2021)</span></li></ul></div>
+      <div class="kcard reveal premium-panel tone-teal"><div class="kcard-icon"><i class="fas fa-file-invoice-dollar"></i></div><h3>Auditing &amp; Accounting</h3><ul class="info-list" style="font-size:.83rem;"><li><span>Fundamentals of Business Accounting – Hargeisa (2019)</span></li><li><span>Payroll Systems &amp; Financial Documentation – Borama (2020)</span></li><li><span>Auditing Principles &amp; Internal Controls – Djibouti (2022)</span></li><li><span>Financial Statement Analysis Workshop – Hargeisa (2023)</span></li><li><span>Public Sector Financial Compliance – Gabiley (2021)</span></li></ul></div>
+      <div class="kcard reveal premium-panel tone-blue"><div class="kcard-icon"><i class="fas fa-briefcase"></i></div><h3>Business, Governance &amp; Leadership</h3><ul class="info-list" style="font-size:.83rem;"><li><span>Human Resource Management Practices – Burco (2016)</span></li><li><span>Leadership &amp; Organizational Development – Hargeisa (2015)</span></li><li><span>E-Governance &amp; Digital Administration – Djibouti (2022)</span></li><li><span>Legal Documentation &amp; Policy Interpretation – Hargeisa (2023)</span></li><li><span>Professional Communication &amp; Report Writing – Borama (2019)</span></li><li><span>Training &amp; Instructional Methods – Hargeisa (2021)</span></li></ul></div>
     </div>
   </div>
 </section>
@@ -1582,21 +1688,21 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
   <div class="container">
     <div class="section-header reveal"><div class="section-eyebrow">Credentials</div><h2>Professional <em>Certificates</em></h2><p>Recognised qualifications and professional credentials</p></div>
     <div class="cert-grid">
-      <div class="cert-card reveal"><div class="cert-icon"><i class="fas fa-network-wired"></i></div><h3>CCNA Routing and Switching</h3><small>New Horizon, Dhaka | 2016</small><a href="certificates/CCNA.pdf" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
-      <div class="cert-card reveal"><div class="cert-icon"><i class="fas fa-table"></i></div><h3>Essentials of MS Excel</h3><small>Cambridge International University, London | 2025</small><a href="certificates/Excel.pdf" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
-      <div class="cert-card reveal"><div class="cert-icon"><i class="fas fa-users"></i></div><h3>Human Resource Management</h3><small>Cambridge International University, London | 2025</small><a href="certificates/Human.pdf" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
-      <div class="cert-card reveal"><div class="cert-icon"><i class="fas fa-chart-line"></i></div><h3>Leadership &amp; Change Management</h3><small>Cambridge International University, London | 2025</small><a href="certificates/Leadership.pdf" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
-      <div class="cert-card reveal"><div class="cert-icon"><i class="fas fa-landmark"></i></div><h3>E-Governance</h3><small>Cambridge International University, London | 2025</small><a href="certificates/Governance.pdf" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
-      <div class="cert-card reveal"><div class="cert-icon"><i class="fas fa-gavel"></i></div><h3>Legal Writing</h3><small>Cambridge International University, London | 2025</small><a href="certificates/Legal.pdf" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
-      <div class="cert-card reveal"><div class="cert-icon"><i class="fas fa-calculator"></i></div><h3>Accounting Certificate</h3><small>Cambridge International University, Liverpool | 2026</small><a href="certificates/Accounting.pdf" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
-      <div class="cert-card reveal"><div class="cert-icon"><i class="fas fa-robot"></i></div><h3>Master of ChatGPT</h3><small>Cambridge International University, Liverpool | 2026</small><a href="certificates/ChatGPT.pdf" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
-      <div class="cert-card reveal"><div class="cert-icon"><i class="fas fa-language"></i></div><h3>English Language Certificate</h3><small>Cambridge International University, Manchester | 2026</small><a href="certificates/English.pdf" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
-      <div class="cert-card reveal"><div class="cert-icon"><i class="fas fa-chart-bar"></i></div><h3>Data Science Certificate</h3><small>Cambridge International University, Liverpool | 2026</small><a href="certificates/Data.pdf" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
-      <div class="cert-card reveal"><div class="cert-icon"><i class="fas fa-search-dollar"></i></div><h3>Auditing</h3><small>Brazil, São Paulo | 2026</small><a href="certificates/Auditing.jpg" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
-      <div class="cert-card reveal"><div class="cert-icon"><i class="fas fa-coins"></i></div><h3>Business Accounting</h3><small>Brazil, São Paulo | 2026</small><a href="certificates/Business Accounting.jpg" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
-      <div class="cert-card reveal"><div class="cert-icon"><i class="fas fa-file-invoice"></i></div><h3>Financial Statements</h3><small>Brazil, São Paulo | 2026</small><a href="certificates/Financial Statements.jpg" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
-      <div class="cert-card reveal"><div class="cert-icon"><i class="fas fa-money-check-alt"></i></div><h3>Payroll Accounting</h3><small>Brazil, São Paulo | 2026</small><a href="certificates/Payroll Accounting.jpg" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
-      <div class="cert-card reveal"><div class="cert-icon"><i class="fas fa-chalkboard-teacher"></i></div><h3>Building Effective Teaching Strategies</h3><small>Cambridge International University, Liverpool | 2026</small><a href="certificates/Building.jpg" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
+      <div class="cert-card reveal premium-panel tone-teal"><div class="cert-icon"><i class="fas fa-network-wired"></i></div><h3>CCNA Routing and Switching</h3><small>New Horizon, Dhaka | 2016</small><a href="certificates/CCNA.pdf" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
+      <div class="cert-card reveal premium-panel tone-blue"><div class="cert-icon"><i class="fas fa-table"></i></div><h3>Essentials of MS Excel</h3><small>Cambridge International University, London | 2025</small><a href="certificates/Excel.pdf" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
+      <div class="cert-card reveal premium-panel tone-purple"><div class="cert-icon"><i class="fas fa-users"></i></div><h3>Human Resource Management</h3><small>Cambridge International University, London | 2025</small><a href="certificates/Human.pdf" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
+      <div class="cert-card reveal premium-panel tone-slate"><div class="cert-icon"><i class="fas fa-chart-line"></i></div><h3>Leadership &amp; Change Management</h3><small>Cambridge International University, London | 2025</small><a href="certificates/Leadership.pdf" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
+      <div class="cert-card reveal premium-panel tone-teal"><div class="cert-icon"><i class="fas fa-landmark"></i></div><h3>E-Governance</h3><small>Cambridge International University, London | 2025</small><a href="certificates/Governance.pdf" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
+      <div class="cert-card reveal premium-panel tone-blue"><div class="cert-icon"><i class="fas fa-gavel"></i></div><h3>Legal Writing</h3><small>Cambridge International University, London | 2025</small><a href="certificates/Legal.pdf" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
+      <div class="cert-card reveal premium-panel tone-purple"><div class="cert-icon"><i class="fas fa-calculator"></i></div><h3>Accounting Certificate</h3><small>Cambridge International University, Liverpool | 2026</small><a href="certificates/Accounting.pdf" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
+      <div class="cert-card reveal premium-panel tone-slate"><div class="cert-icon"><i class="fas fa-robot"></i></div><h3>Master of ChatGPT</h3><small>Cambridge International University, Liverpool | 2026</small><a href="certificates/ChatGPT.pdf" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
+      <div class="cert-card reveal premium-panel tone-teal"><div class="cert-icon"><i class="fas fa-language"></i></div><h3>English Language Certificate</h3><small>Cambridge International University, Manchester | 2026</small><a href="certificates/English.pdf" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
+      <div class="cert-card reveal premium-panel tone-blue"><div class="cert-icon"><i class="fas fa-chart-bar"></i></div><h3>Data Science Certificate</h3><small>Cambridge International University, Liverpool | 2026</small><a href="certificates/Data.pdf" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
+      <div class="cert-card reveal premium-panel tone-purple"><div class="cert-icon"><i class="fas fa-search-dollar"></i></div><h3>Auditing</h3><small>Brazil, São Paulo | 2026</small><a href="certificates/Auditing.jpg" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
+      <div class="cert-card reveal premium-panel tone-slate"><div class="cert-icon"><i class="fas fa-coins"></i></div><h3>Business Accounting</h3><small>Brazil, São Paulo | 2026</small><a href="certificates/Business Accounting.jpg" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
+      <div class="cert-card reveal premium-panel tone-teal"><div class="cert-icon"><i class="fas fa-file-invoice"></i></div><h3>Financial Statements</h3><small>Brazil, São Paulo | 2026</small><a href="certificates/Financial Statements.jpg" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
+      <div class="cert-card reveal premium-panel tone-blue"><div class="cert-icon"><i class="fas fa-money-check-alt"></i></div><h3>Payroll Accounting</h3><small>Brazil, São Paulo | 2026</small><a href="certificates/Payroll Accounting.jpg" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
+      <div class="cert-card reveal premium-panel tone-purple"><div class="cert-icon"><i class="fas fa-chalkboard-teacher"></i></div><h3>Building Effective Teaching Strategies</h3><small>Cambridge International University, Liverpool | 2026</small><a href="certificates/Building.jpg" target="_blank" rel="noopener" class="btn-cert"><i class="fas fa-external-link-alt"></i> View</a></div>
     </div>
   </div>
 </section>
@@ -1606,7 +1712,7 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
   <div class="container">
     <div class="section-header reveal"><div class="section-eyebrow">Competencies</div><h2>Key <em>Skills</em></h2><p>Technical expertise and professional competencies</p></div>
     <div class="grid-2" style="margin-bottom:2rem;">
-      <div class="kcard reveal">
+      <div class="kcard reveal premium-panel tone-purple">
         <h3>Core Technical Proficiency</h3>
         <div style="margin-top:.75rem;">
           <div class="skill-bar-wrap"><div class="skill-bar-label"><span>Networking &amp; IT (CCNA)</span><span>90%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div></div>
@@ -1616,7 +1722,7 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
           <div class="skill-bar-wrap"><div class="skill-bar-label"><span>Data Science &amp; AI Tools</span><span>72%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="72"></div></div></div>
         </div>
       </div>
-      <div class="kcard reveal">
+      <div class="kcard reveal premium-panel tone-slate">
         <h3>Professional &amp; Domain Expertise</h3>
         <div style="margin-top:.75rem;">
           <div class="skill-bar-wrap"><div class="skill-bar-label"><span>Maritime &amp; Logistics Operations</span><span>95%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="95"></div></div></div>
@@ -1628,15 +1734,15 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
       </div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.1rem;margin-bottom:2.5rem;">
-      <div class="skill-card reveal"><div class="skill-card-icon"><i class="fas fa-network-wired"></i></div><h3>Networking &amp; IT</h3><ul><li>Cisco Networking &amp; Routing (CCNA)</li><li>Network Configuration &amp; Troubleshooting</li><li>IP Addressing &amp; Subnetting</li><li>Wireless Networking Fundamentals</li><li>Basic Cybersecurity Principles</li></ul></div>
-      <div class="skill-card reveal"><div class="skill-card-icon"><i class="fas fa-brain"></i></div><h3>Systems &amp; Data</h3><ul><li>Data Science Fundamentals</li><li>Data Analysis &amp; Interpretation</li><li>E-Governance &amp; Digital Transformation</li><li>AI Tools &amp; ChatGPT Applications</li><li>Technology-Driven Problem Solving</li></ul></div>
-      <div class="skill-card reveal"><div class="skill-card-icon"><i class="fas fa-code"></i></div><h3>Programming &amp; Web</h3><ul><li>Python Programming</li><li>Java Programming</li><li>SQL &amp; Database Management</li><li>Web Development (HTML, CSS, JS)</li></ul></div>
-      <div class="skill-card reveal"><div class="skill-card-icon"><i class="fas fa-calculator"></i></div><h3>Business &amp; Accounting</h3><ul><li>Accounting Principles &amp; Financial Records</li><li>Microsoft Excel (Formulas &amp; Functions)</li><li>Microsoft Office &amp; Professional Documentation</li><li>Data Reporting &amp; Presentation</li></ul></div>
-      <div class="skill-card reveal"><div class="skill-card-icon"><i class="fas fa-users"></i></div><h3>Management &amp; Leadership</h3><ul><li>Human Resource Management</li><li>Leadership &amp; Change Management</li><li>Organizational Development</li><li>Team Coordination &amp; Decision-Making</li></ul></div>
-      <div class="skill-card reveal"><div class="skill-card-icon"><i class="fas fa-gavel"></i></div><h3>Legal &amp; Governance</h3><ul><li>Legal Writing &amp; Documentation</li><li>E-Governance &amp; Public Administration</li><li>Policy Interpretation &amp; Regulatory Awareness</li><li>Customs Clearance &amp; Trade Regulations</li></ul></div>
-      <div class="skill-card reveal"><div class="skill-card-icon"><i class="fas fa-ship"></i></div><h3>Shipping &amp; Logistics</h3><ul><li>Shipping &amp; Logistics Operations</li><li>International Trade Procedures</li><li>Documentation &amp; Compliance</li><li>Supply Chain Coordination</li></ul></div>
-      <div class="skill-card reveal"><div class="skill-card-icon"><i class="fas fa-comments"></i></div><h3>Communication</h3><ul><li>English Language Proficiency</li><li>Professional Communication</li><li>Technical &amp; Business Writing</li><li>Building Effective Teaching Strategies</li></ul></div>
-      <div class="skill-card reveal"><div class="skill-card-icon"><i class="fas fa-file-invoice-dollar"></i></div><h3>Auditing &amp; Accounting</h3><ul><li>Introduction to Business Accounting</li><li>Payroll Accounting</li><li>Auditing Accounting</li><li>Financial Statement Analysis</li></ul></div>
+      <div class="skill-card reveal premium-panel tone-teal"><div class="skill-card-icon"><i class="fas fa-network-wired"></i></div><h3>Networking &amp; IT</h3><ul><li>Cisco Networking &amp; Routing (CCNA)</li><li>Network Configuration &amp; Troubleshooting</li><li>IP Addressing &amp; Subnetting</li><li>Wireless Networking Fundamentals</li><li>Basic Cybersecurity Principles</li></ul></div>
+      <div class="skill-card reveal premium-panel tone-blue"><div class="skill-card-icon"><i class="fas fa-brain"></i></div><h3>Systems &amp; Data</h3><ul><li>Data Science Fundamentals</li><li>Data Analysis &amp; Interpretation</li><li>E-Governance &amp; Digital Transformation</li><li>AI Tools &amp; ChatGPT Applications</li><li>Technology-Driven Problem Solving</li></ul></div>
+      <div class="skill-card reveal premium-panel tone-purple"><div class="skill-card-icon"><i class="fas fa-code"></i></div><h3>Programming &amp; Web</h3><ul><li>Python Programming</li><li>Java Programming</li><li>SQL &amp; Database Management</li><li>Web Development (HTML, CSS, JS)</li></ul></div>
+      <div class="skill-card reveal premium-panel tone-slate"><div class="skill-card-icon"><i class="fas fa-calculator"></i></div><h3>Business &amp; Accounting</h3><ul><li>Accounting Principles &amp; Financial Records</li><li>Microsoft Excel (Formulas &amp; Functions)</li><li>Microsoft Office &amp; Professional Documentation</li><li>Data Reporting &amp; Presentation</li></ul></div>
+      <div class="skill-card reveal premium-panel tone-teal"><div class="skill-card-icon"><i class="fas fa-users"></i></div><h3>Management &amp; Leadership</h3><ul><li>Human Resource Management</li><li>Leadership &amp; Change Management</li><li>Organizational Development</li><li>Team Coordination &amp; Decision-Making</li></ul></div>
+      <div class="skill-card reveal premium-panel tone-blue"><div class="skill-card-icon"><i class="fas fa-gavel"></i></div><h3>Legal &amp; Governance</h3><ul><li>Legal Writing &amp; Documentation</li><li>E-Governance &amp; Public Administration</li><li>Policy Interpretation &amp; Regulatory Awareness</li><li>Customs Clearance &amp; Trade Regulations</li></ul></div>
+      <div class="skill-card reveal premium-panel tone-purple"><div class="skill-card-icon"><i class="fas fa-ship"></i></div><h3>Shipping &amp; Logistics</h3><ul><li>Shipping &amp; Logistics Operations</li><li>International Trade Procedures</li><li>Documentation &amp; Compliance</li><li>Supply Chain Coordination</li></ul></div>
+      <div class="skill-card reveal premium-panel tone-slate"><div class="skill-card-icon"><i class="fas fa-comments"></i></div><h3>Communication</h3><ul><li>English Language Proficiency</li><li>Professional Communication</li><li>Technical &amp; Business Writing</li><li>Building Effective Teaching Strategies</li></ul></div>
+      <div class="skill-card reveal premium-panel tone-teal"><div class="skill-card-icon"><i class="fas fa-file-invoice-dollar"></i></div><h3>Auditing &amp; Accounting</h3><ul><li>Introduction to Business Accounting</li><li>Payroll Accounting</li><li>Auditing Accounting</li><li>Financial Statement Analysis</li></ul></div>
     </div>
     <div class="reveal" style="text-align:center;">
       <p style="font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;">Advanced Technical Toolkit</p>
@@ -1654,10 +1760,10 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
 <!-- ═══════ IMPACT STRIP ═══════ -->
 <section id="impact-strip">
   <div class="impact-grid">
-    <div class="impact-card reveal"><div class="impact-kpi">20+</div><h3>Years of Experience</h3><p>Hands-on experience across maritime operations, IT systems, education, and organizational support.</p></div>
-    <div class="impact-card reveal"><div class="impact-kpi">15%</div><h3>Delay Reduction</h3><p>Operational improvements through technology-driven shipment tracking and workflow visibility.</p></div>
-    <div class="impact-card reveal"><div class="impact-kpi">25%</div><h3>Efficiency Gain</h3><p>Recognized for process improvements and security-conscious system support in real environments.</p></div>
-    <div class="impact-card reveal"><div class="impact-kpi">200+</div><h3>Learners Reached</h3><p>Taught and mentored students through computer science, networking, and cybersecurity-focused instruction.</p></div>
+    <div class="impact-card reveal premium-panel tone-teal"><div class="impact-kpi">20+</div><h3>Years of Experience</h3><p>Hands-on experience across maritime operations, IT systems, education, and organizational support.</p></div>
+    <div class="impact-card reveal premium-panel tone-blue"><div class="impact-kpi">15%</div><h3>Delay Reduction</h3><p>Operational improvements through technology-driven shipment tracking and workflow visibility.</p></div>
+    <div class="impact-card reveal premium-panel tone-purple"><div class="impact-kpi">25%</div><h3>Efficiency Gain</h3><p>Recognized for process improvements and security-conscious system support in real environments.</p></div>
+    <div class="impact-card reveal premium-panel tone-slate"><div class="impact-kpi">200+</div><h3>Learners Reached</h3><p>Taught and mentored students through computer science, networking, and cybersecurity-focused instruction.</p></div>
   </div>
 </section>
 
@@ -1666,15 +1772,15 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
   <div class="container">
     <div class="section-header reveal"><div class="section-eyebrow">Portfolio</div><h2>Featured <em>Projects</em></h2><p>Computer Science skills applied to real-world problems</p></div>
     <div class="grid-3" style="margin-bottom:2.5rem;">
-      <div class="project-card reveal"><div class="project-img"><img src="images/Logistics.JPG" alt="Logistics Tracking App" onerror="this.parentElement.innerHTML='<div class=\'project-img-placeholder\'>🚢</div>'"></div><div class="project-body"><div class="project-type">Full-Stack Application</div><h3>Logistics Tracking Web App</h3><p>A portfolio project focused on real-time shipment visibility, port-side coordination, and data-backed alerts to reduce delays and improve container workflow control.</p><div class="project-tech"><span>Python (Django)</span><span>JavaScript</span><span>PostgreSQL</span><span>Docker</span></div><div class="project-links"><a href="#case-logistics" class="project-link"><i class="fas fa-book-open"></i> Case Study</a><a href="https://github.com/khadaraqli" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> GitHub Profile</a></div></div></div>
-      <div class="project-card reveal"><div class="project-img"><img src="images/Security.PNG" alt="Network Security Tool" onerror="this.parentElement.innerHTML='<div class=\'project-img-placeholder\'>🔐</div>'"></div><div class="project-body"><div class="project-type">Security Tool</div><h3>Network Security Monitoring Tool</h3><p>A security-focused monitoring concept for identifying suspicious network behaviour, strengthening operational visibility, and supporting safer digital infrastructure.</p><div class="project-tech"><span>Python</span><span>Scapy</span><span>AWS CloudWatch</span></div><div class="project-links"><a href="#case-security" class="project-link"><i class="fas fa-book-open"></i> Case Study</a><a href="https://github.com/khadaraqli" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> GitHub Profile</a></div></div></div>
-      <div class="project-card reveal"><div class="project-img"><img src="images/Ai.PNG" alt="AI Logistics Optimizer" onerror="this.parentElement.innerHTML='<div class=\'project-img-placeholder\'>🤖</div>'"></div><div class="project-body"><div class="project-type">AI / Machine Learning</div><h3>AI Logistics Optimizer</h3><p>A machine-learning concept built to improve route planning, reduce inefficiencies, and support smarter logistics decisions in complex port and supply-chain environments.</p><div class="project-tech"><span>Python</span><span>TensorFlow</span><span>Scikit-learn</span><span>Google Maps API</span></div><div class="project-links"><a href="#case-ai" class="project-link"><i class="fas fa-book-open"></i> Case Study</a><a href="https://github.com/khadaraqli" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> GitHub Profile</a></div></div></div>
+      <div class="project-card reveal premium-panel tone-teal"><div class="project-img"><img src="images/Logistics.JPG" alt="Logistics Tracking App" onerror="this.parentElement.innerHTML='<div class=\'project-img-placeholder\'>🚢</div>'"></div><div class="project-body"><div class="project-type">Full-Stack Application</div><h3>Logistics Tracking Web App</h3><p>A portfolio project focused on real-time shipment visibility, port-side coordination, and data-backed alerts to reduce delays and improve container workflow control.</p><div class="project-tech"><span>Python (Django)</span><span>JavaScript</span><span>PostgreSQL</span><span>Docker</span></div><div class="project-links"><a href="#case-logistics" class="project-link"><i class="fas fa-book-open"></i> Case Study</a><a href="https://github.com/khadaraqli" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> GitHub Profile</a></div></div></div>
+      <div class="project-card reveal premium-panel tone-blue"><div class="project-img"><img src="images/Security.PNG" alt="Network Security Tool" onerror="this.parentElement.innerHTML='<div class=\'project-img-placeholder\'>🔐</div>'"></div><div class="project-body"><div class="project-type">Security Tool</div><h3>Network Security Monitoring Tool</h3><p>A security-focused monitoring concept for identifying suspicious network behaviour, strengthening operational visibility, and supporting safer digital infrastructure.</p><div class="project-tech"><span>Python</span><span>Scapy</span><span>AWS CloudWatch</span></div><div class="project-links"><a href="#case-security" class="project-link"><i class="fas fa-book-open"></i> Case Study</a><a href="https://github.com/khadaraqli" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> GitHub Profile</a></div></div></div>
+      <div class="project-card reveal premium-panel tone-purple"><div class="project-img"><img src="images/Ai.PNG" alt="AI Logistics Optimizer" onerror="this.parentElement.innerHTML='<div class=\'project-img-placeholder\'>🤖</div>'"></div><div class="project-body"><div class="project-type">AI / Machine Learning</div><h3>AI Logistics Optimizer</h3><p>A machine-learning concept built to improve route planning, reduce inefficiencies, and support smarter logistics decisions in complex port and supply-chain environments.</p><div class="project-tech"><span>Python</span><span>TensorFlow</span><span>Scikit-learn</span><span>Google Maps API</span></div><div class="project-links"><a href="#case-ai" class="project-link"><i class="fas fa-book-open"></i> Case Study</a><a href="https://github.com/khadaraqli" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> GitHub Profile</a></div></div></div>
     </div>
     <div class="section-header reveal" style="margin-bottom:1rem;"><p style="font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);">Project Case Studies</p></div>
     <div class="case-study-grid">
-      <div class="case-study-card reveal" id="case-logistics"><h3>Logistics Tracking Web App</h3><div class="case-study-sub">Visibility · Coordination · Delay Reduction</div><ul class="case-study-list"><li><i class="fas fa-circle-check"></i><span><strong>Challenge:</strong> Shipment status can become fragmented across port operations, documentation, and coordination workflows.</span></li><li><i class="fas fa-circle-check"></i><span><strong>Approach:</strong> Designed a workflow combining tracking visibility, status alerts, and structured logistics data for better operational decision-making.</span></li><li><i class="fas fa-circle-check"></i><span><strong>Value:</strong> Supports faster follow-up, better container awareness, and stronger process control in time-sensitive operations.</span></li></ul><div class="metric-chip-row"><span class="metric-chip">Django</span><span class="metric-chip">Real-Time Status</span><span class="metric-chip">Port Workflows</span></div></div>
-      <div class="case-study-card reveal" id="case-security"><h3>Network Security Monitoring Tool</h3><div class="case-study-sub">Monitoring · Detection · Cyber Resilience</div><ul class="case-study-list"><li><i class="fas fa-circle-check"></i><span><strong>Challenge:</strong> Operational networks need better visibility to detect anomalies before they turn into outages or security incidents.</span></li><li><i class="fas fa-circle-check"></i><span><strong>Approach:</strong> Built a security-oriented monitoring concept using packet analysis logic and alerting ideas for suspicious activity.</span></li><li><i class="fas fa-circle-check"></i><span><strong>Value:</strong> Strengthens awareness, troubleshooting speed, and cyber readiness for institutional and logistics environments.</span></li></ul><div class="metric-chip-row"><span class="metric-chip">Python</span><span class="metric-chip">Scapy</span><span class="metric-chip">Alerting Logic</span></div></div>
-      <div class="case-study-card reveal" id="case-ai"><h3>AI Logistics Optimizer</h3><div class="case-study-sub">Machine Learning · Routing · Smarter Planning</div><ul class="case-study-list"><li><i class="fas fa-circle-check"></i><span><strong>Challenge:</strong> Route planning and cargo movement decisions can create avoidable delays, costs, and inefficient resource use.</span></li><li><i class="fas fa-circle-check"></i><span><strong>Approach:</strong> Explored ML-assisted optimization ideas for route selection, timing, and supply-chain decision support.</span></li><li><i class="fas fa-circle-check"></i><span><strong>Value:</strong> Demonstrates how data science can improve logistics efficiency and support future port innovation.</span></li></ul><div class="metric-chip-row"><span class="metric-chip">TensorFlow</span><span class="metric-chip">Scikit-learn</span><span class="metric-chip">Optimization</span></div></div>
+      <div class="case-study-card reveal premium-panel tone-teal" id="case-logistics"><h3>Logistics Tracking Web App</h3><div class="case-study-sub">Visibility · Coordination · Delay Reduction</div><ul class="case-study-list"><li><i class="fas fa-circle-check"></i><span><strong>Challenge:</strong> Shipment status can become fragmented across port operations, documentation, and coordination workflows.</span></li><li><i class="fas fa-circle-check"></i><span><strong>Approach:</strong> Designed a workflow combining tracking visibility, status alerts, and structured logistics data for better operational decision-making.</span></li><li><i class="fas fa-circle-check"></i><span><strong>Value:</strong> Supports faster follow-up, better container awareness, and stronger process control in time-sensitive operations.</span></li></ul><div class="metric-chip-row"><span class="metric-chip">Django</span><span class="metric-chip">Real-Time Status</span><span class="metric-chip">Port Workflows</span></div></div>
+      <div class="case-study-card reveal premium-panel tone-blue" id="case-security"><h3>Network Security Monitoring Tool</h3><div class="case-study-sub">Monitoring · Detection · Cyber Resilience</div><ul class="case-study-list"><li><i class="fas fa-circle-check"></i><span><strong>Challenge:</strong> Operational networks need better visibility to detect anomalies before they turn into outages or security incidents.</span></li><li><i class="fas fa-circle-check"></i><span><strong>Approach:</strong> Built a security-oriented monitoring concept using packet analysis logic and alerting ideas for suspicious activity.</span></li><li><i class="fas fa-circle-check"></i><span><strong>Value:</strong> Strengthens awareness, troubleshooting speed, and cyber readiness for institutional and logistics environments.</span></li></ul><div class="metric-chip-row"><span class="metric-chip">Python</span><span class="metric-chip">Scapy</span><span class="metric-chip">Alerting Logic</span></div></div>
+      <div class="case-study-card reveal premium-panel tone-purple" id="case-ai"><h3>AI Logistics Optimizer</h3><div class="case-study-sub">Machine Learning · Routing · Smarter Planning</div><ul class="case-study-list"><li><i class="fas fa-circle-check"></i><span><strong>Challenge:</strong> Route planning and cargo movement decisions can create avoidable delays, costs, and inefficient resource use.</span></li><li><i class="fas fa-circle-check"></i><span><strong>Approach:</strong> Explored ML-assisted optimization ideas for route selection, timing, and supply-chain decision support.</span></li><li><i class="fas fa-circle-check"></i><span><strong>Value:</strong> Demonstrates how data science can improve logistics efficiency and support future port innovation.</span></li></ul><div class="metric-chip-row"><span class="metric-chip">TensorFlow</span><span class="metric-chip">Scikit-learn</span><span class="metric-chip">Optimization</span></div></div>
     </div>
 
     <div class="section-header reveal" style="margin-bottom:1.5rem;"><p style="font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);">Additional Project Visuals</p></div>
@@ -1692,10 +1798,10 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
   <div class="container">
     <div class="section-header reveal"><div class="section-eyebrow">Recognition</div><h2>Achievements &amp; <em>Awards</em></h2><p>Key accomplishments demonstrating impact in IT, maritime, and education</p></div>
     <div class="grid-2">
-      <div class="achievement-card reveal"><div class="achievement-icon"><i class="fas fa-trophy"></i></div><div class="achievement-body"><h3>Optimized Shipment Tracking System</h3><div class="achievement-org"><i class="fas fa-building"></i> Pacific International Lines (PIL) · 2022</div><p>Led development and deployment of an AI-driven tracking tool, resulting in a <strong>20% increase</strong> in operational efficiency and recognition from senior management.</p></div></div>
-      <div class="achievement-card reveal"><div class="achievement-icon"><i class="fas fa-award"></i></div><div class="achievement-body"><h3>Excellence in Teaching Award</h3><div class="achievement-org"><i class="fas fa-university"></i> New Generation University · 2019</div><p>Awarded for outstanding contributions to computer science education, curriculum development in networking and cybersecurity, benefiting over <strong>200 students</strong>.</p></div></div>
-      <div class="achievement-card reveal"><div class="achievement-icon"><i class="fas fa-medal"></i></div><div class="achievement-body"><h3>CCNA Certification Milestone</h3><div class="achievement-org"><i class="fas fa-graduation-cap"></i> New Horizon, Dhaka · 2016</div><p>Achieved top scores in CCNA exams, leading to immediate application in network optimization projects and a commendation for technical excellence.</p></div></div>
-      <div class="achievement-card reveal"><div class="achievement-icon"><i class="fas fa-star"></i></div><div class="achievement-body"><h3>Innovation in Maritime IT Integration</h3><div class="achievement-org"><i class="fas fa-anchor"></i> Berbera Port Authority · 2023</div><p>Recognized for implementing biometric systems that enhanced security and reduced processing times by <strong>25%</strong> at key port facilities.</p></div></div>
+      <div class="achievement-card reveal premium-panel tone-teal"><div class="achievement-icon"><i class="fas fa-trophy"></i></div><div class="achievement-body"><h3>Optimized Shipment Tracking System</h3><div class="achievement-org"><i class="fas fa-building"></i> Pacific International Lines (PIL) · 2022</div><p>Led development and deployment of an AI-driven tracking tool, resulting in a <strong>20% increase</strong> in operational efficiency and recognition from senior management.</p></div></div>
+      <div class="achievement-card reveal premium-panel tone-blue"><div class="achievement-icon"><i class="fas fa-award"></i></div><div class="achievement-body"><h3>Excellence in Teaching Award</h3><div class="achievement-org"><i class="fas fa-university"></i> New Generation University · 2019</div><p>Awarded for outstanding contributions to computer science education, curriculum development in networking and cybersecurity, benefiting over <strong>200 students</strong>.</p></div></div>
+      <div class="achievement-card reveal premium-panel tone-purple"><div class="achievement-icon"><i class="fas fa-medal"></i></div><div class="achievement-body"><h3>CCNA Certification Milestone</h3><div class="achievement-org"><i class="fas fa-graduation-cap"></i> New Horizon, Dhaka · 2016</div><p>Achieved top scores in CCNA exams, leading to immediate application in network optimization projects and a commendation for technical excellence.</p></div></div>
+      <div class="achievement-card reveal premium-panel tone-slate"><div class="achievement-icon"><i class="fas fa-star"></i></div><div class="achievement-body"><h3>Innovation in Maritime IT Integration</h3><div class="achievement-org"><i class="fas fa-anchor"></i> Berbera Port Authority · 2023</div><p>Recognized for implementing biometric systems that enhanced security and reduced processing times by <strong>25%</strong> at key port facilities.</p></div></div>
     </div>
   </div>
 </section>
@@ -1705,10 +1811,10 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
   <div class="container">
     <div class="section-header reveal"><div class="section-eyebrow">Testimonials</div><h2>What Colleagues &amp; Clients <em>Say</em></h2><p>Perspectives from those who have worked alongside Khadar</p></div>
     <div class="grid-2">
-      <div class="testi-card reveal"><div class="testi-quote-icon">"</div><p>Khadar's integration of IT solutions into our shipping operations transformed our efficiency. His expertise in AI for logistics is unmatched.</p><div class="testi-author"><div class="testi-avatar">OD</div><div><div class="testi-name">Operations Director</div><div class="testi-role">Pacific International Lines</div></div></div></div>
-      <div class="testi-card reveal"><div class="testi-quote-icon">"</div><p>As a lecturer, Khadar inspired students with practical insights into cybersecurity. His leadership in institute management was exemplary.</p><div class="testi-author"><div class="testi-avatar">D</div><div><div class="testi-name">Dean</div><div class="testi-role">New Generation University</div></div></div></div>
-      <div class="testi-card reveal"><div class="testi-quote-icon">"</div><p>Khadar's network security tools provided robust protection for our systems. Highly reliable and innovative professional.</p><div class="testi-author"><div class="testi-avatar">IT</div><div><div class="testi-name">IT Manager</div><div class="testi-role">Dhidar Company</div></div></div></div>
-      <div class="testi-card reveal"><div class="testi-quote-icon">"</div><p>Khadar's volunteer work in IT literacy has empowered our community. His dedication is truly inspiring.</p><div class="testi-author"><div class="testi-avatar">CL</div><div><div class="testi-name">Community Leader</div><div class="testi-role">Hargeisa</div></div></div></div>
+      <div class="testi-card reveal premium-panel tone-teal"><div class="testi-quote-icon">"</div><p>Khadar's integration of IT solutions into our shipping operations transformed our efficiency. His expertise in AI for logistics is unmatched.</p><div class="testi-author"><div class="testi-avatar">OD</div><div><div class="testi-name">Operations Director</div><div class="testi-role">Pacific International Lines</div></div></div></div>
+      <div class="testi-card reveal premium-panel tone-blue"><div class="testi-quote-icon">"</div><p>As a lecturer, Khadar inspired students with practical insights into cybersecurity. His leadership in institute management was exemplary.</p><div class="testi-author"><div class="testi-avatar">D</div><div><div class="testi-name">Dean</div><div class="testi-role">New Generation University</div></div></div></div>
+      <div class="testi-card reveal premium-panel tone-purple"><div class="testi-quote-icon">"</div><p>Khadar's network security tools provided robust protection for our systems. Highly reliable and innovative professional.</p><div class="testi-author"><div class="testi-avatar">IT</div><div><div class="testi-name">IT Manager</div><div class="testi-role">Dhidar Company</div></div></div></div>
+      <div class="testi-card reveal premium-panel tone-slate"><div class="testi-quote-icon">"</div><p>Khadar's volunteer work in IT literacy has empowered our community. His dedication is truly inspiring.</p><div class="testi-author"><div class="testi-avatar">CL</div><div><div class="testi-name">Community Leader</div><div class="testi-role">Hargeisa</div></div></div></div>
     </div>
   </div>
 </section>
@@ -1718,7 +1824,7 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
   <div class="container">
     <div class="section-header reveal"><div class="section-eyebrow">Growth</div><h2>GitHub &amp; <em>Professional Focus</em></h2><p>A public record of my work, research direction, and technical credibility</p></div>
     <div class="focus-grid">
-      <div class="focus-panel reveal-l">
+      <div class="focus-panel reveal-l premium-panel tone-teal">
         <h3>What this portfolio highlights</h3>
         <ul class="focus-list">
           <li><i class="fas fa-check-circle"></i><span>A clear value proposition, so visitors immediately understand my combination of maritime, IT, and governance skills.</span></li>
@@ -1732,7 +1838,7 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
           <a href="https://orcid.org/0009-0001-9662-6467" target="_blank" rel="noopener" class="link-pill"><i class="fas fa-id-card"></i> ORCID</a>
         </div>
       </div>
-      <div class="focus-panel reveal">
+      <div class="focus-panel reveal premium-panel tone-blue">
         <h3>Current priorities</h3>
         <div class="now-building">
           <div class="now-item"><strong>Public project documentation</strong><span>Publishing GitHub repositories with screenshots, problem statements, and measurable outcomes for each featured project.</span></div>
@@ -1749,25 +1855,25 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
   <div class="container">
     <div class="section-header reveal"><div class="section-eyebrow">Insights</div><h2>Blog &amp; <em>Publications</em></h2><p>Sharing knowledge on IT, maritime logistics, and cybersecurity</p></div>
     <div class="grid-2">
-      <div class="blog-card reveal">
+      <div class="blog-card reveal premium-panel tone-teal">
         <div class="blog-status">Featured topic</div><div class="blog-tag">AI &amp; Logistics</div>
         <h3>AI in Supply Chain Optimization: Lessons from Port Operations</h3>
         <p>Exploring how machine learning algorithms can reduce bottlenecks in container handling, based on real-world implementations at Somaliland ports.</p>
         <a href="https://www.linkedin.com/in/eng-khadar-aqli-9bb42119a/recent-activity/articles/" target="_blank" rel="noopener" class="blog-link"><i class="fas fa-external-link-alt"></i> View Publication</a>
       </div>
-      <div class="blog-card reveal">
+      <div class="blog-card reveal premium-panel tone-blue">
         <div class="blog-status">Featured topic</div><div class="blog-tag">Cybersecurity</div>
         <h3>Cybersecurity Challenges in Maritime Networks</h3>
         <p>A deep dive into protecting ship-port communication systems from emerging threats, with case studies from Somaliland ports and the Gulf of Aden region.</p>
         <a href="https://www.linkedin.com/in/eng-khadar-aqli-9bb42119a/recent-activity/articles/" target="_blank" rel="noopener" class="blog-link"><i class="fas fa-external-link-alt"></i> View Publication</a>
       </div>
-      <div class="blog-card reveal">
+      <div class="blog-card reveal premium-panel tone-purple">
         <div class="blog-status">Featured topic</div><div class="blog-tag">Networking</div>
         <h3>The Role of Wireless Networking in Modern Logistics</h3>
         <p>Discussing advancements in wireless technology for real-time tracking and their measurable impact on global shipping efficiency and port throughput.</p>
         <a href="https://www.linkedin.com/in/eng-khadar-aqli-9bb42119a/recent-activity/articles/" target="_blank" rel="noopener" class="blog-link"><i class="fas fa-external-link-alt"></i> View Publication</a>
       </div>
-      <div class="blog-card reveal">
+      <div class="blog-card reveal premium-panel tone-slate">
         <div class="blog-status">Featured topic</div><div class="blog-tag">E-Governance</div>
         <h3>Future of E-Governance in Developing Regions</h3>
         <p>Insights exploring how digital governance architectures can improve public service delivery and institutional transparency in developing regions like Somaliland.</p>
@@ -1787,9 +1893,9 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
   <div class="container">
     <div class="section-header reveal"><div class="section-eyebrow">Community</div><h2>Volunteer <em>Experience</em></h2><p>Contributing to community development through IT and maritime safety</p></div>
     <div class="grid-3">
-      <div class="volunteer-card reveal"><div class="volunteer-icon"><i class="fas fa-hands-helping"></i></div><h3>IT Literacy Program Coordinator</h3><div class="volunteer-meta"><i class="fas fa-map-marker-alt"></i> Local Community Center, Hargeisa · 2023–Present</div><p>Organized workshops teaching basic computer skills to underprivileged youth, impacting over <strong>100 participants</strong> and fostering digital inclusion.</p></div>
-      <div class="volunteer-card reveal"><div class="volunteer-icon"><i class="fas fa-anchor"></i></div><h3>Maritime Safety Volunteer</h3><div class="volunteer-meta"><i class="fas fa-map-marker-alt"></i> Berbera Port Community Outreach · 2021–2022</div><p>Conducted safety training sessions for local fishermen, emphasizing regulatory compliance and first aid, in collaboration with regional authorities.</p></div>
-      <div class="volunteer-card reveal"><div class="volunteer-icon"><i class="fas fa-shield-alt"></i></div><h3>Cybersecurity Awareness Campaign</h3><div class="volunteer-meta"><i class="fas fa-map-marker-alt"></i> Hargeisa Tech Community · 2020</div><p>Led sessions on online safety for schools, reaching <strong>150+ students</strong> and promoting secure digital practices.</p></div>
+      <div class="volunteer-card reveal premium-panel tone-teal"><div class="volunteer-icon"><i class="fas fa-hands-helping"></i></div><h3>IT Literacy Program Coordinator</h3><div class="volunteer-meta"><i class="fas fa-map-marker-alt"></i> Local Community Center, Hargeisa · 2023–Present</div><p>Organized workshops teaching basic computer skills to underprivileged youth, impacting over <strong>100 participants</strong> and fostering digital inclusion.</p></div>
+      <div class="volunteer-card reveal premium-panel tone-blue"><div class="volunteer-icon"><i class="fas fa-anchor"></i></div><h3>Maritime Safety Volunteer</h3><div class="volunteer-meta"><i class="fas fa-map-marker-alt"></i> Berbera Port Community Outreach · 2021–2022</div><p>Conducted safety training sessions for local fishermen, emphasizing regulatory compliance and first aid, in collaboration with regional authorities.</p></div>
+      <div class="volunteer-card reveal premium-panel tone-purple"><div class="volunteer-icon"><i class="fas fa-shield-alt"></i></div><h3>Cybersecurity Awareness Campaign</h3><div class="volunteer-meta"><i class="fas fa-map-marker-alt"></i> Hargeisa Tech Community · 2020</div><p>Led sessions on online safety for schools, reaching <strong>150+ students</strong> and promoting secure digital practices.</p></div>
     </div>
   </div>
 </section>
@@ -1800,7 +1906,7 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
     <div class="section-header reveal"><div class="section-eyebrow">Contact</div><h2>Let's <em>Connect</em></h2><p>Available for PhD opportunities, collaboration, consulting, and new projects</p></div>
     <div class="contact-grid">
       <div class="reveal-l">
-        <div class="contact-box">
+        <div class="contact-box premium-panel tone-teal">
           <h3>Get In Touch</h3>
           <div class="contact-info-item"><div class="contact-info-icon"><i class="fas fa-envelope"></i></div><div><label>Email</label><a href="mailto:khadaraqli@students.diu.ac">khadaraqli@students.diu.ac</a></div></div>
           <div class="contact-info-item"><div class="contact-info-icon"><i class="fas fa-phone"></i></div><div><label>Phone</label><span>+252 65 4242420 / +252 63 4240003</span></div></div>
@@ -1814,7 +1920,7 @@ footer { border-top: 1px solid rgba(191,214,229,.14); }
         </div>
       </div>
       <div class="reveal">
-        <div class="contact-box">
+        <div class="contact-box premium-panel tone-blue">
           <h3>Send a Message</h3>
           <div class="form-row">
             <div class="form-group"><label>First Name</label><input id="contact-first" type="text" placeholder="Your first name"></div>
